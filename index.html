@@ -20,7 +20,7 @@
         }
         
         /* Barre de Navigation Supérieure (Fixée) */
-       .navbar {
+      .navbar {
             background-color: #FFFFFF;
             color: #000000;
             display: flex;
@@ -36,7 +36,7 @@
         }
         
         /* Conteneur du Logo */
-       .navbar-logo {
+      .navbar-logo {
             display: flex;
             align-items: center;
             gap: 15px;
@@ -44,14 +44,14 @@
         }
 
         /* Animation 3D uniquement pour le Sceau */
-       .logo-3d {
+      .logo-3d {
             height: 55px;
             transform-style: preserve-3d;
             animation: spin 6s linear infinite; 
         }
 
         /* Texte Polytechnique Fixe */
-       .logo-text {
+      .logo-text {
             font-family: 'Arial Black', Impact, sans-serif;
             font-size: 22px;
             line-height: 1.05;
@@ -61,7 +61,7 @@
         }
 
         /* Nom du candidat en haut à droite */
-       .navbar-name {
+      .navbar-name {
             font-size: 24px;
             font-weight: bold;
             color: #F38B00;
@@ -77,7 +77,7 @@
         }
 
         /* Bouton Plein Écran Flottant */
-       .btn-fullscreen {
+      .btn-fullscreen {
             position: fixed;
             bottom: 25px;
             right: 25px;
@@ -97,20 +97,20 @@
             backdrop-filter: blur(4px);
             transition: all 0.3s;
         }
-       .btn-fullscreen:hover {
+      .btn-fullscreen:hover {
             background-color: #DA8A68;
             color: #1a1c1e;
             transform: scale(1.1);
         }
         
         /* Disposition de la page */
-       .container { 
+      .container { 
             display: flex; 
             align-items: flex-start; 
         }
 
         /* Menu Latéral Gauche */
-       .sidebar {
+      .sidebar {
             width: 260px;
             background-color: #1a1c1e;
             display: flex;
@@ -123,7 +123,7 @@
             overflow-y: auto;
             z-index: 999;
         }
-       .sidebar a {
+      .sidebar a {
             padding: 20px;
             text-decoration: none;
             color: #c7cdd1;
@@ -134,14 +134,14 @@
             transition: all 0.3s;
             border-left: 5px solid transparent;
         }
-       .sidebar a:hover,.sidebar a.active {
+      .sidebar a:hover,.sidebar a.active {
             background-color: #50565c;
             color: #F38B00;
             border-left: 5px solid #F38B00;
         }
 
         /* Zone de Contenu Principal */
-       .main-content {
+      .main-content {
             flex: 1;
             padding: 40px;
             background: linear-gradient(to bottom right, #2b2f33, #1a1c1e);
@@ -149,7 +149,7 @@
             box-sizing: border-box;
             max-width: 100%;
         }
-       .header-title {
+      .header-title {
             color: #DA8A68;
             font-size: 42px;
             margin-top: 0;
@@ -158,7 +158,7 @@
             text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
             word-wrap: break-word;
         }
-       .header-subtitle {
+      .header-subtitle {
             color: #c7cdd1;
             font-size: 18px;
             margin-bottom: 40px;
@@ -166,7 +166,7 @@
         }
 
         /* Grille des Panneaux */
-       .grid {
+      .grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 30px;
@@ -174,7 +174,7 @@
             scroll-margin-top: 100px;
         }
         
-       .panel {
+      .panel {
             background-color: #25282b;
             border: 1px solid #50565c;
             border-radius: 6px;
@@ -182,11 +182,11 @@
             box-shadow: 5px 5px 15px rgba(0,0,0,0.4);
         }
 
-       .panel-full {
+      .panel-full {
             grid-column: span 2;
         }
         
-       .panel-title {
+      .panel-title {
             color: #F38B00;
             font-size: 18px;
             margin-top: 0;
@@ -197,7 +197,7 @@
         }
         
         /* Conteneurs pour Médias */
-       .media-container img,.media-container video,.media-container iframe {
+      .media-container img,.media-container video,.media-container iframe {
             width: 100%;
             max-width: 100%;
             border-radius: 4px;
@@ -205,40 +205,40 @@
             margin-bottom: 15px;
             background-color: #1a1c1e;
         }
-       .media-container iframe {
+      .media-container iframe {
             height: 600px; 
         }
-       .image-grid {
+      .image-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 15px;
         }
-       .image-card {
+      .image-card {
             background: #1a1c1e;
             padding: 10px;
             border: 1px solid #333;
             border-radius: 4px;
             text-align: center;
         }
-       .image-card img {
+      .image-card img {
             width: 100%;
             height: auto;
             margin-bottom: 10px;
             border: none;
         }
-       .image-card p {
+      .image-card p {
             font-size: 12px;
             color: #c7cdd1;
             margin: 0;
         }
 
         /* Fichiers Interactifs (Lettres) */
-       .file-system {
+      .file-system {
             display: flex;
             flex-wrap: wrap;
             gap: 20px;
         }
-       .file-icon {
+      .file-icon {
             background-color: #1a1c1e;
             border: 1px solid #50565c;
             border-radius: 8px;
@@ -252,17 +252,17 @@
             flex-direction: column;
             align-items: center;
             justify-content: flex-start;
-            position: relative; /* Indispensable pour la bulle au survol */
+            position: relative; /* Indispensable pour placer la petite fenêtre au survol */
         }
-       .file-icon:hover {
+      .file-icon:hover {
             background-color: #333;
             border-color: #F38B00;
             transform: translateY(-3px);
             box-shadow: 0 4px 8px rgba(0,0,0,0.5);
         }
         
-        /* FIX : Force les photos en rectangles verticaux (Portrait) sans être écrasées par.media-container img */
-       .file-system.file-image {
+        /* FIX : Espace ajouté pour forcer les photos en rectangles portrait vertical */
+      .file-system.file-image {
             width: 100px!important;
             height: 135px!important; 
             border-radius: 6px;
@@ -273,21 +273,21 @@
             box-shadow: 0 4px 8px rgba(0,0,0,0.3);
         }
         
-       .file-icon span.name {
+      .file-icon span.name {
             font-size: 13px;
             font-weight: bold;
             color: #c7cdd1;
             word-wrap: break-word;
             margin-bottom: 8px;
         }
-       .file-icon span.badges {
+      .file-icon span.badges {
             font-size: 16px;
             letter-spacing: 3px;
             margin-top: auto; 
         }
 
         /* style : BULLE DESCRIPTIVE AU SURVOL (Tooltip) */
-       .hover-desc {
+      .hover-desc {
             display: none;
             position: absolute;
             bottom: 105%; /* S'affiche au-dessus de la carte */
@@ -304,34 +304,34 @@
             font-size: 12px;
             color: #F8F8F8;
             text-align: left;
-            pointer-events: none; /* Évite les interférences avec le curseur */
+            pointer-events: none; /* Évite de bloquer la souris */
             line-height: 1.4;
             white-space: normal;
         }
-       .hover-desc strong {
+      .hover-desc strong {
             color: #F38B00;
             display: block;
             margin-bottom: 3px;
             font-size: 13px;
             text-transform: uppercase;
         }
-       .hover-desc em {
+      .hover-desc em {
             color: #DA8A68;
             display: block;
             margin-bottom: 8px;
             font-style: italic;
         }
         
-        /* FIX : Sélecteur d'affichage au survol réparé avec l'espace */
-       .file-icon:hover.hover-desc {
+        /* FIX : Espace ajouté pour activer le popup au survol */
+      .file-icon:hover.hover-desc {
             display: block; 
         }
         
-       .letter-content {
+      .letter-content {
             display: none;
         }
         
-       .btn-retour {
+      .btn-retour {
             background-color: #50565c;
             color: white;
             border: none;
@@ -345,12 +345,12 @@
             gap: 10px;
             width: fit-content;
         }
-       .btn-retour:hover {
+      .btn-retour:hover {
             background-color: #F38B00;
         }
 
         /* Légende des symboles */
-       .legend-box {
+      .legend-box {
             background-color: #1a1c1e;
             border: 1px solid #50565c;
             border-radius: 6px;
@@ -359,18 +359,18 @@
             font-size: 13px;
             color: #c7cdd1;
         }
-       .legend-box strong {
+      .legend-box strong {
             color: #F38B00;
             display: block;
             margin-bottom: 8px;
             text-transform: uppercase;
         }
-       .legend-items {
+      .legend-items {
             display: flex;
             flex-wrap: wrap;
             gap: 15px;
         }
-       .legend-items span {
+      .legend-items span {
             display: flex;
             align-items: center;
             gap: 5px;
@@ -378,31 +378,31 @@
 
         /* Design Adaptatif (Mobile) */
         @media (max-width: 900px) {
-           .navbar {
+          .navbar {
                 padding: 0 15px;
                 height: 60px;
             }
-           .logo-3d {
+          .logo-3d {
                 height: 35px;
             }
-           .logo-text {
+          .logo-text {
                 font-size: 12px; 
             }
-           .navbar-name {
+          .navbar-name {
                 font-size: 13px; 
                 letter-spacing: 0px;
             }
-           .btn-fullscreen {
+          .btn-fullscreen {
                 bottom: 15px;
                 right: 15px;
                 width: 45px;
                 height: 45px;
                 font-size: 20px;
             }
-           .container { 
+          .container { 
                 flex-direction: column; 
             }
-           .sidebar {
+          .sidebar {
                 width: 100%;
                 height: 55px;
                 flex-direction: row;
@@ -413,60 +413,60 @@
                 border-bottom: 2px solid #50565c;
                 top: 60px;
             }
-           .sidebar::-webkit-scrollbar { height: 0px; background: transparent; } 
+          .sidebar::-webkit-scrollbar { height: 0px; background: transparent; } 
             
-           .sidebar a {
+          .sidebar a {
                 padding: 16px 15px;
                 font-size: 11px;
                 border-bottom: 4px solid transparent;
             }
-           .sidebar a:hover,.sidebar a.active {
+          .sidebar a:hover,.sidebar a.active {
                 border-left: none;
                 border-bottom: 4px solid #F38B00;
                 background-color: #333;
             }
             
-           .main-content {
+          .main-content {
                 padding: 15px;
             }
-           .header-title {
+          .header-title {
                 font-size: 20px; 
                 line-height: 1.2;
             }
-           .header-subtitle {
+          .header-subtitle {
                 font-size: 12px;
                 margin-bottom: 25px;
             }
-           .panel-title {
+          .panel-title {
                 font-size: 14px;
             }
             p, ul li {
                 font-size: 13px;
             }
-           .grid {
+          .grid {
                 grid-template-columns: 1fr;
                 gap: 15px;
                 scroll-margin-top: 130px; 
             }
-           .panel-full {
+          .panel-full {
                 grid-column: 1; 
             }
-           .image-grid {
+          .image-grid {
                 grid-template-columns: 1fr;
             }
-           .file-icon {
+          .file-icon {
                 width: 44%;
                 padding: 15px 5px;
             }
-           .media-container iframe {
+          .media-container iframe {
                 height: 400px; 
             }
-           .legend-items {
+          .legend-items {
                 flex-direction: column;
                 gap: 8px;
             }
             /* Désactive les tooltips au survol sur mobile car pas de souris */
-           .hover-desc {
+          .hover-desc {
                 display: none!important;
             }
         }
@@ -536,18 +536,18 @@
                                 <div class="hover-desc">
                                     <strong>Maud Cohen</strong>
                                     <em>Directrice Générale</em>
-                                    Reconnaît l'apport institutionnel de Yanik et son haut niveau d'engagement pérenne envers la communauté polytechnicienne.
+                                    Reconnaît l'apport institutionnel de Yanik et son haut niveau d'engagement envers Polytechnique Montréal.
                                 </div>
                                 <img src="PHOTO-MAUD.jpg" alt="Maud Cohen" class="file-image">
                                 <span class="name">Maud Cohen<br>(Dir. Générale)</span>
-                                <span class="badges" title="Pilier 3 : Implication Communautaire">🤝</span>
+                                <span class="badges" title="Pilier 3 : Implication">🤝</span>
                             </div>
                             
                             <div class="file-icon" onclick="ouvrirLettre('doc-therriault')">
                                 <div class="hover-desc">
                                     <strong>Pr. Daniel Therriault</strong>
                                     <em>Génie Mécanique - LM2</em>
-                                    Appuie son esprit d'innovation technique, sa gestion autonome des UBRs et son rôle de consultant de confiance auprès des étudiants gradués.
+                                    Appuie l'esprit d'innovation, la gestion d'UBRs et le mentorat exceptionnel de Yanik.
                                 </div>
                                 <img src="PHOTO-DANIEL.jpg" alt="Daniel Therriault" class="file-image">
                                 <span class="name">Pr. Daniel Therriault</span>
@@ -558,7 +558,7 @@
                                 <div class="hover-desc">
                                     <strong>Pr. Njuki Mureithi</strong>
                                     <em>Génie Mécanique</em>
-                                    Valide son expertise poussée en mécanique lourde et son autonomie de terrain complète lors du grand projet industriel Doosan.
+                                    Valide son expertise pratique majeure dans l'installation de la boucle hydraulique Doosan.
                                 </div>
                                 <img src="PHOTO-NJUKI.jpg" alt="Njuki Mureithi" class="file-image">
                                 <span class="name">Pr. Njuki Mureithi</span>
@@ -569,33 +569,110 @@
                                 <div class="hover-desc">
                                     <strong>Pr. Huu Duc Vo</strong>
                                     <em>Aérothermique</em>
-                                    Certifie que ses habiletés de soudure complexe en micro-électronique (0201, BGA) constituent une expertise unique à Polytechnique.
+                                    Certifie l'unicité de son expertise en micro-électronique (0201, BGA) à Polytechnique.
                                 </div>
                                 <img src="PHOTO-VO.jpg" alt="Huu Duc Vo" class="file-image">
                                 <span class="name">Pr. Huu Duc Vo</span>
-                                <span class="badges" title="Pilier 1 : Expertise Distinctive | Pilier 3 : Implication Communautaire">🔧 🤝</span>
+                                <span class="badges" title="Pilier 1 : Expertise Distinctive | Pilier 3 : Implication">🔧 🤝</span>
                             </div>
                             
                             <div class="file-icon" onclick="ouvrirLettre('doc-gylbert')">
                                 <div class="hover-desc">
                                     <strong>Frédéric Gylbert</strong>
                                     <em>Sécurité Institutionnelle</em>
-                                    Confirme son sens aigu des responsabilités, sa rigueur, et sa proactivité constante dans la prévention des risques SST.
+                                    Appuie son sens aigu des responsabilités, sa rigueur, et sa proactivité constante en SST.
                                 </div>
                                 <img src="PHOTO-FREDERIC.jpg" alt="Frédéric Gylbert" class="file-image">
                                 <span class="name">Frédéric Gylbert<br>(Sécurité)</span>
-                                <span class="badges" title="Pilier 4 : Contribution et Pérennité">🛠️</span>
+                                <span class="badges" title="Pilier 4 : Contribution">🛠️</span>
                             </div>
                             
                             <div class="file-icon" onclick="ouvrirLettre('doc-jamal')">
                                 <div class="hover-desc">
-                                    <strong>Jamal</strong>
-                                    <em>Technicien & Pair</em>
-                                    Souligne son altruisme, son soutien constant de transition de postes et son aide bénévole pour dépanner d'autres équipes.
+                                    <strong>Pr. Jamal Chaouki</strong>
+                                    <em>Génie Chimique</em>
+                                    Témoigne de son altruisme, son soutien de transition et son aide bénévole pour les chaires de recherche.
                                 </div>
                                 <img src="PHOTO-JAMAL.jpg" alt="Jamal" class="file-image">
-                                <span class="name">Jamal</span>
-                                <span class="badges" title="Pilier 3 : Implication Communautaire">🤝</span>
+                                <span class="name">Pr. Jamal Chaouki</span>
+                                <span class="badges" title="Pilier 3 : Implication">🤝</span>
+                            </div>
+
+                            <div class="file-icon" onclick="ouvrirLettre('doc-hadji')">
+                                <div class="hover-desc">
+                                    <strong>Abdallah Hadji</strong>
+                                    <em>Génie Chimique</em>
+                                    Recommande vivement Yanik pour son professionnalisme et ses solutions de dépannage technique.
+                                </div>
+                                <img src="PHOTO-ABDALLAH.jpg" alt="Abdallah Hadji" class="file-image">
+                                <span class="name">Abdallah Hadji</span>
+                                <span class="badges" title="Pilier 3 : Implication">🤝</span>
+                            </div>
+
+                            <div class="file-icon" onclick="ouvrirLettre('doc-yari')">
+                                <div class="hover-desc">
+                                    <strong>Bahman Yari</strong>
+                                    <em>Doctorant - Génie Chimique</em>
+                                    Témoigne de son ingéniosité dans la conception et la construction de réacteurs expérimentaux complexes.
+                                </div>
+                                <img src="PHOTO-BAHMAN.jpg" alt="Bahman Yari" class="file-image">
+                                <span class="name">Bahman Yari</span>
+                                <span class="badges" title="Pilier 1 : Expertise Distinctive | Pilier 4 : Contribution">🔧 🛠️</span>
+                            </div>
+
+                            <div class="file-icon" onclick="ouvrirLettre('doc-vetel')">
+                                <div class="hover-desc">
+                                    <strong>Pr. Jérôme Vétel</strong>
+                                    <em>Génie Mécanique</em>
+                                    Valide son rôle d'accompagnement de premier plan auprès des étudiants et des équipes techniques.
+                                </div>
+                                <img src="PHOTO-JEROME.jpg" alt="Jérôme Vétel" class="file-image">
+                                <span class="name">Pr. Jérôme Vétel</span>
+                                <span class="badges" title="Pilier 2 : Rôle Conseil | Pilier 3 : Implication">🧭 🤝</span>
+                            </div>
+
+                            <div class="file-icon" onclick="ouvrirLettre('doc-menard')">
+                                <div class="hover-desc">
+                                    <strong>Pr. David Ménard</strong>
+                                    <em>Génie Physique</em>
+                                    Atteste de son soutien d'ingénierie précieux lors de projets de recherche ultra-sensibles en magnétisme.
+                                </div>
+                                <img src="PHOTO-DAVID.jpg" alt="David Ménard" class="file-image">
+                                <span class="name">Pr. David Ménard</span>
+                                <span class="badges" title="Pilier 1 : Expertise Distinctive | Pilier 4 : Contribution">🔧 🛠️</span>
+                            </div>
+
+                            <div class="file-icon" onclick="ouvrirLettre('doc-sirois')">
+                                <div class="hover-desc">
+                                    <strong>Pr. Frédéric Sirois</strong>
+                                    <em>Génie Électrique</em>
+                                    Remarque son leadership hors pair, ses plans de restructuration d'ateliers et ses compétences indispensables.
+                                </div>
+                                <img src="PHOTO-SIROIS.jpg" alt="Frédéric Sirois" class="file-image">
+                                <span class="name">Pr. Frédéric Sirois</span>
+                                <span class="badges" title="Pilier 2 : Rôle Conseil | Pilier 4 : Contribution">🧭 🛠️</span>
+                            </div>
+
+                            <div class="file-icon" onclick="ouvrirLettre('doc-dasilva')">
+                                <div class="hover-desc">
+                                    <strong>Marie-Noël da Silva</strong>
+                                    <em>Sûreté Institutionnelle</em>
+                                    Reconnaît sa vigilance et son implication active dans la sécurité physique de l'établissement.
+                                </div>
+                                <img src="PHOTO-MARIENOEL.jpg" alt="Marie-Noël da Silva" class="file-image">
+                                <span class="name">Marie-Noël da Silva</span>
+                                <span class="badges" title="Pilier 3 : Implication">🤝</span>
+                            </div>
+
+                            <div class="file-icon" onclick="ouvrirLettre('doc-laberge')">
+                                <div class="hover-desc">
+                                    <strong>Pr. Louis Laberge-Lebel</strong>
+                                    <em>Génie Mécanique</em>
+                                    Souligne son esprit d'amélioration continue et ses compétences pointues en fabrication et automatisation.
+                                </div>
+                                <img src="PHOTO-LOUIS.jpg" alt="Louis Laberge-Lebel" class="file-image">
+                                <span class="name">Pr. Louis Laberge-Lebel</span>
+                                <span class="badges" title="Pilier 1 : Expertise Distinctive | Pilier 4 : Contribution">🔧 🛠️</span>
                             </div>
                             
                         </div>
@@ -610,31 +687,73 @@
                     <div id="doc-therriault" class="letter-content">
                         <button class="btn-retour" onclick="fermerLettres()">⬅ Retourner aux dossiers</button>
                         <p><strong>Professeur Daniel Therriault (Génie Mécanique - LM2)</strong></p>
-                        <iframe src="Lettre-Yanik__L-D_THERRIAULT-2026.pdf"></iframe>
+                        <iframe src="Daniel Therriault.pdf"></iframe>
                     </div>
 
                     <div id="doc-mureithi" class="letter-content">
                         <button class="btn-retour" onclick="fermerLettres()">⬅ Retourner aux dossiers</button>
                         <p><strong>Professeur Njuki Mureithi (Génie Mécanique)</strong></p>
-                        <iframe src="Lettre.Ref.-Yanik Landry-Ducharme_Njuki.pdf"></iframe>
+                        <iframe src="Njuki Mureithi.pdf"></iframe>
                     </div>
 
                     <div id="doc-vo" class="letter-content">
                         <button class="btn-retour" onclick="fermerLettres()">⬅ Retourner aux dossiers</button>
                         <p><strong>Professeur Huu Duc Vo (Aérothermique)</strong></p>
-                        <iframe src="Lettre_YLandryDucharme Huu Duc_Vo.pdf"></iframe>
+                        <iframe src="Huu Duc_Vo.pdf"></iframe>
                     </div>
 
                     <div id="doc-gylbert" class="letter-content">
                         <button class="btn-retour" onclick="fermerLettres()">⬅ Retourner aux dossiers</button>
                         <p><strong>Monsieur Frédéric Gylbert (Sécurité institutionnelle)</strong></p>
-                        <iframe src="Lettre recommandation - Yanik Landry-Ducharme_Frédéric Gylbert.pdf"></iframe>
+                        <iframe src="Frédéric Gylbert.pdf"></iframe>
                     </div>
 
                     <div id="doc-jamal" class="letter-content">
                         <button class="btn-retour" onclick="fermerLettres()">⬅ Retourner aux dossiers</button>
-                        <p><strong>Jamal</strong></p>
-                        <iframe src="Yanik Landry-Ducharme_Jamal.pdf"></iframe>
+                        <p><strong>Professeur Jamal Chaouki (Génie Chimique)</strong></p>
+                        <iframe src="Jamal Chaouki.pdf"></iframe>
+                    </div>
+
+                    <div id="doc-hadji" class="letter-content">
+                        <button class="btn-retour" onclick="fermerLettres()">⬅ Retourner aux dossiers</button>
+                        <p><strong>Abdallah Hadji</strong></p>
+                        <iframe src="Abdallah Hadji.pdf"></iframe>
+                    </div>
+
+                    <div id="doc-yari" class="letter-content">
+                        <button class="btn-retour" onclick="fermerLettres()">⬅ Retourner aux dossiers</button>
+                        <p><strong>Bahman Yari</strong></p>
+                        <iframe src="Bahman Yari.pdf"></iframe>
+                    </div>
+
+                    <div id="doc-vetel" class="letter-content">
+                        <button class="btn-retour" onclick="fermerLettres()">⬅ Retourner aux dossiers</button>
+                        <p><strong>Professeur Jérôme Vétel (Génie Mécanique)</strong></p>
+                        <iframe src="Jérôme Vétel.pdf"></iframe>
+                    </div>
+
+                    <div id="doc-menard" class="letter-content">
+                        <button class="btn-retour" onclick="fermerLettres()">⬅ Retourner aux dossiers</button>
+                        <p><strong>Professeur David Ménard (Génie Physique)</strong></p>
+                        <iframe src="David Ménard.pdf"></iframe>
+                    </div>
+
+                    <div id="doc-sirois" class="letter-content">
+                        <button class="btn-retour" onclick="fermerLettres()">⬅ Retourner aux dossiers</button>
+                        <p><strong>Professeur Frédéric Sirois (Génie Électrique)</strong></p>
+                        <iframe src="Frédéric Sirois.pdf"></iframe>
+                    </div>
+
+                    <div id="doc-dasilva" class="letter-content">
+                        <button class="btn-retour" onclick="fermerLettres()">⬅ Retourner aux dossiers</button>
+                        <p><strong>Marie-Noël da Silva (Sûreté Institutionnelle)</strong></p>
+                        <iframe src="Marie-Noël da Silva.pdf"></iframe>
+                    </div>
+
+                    <div id="doc-laberge" class="letter-content">
+                        <button class="btn-retour" onclick="fermerLettres()">⬅ Retourner aux dossiers</button>
+                        <p><strong>Professeur Louis Laberge-Lebel (Génie Mécanique)</strong></p>
+                        <iframe src="Louis Laberge-Lebel.pdf"></iframe>
                     </div>
 
                 </div>
