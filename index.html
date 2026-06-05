@@ -237,7 +237,7 @@
             display: flex;
             flex-wrap: wrap;
             gap: 20px;
-          align-items: flex-start;
+            align-items: flex-start; /* FIX 1: Ajout de cette ligne pour l'alignement */
         }
       .file-icon {
             background-color: #1a1c1e;
@@ -648,10 +648,8 @@
                                 <div class="hover-desc">
                                     <strong>Isabelle Nowlan</strong>
                                     <em>[Coordonnatrice des ressources techniques au Département de génie mécanique]</em>
-
-                                <img src="PHOTO-ISABELLE.jpg" alt="Isabelle Nowlan" class="file-image">
+                                </div> <img src="PHOTO-ISABELLE.jpg" alt="Isabelle Nowlan" class="file-image">
                                 <span class="name">Mme Isabelle Nowlan<br>(Coordonnatrice des services techniques en génie mécanique)</span>
-                                <!-- Modifiez les badges selon les piliers pertinents -->
                                 <span class="badges" title="Pilier 3 : Implication | Pilier 4 : Contribution">🤝 🛠️</span>
                             </div>
 
@@ -665,7 +663,10 @@
                                 <span class="name">Pr. Louis Laberge-Lebel</span>
                                 <span class="badges" title="Pilier 1 : Expertise Distinctive | Pilier 4 : Contribution">🔧 🛠️</span>
                             </div>
-                                    
+                            
+
+
+                                
                             <div class="file-icon" onclick="ouvrirLettre('doc-gylbert')">
                                 <div class="hover-desc">
                                     <strong>Frédéric Gylbert</strong>
@@ -688,7 +689,8 @@
                                 <span class="name">Pr. Jérôme Vétel</span>
                                 <span class="badges" title="Pilier 2 : Rôle Conseil | Pilier 3 : Implication">🧭 🤝</span>
                             </div>
-                                
+
+                        
                          <div class="file-icon" onclick="ouvrirLettre('doc-maud')">
                              <div class="hover-desc"> <strong>Mme Maud Cohen</strong>
                                  <em>Directrice Générale</em> Reconnaît l'apport institutionnel de Yanik et son haut niveau d'engagement envers Polytechnique Montréal.
@@ -707,6 +709,8 @@
                                 <span class="name">Mme Marie-Noël da Silva <br>(Conseillère SST) </span>
                                 <span class="badges" title="Pilier 3 : Implication">🤝</span>
                             </div>
+
+                          
                         </div>
                     </div>
 
@@ -743,7 +747,6 @@
 <div id="doc-elmehdi" class="letter-content">
                         <button class="btn-retour" onclick="fermerLettres()">⬅ Retourner aux dossiers</button>
                         <p><strong>El Mehdi </strong></p>
-                        <!-- Assurez-vous que le nom du fichier PDF correspond exactement à celui dans votre dossier -->
                         <iframe src="El Mehdi.pdf"></iframe>
                     </div>
                     
