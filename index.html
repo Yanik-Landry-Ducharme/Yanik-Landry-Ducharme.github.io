@@ -232,12 +232,12 @@
             margin: 0;
         }
 
-        /* Fichiers Interactifs (Lettres) */
+      /* Fichiers Interactifs (Lettres) */
       .file-system {
             display: flex;
             flex-wrap: wrap;
             gap: 20px;
-            align-items: flex-start; /* FIX 1: Ajout de cette ligne pour l'alignement */
+           
         }
       .file-icon {
             background-color: #1a1c1e;
@@ -245,6 +245,8 @@
             border-radius: 8px;
             padding: 20px 10px;
             width: 145px;
+            height: 320px; 
+            box-sizing: border-box; 
             text-align: center;
             cursor: pointer;
             transition: all 0.2s;
@@ -253,7 +255,7 @@
             flex-direction: column;
             align-items: center;
             justify-content: flex-start;
-            position: relative; /* Indispensable pour placer la petite fenêtre au survol */
+            position: relative; 
         }
       .file-icon:hover {
             background-color: #333;
