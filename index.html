@@ -134,23 +134,39 @@
             transition: all 0.3s;
             border-left: 5px solid transparent;
         }
-      .sidebar a:hover,.sidebar a.active {
+
+        /* Couleurs Officielles Polytechnique pour le menu */
+      .sidebar a:hover, .sidebar a.active {
             background-color: #50565c;
-            color: #F38B00;
-            border-left: 5px solid #F38B00;
+        }
+      .sidebar a.link-rouge:hover, .sidebar a.link-rouge.active {
+            color: #ED1C24;
+            border-left: 5px solid #ED1C24;
+        }
+      .sidebar a.link-orange:hover, .sidebar a.link-orange.active {
+            color: #F15A22;
+            border-left: 5px solid #F15A22;
+        }
+      .sidebar a.link-vert:hover, .sidebar a.link-vert.active {
+            color: #25B34B;
+            border-left: 5px solid #25B34B;
+        }
+      .sidebar a.link-bleu:hover, .sidebar a.link-bleu.active {
+            color: #00BDF2;
+            border-left: 5px solid #00BDF2;
         }
 
 /* Zone de Contenu Principal */
       .main-content {
             flex: 1;
-            padding: 100px; /*la marche sur le coté pour scroller*/
+            padding: 100px; 
             background: linear-gradient(to bottom right, #2b2f33, #1a1c1e);
             min-height: calc(100vh - 75px);
             box-sizing: border-box;
             max-width: 100%;
         }
   .header-title {
-            color: #F38B00; /* NOUVEAU : Orange plus vif et plus foncé */
+            color: #F38B00; 
             font-size: 42px;
             margin-top: 0;
             margin-bottom: 5px;
@@ -264,7 +280,6 @@
             box-shadow: 0 4px 8px rgba(0,0,0,0.5);
         }
         
-        /* FIX : Espace ajouté pour forcer les photos en rectangles portrait vertical */
       .file-system.file-image {
             width: 100px!important;
             height: 135px!important; 
@@ -293,13 +308,13 @@
       .hover-desc {
             display: none;
             position: absolute;
-            bottom: 105%; /* S'affiche au-dessus de la carte */
+            bottom: 105%; 
             left: 50%;
             transform: translateX(-50%);
             width: 230px;
             background-color: #1e2124;
             border: 1px solid #50565c;
-            border-top: 3px solid #F38B00; /* Liseré orange */
+            border-top: 3px solid #F38B00; 
             border-radius: 6px;
             padding: 12px;
             box-shadow: 0 5px 15px rgba(0,0,0,0.6);
@@ -307,7 +322,7 @@
             font-size: 12px;
             color: #F8F8F8;
             text-align: left;
-            pointer-events: none; /* Évite de bloquer la souris */
+            pointer-events: none; 
             line-height: 1.4;
             white-space: normal;
         }
@@ -325,7 +340,6 @@
             font-style: italic;
         }
         
-        /* FIX : Espace ajouté pour activer le popup au survol */
       .file-icon:hover.hover-desc {
             display: block; 
         }
@@ -380,6 +394,7 @@
             font-size: 17px; 
             font-weight: 500;
         }
+        
         /* Design Adaptatif (Mobile) */
         @media (max-width: 900px) {
           .navbar {
@@ -424,10 +439,22 @@
                 font-size: 11px;
                 border-bottom: 4px solid transparent;
             }
-          .sidebar a:hover,.sidebar a.active {
+          .sidebar a:hover, .sidebar a.active {
                 border-left: none;
-                border-bottom: 4px solid #F38B00;
                 background-color: #333;
+            }
+          /* Couleurs mobile en bordure bas */
+          .sidebar a.link-rouge:hover, .sidebar a.link-rouge.active {
+                border-bottom: 4px solid #ED1C24;
+            }
+          .sidebar a.link-orange:hover, .sidebar a.link-orange.active {
+                border-bottom: 4px solid #F15A22;
+            }
+          .sidebar a.link-vert:hover, .sidebar a.link-vert.active {
+                border-bottom: 4px solid #25B34B;
+            }
+          .sidebar a.link-bleu:hover, .sidebar a.link-bleu.active {
+                border-bottom: 4px solid #00BDF2;
             }
             
           .main-content {
@@ -469,7 +496,6 @@
                 flex-direction: column;
                 gap: 8px;
             }
-            /* Désactive les tooltips au survol sur mobile car pas de souris */
           .hover-desc {
                 display: none!important;
             }
@@ -494,9 +520,10 @@
 
     <div class="container">
         <div class="sidebar">
-            <a href="#cv" class="active">PORTRAIT DE CARRIÈRE</a>
-            <a href="#lettres">LETTRES D'APPUI</a>
-            <a href="#realisations">RÉALISATIONS & DISTINCTIONS</a>
+            <a href="#cv" class="link-rouge active">PORTRAIT DE CARRIÈRE</a>
+            <a href="#lettres" class="link-orange">LETTRES D'APPUI</a>
+            <a href="#realisations" class="link-vert">RÉALISATIONS & DISTINCTIONS</a>
+            <a href="#annexes" class="link-bleu">ANNEXES</a>
         </div>
     
 
@@ -506,23 +533,23 @@
 
             <div id="cv" class="grid">
                 <div class="panel panel-full media-container">
-                    <h3 class="panel-title">DOSSIER DE CANDIDATURE </h3>
+                    <h3 class="panel-title" style="color: #ED1C24;">DOSSIER DE CANDIDATURE </h3>
                     <iframe src="https://view.officeapps.live.com/op/embed.aspx?src=https://Yanik-Landry-Ducharme.github.io/Dossier_Candidature.docx" width="100%" height="600px" frameborder="0"></iframe>
                 </div>
 
                 <div class="panel panel-full media-container">
-                    <h3 class="panel-title">CURRICULUM VITAE</h3>
+                    <h3 class="panel-title" style="color: #ED1C24;">CURRICULUM VITAE</h3>
                  <iframe src="https://view.officeapps.live.com/op/embed.aspx?src=https://Yanik-Landry-Ducharme.github.io/CV Yanik Landry-Ducharme 2026(f).docx" width="100%" height="600px" frameborder="0"></iframe>
                 </div>
             </div>
 
             <div id="lettres" class="grid">
                 <div class="panel panel-full media-container">
-                    <h3 class="panel-title">LETTRES DE RECOMMANDATION & APPUIS INSTITUTIONNELS</h3>
+                    <h3 class="panel-title" style="color: #F15A22;">LETTRES DE RECOMMANDATION & APPUIS INSTITUTIONNELS</h3>
                     
                     <div id="file-directory">
                         <div class="legend-box">
-                            <strong>CLÉS D'IDENTIFICATION DES PRÉREQUIS (Annexe H) :</strong>
+                            <strong style="color: #F15A22;">CLÉS D'IDENTIFICATION DES PRÉREQUIS (Annexe H) :</strong>
                             <div class="legend-items">
                                 <span>🔧 Pilier 1 : Expertise Distinctive</span>
                                 <span>🧭 Pilier 2 : Rôle Conseil</span>
@@ -537,7 +564,7 @@
                             
 <div class="file-icon" onclick="ouvrirLettre('doc-sirois')"> 
     <div class="hover-desc"> 
-        <strong>Pr. Frédéric Sirois</strong> 
+        <strong style="color: #F15A22;">Pr. Frédéric Sirois</strong> 
         <em>Génie Électrique</em> Remarque son leadership hors pair, ses plans de restructuration d'ateliers et ses compétences indispensables. 
     </div> <img src="PHOTO-SIROIS.jpg" alt="Frédéric Sirois" class="file-image">
     <span class="name">Pr. Frédéric Sirois</span>
@@ -546,7 +573,7 @@
                             
                             <div class="file-icon" onclick="ouvrirLettre('doc-therriault')">
                                 <div class="hover-desc">
-                                    <strong>Pr. Daniel Therriault</strong>
+                                    <strong style="color: #F15A22;">Pr. Daniel Therriault</strong>
                                     <em>Génie Mécanique - LM2</em>
                                     Appuie l'esprit d'innovation, la gestion d'UBRs et le mentorat exceptionnel de Yanik.
                                 </div>
@@ -557,7 +584,7 @@
 
 <div class="file-icon" onclick="ouvrirLettre('doc-martin')">
                                 <div class="hover-desc">
-                                    <strong>Jean-Pierre Martin</strong>
+                                    <strong style="color: #F15A22;">Jean-Pierre Martin</strong>
                                     <em>Laboratoire René-J.-A.-Lévesque</em>
                                     Valide son expertise exceptionnelle en électronique de haut niveau et en instrumentation scientifique de précision (CERN, TRIUMF).
                                 </div>
@@ -570,7 +597,7 @@
                             
                             <div class="file-icon" onclick="ouvrirLettre('doc-mureithi')">
                                 <div class="hover-desc">
-                                    <strong>Pr. Njuki Mureithi</strong>
+                                    <strong style="color: #F15A22;">Pr. Njuki Mureithi</strong>
                                     <em>Génie Mécanique</em>
                                     Valide son expertise pratique majeure dans l'installation de la boucle hydraulique Doosan.
                                 </div>
@@ -581,7 +608,7 @@
 
  <div class="file-icon" onclick="ouvrirLettre('doc-jamal')">
                                 <div class="hover-desc">
-                                    <strong>Pr. Jamal Chaouki</strong>
+                                    <strong style="color: #F15A22;">Pr. Jamal Chaouki</strong>
                                     <em>Génie Chimique</em>
                                     Témoigne de son altruisme, son soutien de transition et son aide bénévole pour les chaires de recherche.
                                 </div>
@@ -593,7 +620,7 @@
                             
                             <div class="file-icon" onclick="ouvrirLettre('doc-vo')">
                                 <div class="hover-desc">
-                                    <strong>Pr. Huu Duc Vo</strong>
+                                    <strong style="color: #F15A22;">Pr. Huu Duc Vo</strong>
                                     <em>Aérothermique</em>
                                     Certifie l'unicité de son expertise en micro-électronique (0201, BGA) à Polytechnique.
                                 </div>
@@ -604,7 +631,7 @@
 
     <div class="file-icon" onclick="ouvrirLettre('doc-menard')">
                                 <div class="hover-desc">
-                                    <strong>Pr. David Ménard</strong>
+                                    <strong style="color: #F15A22;">Pr. David Ménard</strong>
                                     <em>Génie Physique</em>
                                     Atteste de son soutien d'ingénierie précieux lors de projets de recherche ultra-sensibles en magnétisme.
                                 </div>
@@ -615,7 +642,7 @@
 
                                    <div class="file-icon" onclick="ouvrirLettre('doc-hadji')">
                                 <div class="hover-desc">
-                                    <strong>Abdallah Hadji</strong>
+                                    <strong style="color: #F15A22;">Abdallah Hadji</strong>
                                     <em>Génie Chimique</em>
                                     Recommande vivement Yanik pour son professionnalisme et ses solutions de dépannage technique.
                                 </div>
@@ -626,18 +653,18 @@
 
 <div class="file-icon" onclick="ouvrirLettre('doc-elmehdi')">
                                 <div class="hover-desc">
-                                    <strong>El Mehdi</strong>
+                                    <strong style="color: #F15A22;">El Mehdi</strong>
                                     <em>[Coordonnateur des services techniques en genie électrique,ing.PhD.]</em>
                                 </div>
                                 <img src="PHOTO-ELMEHDI.jpg" alt="El Mehdi" class="file-image">
                                 <span class="name">M. El Mehdi <br>(Coordonnateur des services techniques en GÉ,ing.PhD.)</span>
-                               
+                                
                                 <span class="badges" title="Pilier 1 : Expertise Distinctive | Pilier 3 : Implication">🔧 🤝</span>
                             </div>
 
   <div class="file-icon" onclick="ouvrirLettre('doc-yari')">
                                 <div class="hover-desc">
-                                    <strong>Bahman Yari</strong>
+                                    <strong style="color: #F15A22;">Bahman Yari</strong>
                                     <em>Doctorant - Génie Chimique</em>
                                     Témoigne de son ingéniosité dans la conception et la construction de réacteurs expérimentaux complexes.
                                 </div>
@@ -648,7 +675,7 @@
 
                             <div class="file-icon" onclick="ouvrirLettre('doc-nowlan')">
                                 <div class="hover-desc">
-                                    <strong>Isabelle Nowlan</strong>
+                                    <strong style="color: #F15A22;">Isabelle Nowlan</strong>
                                     <em>[Coordonnatrice des ressources techniques au Département de génie mécanique]</em>
                                 </div> <img src="PHOTO-ISABELLE.jpg" alt="Isabelle Nowlan" class="file-image">
                                 <span class="name">Mme Isabelle Nowlan<br>(Coordonnatrice des services techniques en GM)</span>
@@ -657,7 +684,7 @@
 
   <div class="file-icon" onclick="ouvrirLettre('doc-laberge')">
                                 <div class="hover-desc">
-                                    <strong>Pr. Louis Laberge-Lebel</strong>
+                                    <strong style="color: #F15A22;">Pr. Louis Laberge-Lebel</strong>
                                     <em>Génie Mécanique</em>
                                     Souligne son esprit d'amélioration continue et ses compétences pointues en fabrication et automatisation.
                                 </div>
@@ -671,7 +698,7 @@
                                 
                             <div class="file-icon" onclick="ouvrirLettre('doc-gylbert')">
                                 <div class="hover-desc">
-                                    <strong>Frédéric Gylbert</strong>
+                                    <strong style="color: #F15A22;">Frédéric Gylbert</strong>
                                     <em>Sécurité Institutionnelle</em>
                                     Appuie son sens aigu des responsabilités, sa rigueur, et sa proactivité constante en SST.
                                 </div>
@@ -682,7 +709,7 @@
                             
         <div class="file-icon" onclick="ouvrirLettre('doc-dasilva')">
                                 <div class="hover-desc">
-                                    <strong>Marie-Noël da Silva</strong>
+                                    <strong style="color: #F15A22;">Marie-Noël da Silva</strong>
                                     <em>Sûreté Institutionnelle</em>
                                     Reconnaît sa vigilance et son implication active dans la sécurité physique de l'établissement.
                                 </div>
@@ -694,7 +721,7 @@
                             
                             <div class="file-icon" onclick="ouvrirLettre('doc-vetel')">
                                 <div class="hover-desc">
-                                    <strong>Pr. Jérôme Vétel</strong>
+                                    <strong style="color: #F15A22;">Pr. Jérôme Vétel</strong>
                                     <em>Génie Mécanique</em>
                                     Valide son rôle d'accompagnement de premier plan auprès des étudiants et des équipes techniques.
                                 </div>
@@ -705,7 +732,7 @@
 
                         
                          <div class="file-icon" onclick="ouvrirLettre('doc-maud')">
-                             <div class="hover-desc"> <strong>Mme Maud Cohen</strong>
+                             <div class="hover-desc"> <strong style="color: #F15A22;">Mme Maud Cohen</strong>
                                  <em>Directrice Générale</em> Reconnaît l'apport institutionnel de Yanik et son haut niveau d'engagement envers Polytechnique Montréal.
                              </div> 
                              <img src="PHOTO-MAUD.jpg" alt="Maud Cohen" class="file-image"> 
@@ -818,11 +845,11 @@
 
             <div id="realisations" class="grid">
                 <div class="panel panel-full">
-                    <h2 class="header-title" style="font-size: 30px; color: #F38B00;">RÉALISATIONS & DISTINCTIONS (EN IMAGES)</h2>
+                    <h2 class="header-title" style="font-size: 30px; color: #25B34B;">RÉALISATIONS & DISTINCTIONS (EN IMAGES)</h2>
                 </div>
 
                 <div class="panel">
-                    <h3 class="panel-title">🔧 Expertise Distinctive (Micro-électronique)</h3>
+                    <h3 class="panel-title" style="color: #25B34B;">🔧 Expertise Distinctive (Micro-électronique)</h3>
                     <p>Soudage et reprise de composants de haute précision.</p>
                     <div class="image-grid">
                         <div class="image-card"><img src="0201-soudage.jpg" alt="0201"><p>Composants 0201</p></div>
@@ -832,7 +859,7 @@
                 </div>
 
                 <div class="panel">
-                    <h3 class="panel-title">⚡ Systèmes embarqués & Haute Tension</h3>
+                    <h3 class="panel-title" style="color: #25B34B;">⚡ Systèmes embarqués & Haute Tension</h3>
                     <p>Contrôleurs et intégration de systèmes de puissance.</p>
                     <div class="image-grid">
                         <div class="image-card"><img src="Odans-1.jpg" alt="Odans"><p>Système Odans</p></div>
@@ -841,7 +868,7 @@
                 </div>
 
                 <div class="panel">
-                    <h3 class="panel-title">🌊 Boucle Hydraulique Doosan</h3>
+                    <h3 class="panel-title" style="color: #25B34B;">🌊 Boucle Hydraulique Doosan</h3>
                     <p>Installation et maintenance de la boucle expérimentale.</p>
                     <div class="image-grid">
                         <div class="image-card"><img src="Doosan-1.jpg" alt="Doosan"></div>
@@ -851,7 +878,7 @@
                 </div>
 
                 <div class="panel">
-                    <h3 class="panel-title">🌡️ Contrôleur de température (Impression 3D)</h3>
+                    <h3 class="panel-title" style="color: #25B34B;">🌡️ Contrôleur de température (Impression 3D)</h3>
                     <p>Lit et enceinte chauffante pour fabrication additive.</p>
                     <div class="image-grid">
                         <div class="image-card"><img src="J-5131 Contrôleur de température à écran tactile.jpg" alt="Contrôleur J5131"><p>J-5131 Control</p></div>
@@ -859,7 +886,7 @@
                 </div>
 
                 <div class="panel">
-                    <h3 class="panel-title">🔄 Bobineuse de rubans supraconducteurs</h3>
+                    <h3 class="panel-title" style="color: #25B34B;">🔄 Bobineuse de rubans supraconducteurs</h3>
                     <div class="media-container">
                          <video controls><source src="hummingbird-1.mp4" type="video/mp4"></video>
                          <video controls><source src="hummingbird-2.mp4" type="video/mp4"></video>
@@ -872,7 +899,7 @@
                 </div>
 
                 <div class="panel">
-                    <h3 class="panel-title">🏗️ Station de coulée</h3>
+                    <h3 class="panel-title" style="color: #25B34B;">🏗️ Station de coulée</h3>
                     <div class="image-grid">
                         <div class="image-card"><img src="coulee-1.jpg" alt="Coulée"></div>
                         <div class="image-card"><img src="coulee-2.jpg" alt="Coulée"></div>
@@ -881,7 +908,7 @@
                 </div>
 
                 <div class="panel">
-                    <h3 class="panel-title">🔥 Four Rotatif & Échantillonneur</h3>
+                    <h3 class="panel-title" style="color: #25B34B;">🔥 Four Rotatif & Échantillonneur</h3>
                     <div class="image-grid" style="grid-template-columns: 1fr 1fr;">
                         <div class="image-card"><img src="four-rotatif-1.jpg" alt="Four"></div>
                         <div class="image-card"><img src="four-rotatif-2.jpg" alt="Four"></div>
@@ -891,7 +918,7 @@
                 </div>
 
                 <div class="panel">
-                    <h3 class="panel-title">🎻 Plateforme de Lutherie</h3>
+                    <h3 class="panel-title" style="color: #25B34B;">🎻 Plateforme de Lutherie</h3>
                     <div class="image-grid">
                         <div class="image-card"><img src="lutherie-1.jpg" alt="Lutherie"></div>
                         <div class="image-card"><img src="lutherie-2.jpg" alt="Lutherie"></div>
@@ -900,7 +927,7 @@
                 </div>
 
                 <div class="panel panel-full">
-                    <h3 class="panel-title">🏢 Restructuration et Modernisation des laboratoires (SST)</h3>
+                    <h3 class="panel-title" style="color: #25B34B;">🏢 Restructuration et Modernisation des laboratoires (SST)</h3>
                     <div class="image-grid" style="grid-template-columns: repeat(3, 1fr);">
                         <div class="image-card"><img src="J-5100 Solution douche corporelle.jpg" alt="Douche SST"><p>Aménagement J-1 SST</p></div>
                         <div class="image-card"><img src="J-5129 Organisation des locaux - 3D FDMs.jpg" alt="J-5129"><p>J-5129 Organisation</p></div>
@@ -910,6 +937,17 @@
                         <div class="image-card"><img src="J-5135 Achat des FDM haute température.jpg" alt="FDM"><p>J-5135 Achat Stratégique</p></div>
                         <div class="image-card"><img src="Aon.jpg" alt="Aon"><p>Parc d'impression 3D AON</p></div>
                     </div>
+                </div>
+            </div>
+
+            <div id="annexes" class="grid">
+                <div class="panel panel-full">
+                    <h2 class="header-title" style="font-size: 30px; color: #00BDF2;">ANNEXES (DOCUMENTS DES ÉLÈVES)</h2>
+                    <p style="color: #c7cdd1; font-size: 16px;">Espace de classement réservé aux PDF et fichiers de projets étudiants.</p>
+                </div>
+
+                <div class="panel panel-full media-container" style="min-height: 350px; display: flex; align-items: center; justify-content: center; border: 2px dashed #50565c; background-color: #1a1c1e;">
+                    <p style="color: #777; font-size: 18px; text-transform: uppercase; font-weight: bold;">[ Espace libre pour intégration future des PDF ]</p>
                 </div>
             </div>
 
