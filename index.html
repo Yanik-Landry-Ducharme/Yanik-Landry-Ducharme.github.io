@@ -135,25 +135,29 @@
             border-left: 5px solid transparent;
         }
 
-        /* Couleurs Officielles Polytechnique pour le menu */
+        /* Couleurs Officielles Polytechnique pour le menu - ORDRE INVERSÉ */
       .sidebar a:hover, .sidebar a.active {
             background-color: #50565c;
         }
-      .sidebar a.link-rouge:hover, .sidebar a.link-rouge.active {
-            color: #ED1C24;
-            border-left: 5px solid #ED1C24;
+      /* 1. Bleu */
+      .sidebar a.link-bleu:hover, .sidebar a.link-bleu.active {
+            color: #00BDF2;
+            border-left: 5px solid #00BDF2;
         }
-      .sidebar a.link-orange:hover, .sidebar a.link-orange.active {
-            color: #F15A22;
-            border-left: 5px solid #F15A22;
-        }
+      /* 2. Vert */
       .sidebar a.link-vert:hover, .sidebar a.link-vert.active {
             color: #25B34B;
             border-left: 5px solid #25B34B;
         }
-      .sidebar a.link-bleu:hover, .sidebar a.link-bleu.active {
-            color: #00BDF2;
-            border-left: 5px solid #00BDF2;
+      /* 3. Orange */
+      .sidebar a.link-orange:hover, .sidebar a.link-orange.active {
+            color: #F15A22;
+            border-left: 5px solid #F15A22;
+        }
+      /* 4. Rouge */
+      .sidebar a.link-rouge:hover, .sidebar a.link-rouge.active {
+            color: #ED1C24;
+            border-left: 5px solid #ED1C24;
         }
 
 /* Zone de Contenu Principal */
@@ -394,6 +398,61 @@
             font-size: 17px; 
             font-weight: 500;
         }
+
+        /* NOVEAU : Design de la section Annexes (8 carrés) */
+      .annexes-file-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr); /* 4 carrés par ligne sur PC */
+            gap: 20px;
+        }
+      .annexes-file-card {
+            background-color: #1a1c1e;
+            border: 1px solid #50565c;
+            border-radius: 8px;
+            padding: 20px 10px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.2s;
+            user-select: none;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            aspect-ratio: 1 / 1; /* Force le carré parfait */
+            position: relative;
+            box-sizing: border-box;
+        }
+      .annexes-file-card:hover {
+            background-color: #333;
+            border-color: #ED1C24; /* Couleur Rouge des annexes au survol */
+            transform: translateY(-3px);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+        }
+      .annexes-file-card.link-bleu:hover { border-color: #00BDF2; } /* Si jamais on voulait changer */
+      
+      .annexes-file-card p {
+            font-size: 13px;
+            font-weight: bold;
+            color: #c7cdd1;
+            word-wrap: break-word;
+            margin: 0;
+            text-transform: uppercase;
+        }
+      .annexes-file-card em {
+            font-size: 11px;
+            color: #DA8A68;
+            font-style: italic;
+            display: block;
+            margin-top: 3px;
+            text-transform: none;
+        }
+        
+        /* Icône générique de PDF pour l'annexe */
+      .pdf-icon-placeholder {
+            font-size: 40px;
+            margin-bottom: 10px;
+            color: #777; /* Gris neutre */
+        }
         
         /* Design Adaptatif (Mobile) */
         @media (max-width: 900px) {
@@ -443,18 +502,18 @@
                 border-left: none;
                 background-color: #333;
             }
-          /* Couleurs mobile en bordure bas */
-          .sidebar a.link-rouge:hover, .sidebar a.link-rouge.active {
-                border-bottom: 4px solid #ED1C24;
-            }
-          .sidebar a.link-orange:hover, .sidebar a.link-orange.active {
-                border-bottom: 4px solid #F15A22;
+          /* Couleurs mobile en bordure bas - ORDRE INVERSÉ */
+          .sidebar a.link-bleu:hover, .sidebar a.link-bleu.active {
+                border-bottom: 4px solid #00BDF2;
             }
           .sidebar a.link-vert:hover, .sidebar a.link-vert.active {
                 border-bottom: 4px solid #25B34B;
             }
-          .sidebar a.link-bleu:hover, .sidebar a.link-bleu.active {
-                border-bottom: 4px solid #00BDF2;
+          .sidebar a.link-orange:hover, .sidebar a.link-orange.active {
+                border-bottom: 4px solid #F15A22;
+            }
+          .sidebar a.link-rouge:hover, .sidebar a.link-rouge.active {
+                border-bottom: 4px solid #ED1C24;
             }
             
           .main-content {
@@ -499,6 +558,18 @@
           .hover-desc {
                 display: none!important;
             }
+            
+            /* Annexes adaptatif mobile */
+          .annexes-file-grid {
+                grid-template-columns: 1fr 1fr; /* 2 carrés par ligne sur mobile */
+                gap: 10px;
+            }
+          .pdf-icon-placeholder {
+                font-size: 30px;
+            }
+          .annexes-file-card p {
+                font-size: 11px;
+            }
         }
     </style>
 </head>
@@ -520,10 +591,10 @@
 
     <div class="container">
         <div class="sidebar">
-            <a href="#cv" class="link-rouge active">PORTRAIT DE CARRIÈRE</a>
-            <a href="#lettres" class="link-orange">LETTRES D'APPUI</a>
-            <a href="#realisations" class="link-vert">RÉALISATIONS & DISTINCTIONS</a>
-            <a href="#annexes" class="link-bleu">ANNEXES</a>
+            <a href="#cv" class="link-bleu active">PORTRAIT DE CARRIÈRE</a>
+            <a href="#lettres" class="link-vert">LETTRES D'APPUI</a>
+            <a href="#realisations" class="link-orange">RÉALISATIONS & DISTINCTIONS</a>
+            <a href="#annexes" class="link-rouge">ANNEXES</a>
         </div>
     
 
@@ -533,23 +604,23 @@
 
             <div id="cv" class="grid">
                 <div class="panel panel-full media-container">
-                    <h3 class="panel-title" style="color: #ED1C24;">DOSSIER DE CANDIDATURE </h3>
+                    <h3 class="panel-title" style="color: #00BDF2;">DOSSIER DE CANDIDATURE </h3>
                     <iframe src="https://view.officeapps.live.com/op/embed.aspx?src=https://Yanik-Landry-Ducharme.github.io/Dossier_Candidature.docx" width="100%" height="600px" frameborder="0"></iframe>
                 </div>
 
                 <div class="panel panel-full media-container">
-                    <h3 class="panel-title" style="color: #ED1C24;">CURRICULUM VITAE</h3>
+                    <h3 class="panel-title" style="color: #00BDF2;">CURRICULUM VITAE</h3>
                  <iframe src="https://view.officeapps.live.com/op/embed.aspx?src=https://Yanik-Landry-Ducharme.github.io/CV Yanik Landry-Ducharme 2026(f).docx" width="100%" height="600px" frameborder="0"></iframe>
                 </div>
             </div>
 
             <div id="lettres" class="grid">
                 <div class="panel panel-full media-container">
-                    <h3 class="panel-title" style="color: #F15A22;">LETTRES DE RECOMMANDATION & APPUIS INSTITUTIONNELS</h3>
+                    <h3 class="panel-title" style="color: #25B34B;">LETTRES DE RECOMMANDATION & APPUIS INSTITUTIONNELS</h3>
                     
                     <div id="file-directory">
                         <div class="legend-box">
-                            <strong style="color: #F15A22;">CLÉS D'IDENTIFICATION DES PRÉREQUIS (Annexe H) :</strong>
+                            <strong style="color: #25B34B;">CLÉS D'IDENTIFICATION DES PRÉREQUIS (Annexe H) :</strong>
                             <div class="legend-items">
                                 <span>🔧 Pilier 1 : Expertise Distinctive</span>
                                 <span>🧭 Pilier 2 : Rôle Conseil</span>
@@ -564,7 +635,7 @@
                             
 <div class="file-icon" onclick="ouvrirLettre('doc-sirois')"> 
     <div class="hover-desc"> 
-        <strong style="color: #F15A22;">Pr. Frédéric Sirois</strong> 
+        <strong style="color: #25B34B;">Pr. Frédéric Sirois</strong> 
         <em>Génie Électrique</em> Remarque son leadership hors pair, ses plans de restructuration d'ateliers et ses compétences indispensables. 
     </div> <img src="PHOTO-SIROIS.jpg" alt="Frédéric Sirois" class="file-image">
     <span class="name">Pr. Frédéric Sirois</span>
@@ -573,7 +644,7 @@
                             
                             <div class="file-icon" onclick="ouvrirLettre('doc-therriault')">
                                 <div class="hover-desc">
-                                    <strong style="color: #F15A22;">Pr. Daniel Therriault</strong>
+                                    <strong style="color: #25B34B;">Pr. Daniel Therriault</strong>
                                     <em>Génie Mécanique - LM2</em>
                                     Appuie l'esprit d'innovation, la gestion d'UBRs et le mentorat exceptionnel de Yanik.
                                 </div>
@@ -584,7 +655,7 @@
 
 <div class="file-icon" onclick="ouvrirLettre('doc-martin')">
                                 <div class="hover-desc">
-                                    <strong style="color: #F15A22;">Jean-Pierre Martin</strong>
+                                    <strong style="color: #25B34B;">Jean-Pierre Martin</strong>
                                     <em>Laboratoire René-J.-A.-Lévesque</em>
                                     Valide son expertise exceptionnelle en électronique de haut niveau et en instrumentation scientifique de précision (CERN, TRIUMF).
                                 </div>
@@ -597,7 +668,7 @@
                             
                             <div class="file-icon" onclick="ouvrirLettre('doc-mureithi')">
                                 <div class="hover-desc">
-                                    <strong style="color: #F15A22;">Pr. Njuki Mureithi</strong>
+                                    <strong style="color: #25B34B;">Pr. Njuki Mureithi</strong>
                                     <em>Génie Mécanique</em>
                                     Valide son expertise pratique majeure dans l'installation de la boucle hydraulique Doosan.
                                 </div>
@@ -608,7 +679,7 @@
 
  <div class="file-icon" onclick="ouvrirLettre('doc-jamal')">
                                 <div class="hover-desc">
-                                    <strong style="color: #F15A22;">Pr. Jamal Chaouki</strong>
+                                    <strong style="color: #25B34B;">Pr. Jamal Chaouki</strong>
                                     <em>Génie Chimique</em>
                                     Témoigne de son altruisme, son soutien de transition et son aide bénévole pour les chaires de recherche.
                                 </div>
@@ -620,7 +691,7 @@
                             
                             <div class="file-icon" onclick="ouvrirLettre('doc-vo')">
                                 <div class="hover-desc">
-                                    <strong style="color: #F15A22;">Pr. Huu Duc Vo</strong>
+                                    <strong style="color: #25B34B;">Pr. Huu Duc Vo</strong>
                                     <em>Aérothermique</em>
                                     Certifie l'unicité de son expertise en micro-électronique (0201, BGA) à Polytechnique.
                                 </div>
@@ -631,7 +702,7 @@
 
     <div class="file-icon" onclick="ouvrirLettre('doc-menard')">
                                 <div class="hover-desc">
-                                    <strong style="color: #F15A22;">Pr. David Ménard</strong>
+                                    <strong style="color: #25B34B;">Pr. David Ménard</strong>
                                     <em>Génie Physique</em>
                                     Atteste de son soutien d'ingénierie précieux lors de projets de recherche ultra-sensibles en magnétisme.
                                 </div>
@@ -642,7 +713,7 @@
 
                                    <div class="file-icon" onclick="ouvrirLettre('doc-hadji')">
                                 <div class="hover-desc">
-                                    <strong style="color: #F15A22;">Abdallah Hadji</strong>
+                                    <strong style="color: #25B34B;">Abdallah Hadji</strong>
                                     <em>Génie Chimique</em>
                                     Recommande vivement Yanik pour son professionnalisme et ses solutions de dépannage technique.
                                 </div>
@@ -653,7 +724,7 @@
 
 <div class="file-icon" onclick="ouvrirLettre('doc-elmehdi')">
                                 <div class="hover-desc">
-                                    <strong style="color: #F15A22;">El Mehdi</strong>
+                                    <strong style="color: #25B34B;">El Mehdi</strong>
                                     <em>[Coordonnateur des services techniques en genie électrique,ing.PhD.]</em>
                                 </div>
                                 <img src="PHOTO-ELMEHDI.jpg" alt="El Mehdi" class="file-image">
@@ -664,7 +735,7 @@
 
   <div class="file-icon" onclick="ouvrirLettre('doc-yari')">
                                 <div class="hover-desc">
-                                    <strong style="color: #F15A22;">Bahman Yari</strong>
+                                    <strong style="color: #25B34B;">Bahman Yari</strong>
                                     <em>Doctorant - Génie Chimique</em>
                                     Témoigne de son ingéniosité dans la conception et la construction de réacteurs expérimentaux complexes.
                                 </div>
@@ -675,7 +746,7 @@
 
                             <div class="file-icon" onclick="ouvrirLettre('doc-nowlan')">
                                 <div class="hover-desc">
-                                    <strong style="color: #F15A22;">Isabelle Nowlan</strong>
+                                    <strong style="color: #25B34B;">Isabelle Nowlan</strong>
                                     <em>[Coordonnatrice des ressources techniques au Département de génie mécanique]</em>
                                 </div> <img src="PHOTO-ISABELLE.jpg" alt="Isabelle Nowlan" class="file-image">
                                 <span class="name">Mme Isabelle Nowlan<br>(Coordonnatrice des services techniques en GM)</span>
@@ -684,7 +755,7 @@
 
   <div class="file-icon" onclick="ouvrirLettre('doc-laberge')">
                                 <div class="hover-desc">
-                                    <strong style="color: #F15A22;">Pr. Louis Laberge-Lebel</strong>
+                                    <strong style="color: #25B34B;">Pr. Louis Laberge-Lebel</strong>
                                     <em>Génie Mécanique</em>
                                     Souligne son esprit d'amélioration continue et ses compétences pointues en fabrication et automatisation.
                                 </div>
@@ -698,7 +769,7 @@
                                 
                             <div class="file-icon" onclick="ouvrirLettre('doc-gylbert')">
                                 <div class="hover-desc">
-                                    <strong style="color: #F15A22;">Frédéric Gylbert</strong>
+                                    <strong style="color: #25B34B;">Frédéric Gylbert</strong>
                                     <em>Sécurité Institutionnelle</em>
                                     Appuie son sens aigu des responsabilités, sa rigueur, et sa proactivité constante en SST.
                                 </div>
@@ -709,7 +780,7 @@
                             
         <div class="file-icon" onclick="ouvrirLettre('doc-dasilva')">
                                 <div class="hover-desc">
-                                    <strong style="color: #F15A22;">Marie-Noël da Silva</strong>
+                                    <strong style="color: #25B34B;">Marie-Noël da Silva</strong>
                                     <em>Sûreté Institutionnelle</em>
                                     Reconnaît sa vigilance et son implication active dans la sécurité physique de l'établissement.
                                 </div>
@@ -721,7 +792,7 @@
                             
                             <div class="file-icon" onclick="ouvrirLettre('doc-vetel')">
                                 <div class="hover-desc">
-                                    <strong style="color: #F15A22;">Pr. Jérôme Vétel</strong>
+                                    <strong style="color: #25B34B;">Pr. Jérôme Vétel</strong>
                                     <em>Génie Mécanique</em>
                                     Valide son rôle d'accompagnement de premier plan auprès des étudiants et des équipes techniques.
                                 </div>
@@ -732,7 +803,7 @@
 
                         
                          <div class="file-icon" onclick="ouvrirLettre('doc-maud')">
-                             <div class="hover-desc"> <strong style="color: #F15A22;">Mme Maud Cohen</strong>
+                             <div class="hover-desc"> <strong style="color: #25B34B;">Mme Maud Cohen</strong>
                                  <em>Directrice Générale</em> Reconnaît l'apport institutionnel de Yanik et son haut niveau d'engagement envers Polytechnique Montréal.
                              </div> 
                              <img src="PHOTO-MAUD.jpg" alt="Maud Cohen" class="file-image"> 
@@ -845,11 +916,11 @@
 
             <div id="realisations" class="grid">
                 <div class="panel panel-full">
-                    <h2 class="header-title" style="font-size: 30px; color: #25B34B;">RÉALISATIONS & DISTINCTIONS (EN IMAGES)</h2>
+                    <h2 class="header-title" style="font-size: 30px; color: #F15A22;">RÉALISATIONS & DISTINCTIONS (EN IMAGES)</h2>
                 </div>
 
                 <div class="panel">
-                    <h3 class="panel-title" style="color: #25B34B;">🔧 Expertise Distinctive (Micro-électronique)</h3>
+                    <h3 class="panel-title" style="color: #F15A22;">🔧 Expertise Distinctive (Micro-électronique)</h3>
                     <p>Soudage et reprise de composants de haute précision.</p>
                     <div class="image-grid">
                         <div class="image-card"><img src="0201-soudage.jpg" alt="0201"><p>Composants 0201</p></div>
@@ -859,7 +930,7 @@
                 </div>
 
                 <div class="panel">
-                    <h3 class="panel-title" style="color: #25B34B;">⚡ Systèmes embarqués & Haute Tension</h3>
+                    <h3 class="panel-title" style="color: #F15A22;">⚡ Systèmes embarqués & Haute Tension</h3>
                     <p>Contrôleurs et intégration de systèmes de puissance.</p>
                     <div class="image-grid">
                         <div class="image-card"><img src="Odans-1.jpg" alt="Odans"><p>Système Odans</p></div>
@@ -868,7 +939,7 @@
                 </div>
 
                 <div class="panel">
-                    <h3 class="panel-title" style="color: #25B34B;">🌊 Boucle Hydraulique Doosan</h3>
+                    <h3 class="panel-title" style="color: #F15A22;">🌊 Boucle Hydraulique Doosan</h3>
                     <p>Installation et maintenance de la boucle expérimentale.</p>
                     <div class="image-grid">
                         <div class="image-card"><img src="Doosan-1.jpg" alt="Doosan"></div>
@@ -878,7 +949,7 @@
                 </div>
 
                 <div class="panel">
-                    <h3 class="panel-title" style="color: #25B34B;">🌡️ Contrôleur de température (Impression 3D)</h3>
+                    <h3 class="panel-title" style="color: #F15A22;">🌡️ Contrôleur de température (Impression 3D)</h3>
                     <p>Lit et enceinte chauffante pour fabrication additive.</p>
                     <div class="image-grid">
                         <div class="image-card"><img src="J-5131 Contrôleur de température à écran tactile.jpg" alt="Contrôleur J5131"><p>J-5131 Control</p></div>
@@ -886,7 +957,7 @@
                 </div>
 
                 <div class="panel">
-                    <h3 class="panel-title" style="color: #25B34B;">🔄 Bobineuse de rubans supraconducteurs</h3>
+                    <h3 class="panel-title" style="color: #F15A22;">🔄 Bobineuse de rubans supraconducteurs</h3>
                     <div class="media-container">
                          <video controls><source src="hummingbird-1.mp4" type="video/mp4"></video>
                          <video controls><source src="hummingbird-2.mp4" type="video/mp4"></video>
@@ -899,7 +970,7 @@
                 </div>
 
                 <div class="panel">
-                    <h3 class="panel-title" style="color: #25B34B;">🏗️ Station de coulée</h3>
+                    <h3 class="panel-title" style="color: #F15A22;">🏗️ Station de coulée</h3>
                     <div class="image-grid">
                         <div class="image-card"><img src="coulee-1.jpg" alt="Coulée"></div>
                         <div class="image-card"><img src="coulee-2.jpg" alt="Coulée"></div>
@@ -908,7 +979,7 @@
                 </div>
 
                 <div class="panel">
-                    <h3 class="panel-title" style="color: #25B34B;">🔥 Four Rotatif & Échantillonneur</h3>
+                    <h3 class="panel-title" style="color: #F15A22;">🔥 Four Rotatif & Échantillonneur</h3>
                     <div class="image-grid" style="grid-template-columns: 1fr 1fr;">
                         <div class="image-card"><img src="four-rotatif-1.jpg" alt="Four"></div>
                         <div class="image-card"><img src="four-rotatif-2.jpg" alt="Four"></div>
@@ -918,7 +989,7 @@
                 </div>
 
                 <div class="panel">
-                    <h3 class="panel-title" style="color: #25B34B;">🎻 Plateforme de Lutherie</h3>
+                    <h3 class="panel-title" style="color: #F15A22;">🎻 Plateforme de Lutherie</h3>
                     <div class="image-grid">
                         <div class="image-card"><img src="lutherie-1.jpg" alt="Lutherie"></div>
                         <div class="image-card"><img src="lutherie-2.jpg" alt="Lutherie"></div>
@@ -927,7 +998,7 @@
                 </div>
 
                 <div class="panel panel-full">
-                    <h3 class="panel-title" style="color: #25B34B;">🏢 Restructuration et Modernisation des laboratoires (SST)</h3>
+                    <h3 class="panel-title" style="color: #F15A22;">🏢 Restructuration et Modernisation des laboratoires (SST)</h3>
                     <div class="image-grid" style="grid-template-columns: repeat(3, 1fr);">
                         <div class="image-card"><img src="J-5100 Solution douche corporelle.jpg" alt="Douche SST"><p>Aménagement J-1 SST</p></div>
                         <div class="image-card"><img src="J-5129 Organisation des locaux - 3D FDMs.jpg" alt="J-5129"><p>J-5129 Organisation</p></div>
@@ -942,12 +1013,60 @@
 
             <div id="annexes" class="grid">
                 <div class="panel panel-full">
-                    <h2 class="header-title" style="font-size: 30px; color: #00BDF2;">ANNEXES (DOCUMENTS DES ÉLÈVES)</h2>
-                    <p style="color: #c7cdd1; font-size: 16px;">Espace de classement réservé aux PDF et fichiers de projets étudiants.</p>
+                    <h2 class="header-title" style="font-size: 30px; color: #ED1C24;">ANNEXES (DOCUMENTS DES ÉLÈVES)</h2>
+                    <p style="color: #c7cdd1; font-size: 16px;">Espace réservé aux lettres de remerciement et travaux d'étudiants.</p>
                 </div>
 
-                <div class="panel panel-full media-container" style="min-height: 350px; display: flex; align-items: center; justify-content: center; border: 2px dashed #50565c; background-color: #1a1c1e;">
-                    <p style="color: #777; font-size: 18px; text-transform: uppercase; font-weight: bold;">[ Espace libre pour intégration future des PDF ]</p>
+                <div class="panel panel-full annexes-file-grid">
+                    
+                    <div class="annexes-file-card">
+                        <div class="pdf-icon-placeholder">📄</div>
+                        <p>Lettre Élève 1</p>
+                        <em>[Nom de l'élève]</em>
+                    </div>
+                    
+                    <div class="annexes-file-card">
+                        <div class="pdf-icon-placeholder">📄</div>
+                        <p>Lettre Élève 2</p>
+                        <em>[Nom de l'élève]</em>
+                    </div>
+                    
+                    <div class="annexes-file-card">
+                        <div class="pdf-icon-placeholder">📄</div>
+                        <p>Lettre Élève 3</p>
+                        <em>[Nom de l'élève]</em>
+                    </div>
+                    
+                    <div class="annexes-file-card">
+                        <div class="pdf-icon-placeholder">📄</div>
+                        <p>Lettre Élève 4</p>
+                        <em>[Nom de l'élève]</em>
+                    </div>
+                    
+                    <div class="annexes-file-card">
+                        <div class="pdf-icon-placeholder">📄</div>
+                        <p>Lettre Élève 5</p>
+                        <em>[Nom de l'élève]</em>
+                    </div>
+                    
+                    <div class="annexes-file-card">
+                        <div class="pdf-icon-placeholder">📄</div>
+                        <p>Lettre Élève 6</p>
+                        <em>[Nom de l'élève]</em>
+                    </div>
+                    
+                    <div class="annexes-file-card">
+                        <div class="pdf-icon-placeholder">📄</div>
+                        <p>Lettre Élève 7</p>
+                        <em>[Nom de l'élève]</em>
+                    </div>
+                    
+                    <div class="annexes-file-card">
+                        <div class="pdf-icon-placeholder">📄</div>
+                        <p>Lettre Élève 8</p>
+                        <em>[Nom de l'élève]</em>
+                    </div>
+
                 </div>
             </div>
 
@@ -968,7 +1087,7 @@
             }
         }
 
-        // Logique pour ouvrir et fermer les lettres
+        // Logique pour ouvrir et fermer les lettres (de la section Lettres d'appui)
         function ouvrirLettre(idLettre) {
             document.getElementById('file-directory').style.display = 'none';
             let lettres = document.getElementsByClassName('letter-content');
