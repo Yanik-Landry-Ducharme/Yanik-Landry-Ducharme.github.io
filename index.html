@@ -126,32 +126,30 @@
       .sidebar a {
             padding: 20px;
             text-decoration: none;
-            color: #c7cdd1;
             font-weight: bold;
             font-size: 14px;
             border-bottom: 1px solid #333;
             text-transform: uppercase;
             transition: all 0.3s;
-            border-left: 5px solid transparent;
         }
 
-        /* Couleurs Officielles Polytechnique pour le menu - ORDRE INVERSÉ */
+        /* Couleurs Officielles Polytechnique pour le menu - AFFICHÉES EN PERMANENCE */
       .sidebar a:hover, .sidebar a.active {
             background-color: #50565c;
         }
-      .sidebar a.link-bleu:hover, .sidebar a.link-bleu.active {
+      .sidebar a.link-bleu {
             color: #00BDF2;
             border-left: 5px solid #00BDF2;
         }
-      .sidebar a.link-vert:hover, .sidebar a.link-vert.active {
+      .sidebar a.link-vert {
             color: #25B34B;
             border-left: 5px solid #25B34B;
         }
-      .sidebar a.link-orange:hover, .sidebar a.link-orange.active {
+      .sidebar a.link-orange {
             color: #F15A22;
             border-left: 5px solid #F15A22;
         }
-      .sidebar a.link-rouge:hover, .sidebar a.link-rouge.active {
+      .sidebar a.link-rouge {
             color: #ED1C24;
             border-left: 5px solid #ED1C24;
         }
@@ -166,7 +164,7 @@
             max-width: 100%;
         }
   .header-title {
-            color: #F38B00; 
+            color: #00BDF2; /* Changé en Cyan */
             font-size: 42px;
             margin-top: 0;
             margin-bottom: 5px;
@@ -204,7 +202,7 @@
         
       .panel-title {
             color: #F38B00;
-            font-size: 28px;
+            font-size: 30px; /* Uniformisé à 30px */
             margin-top: 0;
             border-bottom: 1px solid #50565c;
             padding-bottom: 10px;
@@ -230,7 +228,6 @@
             gap: 15px;
         }
 
-      /* CORRECTION : Hauteur fixée pour les cartes d'images */
       .image-card {
             background: #1a1c1e;
             padding: 10px;
@@ -239,16 +236,15 @@
             text-align: center;
             display: flex;
             flex-direction: column;
-            justify-content: space-between; /* Pousse le texte vers le bas */
+            justify-content: space-between;
             height: 100%;
             box-sizing: border-box;
         }
 
-      /* CORRECTION : Taille d'image fixe + object-fit */
       .image-card img {
             width: 100%;
-            height: 220px; /* Force toutes les images à faire 220px de haut */
-            object-fit: cover; /* Recadre joliment pour remplir l'espace */
+            height: 220px; 
+            object-fit: cover; 
             border-radius: 4px;
             margin-bottom: 10px;
             border: none;
@@ -261,7 +257,7 @@
             margin-top: auto;
         }
 
-      /* Fichiers Interactifs (Lettres) */
+        /* Fichiers Interactifs (Lettres) */
       .file-system {
             display: flex;
             flex-wrap: wrap;
@@ -316,7 +312,6 @@
             margin-top: auto; 
         }
 
-        /* style : BULLE DESCRIPTIVE AU SURVOL (Tooltip) */
       .hover-desc {
             display: none;
             position: absolute;
@@ -378,7 +373,6 @@
             background-color: #F38B00;
         }
 
-      /* Légende des symboles */
       .legend-box {
             background-color: #1a1c1e;
             border: 1px solid #50565c;
@@ -407,7 +401,6 @@
             font-weight: 500;
         }
 
-      /* Section Annexes (8 carrés) */
       .annexes-file-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
@@ -549,7 +542,6 @@
           .image-grid {
                 grid-template-columns: 1fr;
             }
-          /* Sur mobile, on peut réduire un peu la hauteur fixée */
           .image-card img {
                 height: 180px; 
             }
@@ -607,7 +599,7 @@
     
 
         <div class="main-content">
-            <h1 class="header-title">DOSSIER DE CANDIDATURE SENIOR</h1>
+            <h1 class="header-title">PORTRAIT DE CARRIÈRE</h1>
             <h2 class="header-subtitle"> YANIK LANDRY-DUCHARME - TECHNOLOGUE PHYSIQUE</h2>
 
             <div id="cv" class="grid">
@@ -705,7 +697,7 @@
                                 </div>
                                 <img src="PHOTO-VO.jpg" alt="Huu Duc Vo" class="file-image">
                                 <span class="name">Pr. Huu Duc Vo</span>
-                                <span class="badges" title="Pilier 1 : Expertise Distinctive | Pilier 3 : Implication">🔧       🤝</span>
+                                <span class="badges" title="Pilier 1 : Expertise Distinctive | Pilier 3 : Implication">🔧        🤝</span>
                             </div>
 
     <div class="file-icon" onclick="ouvrirLettre('doc-menard')">
