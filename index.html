@@ -139,22 +139,18 @@
       .sidebar a:hover, .sidebar a.active {
             background-color: #50565c;
         }
-      /* 1. Bleu */
       .sidebar a.link-bleu:hover, .sidebar a.link-bleu.active {
             color: #00BDF2;
             border-left: 5px solid #00BDF2;
         }
-      /* 2. Vert */
       .sidebar a.link-vert:hover, .sidebar a.link-vert.active {
             color: #25B34B;
             border-left: 5px solid #25B34B;
         }
-      /* 3. Orange */
       .sidebar a.link-orange:hover, .sidebar a.link-orange.active {
             color: #F15A22;
             border-left: 5px solid #F15A22;
         }
-      /* 4. Rouge */
       .sidebar a.link-rouge:hover, .sidebar a.link-rouge.active {
             color: #ED1C24;
             border-left: 5px solid #ED1C24;
@@ -208,7 +204,7 @@
         
       .panel-title {
             color: #F38B00;
-            font-size: 18px;
+            font-size: 28px;
             margin-top: 0;
             border-bottom: 1px solid #50565c;
             padding-bottom: 10px;
@@ -233,23 +229,36 @@
             grid-template-columns: 1fr 1fr;
             gap: 15px;
         }
+
+      /* CORRECTION : Hauteur fixée pour les cartes d'images */
       .image-card {
             background: #1a1c1e;
             padding: 10px;
             border: 1px solid #333;
             border-radius: 4px;
             text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between; /* Pousse le texte vers le bas */
+            height: 100%;
+            box-sizing: border-box;
         }
+
+      /* CORRECTION : Taille d'image fixe + object-fit */
       .image-card img {
             width: 100%;
-            height: auto;
+            height: 220px; /* Force toutes les images à faire 220px de haut */
+            object-fit: cover; /* Recadre joliment pour remplir l'espace */
+            border-radius: 4px;
             margin-bottom: 10px;
             border: none;
         }
+        
       .image-card p {
             font-size: 12px;
             color: #c7cdd1;
             margin: 0;
+            margin-top: auto;
         }
 
       /* Fichiers Interactifs (Lettres) */
@@ -257,7 +266,6 @@
             display: flex;
             flex-wrap: wrap;
             gap: 20px;
-         
         }
       .file-icon {
             background-color: #1a1c1e;
@@ -399,10 +407,10 @@
             font-weight: 500;
         }
 
-        /* NOVEAU : Design de la section Annexes (8 carrés) */
+      /* Section Annexes (8 carrés) */
       .annexes-file-grid {
             display: grid;
-            grid-template-columns: repeat(4, 1fr); /* 4 carrés par ligne sur PC */
+            grid-template-columns: repeat(4, 1fr);
             gap: 20px;
         }
       .annexes-file-card {
@@ -418,17 +426,16 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            aspect-ratio: 1 / 1; /* Force le carré parfait */
+            aspect-ratio: 1 / 1; 
             position: relative;
             box-sizing: border-box;
         }
       .annexes-file-card:hover {
             background-color: #333;
-            border-color: #ED1C24; /* Couleur Rouge des annexes au survol */
+            border-color: #ED1C24; 
             transform: translateY(-3px);
             box-shadow: 0 4px 10px rgba(0,0,0,0.5);
         }
-      .annexes-file-card.link-bleu:hover { border-color: #00BDF2; } /* Si jamais on voulait changer */
       
       .annexes-file-card p {
             font-size: 13px;
@@ -447,11 +454,10 @@
             text-transform: none;
         }
         
-        /* Icône générique de PDF pour l'annexe */
       .pdf-icon-placeholder {
             font-size: 40px;
             margin-bottom: 10px;
-            color: #777; /* Gris neutre */
+            color: #777; 
         }
         
         /* Design Adaptatif (Mobile) */
@@ -502,7 +508,6 @@
                 border-left: none;
                 background-color: #333;
             }
-          /* Couleurs mobile en bordure bas - ORDRE INVERSÉ */
           .sidebar a.link-bleu:hover, .sidebar a.link-bleu.active {
                 border-bottom: 4px solid #00BDF2;
             }
@@ -528,7 +533,7 @@
                 margin-bottom: 25px;
             }
           .panel-title {
-                font-size: 14px;
+                font-size: 18px; /* Plus petit sur mobile */
             }
             p, ul li {
                 font-size: 13px;
@@ -543,6 +548,10 @@
             }
           .image-grid {
                 grid-template-columns: 1fr;
+            }
+          /* Sur mobile, on peut réduire un peu la hauteur fixée */
+          .image-card img {
+                height: 180px; 
             }
           .file-icon {
                 width: 44%;
@@ -559,9 +568,8 @@
                 display: none!important;
             }
             
-            /* Annexes adaptatif mobile */
           .annexes-file-grid {
-                grid-template-columns: 1fr 1fr; /* 2 carrés par ligne sur mobile */
+                grid-template-columns: 1fr 1fr;
                 gap: 10px;
             }
           .pdf-icon-placeholder {
@@ -604,19 +612,19 @@
 
             <div id="cv" class="grid">
                 <div class="panel panel-full media-container">
-                    <h3 class="panel-title" style="color: #00BDF2; font-size: 28px;">DOSSIER DE CANDIDATURE </h3>
+                    <h3 class="panel-title" style="color: #00BDF2;">DOSSIER DE CANDIDATURE </h3>
                     <iframe src="https://view.officeapps.live.com/op/embed.aspx?src=https://Yanik-Landry-Ducharme.github.io/Dossier_Candidature.docx" width="100%" height="600px" frameborder="0"></iframe>
                 </div>
 
                 <div class="panel panel-full media-container">
-                    <h3 class="panel-title" style="color: #00BDF2; font-size: 28px;">CURRICULUM VITAE</h3>
+                    <h3 class="panel-title" style="color: #00BDF2;">CURRICULUM VITAE</h3>
                  <iframe src="https://view.officeapps.live.com/op/embed.aspx?src=https://Yanik-Landry-Ducharme.github.io/CV Yanik Landry-Ducharme 2026(f).docx" width="100%" height="600px" frameborder="0"></iframe>
                 </div>
             </div>
 
             <div id="lettres" class="grid">
                 <div class="panel panel-full media-container">
-                    <h3 class="panel-title" style="color: #25B34B; font-size: 28px;">LETTRES DE RECOMMANDATION & APPUIS INSTITUTIONNELS</h3>
+                    <h3 class="panel-title" style="color: #25B34B;">LETTRES DE RECOMMANDATION & APPUIS INSTITUTIONNELS</h3>
                     
                     <div id="file-directory">
                         <div class="legend-box">
@@ -1087,7 +1095,7 @@
             }
         }
 
-        // Logique pour ouvrir et fermer les lettres (de la section Lettres d'appui)
+        // Logique pour ouvrir et fermer les lettres 
         function ouvrirLettre(idLettre) {
             document.getElementById('file-directory').style.display = 'none';
             let lettres = document.getElementsByClassName('letter-content');
@@ -1096,11 +1104,9 @@
             }
             document.getElementById(idLettre).style.display = 'block';
             
-            // Remonte doucement en haut de la section pour éviter les sauts brusques
             document.getElementById('lettres').scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
 
-        // FIX : Restauration de l'affichage d'origine en mode block
         function fermerLettres() {
             let lettres = document.getElementsByClassName('letter-content');
             for(let i = 0; i < lettres.length; i++) {
@@ -1108,7 +1114,6 @@
             }
             document.getElementById('file-directory').style.display = 'block';
             
-            // Remonte doucement sur la grille quand on ferme
             document.getElementById('lettres').scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
 
