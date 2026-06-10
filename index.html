@@ -314,7 +314,7 @@
             margin-top: auto; 
         }
 
-      /* SYSTÈME DE POP-UP AVEC BORDURE VERTE ÉLARGIE */
+      /* SYSTÈME DE POP-UP AVEC BORDURE VERTE ET LARGEUR AUGMENTÉE */
       .hover-desc {
             visibility: hidden;
             opacity: 0;
@@ -322,12 +322,13 @@
             bottom: 105%; 
             left: 50%;
             transform: translateX(-50%);
-            width: 280px; /* Élargi à 280px pour les longs textes */
+            width: 380px; /* Élargi à 380px pour les longs textes */
+            max-width: 90vw; /* Sécurité pour ne pas dépasser l'écran sur mobile */
             background-color: #1e2124;
             border: 2px solid #25B34B; 
             border-top: 4px solid #25B34B; 
             border-radius: 6px;
-            padding: 12px;
+            padding: 15px;
             box-shadow: 0 5px 20px rgba(0,0,0,0.9);
             z-index: 9999; 
             font-size: 12px;
@@ -833,18 +834,18 @@
                                 <span class="badges" title="Pilier 2 : Rôle Conseil | Pilier 3 : Implication">🧭 🤝</span>
                             </div>
 
-                            <div class="file-icon" onclick="ouvrirLettre('doc-maud')">
-                                <div class="hover-desc"> 
-                                    <strong style="color: #25B34B;">Maud Cohen</strong>
-                                    <em>Direction Générale</em> 
-                                    Directrice générale, Polytechnique Montréal.
-                                    <br><br>
-                                    <strong>Distinctions :</strong> Première femme nommée à la direction générale de l'institution en 150 ans d'histoire ; ancienne présidente de l'Ordre des ingénieurs du Québec (OIQ).
-                                </div> 
-                                <img src="PHOTO-MAUD.jpg" alt="Maud Cohen" class="file-image"> 
-                                <span class="name">Mme Maud Cohen<br>(Dir. Générale)</span>
-                                <span class="badges" title="Pilier 3 : Implication">🤝</span> 
-                            </div>
+                         <div class="file-icon" onclick="ouvrirLettre('doc-maud')">
+                             <div class="hover-desc"> 
+                                 <strong style="color: #25B34B;">Maud Cohen</strong>
+                                 <em>Direction Générale</em> 
+                                 Directrice générale, Polytechnique Montréal.
+                                 <br><br>
+                                 <strong>Distinctions :</strong> Première femme nommée à la direction générale de l'institution en 150 ans d'histoire ; ancienne présidente de l'Ordre des ingénieurs du Québec (OIQ).
+                             </div> 
+                             <img src="PHOTO-MAUD.jpg" alt="Maud Cohen" class="file-image"> 
+                             <span class="name">Mme Maud Cohen<br>(Dir. Générale)</span>
+                             <span class="badges" title="Pilier 3 : Implication">🤝</span> 
+                         </div>
                           
                         </div>
                     </div>
@@ -879,18 +880,20 @@
                         <iframe src="Huu Duc_Vo.pdf#zoom=100"></iframe>
                     </div>
 
-                    <div id="doc-elmehdi" class="letter-content">
+<div id="doc-elmehdi" class="letter-content">
                         <button class="btn-retour" onclick="fermerLettres()">⬅ Retourner aux dossiers</button>
                         <p><strong>El Mehdi </strong></p>
                         <iframe src="El Mehdi.pdf#zoom=100"></iframe>
                     </div>
 
+                    
                     <div id="doc-nowlan" class="letter-content">
                         <button class="btn-retour" onclick="fermerLettres()">⬅ Retourner aux dossiers</button>
                         <p><strong>Isabelle Nowlan</strong></p>
                         <iframe src="Isabelle Nowlan.pdf#zoom=100"></iframe>
                     </div>
 
+                    
                     <div id="doc-gylbert" class="letter-content">
                         <button class="btn-retour" onclick="fermerLettres()">⬅ Retourner aux dossiers</button>
                         <p><strong>Monsieur Frédéric Gylbert (Sécurité institutionnelle)</strong></p>
