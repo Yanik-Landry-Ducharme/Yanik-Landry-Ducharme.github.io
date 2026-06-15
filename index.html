@@ -245,8 +245,8 @@
 
         .image-card img {
             width: 100%;
-            height: 350px; 
-            object-fit: cover; /* CHANGÉ ICI POUR SUPPRIMER LES ESPACES VIDES */
+            height: 300px; /* Gardé à 300px pour éviter un crop trop sévère */
+            object-fit: cover; /* ICI : cover pour remplir l'espace vide */
             border-radius: 4px;
             margin-bottom: 10px;
             border: none;
@@ -1051,14 +1051,14 @@
 
                 <div class="panel panel-full">
                     <h3 class="panel-title" style="color: #F15A22;">🏢 Restructuration et Modernisation des laboratoires (SST)</h3>
-                    <div class="image-grid" style="grid-template-columns: repeat(3, 1fr);">
+                    <div class="image-grid" style="grid-template-columns: 1fr 1fr;">
                         <div class="image-card"><img src="J-5100 Solution douche corporelle.jpg" alt="Douche SST"><p>Aménagement J-1 SST</p></div>
                         <div class="image-card"><img src="J-5129 Organisation des locaux - 3D FDMs.jpg" alt="J-5129"><p>J-5129 Organisation</p></div>
                         <div class="image-card"><img src="J-5129 Organisation des locaux - 3D Postes de travail.jpg" alt="Postes"><p>J-5129 Postes de travail</p></div>
                         <div class="image-card"><img src="J-5131 Oranisation des locaux - Poste de sougae.jpg" alt="Soudure"><p>J-5131 Poste de soudage</p></div>
                         <div class="image-card"><img src="J-5133 Aerotech.jpg" alt="Aerotech"><p>J-5133 Amélioration</p></div>
                         <div class="image-card"><img src="J-5135 Achat des FDM haute température.jpg" alt="FDM"><p>J-5135 Achat Stratégique</p></div>
-                        <div class="image-card" style="grid-column: span 3;"><img src="Aon.jpg" alt="Aon"><p>Parc d'impression 3D AON</p></div>
+                        <div class="image-card" style="grid-column: span 2;"><img src="Aon.jpg" alt="Aon"><p>Parc d'impression 3D AON</p></div>
                     </div>
                 </div>
             </div>
