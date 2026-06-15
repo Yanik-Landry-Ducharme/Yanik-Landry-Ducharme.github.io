@@ -1,102 +1,1171 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
+    <link rel="shortcut icon" type="image/png" href="sceau.png" sizes="32x32">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Combiner Bobineuse</title>
+    <title>Dossier Senior - Yanik Landry-Ducharme</title>
     <style>
-        body {
-            background-color: #000;
-            color: #f8f8f8;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            margin: 0;
-            padding: 20px;
-        }
-        
-        .header {
-            border-top: 4px solid #F15A22;
-            padding-top: 10px;
-            margin-bottom: 30px;
-            text-align: right;
-        }
-        
-        .header h1 {
-            color: #F15A22;
-            text-transform: uppercase;
-            font-size: 24px;
-            margin: 0;
-        }
-        
-        .spacer {
-            height: 1px;
-            background-color: #F15A22;
-            width: 100%;
-            margin-top: 5px;
-        }
-        
-        .section-title {
-            color: #f15a22; /* Même orange */
-            font-size: 28px;
-            text-transform: uppercase;
-            margin-bottom: 20px;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+        /* Défilement fluide */
+        html { 
+            scroll-behavior: smooth; 
         }
 
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #2b2f33; 
+            color: #F8F8F8; 
+            overflow-x: hidden;
+        }
+        
+        /* Barre de Navigation Supérieure (Fixée) */
+        .navbar {
+            background-color: #FFFFFF;
+            color: #000000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 30px;
+            height: 75px;
+            border-bottom: 3px solid #F38B00;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-sizing: border-box;
+        }
+        
+        /* Conteneur du Logo */
+        .navbar-logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            perspective: 1000px;
+        }
+
+        /* Animation 3D uniquement pour le Sceau */
+        .logo-3d {
+            height: 55px;
+            transform-style: preserve-3d;
+            animation: spin 6s linear infinite; 
+        }
+
+        /* Texte Polytechnique Fixe */
+        .logo-text {
+            font-family: 'Arial Black', Impact, sans-serif;
+            font-size: 22px;
+            line-height: 1.05;
+            letter-spacing: 1px;
+            color: #000000;
+            text-transform: uppercase;
+        }
+
+        /* Nom du candidat en haut à droite */
+        .navbar-name {
+            font-size: 24px;
+            font-weight: bold;
+            color: #F38B00;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            text-align: right;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+        }
+
+        @keyframes spin {
+            0% { transform: rotateY(0deg); }
+            100% { transform: rotateY(360deg); }
+        }
+
+        /* Bouton Plein Écran Flottant */
+        .btn-fullscreen {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            background-color: rgba(43, 47, 51, 0.85);
+            color: #DA8A68;
+            border: 2px solid #DA8A68;
+            border-radius: 50%;
+            width: 55px;
+            height: 55px;
+            font-size: 24px;
+            cursor: pointer;
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+            backdrop-filter: blur(4px);
+            transition: all 0.3s;
+        }
+        .btn-fullscreen:hover {
+            background-color: #DA8A68;
+            color: #1a1c1e;
+            transform: scale(1.1);
+        }
+        
+        /* Disposition de la page */
+        .container { 
+            display: flex; 
+            align-items: flex-start; 
+        }
+
+        /* Menu Latéral Gauche */
+        .sidebar {
+            width: 260px;
+            background-color: #1a1c1e;
+            display: flex;
+            flex-direction: column;
+            border-right: 1px solid #50565c;
+            flex-shrink: 0;
+            position: sticky;
+            top: 75px; 
+            height: calc(100vh - 75px);
+            overflow-y: auto;
+            z-index: 999;
+        }
+        .sidebar a {
+            padding: 20px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 14px;
+            border-bottom: 1px solid #333;
+            text-transform: uppercase;
+            transition: all 0.3s;
+        }
+
+        /* Couleurs Officielles Polytechnique pour le menu - AFFICHÉES EN PERMANENCE */
+        .sidebar a:hover, .sidebar a.active {
+            background-color: #50565c;
+        }
+        .sidebar a.link-bleu {
+            color: #00BDF2;
+            border-left: 5px solid #00BDF2;
+        }
+        .sidebar a.link-vert {
+            color: #25B34B;
+            border-left: 5px solid #25B34B;
+        }
+        .sidebar a.link-orange {
+            color: #F15A22;
+            border-left: 5px solid #F15A22;
+        }
+        .sidebar a.link-rouge {
+            color: #ED1C24;
+            border-left: 5px solid #ED1C24;
+        }
+
+        /* Zone de Contenu Principal */
+        .main-content {
+            flex: 1;
+            padding: 100px; 
+            background: linear-gradient(to bottom right, #2b2f33, #1a1c1e);
+            min-height: calc(100vh - 75px);
+            box-sizing: border-box;
+            max-width: 100%;
+        }
+        
+        .header-title {
+            font-size: 34px; 
+            margin-top: 0;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            word-wrap: break-word;
+        }
+        
+        .header-subtitle {
+            color: #c7cdd1;
+            font-size: 18px;
+            margin-top: -10px;
+            margin-bottom: 40px;
+            letter-spacing: 2px;
+        }
+
+        /* Grille des Panneaux */
         .grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 20px;
+            gap: 30px;
             margin-bottom: 30px;
+            scroll-margin-top: 100px;
         }
         
         .panel {
-            background-color: #1a1c1e;
-            border: 1px solid #333;
-            border-top: 4px solid #F15A22;
+            background-color: #25282b;
+            border: 1px solid #50565c;
             border-radius: 6px;
-            padding: 15px;
+            padding: 25px;
+            box-shadow: 5px 5px 15px rgba(0,0,0,0.4);
+        }
+
+        .panel-full {
+            grid-column: span 2;
+        }
+        
+        .panel-title {
+            color: #F38B00;
+            font-size: 24px; 
+            margin-top: 0;
+            border-bottom: 1px solid #50565c;
+            padding-bottom: 10px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+        
+        /* Conteneurs pour Médias */
+        .media-container img, .media-container video, .media-container iframe {
+            width: 100%;
+            max-width: 100%;
+            border-radius: 4px;
+            border: 1px solid #50565c;
+            margin-bottom: 15px;
+            background-color: #1a1c1e;
+        }
+        .media-container iframe {
+            height: 600px; 
+        }
+        .image-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .image-card {
+            background: #1a1c1e;
+            padding: 10px;
+            border: 1px solid #333;
+            border-radius: 4px;
             text-align: center;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            box-shadow: 2px 2px 5px rgba(0,0,0,0.4);
+            height: 100%;
+            box-sizing: border-box;
         }
 
-        .panel img {
+        .image-card img {
             width: 100%;
-            height: auto;
+            height: 350px; 
+            object-fit: contain; 
             border-radius: 4px;
             margin-bottom: 10px;
+            border: none;
+            background-color: transparent;
         }
         
-        .caption {
-            font-size: 14px;
+        .image-card p {
+            font-size: 12px;
             color: #c7cdd1;
             margin: 0;
             margin-top: auto;
+        }
+
+        /* Fichiers Interactifs (Lettres) */
+        .file-system {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .file-icon {
+            background-color: #1a1c1e;
+            border: 1px solid #50565c;
+            border-radius: 8px;
+            padding: 20px 10px;
+            width: 200px;
+            height: 330px; 
+            box-sizing: border-box; 
             text-align: center;
+            cursor: pointer;
+            transition: all 0.2s;
+            user-select: none;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            position: relative; 
+        }
+        .file-icon:hover {
+            background-color: #333;
+            border-color: #F38B00;
+            transform: translateY(-3px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.5);
+        }
+        
+        .file-system.file-image {
+            width: 100px!important;
+            height: 135px!important; 
+            border-radius: 6px;
+            object-fit: cover; 
+            border: 2px solid #50565c;
+            margin-bottom: 12px;
+            background-color: #2b2f33;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+        }
+        
+        .file-icon span.name {
+            font-size: 13px;
+            font-weight: bold;
+            color: #c7cdd1;
+            word-wrap: break-word;
+            margin-bottom: 8px;
+        }
+        .file-icon span.badges {
+            font-size: 24px;
+            letter-spacing: 2px;
+            margin-top: auto; 
+        }
+
+        /* SYSTÈME DE POP-UP AVEC BORDURE VERTE ET LARGEUR AUGMENTÉE */
+        .hover-desc {
+            visibility: hidden;
+            opacity: 0;
+            position: absolute;
+            bottom: 105%; 
+            left: 50%;
+            transform: translateX(-50%);
+            width: 380px; 
+            max-width: 90vw; 
+            background-color: #1e2124;
+            border: 2px solid #25B34B; 
+            border-top: 4px solid #25B34B; 
+            border-radius: 6px;
+            padding: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.9);
+            z-index: 9999; 
+            font-size: 12px;
+            color: #F8F8F8;
+            text-align: left;
+            pointer-events: none; 
+            line-height: 1.4;
+            white-space: normal;
+            transition: opacity 0.2s ease, visibility 0.2s ease;
+        }
+        
+        .hover-desc strong {
+            color: #F38B00;
+            display: block;
+            margin-bottom: 3px;
+            font-size: 13px;
+            text-transform: uppercase;
+        }
+        
+        .hover-desc em {
+            color: #00BDF2; 
+            display: block;
+            margin-bottom: 8px;
+            font-style: italic;
+        }
+        
+        /* Apparition de la bulle au survol */
+        .file-icon:hover .hover-desc {
+            visibility: visible;
+            opacity: 1;
+        }
+        
+        .letter-content {
+            display: none;
+        }
+        
+        .btn-retour {
+            background-color: #50565c;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            width: fit-content;
+        }
+        .btn-retour:hover {
+            background-color: #F38B00;
+        }
+
+        .legend-box {
+            background-color: #1a1c1e;
+            border: 1px solid #50565c;
+            border-radius: 6px;
+            padding: 20px; 
+            margin-bottom: 25px;
+            color: #c7cdd1;
+        }
+        .legend-box strong {
+            color: #F38B00;
+            display: block;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            font-size: 18px; 
+        }
+        .legend-items {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 25px;
+        }
+        .legend-items span {
+            display: flex;
+            align-items: center;
+            gap: 8px; 
+            font-size: 17px; 
+            font-weight: 500;
+        }
+
+        .annexes-file-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+        .annexes-file-card {
+            background-color: #1a1c1e;
+            border: 1px solid #50565c;
+            border-radius: 8px;
+            padding: 20px 10px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.2s;
+            user-select: none;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            aspect-ratio: 1 / 1; 
+            position: relative;
+            box-sizing: border-box;
+        }
+        .annexes-file-card:hover {
+            background-color: #333;
+            border-color: #ED1C24; 
+            transform: translateY(-3px);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+        }
+      
+        .annexes-file-card p {
+            font-size: 13px;
+            font-weight: bold;
+            color: #c7cdd1;
+            word-wrap: break-word;
+            margin: 0;
+            text-transform: uppercase;
+        }
+        .annexes-file-card em {
+            font-size: 11px;
+            color: #DA8A68;
+            font-style: italic;
+            display: block;
+            margin-top: 3px;
+            text-transform: none;
+        }
+        
+        .pdf-icon-placeholder {
+            font-size: 40px;
+            margin-bottom: 10px;
+            color: #777; 
+        }
+        
+        /* Design Adaptatif (Mobile) */
+        @media (max-width: 900px) {
+            .navbar {
+                padding: 0 15px;
+                height: 60px;
+            }
+            .logo-3d {
+                height: 35px;
+            }
+            .logo-text {
+                font-size: 12px; 
+            }
+            .navbar-name {
+                font-size: 13px; 
+                letter-spacing: 0px;
+            }
+            .btn-fullscreen {
+                bottom: 15px;
+                right: 15px;
+                width: 45px;
+                height: 45px;
+                font-size: 20px;
+            }
+            .container { 
+                flex-direction: column; 
+            }
+            .sidebar {
+                width: 100%;
+                height: 55px;
+                flex-direction: row;
+                overflow-x: auto;
+                overflow-y: hidden;
+                white-space: nowrap;
+                border-right: none;
+                border-bottom: 2px solid #50565c;
+                top: 60px;
+            }
+            .sidebar::-webkit-scrollbar { height: 0px; background: transparent; } 
+            
+            .sidebar a {
+                padding: 16px 15px;
+                font-size: 11px;
+                border-bottom: 4px solid transparent;
+            }
+            .sidebar a:hover, .sidebar a.active {
+                border-left: none;
+                background-color: #333;
+            }
+            .sidebar a.link-bleu:hover, .sidebar a.link-bleu.active {
+                border-bottom: 4px solid #00BDF2;
+            }
+            .sidebar a.link-vert:hover, .sidebar a.link-vert.active {
+                border-bottom: 4px solid #25B34B;
+            }
+            .sidebar a.link-orange:hover, .sidebar a.link-orange.active {
+                border-bottom: 4px solid #F15A22;
+            }
+            .sidebar a.link-rouge:hover, .sidebar a.link-rouge.active {
+                border-bottom: 4px solid #ED1C24;
+            }
+            
+            .main-content {
+                padding: 15px;
+            }
+            .header-title {
+                font-size: 24px; 
+                line-height: 1.2;
+            }
+            .header-subtitle {
+                font-size: 14px;
+                margin-bottom: 25px;
+            }
+            .panel-title {
+                font-size: 18px; 
+            }
+            p, ul li {
+                font-size: 13px;
+            }
+            .grid {
+                grid-template-columns: 1fr;
+                gap: 15px;
+                scroll-margin-top: 130px; 
+            }
+            .panel-full {
+                grid-column: 1; 
+            }
+            .image-grid {
+                grid-template-columns: 1fr;
+            }
+            .image-card img {
+                height: 250px; 
+            }
+            .file-icon {
+                width: 44%;
+                padding: 15px 5px;
+            }
+            .media-container iframe {
+                height: 400px; 
+            }
+            .legend-items {
+                flex-direction: column;
+                gap: 8px;
+            }
+            
+            .annexes-file-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 10px;
+            }
+            .pdf-icon-placeholder {
+                font-size: 30px;
+            }
+            .annexes-file-card p {
+                font-size: 11px;
+            }
         }
     </style>
 </head>
 <body>
 
-    <div class="header">
-        <h1>IANIK LANDRY-DUCHARME</h1>
-        <div class="spacer"></div>
-    </div>
-    
-    <h1 class="section-title">🔄 Bobineuse de rubans supraconducteurs</h1>
-    
-    <div class="grid">
-        <div class="panel">
-            <img src="https://Yanik-Landry-Ducharme.github.io/Dossier_Senior/Bobineuse1.jpg" alt="Bobineuse 1">
-            <p class="caption">Bobineuse 1 - Vue d'ensemble du cône de guidage</p>
+    <div class="navbar">
+        <div class="navbar-logo">
+            <img src="sceau.png" alt="Sceau Polytechnique 3D" class="logo-3d">
+            <div class="logo-text">
+                POLYTECHNIQUE<br>MONTRÉAL
+            </div>
         </div>
-        <div class="panel">
-            <img src="https://Yanik-Landry-Ducharme.github.io/Dossier_Senior/Bobineuse2.jpg" alt="Bobineuse 2">
-            <p class="caption">Bobineuse 2 - Structure latérale et motorisation</p>
+        <div class="navbar-name">
+            YANIK LANDRY-DUCHARME
         </div>
     </div>
+
+    <button class="btn-fullscreen" onclick="toggleFullScreen()" title="Plein Écran">⛶</button>
+
+    <div class="container">
+        <div class="sidebar">
+            <a href="#cv" class="link-bleu active">PORTRAIT DE CARRIÈRE</a>
+            <a href="#lettres" class="link-vert">LETTRES D'APPUI</a>
+            <a href="#realisations" class="link-orange">RÉALISATIONS & DISTINCTIONS</a>
+            <a href="#annexes" class="link-rouge">ANNEXES</a>
+        </div>
+    
+
+        <div class="main-content">
+            <h1 class="header-title" style="color: #00BDF2;">PORTRAIT DE CARRIÈRE</h1>
+            <h2 class="header-subtitle"> YANIK LANDRY-DUCHARME - TECHNOLOGUE PHYSIQUE</h2>
+
+            <div id="cv" class="grid">
+                <div class="panel panel-full media-container">
+                    <h3 class="panel-title" style="color: #00BDF2;">DOSSIER DE CANDIDATURE </h3>
+                    <iframe src="https://view.officeapps.live.com/op/embed.aspx?src=https://Yanik-Landry-Ducharme.github.io/Dossier_Candidature.docx" width="100%" height="600px" frameborder="0"></iframe>
+                </div>
+
+                <div class="panel panel-full media-container">
+                    <h3 class="panel-title" style="color: #00BDF2;">CURRICULUM VITAE</h3>
+                 <iframe src="https://view.officeapps.live.com/op/embed.aspx?src=https://Yanik-Landry-Ducharme.github.io/CV Yanik Landry-Ducharme 2026(f).docx" width="100%" height="600px" frameborder="0"></iframe>
+                </div>
+            </div>
+
+            <div id="lettres" class="grid">
+                <div class="panel panel-full media-container">
+                    
+                    <h1 class="header-title" style="color: #25B34B; border-bottom: 1px solid #50565c; padding-bottom: 10px; margin-bottom: 20px;">LETTRES DE RECOMMANDATION & APPUIS INSTITUTIONNELS</h1>
+                    
+                    <div id="file-directory">
+                        <div class="legend-box">
+                            <strong style="color: #25B34B;">CLÉS D'IDENTIFICATION DES PRÉREQUIS (Annexe H) :</strong>
+                            <div class="legend-items">
+                                <span>🔧 Pilier 1 : Expertise Distinctive</span>
+                                <span>🧭 Pilier 2 : Rôle Conseil</span>
+                                <span>🤝 Pilier 3 : Implication </span>
+                                <span>🛠️ Pilier 4 : Contribution</span>
+                            </div>
+                        </div>
+
+                        <p style="font-size: 20px; color: #25B34B; margin-top: 0; margin-bottom: 20px;"><em>Touchez ou cliquez sur un fichier pour l'ouvrir.</em></p>
+                        
+                        <div class="file-system">
+                            
+                            <div class="file-icon" onclick="ouvrirLettre('doc-sirois')"> 
+                                <div class="hover-desc"> 
+                                    <strong style="color: #25B34B;">Pr. Frédéric Sirois</strong> 
+                                    <em>Département de génie électrique (Dir. LSM)</em> 
+                                    Professeur titulaire au département de génie électrique, spécialiste en supraconductivité, réseaux électriques de puissance, décarbonation industrielle à Polytechnique Montréal et directeur du Laboratoire des technologies de la supraconductivité (LSM).
+                                    <br><br>
+                                    <strong>Distinctions :</strong> Récipiendaire du Prix Honoris Genius - Innovation technologique décerné par l'Ordre des ingénieurs du Québec (OIQ) ; lauréat du prix international Van Duzer Prize de l'IEEE (Transactions on Applied Superconductivity) ; lauréat du prix de la meilleure thèse de doctorat de Polytechnique Montréal.
+                                </div> 
+                                <img src="PHOTO-SIROIS.jpg" alt="Frédéric Sirois" class="file-image">
+                                <span class="name">Pr. Frédéric Sirois</span>
+                                <span class="badges" title="Pilier 2 : Rôle Conseil | Pilier 4 : Contribution">🧭 🛠️ 🔧 🤝 </span> 
+                            </div>
+                            
+                            <div class="file-icon" onclick="ouvrirLettre('doc-therriault')">
+                                <div class="hover-desc">
+                                    <strong style="color: #25B34B;">Pr. Daniel Therriault</strong>
+                                    <em>Département de génie mécanique (LM2)</em>
+                                    Professeur titulaire au Département de génie mécanique, spécialiste en fabrication additive, matériaux composites et procédés avancés à Polytechnique Montréal. Ancien titulaire de la Chaire de recherche du Canada sur les microsystèmes et matériaux avancés et codirecteur du Laboratoire de mécanique multiéchelle (LM2).
+                                    <br><br>
+                                    <strong>Distinctions :</strong> Direction de chaires prestigieuses, contributions majeures en impression 3D et matériaux multifonctionnels, reconnaissance internationale.
+                                </div>
+                                <img src="PHOTO-DANIEL.jpg" alt="Daniel Therriault" class="file-image">
+                                <span class="name">Pr. Daniel Therriault</span>
+                                <span class="badges" title="Pilier 2 : Rôle Conseil | Pilier 4 : Contribution">🧭 🛠️</span>
+                            </div>
+
+                            <div class="file-icon" onclick="ouvrirLettre('doc-martin')">
+                                <div class="hover-desc">
+                                    <strong style="color: #25B34B;">Jean-Pierre Martin</strong>
+                                    <em>Lab. René-J.-A.-Lévesque (UdeM)</em>
+                                    Chercheur ou collaborateur scientifique associé à des projets interuniversitaires en sciences appliquées ou médicales entre l'UdeM et les écoles affiliées depuis les années 1980. Spécialisé en physique des particules, instrumentation de haute précision, physique nucléaire et électronique de haut niveau. Directeur adjoint du Laboratoire. Grandes collaborations de recherche : Coordination technique des équipes (OPAL au LEP, ATLAS au LHC du CERN, Belle II au KEK, TRIUMF, PICASSO et PICO pour la matière sombre).
+                                    <br><br>
+                                    <strong>Distinctions :</strong> Co-auteur de contributions majeures aux collaborations mondiales du CERN avec plus de 2000 articles et 60 000 citations scientifiques. Affiliations : CERN, DESY, Fermilab, INFN, SLAC, LBL Berkley, IRFU Saclay, Triumf...
+                                </div>
+                                <img src="PHOTO-MARTIN.jpg" alt="Jean-Pierre Martin" class="file-image">
+                                <span class="name">M. Jean-Pierre Martin<br>(Chercheur invité, UdeM)</span>
+                                <span class="badges" title="Pilier 1 : Expertise Distinctive | Pilier 4 : Contribution">🔧 🛠️</span>
+                            </div>
+
+                            <div class="file-icon" onclick="ouvrirLettre('doc-mureithi')">
+                                <div class="hover-desc">
+                                    <strong style="color: #25B34B;">Pr. Njuki Mureithi</strong>
+                                    <em>Département de génie mécanique</em>
+                                    Professeur titulaire au département de génie mécanique, expert en interactions fluide-structure à Polytechnique Montréal et président du comité FSSIC.
+                                    <br><br>
+                                    <strong>Distinctions :</strong> Expert expert-conseil international pour la sécurité des centrales et structures énergétiques. Plus de 170 publications, figure majeure en vibrations industrielles et dynamique appliquée.
+                                </div>
+                                <img src="PHOTO-NJUKI.jpg" alt="Njuki Mureithi" class="file-image">
+                                <span class="name">Pr. Njuki Mureithi</span>
+                                <span class="badges" title="Pilier 1 : Expertise Distinctive | Pilier 4 : Contribution">🔧 🛠️</span>
+                            </div>
+
+                            <div class="file-icon" onclick="ouvrirLettre('doc-jamal')">
+                                <div class="hover-desc">
+                                    <strong style="color: #25B34B;">Pr. Jamal Chaouki</strong>
+                                    <em>Département de génie chimique</em>
+                                    Professeur titulaire depuis 1995 en Génie chimique spécialisé en réacteurs à lit fluidisé, valorisation des déchets plastiques, captage du carbone. Il est directeur du Centre de bioraffinerie. Il détient plus de 22 brevets et a supervisé au-delà de 120 chercheurs.
+                                    <br><br>
+                                    <strong>Distinctions :</strong> Membre de l'Académie canadienne du génie, il est mondialement reconnu pour ses recherches sur le captage de CO2, le recyclage des plastiques et les procédés industriels à haute température. Il est Fellow de l'Académie canadienne du génie ; lauréat du prestigieux prix John R. Grace et du prix R.S Jane de la CSChE.
+                                </div>
+                                <img src="PHOTO-JAMAL.jpg" alt="Jamal" class="file-image">
+                                <span class="name">Pr. Jamal Chaouki</span>
+                                <span class="badges" title="Pilier 3 : Implication">🤝</span>
+                            </div>
+
+                            <div class="file-icon" onclick="ouvrirLettre('doc-vo')">
+                                <div class="hover-desc">
+                                    <strong style="color: #25B34B;">Pr. Huu Duc Vo</strong>
+                                    <em>Département de génie mécanique</em>
+                                    Professeur titulaire au département de génie mécanique (turbomachines et propulsion) à Polytechnique Montréal, spécialisé en aérodynamique des turbomachines, systèmes de propulsion, stabilité des compresseurs.
+                                    <br><br>
+                                    <strong>Distinctions :</strong> Inventeur de technologies brevetées de contrôle d’écoulement pour l'aviation durable.
+                                </div>
+                                <img src="PHOTO-VO.jpg" alt="Huu Duc Vo" class="file-image">
+                                <span class="name">Pr. Huu Duc Vo</span>
+                                <span class="badges" title="Pilier 1 : Expertise Distinctive | Pilier 3 : Implication">🔧 🤝</span>
+                            </div>
+
+                            <div class="file-icon" onclick="ouvrirLettre('doc-menard')">
+                                <div class="hover-desc">
+                                    <strong style="color: #25B34B;">Pr. David Ménard</strong>
+                                    <em>Département de génie physique</em>
+                                    Professeur titulaire au département de génie physique, expert en magnétisme à Polytechnique Montréal, spécialisé en nanomagnétisme, physique des matériaux, composants hyperfréquences.
+                                    <br><br>
+                                    <strong>Distinctions :</strong> Récipiendaire du Prix d'excellence en enseignement de Polytechnique Montréal.
+                                </div>
+                                <img src="PHOTO-DAVID.jpg" alt="David Ménard" class="file-image">
+                                <span class="name">Pr. David Ménard</span>
+                                <span class="badges" title="Pilier 1 : Expertise Distinctive | Pilier 4 : Contribution">🔧 🛠️</span>
+                            </div>
+
+                            <div class="file-icon" onclick="ouvrirLettre('doc-hadji')">
+                                <div class="hover-desc">
+                                    <strong style="color: #25B34B;">Abdallah Hadji</strong>
+                                    <em>Département de génie mécanique</em>
+                                    Chercheur en mécanique au Département de génie mécanique de Polytechnique Montréal, spécialisé en vibrations, instabilités fluido-élastiques, frottement, modélisation numérique et interaction tube-support. Auteur de plusieurs travaux sur les générateurs de vapeur et les phénomènes vibro-acoustiques. Ing.
+                                    <br><br>
+                                    <strong>Distinctions :</strong> Reconnu pour ses contributions scientifiques et ses certifications techniques (machine learning, gestion de projet, mesures de bruit et vibrations, CCNA).
+                                </div>
+                                <img src="PHOTO-ABDALLAH.jpg" alt="Abdallah Hadji" class="file-image">
+                                <span class="name">M. Abdallah Hadji <br>(PhD)</span>
+                                <span class="badges" title="Pilier 3 : Implication">🤝</span>
+                            </div>
+
+                            <div class="file-icon" onclick="ouvrirLettre('doc-elmehdi')">
+                                <div class="hover-desc">
+                                    <strong style="color: #25B34B;">El-Mehdi Mojab</strong>
+                                    <em>Département de génie électrique</em>
+                                    Coordonnateur des ressources techniques en Génie Électrique. Ing. PhD.
+                                    <br><br>
+                                    <strong>Distinctions :</strong> Chercheur associé affilié aux institutions universitaires québécoises.
+                                </div>
+                                <img src="PHOTO-ELMEHDI.jpg" alt="El Mehdi" class="file-image">
+                                <span class="name">M. El Mehdi <br>(Coordonnateur des services techniques en GÉ,ing.PhD.)</span>
+                                <span class="badges" title="Pilier 1 : Expertise Distinctive | Pilier 3 : Implication">🔧 🤝</span>
+                            </div>
+
+                            <div class="file-icon" onclick="ouvrirLettre('doc-yari')">
+                                <div class="hover-desc">
+                                    <strong style="color: #25B34B;">Bahman Yari</strong>
+                                    <em>Département de génie chimique</em>
+                                    Chercheur formé à Polytechnique Montréal en génie chimique, spécialisé en pyrométallurgie, procédés thermiques et matériaux pour batteries. Ing. PhD.
+                                    <br><br>
+                                    <strong>Distinctions :</strong> Contributions reconnues en génie des procédés et matériaux énergétiques, expertise appliquée en industrie.
+                                </div>
+                                <img src="PHOTO-BAHMAN.jpg" alt="Bahman Yari" class="file-image">
+                                <span class="name">Bahman Yari <br>(PhD)</span>
+                                <span class="badges" title="Pilier 1 : Expertise Distinctive | Pilier 4 : Contribution">🔧 🛠️</span>
+                            </div>
+
+                            <div class="file-icon" onclick="ouvrirLettre('doc-nowlan')">
+                                <div class="hover-desc">
+                                    <strong style="color: #25B34B;">Isabelle Nowlan</strong>
+                                    <em>Département de génie mécanique</em>
+                                    Coordonnatrice des ressources techniques en Génie Mécanique. Ing.
+                                    <br><br>
+                                    <strong>Distinctions :</strong> Prix de reconnaissance de PRIMA Québec pour l'encadrement des étudiants et son implication technique.
+                                </div> 
+                                <img src="PHOTO-ISABELLE.jpg" alt="Isabelle Nowlan" class="file-image">
+                                <span class="name">Mme Isabelle Nowlan<br>(Coordonnatrice des services techniques en GM)</span>
+                                <span class="badges" title="Pilier 3 : Implication | Pilier 4 : Contribution">🤝 🛠️</span>
+                            </div>
+
+                            <div class="file-icon" onclick="ouvrirLettre('doc-laberge')">
+                                <div class="hover-desc">
+                                    <strong style="color: #25B34B;">Pr. Louis Laberge-Lebel</strong>
+                                    <em>Département de génie mécanique</em>
+                                    Professeur au département de génie mécanique, spécialiste des structures composites avancées à Polytechnique Montréal spécialisée en matériaux composites avancés, structures textiles, procédés de fabrication automatisés.
+                                    <br><br>
+                                    <strong>Distinctions :</strong> Directeur du Laboratoire de fabrication avancée de composites thermoplastiques.
+                                </div>
+                                <img src="PHOTO-LOUIS.jpg" alt="Louis Laberge-Lebel" class="file-image">
+                                <span class="name">Pr. Louis Laberge-Lebel</span>
+                                <span class="badges" title="Pilier 1 : Expertise Distinctive | Pilier 4 : Contribution">🔧 🛠️</span>
+                            </div>
+                            
+                            <div class="file-icon" onclick="ouvrirLettre('doc-gylbert')">
+                                <div class="hover-desc">
+                                    <strong style="color: #25B34B;">Frédéric Gylbert</strong>
+                                    <em>Service des immeubles</em>
+                                    Superviseur des services d’opération et d’entretien technique au Service des immeubles de Polytechnique Montréal.
+                                </div>
+                                <img src="PHOTO-FREDERIC.jpg" alt="Frédéric Gylbert" class="file-image">
+                                <span class="name">M. Frédéric Gylbert<br>(Superviseur des services d’opération)</span>
+                                <span class="badges" title="Pilier 4 : Contribution">🛠️</span>
+                            </div>
+                            
+                            <div class="file-icon" onclick="ouvrirLettre('doc-dasilva')">
+                                <div class="hover-desc">
+                                    <strong style="color: #25B34B;">Marie-Noël da Sylva</strong>
+                                    <em>Bureau de santé et sécurité</em>
+                                    Conseillère principale - projets stratégiques en santé et sécurité au Bureau de santé et sécurité de Polytechnique Montréal.
+                                    <br><br>
+                                    <strong>Distinctions :</strong> Chargée du déploiement des orientations institutionnelles en SST à l'échelle de Polytechnique.
+                                </div>
+                                <img src="PHOTO-MARIENOEL.jpg" alt="Marie-Noël da Silva" class="file-image">
+                                <span class="name">Mme Marie-Noël da Sylva <br>(Conseillère SST) </span>
+                                <span class="badges" title="Pilier 3 : Implication">🤝</span>
+                            </div>
+
+                            <div class="file-icon" onclick="ouvrirLettre('doc-vetel')">
+                                <div class="hover-desc">
+                                    <strong style="color: #25B34B;">Pr. Jérôme Vétel</strong>
+                                    <em>Département de génie mécanique (Directeur GM)</em>
+                                    Directeur et professeur au département de génie mécanique, spécialiste en mécanique des fluides expérimentale, instabilités de sillage et métrologie laser à Polytechnique Montréal.
+                                    <br><br>
+                                    <strong>Distinctions :</strong> Leader académique pilotant l'un des plus grands départements de génie mécanique francophones.
+                                </div>
+                                <img src="PHOTO-JEROME.jpg" alt="Jérôme Vétel" class="file-image">
+                                <span class="name">Pr. Jérôme Vétel <br>(Directeur GM) </span>
+                                <span class="badges" title="Pilier 2 : Rôle Conseil | Pilier 3 : Implication">🧭 🤝</span>
+                            </div>
+
+                         <div class="file-icon" onclick="ouvrirLettre('doc-maud')">
+                             <div class="hover-desc"> 
+                                 <strong style="color: #25B34B;">Maud Cohen</strong>
+                                 <em>Direction Générale</em> 
+                                 Directrice générale, Polytechnique Montréal.
+                                 <br><br>
+                                 <strong>Distinctions :</strong> Première femme nommée à la direction générale de l'institution en 150 ans d'histoire ; ancienne présidente de l'Ordre des ingénieurs du Québec (OIQ).
+                             </div> 
+                             <img src="PHOTO-MAUD.jpg" alt="Maud Cohen" class="file-image"> 
+                             <span class="name">Mme Maud Cohen<br>(Dir. Générale)</span>
+                             <span class="badges" title="Pilier 3 : Implication">🤝</span> 
+                         </div>
+                          
+                        </div>
+                    </div>
+
+                    <div id="doc-maud" class="letter-content">
+                        <button class="btn-retour" onclick="fermerLettres()">⬅ Retourner aux dossiers</button>
+                        <p><strong>Appui de la Directrice Générale : Maud Cohen</strong></p>
+                        <img src="Maud Cohen_Capture d'écran.png" alt="Capture d'écran Maud Cohen">
+                    </div>
+
+                    <div id="doc-martin" class="letter-content">
+                        <button class="btn-retour" onclick="fermerLettres()">⬅ Retourner aux dossiers</button>
+                        <p><strong>Jean-Pierre Martin</strong></p>
+                        <iframe src="Jean-Pierre Martin.pdf#zoom=100"></iframe>
+                    </div>
+                    
+                    <div id="doc-therriault" class="letter-content">
+                        <button class="btn-retour" onclick="fermerLettres()">⬅ Retourner aux dossiers</button>
+                        <p><strong>Professeur Daniel Therriault (Génie Mécanique - LM2)</strong></p>
+                        <iframe src="Daniel Therriault.pdf#zoom=100"></iframe>
+                    </div>
+
+                    <div id="doc-mureithi" class="letter-content">
+                        <button class="btn-retour" onclick="fermerLettres()">⬅ Retourner aux dossiers</button>
+                        <p><strong>Professeur Njuki Mureithi (Génie Mécanique)</strong></p>
+                        <iframe src="Njuki Mureithi.pdf#zoom=100"></iframe>
+                    </div>
+
+                    <div id="doc-vo" class="letter-content">
+                        <button class="btn-retour" onclick="fermerLettres()">⬅ Retourner aux dossiers</button>
+                        <p><strong>Professeur Huu Duc Vo (Aérothermique)</strong></p>
+                        <iframe src="Huu Duc_Vo.pdf#zoom=100"></iframe>
+                    </div>
+
+                    <div id="doc-elmehdi" class="letter-content">
+                        <button class="btn-retour" onclick="fermerLettres()">⬅ Retourner aux dossiers</button>
+                        <p><strong>El Mehdi </strong></p>
+                        <iframe src="El Mehdi.pdf#zoom=100"></iframe>
+                    </div>
+
+                    <div id="doc-nowlan" class="letter-content">
+                        <button class="btn-retour" onclick="fermerLettres()">⬅ Retourner aux dossiers</button>
+                        <p><strong>Isabelle Nowlan</strong></p>
+                        <iframe src="Isabelle Nowlan.pdf#zoom=100"></iframe>
+                    </div>
+
+                    <div id="doc-gylbert" class="letter-content">
+                        <button class="btn-retour" onclick="fermerLettres()">⬅ Retourner aux dossiers</button>
+                        <p><strong>Monsieur Frédéric Gylbert (Sécurité institutionnelle)</strong></p>
+                        <iframe src="Frédéric Gylbert.pdf#zoom=100"></iframe>
+                    </div>
+
+                    <div id="doc-jamal" class="letter-content">
+                        <button class="btn-retour" onclick="fermerLettres()">⬅ Retourner aux dossiers</button>
+                        <p><strong>Professeur Jamal Chaouki (Génie Chimique)</strong></p>
+                        <iframe src="Jamal Chaouki.pdf#zoom=100"></iframe>
+                    </div>
+
+                    <div id="doc-hadji" class="letter-content">
+                        <button class="btn-retour" onclick="fermerLettres()">⬅ Retourner aux dossiers</button>
+                        <p><strong>Abdallah Hadji</strong></p>
+                        <iframe src="Abdallah Hadji.pdf#zoom=100"></iframe>
+                    </div>
+
+                    <div id="doc-yari" class="letter-content">
+                        <button class="btn-retour" onclick="fermerLettres()">⬅ Retourner aux dossiers</button>
+                        <p><strong>Bahman Yari</strong></p>
+                        <iframe src="Bahman Yari.pdf#zoom=100"></iframe>
+                    </div>
+
+                    <div id="doc-vetel" class="letter-content">
+                        <button class="btn-retour" onclick="fermerLettres()">⬅ Retourner aux dossiers</button>
+                        <p><strong>Professeur Jérôme Vétel (Génie Mécanique)</strong></p>
+                        <iframe src="Jérôme Vétel.pdf#zoom=100"></iframe>
+                    </div>
+
+                    <div id="doc-menard" class="letter-content">
+                        <button class="btn-retour" onclick="fermerLettres()">⬅ Retourner aux dossiers</button>
+                        <p><strong>Professeur David Ménard (Génie Physique)</strong></p>
+                        <iframe src="David Ménard.pdf#zoom=100"></iframe>
+                    </div>
+
+                    <div id="doc-sirois" class="letter-content">
+                        <button class="btn-retour" onclick="fermerLettres()">⬅ Retourner aux dossiers</button>
+                        <p><strong>Professeur Frédéric Sirois (Génie Électrique)</strong></p>
+                        <iframe src="Frédéric Sirois.pdf#zoom=100"></iframe>
+                    </div>
+
+                    <div id="doc-dasilva" class="letter-content">
+                        <button class="btn-retour" onclick="fermerLettres()">⬅ Retourner aux dossiers</button>
+                        <p><strong>Marie-Noël da Sylva (Sûreté Institutionnelle)</strong></p>
+                        <iframe src="Marie-Noël da Silva.pdf#zoom=100"></iframe>
+                    </div>
+
+                    <div id="doc-laberge" class="letter-content">
+                        <button class="btn-retour" onclick="fermerLettres()">⬅ Retourner aux dossiers</button>
+                        <p><strong>Professeur Louis Laberge-Lebel (Génie Mécanique)</strong></p>
+                        <iframe src="Louis Laberge-Lebel.pdf#zoom=100"></iframe>
+                    </div>
+
+                </div>
+            </div>
+
+            <div id="realisations" class="grid">
+                <div class="panel panel-full">
+                    <h1 class="header-title" style="color: #F15A22;">RÉALISATIONS & DISTINCTIONS (EN IMAGES)</h1>
+                </div>
+
+                <div class="panel">
+                    <h3 class="panel-title" style="color: #F15A22;">🔧 Expertise Distinctive (Soudage de précision)</h3>
+                    <p>Soudage et reprise de composants de haute précision.</p>
+                    <div class="image-grid" style="grid-template-columns: 1fr 1fr;">
+                        <div class="image-card"><img src="0201.jpg" alt="Soudage 0201"><p>Soudage de composants 0201 (0.6mm x 0.3mm)</p></div>
+                        <div class="image-card"><img src="BGA.jpg" alt="Soudage BGA"><p>Soudage BGA de haute précision</p></div>
+                        <div class="image-card"><img src="Reflow Sattion.jpg" alt="Station Reflow"><p>Station de soudage par refusion automatisée</p></div>
+                        <div class="image-card"><img src="Rework Station.png" alt="Station Rework"><p>Station de reprise pour composants SMD/BGA</p></div>
+                    </div>
+                </div>
+
+                <div class="panel">
+                    <h3 class="panel-title" style="color: #F15A22;">⚙️ Assemblage de circuits complexes</h3>
+                    <p>Conception et assemblage de circuits d'acquisition haute performance.</p>
+                    <div class="image-grid">
+                        <div class="image-card"><img src="Collector V1,3.jpg" alt="Collector V1.3"><p>Collector V1.3</p></div>
+                        <div class="image-card"><img src="Mezzanine 32x50MHz.jpg" alt="Mezzanine 32x50MHz"><p>Mezzanine 32x50MHz</p></div>
+                        <div class="image-card"><img src="TIG 1GHz_MB.jpg" alt="TIG 1GHz MB"><p>TIG 1GHz (MB)</p></div>
+                        <div class="image-card"><img src="TIG 1GHz.jpg" alt="TIG 1GHz"><p>TIG 1GHz</p></div>
+                        <div class="image-card"><img src="TIG 10.jpg" alt="TIG 10"><p>Système TIG 10</p></div>
+                    </div>
+                </div>
+
+                <div class="panel">
+                    <h3 class="panel-title" style="color: #F15A22;">⚡ Systèmes embarqués & Haute Tension</h3>
+                    <p>Contrôleurs et intégration de systèmes de puissance.</p>
+                    <div class="image-grid" style="grid-template-columns: 1fr;">
+                        <div class="image-card"><img src="Contrôleur HV.jpg" alt="Contrôleur HV"><p>Contrôleur Haute Tension</p></div>
+                    </div>
+                </div>
+
+                <div class="panel">
+                    <h3 class="panel-title" style="color: #F15A22;">🌊 Boucle Hydraulique Doosan</h3>
+                    <p>Installation et maintenance de la boucle expérimentale.</p>
+                    <div class="image-grid">
+                        <div class="image-card"><img src="Doosan-1.jpg" alt="Doosan"></div>
+                        <div class="image-card"><img src="Doosan-2.jpg" alt="Doosan"></div>
+                        <div class="image-card"><img src="Doosan-3.jpg" alt="Doosan"></div>
+                    </div>
+                </div>
+
+                <div class="panel">
+                    <h3 class="panel-title" style="color: #F15A22;">🌡️ Contrôleur de température</h3>
+                    <p>Lit et enceinte chauffante pour fabrication additive.</p>
+                    <div class="image-grid" style="grid-template-columns: 1fr;">
+                        <div class="image-card" style="padding: 15px;">
+                            <img src="J-5131 Contrôleur de température à écran tactile.jpg" alt="Contrôleur J5131" style="height: auto; max-height: 400px; object-fit: contain; background-color: transparent;">
+                            <p>J-5131 Control</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="panel">
+                    <h3 class="panel-title" style="color: #F15A22;">🔩 Station de couple</h3>
+                    <p>Conception et assemblage du banc d'essai.</p>
+                    <div class="image-grid" style="grid-template-columns: 1fr 1fr;">
+                        <div class="image-card"><img src="1000105233.jpg" alt="Station de couple 1"><p>Vue d'ensemble</p></div>
+                        <div class="image-card"><img src="1000106344.jpg" alt="Station de couple 3"><p>Axe et capteur</p></div>
+                        
+                        <div class="image-card" style="grid-column: span 2;">
+                            <img src="1000106342.jpg" alt="Station de couple 2" style="height: auto; max-height: 500px;">
+                            <p>Montage mécanique</p>
+                        </div>
+                        <div class="image-card" style="grid-column: span 2;">
+                            <img src="1000107307.jpg" alt="Station de couple 4" style="height: auto; max-height: 500px;">
+                            <p>Banc d'essai</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="panel">
+                    <h3 class="panel-title" style="color: #F15A22;">🔥 Four Rotatif & Échantillonneur</h3>
+                    <div class="image-grid" style="grid-template-columns: 1fr 1fr;">
+                        <div class="image-card"><img src="four-rotatif-1.jpg" alt="Four"></div>
+                        <div class="image-card"><img src="four-rotatif-2.jpg" alt="Four"></div>
+                        <div class="image-card"><img src="four-rotatif-3.jpg" alt="Four"></div>
+                        <div class="image-card"><img src="four-rotatif-4.jpg" alt="Four"></div>
+                    </div>
+                </div>
+
+                <div class="panel panel-full">
+                    <h3 class="panel-title" style="color: #F15A22;">🔄 Bobineuse de rubans supraconducteurs</h3>
+                    <p>Démonstration vidéo et photos du système de bobinage automatisé.</p>
+                    <div style="display: grid; grid-template-columns: 1fr; gap: 25px; max-width: 100%;">
+                         <video controls style="width: 100%; height: auto; max-height: 800px; object-fit: contain; border-radius: 6px; border: 1px solid #50565c; background-color: #1a1c1e;"><source src="678.mp4" type="video/mp4"></video>
+                         <video controls style="width: 100%; height: auto; max-height: 800px; object-fit: contain; border-radius: 6px; border: 1px solid #50565c; background-color: #1a1c1e;"><source src="679.mp4" type="video/mp4"></video>
+                         <div class="image-card" style="width: 100%; height: auto; padding: 15px;"><img src="674.jpg" alt="Bobineuse 1" style="height: auto; max-height: 600px; object-fit: contain; background-color: transparent;"><p style="margin-top: 10px; font-size: 14px;">Bobineuse 1 - Vue d'ensemble du cône de guidage</p></div>
+                         <div class="image-card" style="width: 100%; height: auto; padding: 15px;"><img src="675.jpg" alt="Bobineuse 2" style="height: auto; max-height: 600px; object-fit: contain; background-color: transparent;"><p style="margin-top: 10px; font-size: 14px;">Bobineuse 2 - Structure latérale et motorisation</p></div>
+                    </div>
+                </div>
+
+                <div class="panel panel-full">
+                    <h3 class="panel-title" style="color: #F15A22;">🏢 Restructuration et Modernisation des laboratoires (SST)</h3>
+                    <div class="image-grid" style="grid-template-columns: repeat(3, 1fr);">
+                        <div class="image-card"><img src="J-5100 Solution douche corporelle.jpg" alt="Douche SST"><p>Aménagement J-1 SST</p></div>
+                        <div class="image-card"><img src="J-5129 Organisation des locaux - 3D FDMs.jpg" alt="J-5129"><p>J-5129 Organisation</p></div>
+                        <div class="image-card"><img src="J-5129 Organisation des locaux - 3D Postes de travail.jpg" alt="Postes"><p>J-5129 Postes de travail</p></div>
+                        <div class="image-card"><img src="J-5131 Oranisation des locaux - Poste de sougae.jpg" alt="Soudure"><p>J-5131 Poste de soudage</p></div>
+                        <div class="image-card"><img src="J-5133 Aerotech.jpg" alt="Aerotech"><p>J-5133 Amélioration</p></div>
+                        <div class="image-card"><img src="J-5135 Achat des FDM haute température.jpg" alt="FDM"><p>J-5135 Achat Stratégique</p></div>
+                        <div class="image-card"><img src="Aon.jpg" alt="Aon"><p>Parc d'impression 3D AON</p></div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="annexes" class="grid">
+                <div class="panel panel-full">
+                    <h1 class="header-title" style="color: #ED1C24;">ANNEXES (FORMATIONS & DOCUMENTS)</h1>
+                    <p style="color: #c7cdd1; font-size: 16px;">Espace réservé aux attestations de formation, lettres de remerciement et travaux d'étudiants.</p>
+                </div>
+
+                <div class="panel panel-full annexes-file-grid">
+                    
+                    <div class="annexes-file-card" onclick="window.open('Formations.pdf', '_blank')">
+                        <div class="pdf-icon-placeholder" style="color: #F15A22;">🎓</div>
+                        <p>Formations</p>
+                        <em>[Attestations & Certificats]</em>
+                    </div>
+                    
+                    <div class="annexes-file-card">
+                        <div class="pdf-icon-placeholder">📄</div>
+                        <p>Lettre Élève 1</p>
+                        <em>[Nom de l'élève]</em>
+                    </div>
+                    
+                    <div class="annexes-file-card">
+                        <div class="pdf-icon-placeholder">📄</div>
+                        <p>Lettre Élève 2</p>
+                        <em>[Nom de l'élève]</em>
+                    </div>
+                    
+                    <div class="annexes-file-card">
+                        <div class="pdf-icon-placeholder">📄</div>
+                        <p>Lettre Élève 3</p>
+                        <em>[Nom de l'élève]</em>
+                    </div>
+                    
+                    <div class="annexes-file-card">
+                        <div class="pdf-icon-placeholder">📄</div>
+                        <p>Lettre Élève 4</p>
+                        <em>[Nom de l'élève]</em>
+                    </div>
+                    
+                    <div class="annexes-file-card">
+                        <div class="pdf-icon-placeholder">📄</div>
+                        <p>Lettre Élève 5</p>
+                        <em>[Nom de l'élève]</em>
+                    </div>
+                    
+                    <div class="annexes-file-card">
+                        <div class="pdf-icon-placeholder">📄</div>
+                        <p>Lettre Élève 6</p>
+                        <em>[Nom de l'élève]</em>
+                    </div>
+                    
+                    <div class="annexes-file-card">
+                        <div class="pdf-icon-placeholder">📄</div>
+                        <p>Lettre Élève 7</p>
+                        <em>[Nom de l'élève]</em>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        // Fonction pour passer en Plein Écran
+        function toggleFullScreen() {
+            if (!document.fullscreenElement) {
+                document.documentElement.requestFullscreen().catch(err => {
+                    alert(`Erreur lors du passage en plein écran: ${err.message}`);
+                });
+            } else {
+                if (document.exitFullscreen) {
+                    document.exitFullscreen();
+                }
+            }
+        }
+
+        // Logique pour ouvrir et fermer les lettres 
+        function ouvrirLettre(idLettre) {
+            document.getElementById('file-directory').style.display = 'none';
+            let lettres = document.getElementsByClassName('letter-content');
+            for(let i = 0; i < lettres.length; i++) {
+                lettres[i].style.display = 'none';
+            }
+            document.getElementById(idLettre).style.display = 'block';
+            
+            document.getElementById('lettres').scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+
+        function fermerLettres() {
+            let lettres = document.getElementsByClassName('letter-content');
+            for(let i = 0; i < lettres.length; i++) {
+                lettres[i].style.display = 'none';
+            }
+            document.getElementById('file-directory').style.display = 'block';
+            
+            document.getElementById('lettres').scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+
+        // Script pour changer la couleur du menu de gauche selon où on clique
+        document.querySelectorAll('.sidebar a').forEach(link => {
+            link.addEventListener('click', function() {
+                document.querySelectorAll('.sidebar a').forEach(l => l.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+    </script>
 
 </body>
 </html>
