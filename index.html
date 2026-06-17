@@ -7,9 +7,7 @@
     <title>Dossier Senior - Yanik Landry-Ducharme</title>
     <style>
         /* Défilement fluide */
-        html { 
-            scroll-behavior: smooth; 
-        }
+        html { scroll-behavior: smooth; }
 
         body {
             margin: 0;
@@ -19,7 +17,7 @@
             overflow-x: hidden;
         }
         
-        /* Barre de Navigation Supérieure (Fixée) */
+        /* Barre de Navigation Supérieure */
         .navbar {
             background-color: #FFFFFF;
             color: #000000;
@@ -35,549 +33,183 @@
             box-sizing: border-box;
         }
         
-        /* Conteneur du Logo */
-        .navbar-logo {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            perspective: 1000px;
-        }
-
-        /* Animation 3D uniquement pour le Sceau */
-        .logo-3d {
-            height: 55px;
-            transform-style: preserve-3d;
-            animation: spin 6s linear infinite; 
-        }
-
-        /* Texte Polytechnique Fixe */
-        .logo-text {
-            font-family: 'Arial Black', Impact, sans-serif;
-            font-size: 22px;
-            line-height: 1.05;
-            letter-spacing: 1px;
-            color: #000000;
-            text-transform: uppercase;
-        }
-
-        /* Nom du candidat en haut à droite */
-        .navbar-name {
-            font-size: 24px;
-            font-weight: bold;
-            color: #F38B00;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            text-align: right;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
-        }
+        .navbar-logo { display: flex; align-items: center; gap: 15px; perspective: 1000px; }
+        .logo-3d { height: 55px; transform-style: preserve-3d; animation: spin 6s linear infinite; }
+        .logo-text { font-family: 'Arial Black', Impact, sans-serif; font-size: 22px; line-height: 1.05; letter-spacing: 1px; color: #000000; text-transform: uppercase; }
+        .navbar-name { font-size: 24px; font-weight: bold; color: #F38B00; letter-spacing: 2px; text-transform: uppercase; text-align: right; text-shadow: 1px 1px 2px rgba(0,0,0,0.1); }
 
         @keyframes spin {
             0% { transform: rotateY(0deg); }
             100% { transform: rotateY(360deg); }
         }
 
-        /* Bouton Plein Écran Flottant */
         .btn-fullscreen {
-            position: fixed;
-            bottom: 25px;
-            right: 25px;
-            background-color: rgba(43, 47, 51, 0.85);
-            color: #DA8A68;
-            border: 2px solid #DA8A68;
-            border-radius: 50%;
-            width: 55px;
-            height: 55px;
-            font-size: 24px;
-            cursor: pointer;
-            z-index: 9999;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
-            backdrop-filter: blur(4px);
-            transition: all 0.3s;
+            position: fixed; bottom: 25px; right: 25px; background-color: rgba(43, 47, 51, 0.85); color: #DA8A68;
+            border: 2px solid #DA8A68; border-radius: 50%; width: 55px; height: 55px; font-size: 24px;
+            cursor: pointer; z-index: 9999; display: flex; align-items: center; justify-content: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.5); backdrop-filter: blur(4px); transition: all 0.3s;
         }
-        .btn-fullscreen:hover {
-            background-color: #DA8A68;
-            color: #1a1c1e;
-            transform: scale(1.1);
-        }
+        .btn-fullscreen:hover { background-color: #DA8A68; color: #1a1c1e; transform: scale(1.1); }
         
-        /* Disposition de la page */
-        .container { 
-            display: flex; 
-            align-items: flex-start; 
-        }
+        .container { display: flex; align-items: flex-start; }
 
-        /* Menu Latéral Gauche */
         .sidebar {
-            width: 260px;
-            background-color: #1a1c1e;
-            display: flex;
-            flex-direction: column;
-            border-right: 1px solid #50565c;
-            flex-shrink: 0;
-            position: sticky;
-            top: 75px; 
-            height: calc(100vh - 75px);
-            overflow-y: auto;
-            z-index: 999;
+            width: 260px; background-color: #1a1c1e; display: flex; flex-direction: column;
+            border-right: 1px solid #50565c; flex-shrink: 0; position: sticky; top: 75px; 
+            height: calc(100vh - 75px); overflow-y: auto; z-index: 999;
         }
-        .sidebar a {
-            padding: 20px;
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 14px;
-            border-bottom: 1px solid #333;
-            text-transform: uppercase;
-            transition: all 0.3s;
-        }
+        .sidebar a { padding: 20px; text-decoration: none; font-weight: bold; font-size: 14px; border-bottom: 1px solid #333; text-transform: uppercase; transition: all 0.3s; }
+        .sidebar a:hover, .sidebar a.active { background-color: #50565c; }
+        .sidebar a.link-bleu { color: #00BDF2; border-left: 5px solid #00BDF2; }
+        .sidebar a.link-vert { color: #25B34B; border-left: 5px solid #25B34B; }
+        .sidebar a.link-orange { color: #F15A22; border-left: 5px solid #F15A22; }
+        .sidebar a.link-rouge { color: #ED1C24; border-left: 5px solid #ED1C24; }
 
-        /* Couleurs Officielles Polytechnique pour le menu - AFFICHÉES EN PERMANENCE */
-        .sidebar a:hover, .sidebar a.active {
-            background-color: #50565c;
-        }
-        .sidebar a.link-bleu {
+        .main-content { flex: 1; padding: 100px; background: linear-gradient(to bottom right, #2b2f33, #1a1c1e); min-height: calc(100vh - 75px); box-sizing: border-box; max-width: 100%; }
+        
+        .header-title { font-size: 34px; margin-top: 0; margin-bottom: 20px; text-transform: uppercase; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); word-wrap: break-word; }
+        .header-subtitle { color: #c7cdd1; font-size: 18px; margin-top: -10px; margin-bottom: 40px; letter-spacing: 2px; }
+
+        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-bottom: 30px; scroll-margin-top: 100px; }
+        .panel { background-color: #25282b; border: 1px solid #50565c; border-radius: 6px; padding: 25px; box-shadow: 5px 5px 15px rgba(0,0,0,0.4); }
+        .panel-full { grid-column: span 2; }
+        
+        .panel-title { color: #F38B00; font-size: 24px; margin-top: 0; border-bottom: 1px solid #50565c; padding-bottom: 10px; text-transform: uppercase; margin-bottom: 20px; }
+        
+        .media-container img, .media-container video, .media-container iframe { width: 100%; max-width: 100%; border-radius: 4px; border: 1px solid #50565c; margin-bottom: 15px; background-color: #1a1c1e; }
+        .media-container iframe { height: 600px; }
+        
+        .image-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+        .image-card { background: #1a1c1e; padding: 10px; border: 1px solid #333; border-radius: 4px; text-align: center; display: flex; flex-direction: column; justify-content: space-between; height: 100%; box-sizing: border-box; }
+        .image-card img { width: 100%; height: 350px; object-fit: cover; border-radius: 4px; margin-bottom: 10px; border: none; background-color: transparent; }
+        .image-card p { font-size: 12px; color: #c7cdd1; margin: 0; margin-top: auto; }
+
+        .file-system { display: flex; flex-wrap: wrap; gap: 20px; }
+        .file-icon { background-color: #1a1c1e; border: 1px solid #50565c; border-radius: 8px; padding: 20px 10px; width: 200px; height: 330px; box-sizing: border-box; text-align: center; cursor: pointer; transition: all 0.2s; user-select: none; display: flex; flex-direction: column; align-items: center; justify-content: flex-start; position: relative; }
+        .file-icon:hover { background-color: #333; border-color: #F38B00; transform: translateY(-3px); box-shadow: 0 4px 8px rgba(0,0,0,0.5); }
+        .file-system.file-image { width: 100px!important; height: 135px!important; border-radius: 6px; object-fit: cover; border: 2px solid #50565c; margin-bottom: 12px; background-color: #2b2f33; box-shadow: 0 4px 8px rgba(0,0,0,0.3); }
+        .file-icon span.name { font-size: 13px; font-weight: bold; color: #c7cdd1; word-wrap: break-word; margin-bottom: 8px; }
+        .file-icon span.badges { font-size: 24px; letter-spacing: 2px; margin-top: auto; }
+
+        .hover-desc { visibility: hidden; opacity: 0; position: absolute; bottom: 105%; left: 50%; transform: translateX(-50%); width: 380px; max-width: 90vw; background-color: #1e2124; border: 2px solid #25B34B; border-top: 4px solid #25B34B; border-radius: 6px; padding: 15px; box-shadow: 0 5px 20px rgba(0,0,0,0.9); z-index: 9999; font-size: 12px; color: #F8F8F8; text-align: left; pointer-events: none; line-height: 1.4; white-space: normal; transition: opacity 0.2s ease, visibility 0.2s ease; }
+        .hover-desc strong { color: #F38B00; display: block; margin-bottom: 3px; font-size: 13px; text-transform: uppercase; }
+        .hover-desc em { color: #00BDF2; display: block; margin-bottom: 8px; font-style: italic; }
+        .file-icon:hover .hover-desc { visibility: visible; opacity: 1; }
+        
+        .letter-content { display: none; }
+        .btn-retour { background-color: #50565c; color: white; border: none; padding: 10px 20px; border-radius: 4px; cursor: pointer; font-weight: bold; margin-bottom: 20px; display: flex; align-items: center; gap: 10px; width: fit-content; }
+        .btn-retour:hover { background-color: #F38B00; }
+
+        .legend-box { background-color: #1a1c1e; border: 1px solid #50565c; border-radius: 6px; padding: 20px; margin-bottom: 25px; color: #c7cdd1; }
+        .legend-box strong { color: #F38B00; display: block; margin-bottom: 12px; text-transform: uppercase; font-size: 18px; }
+        .legend-items { display: flex; flex-wrap: wrap; gap: 25px; }
+        .legend-items span { display: flex; align-items: center; gap: 8px; font-size: 17px; font-weight: 500; }
+
+        .annexes-file-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+        .annexes-file-card { background-color: #1a1c1e; border: 1px solid #50565c; border-radius: 8px; padding: 20px 10px; text-align: center; cursor: pointer; transition: all 0.2s; user-select: none; display: flex; flex-direction: column; align-items: center; justify-content: center; aspect-ratio: 1 / 1; position: relative; box-sizing: border-box; }
+        .annexes-file-card:hover { background-color: #333; border-color: #ED1C24; transform: translateY(-3px); box-shadow: 0 4px 10px rgba(0,0,0,0.5); }
+        .annexes-file-card p { font-size: 13px; font-weight: bold; color: #c7cdd1; word-wrap: break-word; margin: 0; text-transform: uppercase; }
+        .annexes-file-card em { font-size: 11px; color: #DA8A68; font-style: italic; display: block; margin-top: 3px; text-transform: none; }
+        .pdf-icon-placeholder { font-size: 40px; margin-bottom: 10px; color: #777; }
+
+        /* --- STYLES MAGIQUES POUR LES TAGS DE CITATION --- */
+        .citation-tag {
             color: #00BDF2;
-            border-left: 5px solid #00BDF2;
-        }
-        .sidebar a.link-vert {
-            color: #25B34B;
-            border-left: 5px solid #25B34B;
-        }
-        .sidebar a.link-orange {
-            color: #F15A22;
-            border-left: 5px solid #F15A22;
-        }
-        .sidebar a.link-rouge {
-            color: #ED1C24;
-            border-left: 5px solid #ED1C24;
-        }
-
-        /* Zone de Contenu Principal */
-        .main-content {
-            flex: 1;
-            padding: 100px; 
-            background: linear-gradient(to bottom right, #2b2f33, #1a1c1e);
-            min-height: calc(100vh - 75px);
-            box-sizing: border-box;
-            max-width: 100%;
-        }
-        
-        .header-title {
-            font-size: 34px; 
-            margin-top: 0;
-            margin-bottom: 20px;
-            text-transform: uppercase;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-            word-wrap: break-word;
-        }
-        
-        .header-subtitle {
-            color: #c7cdd1;
-            font-size: 18px;
-            margin-top: -10px;
-            margin-bottom: 40px;
-            letter-spacing: 2px;
-        }
-
-        /* Grille des Panneaux */
-        .grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 30px;
-            margin-bottom: 30px;
-            scroll-margin-top: 100px;
-        }
-        
-        .panel {
-            background-color: #25282b;
-            border: 1px solid #50565c;
-            border-radius: 6px;
-            padding: 25px;
-            box-shadow: 5px 5px 15px rgba(0,0,0,0.4);
-        }
-
-        .panel-full {
-            grid-column: span 2;
-        }
-        
-        .panel-title {
-            color: #F38B00;
-            font-size: 24px; 
-            margin-top: 0;
-            border-bottom: 1px solid #50565c;
-            padding-bottom: 10px;
-            text-transform: uppercase;
-            margin-bottom: 20px;
-        }
-        
-        /* Conteneurs pour Médias */
-        .media-container img, .media-container video, .media-container iframe {
-            width: 100%;
-            max-width: 100%;
-            border-radius: 4px;
-            border: 1px solid #50565c;
-            margin-bottom: 15px;
-            background-color: #1a1c1e;
-        }
-        .media-container iframe {
-            height: 600px; 
-        }
-        .image-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 15px;
-        }
-
-        .image-card {
-            background: #1a1c1e;
-            padding: 10px;
-            border: 1px solid #333;
-            border-radius: 4px;
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            height: 100%;
-            box-sizing: border-box;
-        }
-
-        .image-card img {
-            width: 100%;
-            height: 350px; 
-            object-fit: cover; 
-            border-radius: 4px;
-            margin-bottom: 10px;
-            border: none;
-            background-color: transparent;
-        }
-        
-        .image-card p {
-            font-size: 12px;
-            color: #c7cdd1;
-            margin: 0;
-            margin-top: auto;
-        }
-
-        /* Fichiers Interactifs (Lettres) */
-        .file-system {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-        }
-        .file-icon {
-            background-color: #1a1c1e;
-            border: 1px solid #50565c;
-            border-radius: 8px;
-            padding: 20px 10px;
-            width: 200px;
-            height: 330px; 
-            box-sizing: border-box; 
-            text-align: center;
-            cursor: pointer;
-            transition: all 0.2s;
-            user-select: none;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: flex-start;
-            position: relative; 
-        }
-        .file-icon:hover {
-            background-color: #333;
-            border-color: #F38B00;
-            transform: translateY(-3px);
-            box-shadow: 0 4px 8px rgba(0,0,0,0.5);
-        }
-        
-        .file-system.file-image {
-            width: 100px!important;
-            height: 135px!important; 
-            border-radius: 6px;
-            object-fit: cover; 
-            border: 2px solid #50565c;
-            margin-bottom: 12px;
-            background-color: #2b2f33;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
-        }
-        
-        .file-icon span.name {
-            font-size: 13px;
             font-weight: bold;
-            color: #c7cdd1;
-            word-wrap: break-word;
-            margin-bottom: 8px;
-        }
-        .file-icon span.badges {
-            font-size: 24px;
-            letter-spacing: 2px;
-            margin-top: auto; 
+            cursor: help;
+            position: relative;
+            display: inline-block;
+            margin: 0 2px;
+            padding: 0 2px;
+            border-radius: 3px;
+            transition: background-color 0.2s;
         }
 
-        /* SYSTÈME DE POP-UP AVEC BORDURE VERTE ET LARGEUR AUGMENTÉE */
-        .hover-desc {
+        .citation-tag:hover {
+            background-color: rgba(0, 189, 242, 0.2);
+        }
+
+        .citation-tag:hover .tag-tooltip {
+            visibility: visible;
+            opacity: 1;
+            transform: translateX(-50%) translateY(0);
+        }
+
+        .tag-tooltip {
             visibility: hidden;
             opacity: 0;
             position: absolute;
-            bottom: 105%; 
+            bottom: 140%;
             left: 50%;
-            transform: translateX(-50%);
-            width: 380px; 
-            max-width: 90vw; 
+            transform: translateX(-50%) translateY(10px);
             background-color: #1e2124;
-            border: 2px solid #25B34B; 
-            border-top: 4px solid #25B34B; 
+            color: #F8F8F8;
+            border: 2px solid #00BDF2;
             border-radius: 6px;
             padding: 15px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.9);
-            z-index: 9999; 
-            font-size: 12px;
-            color: #F8F8F8;
-            text-align: left;
-            pointer-events: none; 
-            line-height: 1.4;
-            white-space: normal;
-            transition: opacity 0.2s ease, visibility 0.2s ease;
-        }
-        
-        .hover-desc strong {
-            color: #F38B00;
-            display: block;
-            margin-bottom: 3px;
+            width: max-content;
+            max-width: 350px;
             font-size: 13px;
-            text-transform: uppercase;
+            font-weight: normal;
+            line-height: 1.5;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.9);
+            z-index: 10000;
+            pointer-events: none; 
+            transition: all 0.2s ease;
+            white-space: normal;
+            text-align: left;
         }
-        
-        .hover-desc em {
-            color: #00BDF2; 
+
+        .tag-tooltip strong {
+            color: #F38B00;
             display: block;
             margin-bottom: 8px;
-            font-style: italic;
-        }
-        
-        /* Apparition de la bulle au survol */
-        .file-icon:hover .hover-desc {
-            visibility: visible;
-            opacity: 1;
-        }
-        
-        .letter-content {
-            display: none;
-        }
-        
-        .btn-retour {
-            background-color: #50565c;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 4px;
-            cursor: pointer;
-            font-weight: bold;
-            margin-bottom: 20px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            width: fit-content;
-        }
-        .btn-retour:hover {
-            background-color: #F38B00;
-        }
-
-        .legend-box {
-            background-color: #1a1c1e;
-            border: 1px solid #50565c;
-            border-radius: 6px;
-            padding: 20px; 
-            margin-bottom: 25px;
-            color: #c7cdd1;
-        }
-        .legend-box strong {
-            color: #F38B00;
-            display: block;
-            margin-bottom: 12px;
-            text-transform: uppercase;
-            font-size: 18px; 
-        }
-        .legend-items {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 25px;
-        }
-        .legend-items span {
-            display: flex;
-            align-items: center;
-            gap: 8px; 
-            font-size: 17px; 
-            font-weight: 500;
-        }
-
-        .annexes-file-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 20px;
-        }
-        .annexes-file-card {
-            background-color: #1a1c1e;
-            border: 1px solid #50565c;
-            border-radius: 8px;
-            padding: 20px 10px;
-            text-align: center;
-            cursor: pointer;
-            transition: all 0.2s;
-            user-select: none;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            aspect-ratio: 1 / 1; 
-            position: relative;
-            box-sizing: border-box;
-        }
-        .annexes-file-card:hover {
-            background-color: #333;
-            border-color: #ED1C24; 
-            transform: translateY(-3px);
-            box-shadow: 0 4px 10px rgba(0,0,0,0.5);
-        }
-      
-        .annexes-file-card p {
-            font-size: 13px;
-            font-weight: bold;
-            color: #c7cdd1;
-            word-wrap: break-word;
-            margin: 0;
+            border-bottom: 1px solid #333;
+            padding-bottom: 5px;
             text-transform: uppercase;
         }
-        .annexes-file-card em {
-            font-size: 11px;
-            color: #DA8A68;
-            font-style: italic;
-            display: block;
-            margin-top: 3px;
-            text-transform: none;
+
+        .tag-tooltip::after {
+            content: "";
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            margin-left: -8px;
+            border-width: 8px;
+            border-style: solid;
+            border-color: #00BDF2 transparent transparent transparent;
         }
-        
-        .pdf-icon-placeholder {
-            font-size: 40px;
-            margin-bottom: 10px;
-            color: #777; 
-        }
-        
-        /* Design Adaptatif (Mobile) */
+
         @media (max-width: 900px) {
-            .navbar {
-                padding: 0 15px;
-                height: 60px;
-            }
-            .logo-3d {
-                height: 35px;
-            }
-            .logo-text {
-                font-size: 12px; 
-            }
-            .navbar-name {
-                font-size: 13px; 
-                letter-spacing: 0px;
-            }
-            .btn-fullscreen {
-                bottom: 15px;
-                right: 15px;
-                width: 45px;
-                height: 45px;
-                font-size: 20px;
-            }
-            .container { 
-                flex-direction: column; 
-            }
-            .sidebar {
-                width: 100%;
-                height: 55px;
-                flex-direction: row;
-                overflow-x: auto;
-                overflow-y: hidden;
-                white-space: nowrap;
-                border-right: none;
-                border-bottom: 2px solid #50565c;
-                top: 60px;
-            }
+            .navbar { padding: 0 15px; height: 60px; }
+            .logo-3d { height: 35px; }
+            .logo-text { font-size: 12px; }
+            .navbar-name { font-size: 13px; letter-spacing: 0px; }
+            .btn-fullscreen { bottom: 15px; right: 15px; width: 45px; height: 45px; font-size: 20px; }
+            .container { flex-direction: column; }
+            .sidebar { width: 100%; height: 55px; flex-direction: row; overflow-x: auto; overflow-y: hidden; white-space: nowrap; border-right: none; border-bottom: 2px solid #50565c; top: 60px; }
             .sidebar::-webkit-scrollbar { height: 0px; background: transparent; } 
-            
-            .sidebar a {
-                padding: 16px 15px;
-                font-size: 11px;
-                border-bottom: 4px solid transparent;
-            }
-            .sidebar a:hover, .sidebar a.active {
-                border-left: none;
-                background-color: #333;
-            }
-            .sidebar a.link-bleu:hover, .sidebar a.link-bleu.active {
-                border-bottom: 4px solid #00BDF2;
-            }
-            .sidebar a.link-vert:hover, .sidebar a.link-vert.active {
-                border-bottom: 4px solid #25B34B;
-            }
-            .sidebar a.link-orange:hover, .sidebar a.link-orange.active {
-                border-bottom: 4px solid #F15A22;
-            }
-            .sidebar a.link-rouge:hover, .sidebar a.link-rouge.active {
-                border-bottom: 4px solid #ED1C24;
-            }
-            
-            .main-content {
-                padding: 15px;
-            }
-            .header-title {
-                font-size: 24px; 
-                line-height: 1.2;
-            }
-            .header-subtitle {
-                font-size: 14px;
-                margin-bottom: 25px;
-            }
-            .panel-title {
-                font-size: 18px; 
-            }
-            p, ul li {
-                font-size: 13px;
-            }
-            .grid {
-                grid-template-columns: 1fr;
-                gap: 15px;
-                scroll-margin-top: 130px; 
-            }
-            .panel-full {
-                grid-column: 1; 
-            }
-            .image-grid {
-                grid-template-columns: 1fr;
-            }
-            .image-card img {
-                height: 250px; 
-            }
-            .file-icon {
-                width: 44%;
-                padding: 15px 5px;
-            }
-            .media-container iframe {
-                height: 400px; 
-            }
-            .legend-items {
-                flex-direction: column;
-                gap: 8px;
-            }
-            
-            .annexes-file-grid {
-                grid-template-columns: 1fr 1fr;
-                gap: 10px;
-            }
-            .pdf-icon-placeholder {
-                font-size: 30px;
-            }
-            .annexes-file-card p {
-                font-size: 11px;
-            }
+            .sidebar a { padding: 16px 15px; font-size: 11px; border-bottom: 4px solid transparent; }
+            .sidebar a:hover, .sidebar a.active { border-left: none; background-color: #333; }
+            .sidebar a.link-bleu:hover, .sidebar a.link-bleu.active { border-bottom: 4px solid #00BDF2; }
+            .sidebar a.link-vert:hover, .sidebar a.link-vert.active { border-bottom: 4px solid #25B34B; }
+            .sidebar a.link-orange:hover, .sidebar a.link-orange.active { border-bottom: 4px solid #F15A22; }
+            .sidebar a.link-rouge:hover, .sidebar a.link-rouge.active { border-bottom: 4px solid #ED1C24; }
+            .main-content { padding: 15px; }
+            .header-title { font-size: 24px; line-height: 1.2; }
+            .header-subtitle { font-size: 14px; margin-bottom: 25px; }
+            .panel-title { font-size: 18px; }
+            p, ul li { font-size: 13px; }
+            .grid { grid-template-columns: 1fr; gap: 15px; scroll-margin-top: 130px; }
+            .panel-full { grid-column: 1; }
+            .image-grid { grid-template-columns: 1fr; }
+            .image-card img { height: 250px; }
+            .file-icon { width: 44%; padding: 15px 5px; }
+            .media-container iframe { height: 400px; }
+            .legend-items { flex-direction: column; gap: 8px; }
+            .annexes-file-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
+            .pdf-icon-placeholder { font-size: 30px; }
+            .annexes-file-card p { font-size: 11px; }
         }
     </style>
 </head>
@@ -586,13 +218,9 @@
     <div class="navbar">
         <div class="navbar-logo">
             <img src="sceau.png" alt="Sceau Polytechnique 3D" class="logo-3d">
-            <div class="logo-text">
-                POLYTECHNIQUE<br>MONTRÉAL
-            </div>
+            <div class="logo-text">POLYTECHNIQUE<br>MONTRÉAL</div>
         </div>
-        <div class="navbar-name">
-            YANIK LANDRY-DUCHARME
-        </div>
+        <div class="navbar-name">YANIK LANDRY-DUCHARME</div>
     </div>
 
     <button class="btn-fullscreen" onclick="toggleFullScreen()" title="Plein Écran">⛶</button>
@@ -605,20 +233,120 @@
             <a href="#annexes" class="link-rouge">ANNEXES</a>
         </div>
     
-
         <div class="main-content">
             <h1 class="header-title" style="color: #00BDF2;">PORTRAIT DE CARRIÈRE</h1>
             <h2 class="header-subtitle"> YANIK LANDRY-DUCHARME - TECHNOLOGUE PHYSIQUE</h2>
 
             <div id="cv" class="grid">
+                
                 <div class="panel panel-full media-container">
-                    <h3 class="panel-title" style="color: #00BDF2;">DOSSIER DE CANDIDATURE </h3>
-                    <iframe src="https://view.officeapps.live.com/op/embed.aspx?src=https://Yanik-Landry-Ducharme.github.io/Dossier_Candidature.docx" width="100%" height="600px" frameborder="0"></iframe>
+                    <h3 class="panel-title" style="color: #00BDF2;">DOSSIER DE CANDIDATURE (ARGUMENTAIRE)</h3>
+                    
+                    <div id="texte-argumentaire" style="font-size: 15px; line-height: 1.6; padding: 25px; background-color: #1a1c1e; border-radius: 6px; border: 1px solid #50565c; color: #e1e6eb;">
+                        
+                        <h4 style="color: #F38B00; border-bottom: 1px solid #333; padding-bottom: 5px; margin-top: 0;">4.1 Expertise distinctive</h4>
+                        <p><strong>Interdisciplinarité des connaissances</strong> accrues de la micro-électronique (et de sa fabrication), à la conception mécanique et la fabrication additive en une seule personne : Formation professionnelle sur Altium (20 000$), formattion Orcad, et SolidWorks, impression 3D, C++, usinage et microcontrôleur [FS_3] [FS_4] [JC_4] [DT_4] [JPM_2] [DM_4] [DM_11] [NM_4];</p>
+                        
+                        <p><strong>Connaissance des circuits électroniques :</strong><br>
+                        - Ma connaissance du prototypage et de la fabrication depuis le début du siècle (Atelier d'électronique - Laboratoire Technologique Avancé - Université de Montréal - Confluence), me confère une vision claire des embûches à éviter lors de la production des PCBs [FS_3] [JPM_3] [JPM_4] [JPM_1] [DT_4];<br>
+                        - Ayant travaillé à plusieurs projets internationaux d’envergures, je connais bien les structures de la communauté scientifiques liées à la conception des circuits électroniques [JC_6] [NM_1] [NM_2];<br>
+                        - Je suis particulièrement spécialisé dans la conception (routage) de circuits dont la communication à large bande est à très haut débit (j’ai même travaillé à mon compte pour Photons etc., car ils aimaient mon travail fait à l’UdeM) [FS_3] [JPM_7] [DM_4] [JPM_3];<br>
+                        - Je sais utiliser les BGA Rework Stations et les Reflow Soldering Stations. Je sais faire du prototypage de PCBs en gravure mécanique et électro-placage [FS_3] [JPM_6] [JPM_4] [JPM_3] [DT_4];</p>
+                        
+                        <p><strong>Connaissance de l’usinage et de l’assemblage :</strong><br>
+                        - Ayant suivi des cours d’usinage et travaillé avec le Laboratoire Technologique de l’UdeM pendant 16 ans (Atelier d'usinage - Laboratoire Technologique Avancé - Université de Montréal - Confluence), j’ai la bonne « intention de design », minimisant coûts et pertes de temps [JC_8] [NM_5] [DT_4] [LLL_2] [DM_11] [NM_8]. Le technicien de cet atelier a reçu le prix Innovation 2026 de l’UdeM.</p>
+                        
+                        <p><strong>Habileté manuelle et exclusive :</strong><br>
+                        - Depuis le départ de Maxime Thibault, je suis le seul technicien à l’École à pouvoir souder des puces électroniques 0201 (0.6mm x 0.3mm) et même 01005 (0,4mm x 0.2mm) [FS_3] [JPM_3] [JPM_4] [JPM_1];<br>
+                        - Lorsqu’il n’y a plus d’espoir, je suis particulièrement habile de mes mains et j’ai développé des techniques de réparations particulières en électronique [HDV_5] [HDV_3] [HDV_4] [JPM_5] [FS_7] [DM_2];<br>
+                        - Avec Fabrice Danet (technicien en GM), nous sommes les seuls techniciens de l’École à faire la pose de jauges de contrainte (Strain Gauge) [DM_3] [FS_3].</p>
+                        
+                        <p><strong>Esprit de synthèse et pensée hors des sentiers battus (SST) :</strong><br>
+                        - J’ai rassemblé en un seul laboratoire (J-5135) toutes les activités impliquant les produits chimiques et les produits dangereux, et j’ai acheté et identifié un balais et porte-poussière par laboratoire, de sorte que les usagers ne répandent plus les contaminants d’une pièce à l’autre en promenant le balais contaminé [DM_8] [DT_17] [FG_5];<br>
+                        - Pour ce même laboratoire, j’ai fait l’achat d’un robinet à activation infrarouge pour que les usagers n’aient pas à retoucher la poignée avec leurs mains après l’avoir manipulé avec leurs gants;<br>
+                        - Toujours dans ce même laboratoire, j’ai acheté une horloge murale pour éviter que les usagers plongent leur main gantée dans leur poche pour voir l’heure sur leur téléphone;<br>
+                        - J’utilise souvent des produits du commerce pour les utiliser dans un autre but (réparation de contrôleur de moteur de Huu Duc Vo, brush plating de David Ménard) [HDV_3] [DM_6] [DM_2] [FS_7];</p>
+                        
+                        <p><strong>Installation industrielle :</strong><br>
+                        - Installation de la boucle hydraulique grande échelle (Projet de Doosan de Njuki Mureithi) [NM_1] [AH_1] [NM_2] [NM_5];<br>
+                        - Installation de la pultrudeuse de Louis Laberge-Lebel [LLL_2] [LLL_7] [LLL_3];<br>
+                        - Installation du grand lit fluidisé de Gregory S. Patience [JC_2] [JC_13];<br>
+                        - Installation des grands fours rotatifs de Jamal Chaouki [JC_11] [JC_13] [JC_23];</p>
+                        
+                        <p><strong>Travail en salle propre sous terre :</strong> J’ai obtenu la formation de mineur pour pouvoir circuler le parcours de 1,7km sous terre qui sépare le monte-charge du puit situé à 7000’ sous terre, du laboratoire de SNO (Sudburry Neutrino Observatory) dans la mine d’INCO [JPM_8];</p>
+                        
+                        <p><strong>Formation de cariste :</strong> J’ai fait la formation et sa requalification pour pouvoir travailler avec le chariot-élévateur à Polynov-Anjou [LLL_3] [NM_5] [LLL_10] [JC_7] [MNS_1] [NM_5]. Selon l’instructeur, seul un employé, manœuvre de Polytechnique, m’égalait, me décrivant comme « un naturel »;</p>
+                        
+                        <p><strong>Communicateur :</strong> J’ai bâti, enseigné et évaluer une grande section d’une AEC (Attestation d’Études Collégiales) : mathématique (géométrie et algèbre), électricité (courant alternatif et continu), électronique (logique et semiconducteurs) [AH_10] [JPM_9] [NM_10];</p>
+                        
+                        <p><strong>Leadership :</strong> Je ne bouscule personne, mais lorsque la situation s’y prête, je démontre naturellement du Leadership [DM_7] [JC_15] [JC_17] [FG_7] [NM_7];</p>
+                        
+                        <p><strong>Gestion :</strong><br>
+                        - Outre la gestion des UBR pour les achats des professeurs, j’ai géré les activités des laboratoires allant de 30 à 63 étudiants en périodes estivales (Daniel Therriault 30, Jamal Chaouki et Gregory S. Patience 63) [JC_16] [JC_25] [DT_6] [DT_21] [JC_17];<br>
+                        - Gestion autonome du site industriel d’Anjou [LLL_10] [LLL_11] [JC_7] [NM_7].</p>
+
+                        <h4 style="color: #F38B00; border-bottom: 1px solid #333; padding-bottom: 5px; margin-top: 30px;">4.2 Rôle conseil et influence stratégique</h4>
+                        
+                        <p><strong>Pivot central :</strong><br>
+                        - Je suis un intermédiaire clé entre les chercheurs, les techniciens, les départements et les corps de métiers externes [FS_6] [LLL_7] [LLL_8] [LLL_9] [NM_10]. J’ai d’excellentes relations avec tous les employés de l’École et j’obtiens très souvent des faveurs [DM_1] [LLL_9]. Alors les projets se réalisent, et rapidement;<br>
+                        - Frédéric Sirois, David Ménard et Bianca Viggiano me consultent aussi pour la direction de leurs projets et l’organisation de leurs laboratoires [FS_6] [BY_4] [DM_2] [DM_7];</p>
+                        
+                        <p><strong>Conseil :</strong> Étant pluridisciplinaire, souvent, les professeurs et techniciens me consultent dans l’élaboration de leurs choix technologiques pour des projets de recherche ou de nouveaux laboratoires (enseignement et recherches) et pour leur certification à l’intérieur des murs de Polytechnique : [FS_7] [JC_14] [LLL_5] [BY_4] [FS_6]</p>
+                        
+                        <ul>
+                            <li>C’est d’ailleurs à la suite de services que j’ai offert à ces professeurs — Therriault, Sirois et Viggiano — qu’ils ont décidé d’ouvrir un poste subventionné dans l’optique d’obtenir mes services exclusifs [FS_9] [DM_10] [FS_2]. Selon le Pr. Sirois, « aucun autre technicien n’aurait pu me satisfaire ».</li>
+                            <li>J’ai déterminé tous les équipements d’impression 3D de nouvelle génération pour le LM² (imprimantes 3D au J-5129 et imprimantes 3D hautement spécialisées pour les matériaux exotiques — hautes températures — au J-5135) [DT_19] [DT_21] [DT_3].</li>
+                            <li>J’ai conseillé et fait la conception de plusieurs projets, dont la bobineuse de rubans supraconducteurs, conseillé le routage de circuit à haut courant de la source pulsée, la conception tridimensionnelle de circuits électroniques de sources électriques, conception et fabrication de la polling station, de la tour d’impact, de la station de couple élevé, l’organisation des laboratoires, etc… [FS_5] [DM_3] [DM_5] [DT_10] [DT_11] [DT_12] [DT_3]</li>
+                            <li>Ces demandes proviennent aussi de personnes issues d’autres département ou groupes de recherche : Même après avoir quitté le groupe de recherche, le professeur Therriault m’a souvent demandé de l’aide et des conseils (conseil de capacité électrique, de certification du broyeur de plastique, de modification du contrôleur de température, etc.) [DT_15].</li>
+                            <li>À la suite de mon retour en génie mécanique, le professeur Sirois m’a engagé de façon surnuméraire pour conseiller et accompagner ses élèves dans leurs projets, pendant 8 mois [FS_9] [DM_10].</li>
+                            <li>Dès mon arrivé en génie électrique, j’ai identifié les manques de services au pavillon principal et coordonné un troc d’équipements de quelques dizaines de milliers de dollars entre le Polygram, le pavillon principal et Lassonde pour répartir équitablement les équipements tout en veillant à ce que personne ne soit perdant dans la transaction [FS_10].</li>
+                            <li>Le coordinateur des services techniques de génie électrique (El-Mehdi Mojave) m’a demandé de projeter et réaliser la réhabilitation de l’atelier mécanique du A-234 et il m’intègre souvent dans ses stratégies d’adaptation des espaces, équipements et des activités techniques [FG_5] [FG_7].</li>
+                        </ul>
+                        
+                        <p><strong>Personne-ressource :</strong> Les élèves de Daniel Therriault devaient me consulter avant et pendant la conception de leurs projets (enceinte chauffante, multibuse, station 40 000 Volts…) [DT_8] [DT_20]. Il en va de même en ce moment pour ceux de Frédéric Sirois, Bianca Viggiano et David Ménard [BY_4] [FS_6] [DM_7].</p>
+
+                        <h4 style="color: #F38B00; border-bottom: 1px solid #333; padding-bottom: 5px; margin-top: 30px;">4.3 Implication élevée et engagement communautaire</h4>
+                        
+                        <p><strong>Bénévolat :</strong> Mon aide bénévole ne se résume pas au travail dans une organisation précise, mais plutôt à mes activités quotidiennes, où je travaille souvent en dehors de mes heures conventionnées et aussi sans rémunération, pour des étudiants, laboratoires et professeurs : J’ai très souvent, i.e. plus de la moitié du temps, dépassé de beaucoup mes heures de travail pour aider les gens [FS_8] [JC_18] [DT_13] [HDV_4] [NM_7] [JC_25]. Toutes ces heures n’étant pas rémunérées, ni même placées en temps accumulés.</p>
+                        
+                        <p>Mon implication se fait beaucoup dans la formation des étudiants gradués et stagiaires, qui se retrouvent à faire rayonner l’École Polytechnique dans la société dans leurs recherches et sur le marché du travail : [DT_6] [JPM_9] [JC_17] [NM_10]<br>
+                        - Les témoignages d’étudiants de Polytechnique en maîtrise et au doctorat le confirment en une trentaine de citations, que l’on retrouve sur le site de Polytechnique [AH_18]. Certaines spécifiant ma contribution essentielle à leurs projets.</p>
+                        
+                        <p><strong>Loyauté, sens moral et abnégation :</strong> À mon arrivé à la Polytechnique, j’ai continué de supporter le laboratoire de physique subatomique de l’UdeM de mai à septembre 2017 (j’y faisais 20 heures de plus que les 35 heures à la Polytechnique) [JPM_10] [NM_11]. Lors de mes changements de postes, j’ai toujours proposé de diviser les 3 jours d’intégration des employés me remplaçant en 6 après-midis car c’était la meilleure chose à faire la section que je quittais [JC_22]. Bien sûr, je continu un support ponctuel bénévolement par la suite.</p>
+                        
+                        <ul>
+                            <li>À mon départ de génie électrique, j’ai fait une période continue de 8 mois de travail surnuméraire à raison de 7 heures par semaines en moyenne pour le professeur Frédéric Sirois [FS_9] [DM_10]. Toutes ces implications non obligatoires ont contribué à l’avancement des travaux en minimisant les effets délétères sur le parcours des étudiants et des recherches des professeurs.</li>
+                            <li>Pour pouvoir continuer à offrir mes services à Frédéric Sirois, David Ménard et Bianca Viggiano, j’ai accepté de perdre ma sécurité d’emplois, condition sine qua none pour le Service Talents et Culture de Polytechnique.</li>
+                            <li>Intégrité : J’ai dû m’élever contre deux projets d’un des professeurs pour qui j’ai travaillé à mon arrivé en 2017 [JC_21] : Le premier était tellement dangereux qu’il aurait dû être installé dans un champ isolé de toute population. J’ai donc arrêté ce projet qui se faisait dans les murs de Polytechnique. Le second était un plagiat flagrant de l’expertise que je détenais pour un projet très porteur (brevet à venir) d’un autre professeur de Polytechnique [JC_21].</li>
+                        </ul>
+                        
+                        <p><strong>Bénévolat au quotidien :</strong> Quand le temps me le permet ou que la situation l’exige, je m’implique et tente de corriger les non-conformités en SST :<br>
+                        - Je suis intervenu lors de la réfection du A-208 alors que les ouvriers travaillaient en pression positive au lieu de négative, ce qui faisait entrer de la poussière d’amiante dans les corridors [FG_3]. Personne, de l’ingénieur au dossier, au chef de la SST institutionnelle, ne voulait s’impliquer.<br>
+                        - J’ai fait des pressions régulières pendant 3 ans, en offrant des solutions, pour sécuriser le transport des bombonnes d’azote liquide dans l’ascenseur [FG_6].<br>
+                        - J’interviens dans les laboratoires qui ne me sont pas attribués si j’y vois un manquement à la SST : À quelques reprises, j’ai dû avertir des usagers de Polyfab (au pavillon principal) pour ne pas porter les EPI propres aux activités de machinage [DT_17] [DM_9]. La dernière fois fut la bonne car j’ai fait intervenir la SST de l’École.<br>
+                        - En 2023-24, j’ai fait beaucoup de tractations directement avec les instances de l’UdeM pour obtenir le J-5129.<br>
+                        - Une autre implication moins visible fut l’idée que j’ai eue et je partageais aux adjointes administratives, aux coordonnateurs, aux techniciens et à mon syndicat depuis environ 3 ans pour la création d’une unité de « techniciens volants ». De plus, ça permet de retenir les expertises, les employés qui perdent leur poste subventionné et ça évite du temps du STC pour l’embauche de temporaires. Bien sûr ce n’est pas moi qui aie négocié l’accord qui est survenu lors de la dernière convention collective des techniciens, mais je ne peux m’empêcher de penser que j’ai éveillé les différents partis à cette idée. Cette étape étant faite, je fais des maintenant tractations pour que Polytechnique se dote d’une coop d’équipement et de consommables techniques.<br>
+                        - Le message d’appui de Maud Cohen (Directrice Générale de Poly) — avec qui j’ai des échanges ponctuels, mais réguliers, à propos des opérations, des finances, des négociations syndicales et du climat de travail —, celui de Marie-Noël da Silva (Conseillère principale- projets stratégiques en santé et sécurité) et celui de Frédéric Gylbert (Superviseur des services d’opération et d’entretien technique), démontrent bien que mon implication s’exprime aussi en dehors des structures habituellement empruntées [MC_1] [MNS_1] [FG_1] [FG_7].</p>
+                        
+                        <p><strong>Bénévolat en comité :</strong><br>
+                        - J’ai aussi eu ma part d’implication dans des comités classiques : Je me suis engagé dans deux (2) comités (machines dangereuses et produits chimiques) sur une période couvrant 2 ans.<br>
+                        - J’ai accepté de participer aux ateliers sur le climat de travail et, surtout, les ateliers d’enquêtes appréciatives visant à définir les pôles d’excellence du département de génie mécanique [JV_1] : En début d’année 2023, ce renouvellement représentait une situation délicate pour le département; l’enjeu était important pour la continuité et la qualité de ses activités du département. Je me suis porté volontaire malgré ma charge de travail déjà très élevée comme employé régulier subventionné pour Daniel Therriault. J’ai participé activement à tous les ateliers avec dévouement et abnégation [JV_2].<br>
+                        - Je me suis fortement impliqué lors de la pandémie de COVID19 [DT_16] [NM_3] [AH_17]. J’ai été le seul technicien à pouvoir réintégrer les locaux de Poly pendant une bonne période [LLL_8]. Bien avant que j’y prépare le retour des activités de recherches et d’enseignement, j’ai lancé la production maison d’impression de valves Charlotte et par la suite de supports de visière pour le CHUM. Cet état de fait rend compte de ma contribution au rayonnement de Polytechnique dans la société. J’ai aussi préparé seul le retour des activités de recherches à Polynov-Anjou [AH_17]. J’ai bien sûr continué le retour des activités dans les pavillons principal et JAB.</p>
+                        
+                        <p><strong>Offrir du soutien technique hors de son secteur pour dépanner d’autres équipes :</strong><br>
+                        - Lorsque j’étais en génie électrique, je suis allé au LM² réparer une des nouvelles imprimante 3D (Prusa XL) que le technicien de Daniel Therriault n’arrivait pas à réparer [DT_14] [HDV_2].<br>
+                        - En ce moment, j’assiste deux stagiaires de Daniel Therriault en génie mécanique (alors que je suis subventionné en génie électrique) dans la réalisation de leur projet pour le LM².<br>
+                        - Comme mentionné dans la section 3.2, je suis souvent consulté pour des modifications de projets, pour mon conseil sur des certifications ou des capacités électriques. J’accompagne deux stagiaires de Daniel Therriaul dans leur projet de contrôle de la nouvelle enceinte chauffante.<br>
+                        - J’ai assuré sur une période continue de 8 mois le service en travail surnuméraire — à raison de 7 heures par semaines — pour le professeur Frédéric Sirois de génie électrique alors que j’étais en génie mécanique [FS_9] [DM_10].<br>
+                        - Il y a trois ans, j’ai réparé le contrôleur du professeur Huu Duc Vo sur mon temps personnel, alors que j’étais l’employé de Daniel Therriault, ce qui a permis une reprise des recherches dans la même journée [HDV_4] [HDV_3].<br>
+                        - J’ai été rappelé par le Pr. Vo, il y a peu de temps, pour réparer une autre partie de ce même contrôleur, alors que je travaille pour le Pr. Sirois. Un technicien de GM ayant conclu que la réparation d’un des circuits électroniques ne devait passer que par moi [HDV_5].</p>
+
+                    </div>
                 </div>
 
                 <div class="panel panel-full media-container">
                     <h3 class="panel-title" style="color: #00BDF2;">CURRICULUM VITAE</h3>
-                 <iframe src="https://view.officeapps.live.com/op/embed.aspx?src=https://Yanik-Landry-Ducharme.github.io/CV Yanik Landry-Ducharme 2026(f).docx" width="100%" height="600px" frameborder="0"></iframe>
+                 <iframe src="https://view.officeapps.live.com/op/embed.aspx?src=https://Yanik-Landry-Ducharme.github.io/CV%20Yanik%20Landry-Ducharme%202026(f).docx" width="100%" height="600px" frameborder="0"></iframe>
                 </div>
             </div>
 
@@ -650,7 +378,7 @@
                                     <br><br>
                                     <strong>Distinctions :</strong> Récipiendaire du Prix Honoris Genius - Innovation technologique décerné par l'Ordre des ingénieurs du Québec (OIQ) ; lauréat du prix international Van Duzer Prize de l'IEEE (Transactions on Applied Superconductivity) ; lauréat du prix de la meilleure thèse de doctorat de Polytechnique Montréal.
                                 </div> 
-                                <img src="PHOTO-SIROIS.jpg" alt="Frédéric Sirois" class="file-image">
+                                <img src="PHOTO-SIROIS.jpg" alt="Frédéric Sirois" class="file-image" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAiIGhlaWdodD0iMTM1IiBmaWxsPSIjMzMzIj48cmVjdCB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEzNSIvPjwvc3ZnPg=='">
                                 <span class="name">Pr. Frédéric Sirois</span>
                                 <span class="badges" title="Pilier 2 : Rôle Conseil | Pilier 4 : Contribution">🧭 🛠️ 🔧 🤝 </span> 
                             </div>
@@ -663,7 +391,7 @@
                                     <br><br>
                                     <strong>Distinctions :</strong> Direction de chaires prestigieuses, contributions majeures en impression 3D et matériaux multifonctionnels, reconnaissance internationale.
                                 </div>
-                                <img src="PHOTO-DANIEL.jpg" alt="Daniel Therriault" class="file-image">
+                                <img src="PHOTO-DANIEL.jpg" alt="Daniel Therriault" class="file-image" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAiIGhlaWdodD0iMTM1IiBmaWxsPSIjMzMzIj48cmVjdCB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEzNSIvPjwvc3ZnPg=='">
                                 <span class="name">Pr. Daniel Therriault</span>
                                 <span class="badges" title="Pilier 2 : Rôle Conseil | Pilier 4 : Contribution">🧭 🛠️</span>
                             </div>
@@ -676,7 +404,7 @@
                                     <br><br>
                                     <strong>Distinctions :</strong> Co-auteur de contributions majeures aux collaborations mondiales du CERN avec plus de 2000 articles et 60 000 citations scientifiques. Affiliations : CERN, DESY, Fermilab, INFN, SLAC, LBL Berkley, IRFU Saclay, Triumf...
                                 </div>
-                                <img src="PHOTO-MARTIN.jpg" alt="Jean-Pierre Martin" class="file-image">
+                                <img src="PHOTO-MARTIN.jpg" alt="Jean-Pierre Martin" class="file-image" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAiIGhlaWdodD0iMTM1IiBmaWxsPSIjMzMzIj48cmVjdCB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEzNSIvPjwvc3ZnPg=='">
                                 <span class="name">M. Jean-Pierre Martin<br>(Chercheur invité, UdeM)</span>
                                 <span class="badges" title="Pilier 1 : Expertise Distinctive | Pilier 4 : Contribution">🔧 🛠️</span>
                             </div>
@@ -689,7 +417,7 @@
                                     <br><br>
                                     <strong>Distinctions :</strong> Expert expert-conseil international pour la sécurité des centrales et structures énergétiques. Plus de 170 publications, figure majeure en vibrations industrielles et dynamique appliquée.
                                 </div>
-                                <img src="PHOTO-NJUKI.jpg" alt="Njuki Mureithi" class="file-image">
+                                <img src="PHOTO-NJUKI.jpg" alt="Njuki Mureithi" class="file-image" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAiIGhlaWdodD0iMTM1IiBmaWxsPSIjMzMzIj48cmVjdCB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEzNSIvPjwvc3ZnPg=='">
                                 <span class="name">Pr. Njuki Mureithi</span>
                                 <span class="badges" title="Pilier 1 : Expertise Distinctive | Pilier 4 : Contribution">🔧 🛠️</span>
                             </div>
@@ -702,7 +430,7 @@
                                     <br><br>
                                     <strong>Distinctions :</strong> Membre de l'Académie canadienne du génie, il est mondialement reconnu pour ses recherches sur le captage de CO2, le recyclage des plastiques et les procédés industriels à haute température. Il est Fellow de l'Académie canadienne du génie ; lauréat du prestigieux prix John R. Grace et du prix R.S. Jane de la CSChE.
                                 </div>
-                                <img src="PHOTO-JAMAL.jpg" alt="Jamal" class="file-image">
+                                <img src="PHOTO-JAMAL.jpg" alt="Jamal" class="file-image" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAiIGhlaWdodD0iMTM1IiBmaWxsPSIjMzMzIj48cmVjdCB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEzNSIvPjwvc3ZnPg=='">
                                 <span class="name">Pr. Jamal Chaouki</span>
                                 <span class="badges" title="Pilier 3 : Implication">🤝</span>
                             </div>
@@ -715,7 +443,7 @@
                                     <br><br>
                                     <strong>Distinctions :</strong> Inventeur de technologies brevetées de contrôle d’écoulement pour l'aviation durable.
                                 </div>
-                                <img src="PHOTO-VO.jpg" alt="Huu Duc Vo" class="file-image">
+                                <img src="PHOTO-VO.jpg" alt="Huu Duc Vo" class="file-image" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAiIGhlaWdodD0iMTM1IiBmaWxsPSIjMzMzIj48cmVjdCB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEzNSIvPjwvc3ZnPg=='">
                                 <span class="name">Pr. Huu Duc Vo</span>
                                 <span class="badges" title="Pilier 1 : Expertise Distinctive | Pilier 3 : Implication">🔧 🤝</span>
                             </div>
@@ -728,7 +456,7 @@
                                     <br><br>
                                     <strong>Distinctions :</strong> Récipiendaire du Prix d'excellence en enseignement de Polytechnique Montréal.
                                 </div>
-                                <img src="PHOTO-DAVID.jpg" alt="David Ménard" class="file-image">
+                                <img src="PHOTO-DAVID.jpg" alt="David Ménard" class="file-image" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAiIGhlaWdodD0iMTM1IiBmaWxsPSIjMzMzIj48cmVjdCB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEzNSIvPjwvc3ZnPg=='">
                                 <span class="name">Pr. David Ménard</span>
                                 <span class="badges" title="Pilier 1 : Expertise Distinctive | Pilier 4 : Contribution">🔧 🛠️</span>
                             </div>
@@ -741,7 +469,7 @@
                                     <br><br>
                                     <strong>Distinctions :</strong> Reconnu pour ses contributions scientifiques et ses certifications techniques (machine learning, gestion de projet, mesures de bruit et vibrations, CCNA).
                                 </div>
-                                <img src="PHOTO-ABDALLAH.jpg" alt="Abdallah Hadji" class="file-image">
+                                <img src="PHOTO-ABDALLAH.jpg" alt="Abdallah Hadji" class="file-image" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAiIGhlaWdodD0iMTM1IiBmaWxsPSIjMzMzIj48cmVjdCB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEzNSIvPjwvc3ZnPg=='">
                                 <span class="name">M. Abdallah Hadji <br>(PhD)</span>
                                 <span class="badges" title="Pilier 3 : Implication">🤝</span>
                             </div>
@@ -754,7 +482,7 @@
                                     <br><br>
                                     <strong>Distinctions :</strong> Chercheur associé affilié aux institutions universitaires québécoises.
                                 </div>
-                                <img src="PHOTO-ELMEHDI.jpg" alt="El Mehdi" class="file-image">
+                                <img src="PHOTO-ELMEHDI.jpg" alt="El Mehdi" class="file-image" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAiIGhlaWdodD0iMTM1IiBmaWxsPSIjMzMzIj48cmVjdCB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEzNSIvPjwvc3ZnPg=='">
                                 <span class="name">M. El Mehdi <br>(Coordonnateur des services techniques en GÉ,ing.PhD.)</span>
                                 <span class="badges" title="Pilier 1 : Expertise Distinctive | Pilier 3 : Implication">🔧 🤝</span>
                             </div>
@@ -767,7 +495,7 @@
                                     <br><br>
                                     <strong>Distinctions :</strong> Contributions reconnues en génie des procédés et matériaux énergétiques, expertise appliquée en industrie.
                                 </div>
-                                <img src="PHOTO-BAHMAN.jpg" alt="Bahman Yari" class="file-image">
+                                <img src="PHOTO-BAHMAN.jpg" alt="Bahman Yari" class="file-image" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAiIGhlaWdodD0iMTM1IiBmaWxsPSIjMzMzIj48cmVjdCB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEzNSIvPjwvc3ZnPg=='">
                                 <span class="name">Bahman Yari <br>(PhD)</span>
                                 <span class="badges" title="Pilier 1 : Expertise Distinctive | Pilier 4 : Contribution">🔧 🛠️</span>
                             </div>
@@ -780,8 +508,8 @@
                                     <br><br>
                                     <strong>Distinctions :</strong> Prix de reconnaissance de PRIMA Québec pour l'encadrement des étudiants et son implication technique.
                                 </div> 
-                                <img src="PHOTO-ISABELLE.jpg" alt="Isabelle Nowlan" class="file-image">
-                                <span class="name">Mme Isabelle Nowlan<br>(Coordonnatrice des services techniques en GM)</span>
+                                <img src="PHOTO-ISABELLE.jpg" alt="Isabelle Nowlan" class="file-image" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAiIGhlaWdodD0iMTM1IiBmaWxsPSIjMzMzIj48cmVjdCB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEzNSIvPjwvc3ZnPg=='">
+                                <span class="name">Mme Isabelle Nowlan<br>(Coordonnatrice GM)</span>
                                 <span class="badges" title="Pilier 3 : Implication | Pilier 4 : Contribution">🤝 🛠️</span>
                             </div>
 
@@ -793,7 +521,7 @@
                                     <br><br>
                                     <strong>Distinctions :</strong> Directeur du Laboratoire de fabrication avancée de composites thermoplastiques.
                                 </div>
-                                <img src="PHOTO-LOUIS.jpg" alt="Louis Laberge-Lebel" class="file-image">
+                                <img src="PHOTO-LOUIS.jpg" alt="Louis Laberge-Lebel" class="file-image" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAiIGhlaWdodD0iMTM1IiBmaWxsPSIjMzMzIj48cmVjdCB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEzNSIvPjwvc3ZnPg=='">
                                 <span class="name">Pr. Louis Laberge-Lebel</span>
                                 <span class="badges" title="Pilier 1 : Expertise Distinctive | Pilier 4 : Contribution">🔧 🛠️</span>
                             </div>
@@ -804,7 +532,7 @@
                                     <em>Service des immeubles</em>
                                     Superviseur des services d’opération et d’entretien technique au Service des immeubles de Polytechnique Montréal.
                                 </div>
-                                <img src="PHOTO-FREDERIC.jpg" alt="Frédéric Gylbert" class="file-image">
+                                <img src="PHOTO-FREDERIC.jpg" alt="Frédéric Gylbert" class="file-image" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAiIGhlaWdodD0iMTM1IiBmaWxsPSIjMzMzIj48cmVjdCB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEzNSIvPjwvc3ZnPg=='">
                                 <span class="name">M. Frédéric Gylbert<br>(Superviseur des services d’opération)</span>
                                 <span class="badges" title="Pilier 4 : Contribution">🛠️</span>
                             </div>
@@ -817,7 +545,7 @@
                                     <br><br>
                                     <strong>Distinctions :</strong> Chargée du déploiement des orientations institutionnelles en SST à l'échelle de Polytechnique.
                                 </div>
-                                <img src="PHOTO-MARIENOEL.jpg" alt="Marie-Noël da Silva" class="file-image">
+                                <img src="PHOTO-MARIENOEL.jpg" alt="Marie-Noël da Silva" class="file-image" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAiIGhlaWdodD0iMTM1IiBmaWxsPSIjMzMzIj48cmVjdCB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEzNSIvPjwvc3ZnPg=='">
                                 <span class="name">Mme Marie-Noël da Sylva <br>(Conseillère SST) </span>
                                 <span class="badges" title="Pilier 3 : Implication">🤝</span>
                             </div>
@@ -830,7 +558,7 @@
                                     <br><br>
                                     <strong>Distinctions :</strong> Leader académique pilotant l'un des plus grands départements de génie mécanique francophones.
                                 </div>
-                                <img src="PHOTO-JEROME.jpg" alt="Jérôme Vétel" class="file-image">
+                                <img src="PHOTO-JEROME.jpg" alt="Jérôme Vétel" class="file-image" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAiIGhlaWdodD0iMTM1IiBmaWxsPSIjMzMzIj48cmVjdCB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEzNSIvPjwvc3ZnPg=='">
                                 <span class="name">Pr. Jérôme Vétel <br>(Directeur GM) </span>
                                 <span class="badges" title="Pilier 2 : Rôle Conseil | Pilier 3 : Implication">🧭 🤝</span>
                             </div>
@@ -843,7 +571,7 @@
                                  <br><br>
                                  <strong>Distinctions :</strong> Première femme nommée à la direction générale de l'institution en 150 ans d'histoire ; ancienne présidente de l'Ordre des ingénieurs du Québec (OIQ).
                              </div> 
-                             <img src="PHOTO-MAUD.jpg" alt="Maud Cohen" class="file-image"> 
+                             <img src="PHOTO-MAUD.jpg" alt="Maud Cohen" class="file-image" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAiIGhlaWdodD0iMTM1IiBmaWxsPSIjMzMzIj48cmVjdCB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEzNSIvPjwvc3ZnPg=='"> 
                              <span class="name">Mme Maud Cohen<br>(Dir. Générale)</span>
                              <span class="badges" title="Pilier 3 : Implication">🤝</span> 
                          </div>
@@ -851,101 +579,22 @@
                         </div>
                     </div>
 
-                    <div id="doc-maud" class="letter-content">
-                        <button class="btn-retour" onclick="fermerLettres()">⬅ Retourner aux dossiers</button>
-                        <p><strong>Appui de la Directrice Générale : Maud Cohen</strong></p>
-                        <img src="Maud Cohen_Capture d'écran.png" alt="Capture d'écran Maud Cohen">
-                    </div>
-
-                    <div id="doc-martin" class="letter-content">
-                        <button class="btn-retour" onclick="fermerLettres()">⬅ Retourner aux dossiers</button>
-                        <p><strong>Jean-Pierre Martin</strong></p>
-                        <iframe src="Jean-Pierre Martin.pdf#zoom=100"></iframe>
-                    </div>
-                    
-                    <div id="doc-therriault" class="letter-content">
-                        <button class="btn-retour" onclick="fermerLettres()">⬅ Retourner aux dossiers</button>
-                        <p><strong>Professeur Daniel Therriault (Génie Mécanique - LM2)</strong></p>
-                        <iframe src="Daniel Therriault.pdf#zoom=100"></iframe>
-                    </div>
-
-                    <div id="doc-mureithi" class="letter-content">
-                        <button class="btn-retour" onclick="fermerLettres()">⬅ Retourner aux dossiers</button>
-                        <p><strong>Professeur Njuki Mureithi (Génie Mécanique)</strong></p>
-                        <iframe src="Njuki Mureithi.pdf#zoom=100"></iframe>
-                    </div>
-
-                    <div id="doc-vo" class="letter-content">
-                        <button class="btn-retour" onclick="fermerLettres()">⬅ Retourner aux dossiers</button>
-                        <p><strong>Professeur Huu Duc Vo (Aérothermique)</strong></p>
-                        <iframe src="Huu Duc_Vo.pdf#zoom=100"></iframe>
-                    </div>
-
-                    <div id="doc-elmehdi" class="letter-content">
-                        <button class="btn-retour" onclick="fermerLettres()">⬅ Retourner aux dossiers</button>
-                        <p><strong>El Mehdi </strong></p>
-                        <iframe src="El Mehdi.pdf#zoom=100"></iframe>
-                    </div>
-
-                    <div id="doc-nowlan" class="letter-content">
-                        <button class="btn-retour" onclick="fermerLettres()">⬅ Retourner aux dossiers</button>
-                        <p><strong>Isabelle Nowlan</strong></p>
-                        <iframe src="Isabelle Nowlan.pdf#zoom=100"></iframe>
-                    </div>
-
-                    <div id="doc-gylbert" class="letter-content">
-                        <button class="btn-retour" onclick="fermerLettres()">⬅ Retourner aux dossiers</button>
-                        <p><strong>Monsieur Frédéric Gylbert (Sécurité institutionnelle)</strong></p>
-                        <iframe src="Frédéric Gylbert.pdf#zoom=100"></iframe>
-                    </div>
-
-                    <div id="doc-jamal" class="letter-content">
-                        <button class="btn-retour" onclick="fermerLettres()">⬅ Retourner aux dossiers</button>
-                        <p><strong>Professeur Jamal Chaouki (Génie Chimique)</strong></p>
-                        <iframe src="Jamal Chaouki.pdf#zoom=100"></iframe>
-                    </div>
-
-                    <div id="doc-hadji" class="letter-content">
-                        <button class="btn-retour" onclick="fermerLettres()">⬅ Retourner aux dossiers</button>
-                        <p><strong>Abdallah Hadji</strong></p>
-                        <iframe src="Abdallah Hadji.pdf#zoom=100"></iframe>
-                    </div>
-
-                    <div id="doc-yari" class="letter-content">
-                        <button class="btn-retour" onclick="fermerLettres()">⬅ Retourner aux dossiers</button>
-                        <p><strong>Bahman Yari</strong></p>
-                        <iframe src="Bahman Yari.pdf#zoom=100"></iframe>
-                    </div>
-
-                    <div id="doc-vetel" class="letter-content">
-                        <button class="btn-retour" onclick="fermerLettres()">⬅ Retourner aux dossiers</button>
-                        <p><strong>Professeur Jérôme Vétel (Génie Mécanique)</strong></p>
-                        <iframe src="Jérôme Vétel.pdf#zoom=100"></iframe>
-                    </div>
-
-                    <div id="doc-menard" class="letter-content">
-                        <button class="btn-retour" onclick="fermerLettres()">⬅ Retourner aux dossiers</button>
-                        <p><strong>Professeur David Ménard (Génie Physique)</strong></p>
-                        <iframe src="David Ménard.pdf#zoom=100"></iframe>
-                    </div>
-
-                    <div id="doc-sirois" class="letter-content">
-                        <button class="btn-retour" onclick="fermerLettres()">⬅ Retourner aux dossiers</button>
-                        <p><strong>Professeur Frédéric Sirois (Génie Électrique)</strong></p>
-                        <iframe src="Frédéric Sirois.pdf#zoom=100"></iframe>
-                    </div>
-
-                    <div id="doc-dasilva" class="letter-content">
-                        <button class="btn-retour" onclick="fermerLettres()">⬅ Retourner aux dossiers</button>
-                        <p><strong>Marie-Noël da Sylva (Sûreté Institutionnelle)</strong></p>
-                        <iframe src="Marie-Noël da Silva.pdf#zoom=100"></iframe>
-                    </div>
-
-                    <div id="doc-laberge" class="letter-content">
-                        <button class="btn-retour" onclick="fermerLettres()">⬅ Retourner aux dossiers</button>
-                        <p><strong>Professeur Louis Laberge-Lebel (Génie Mécanique)</strong></p>
-                        <iframe src="Louis Laberge-Lebel.pdf#zoom=100"></iframe>
-                    </div>
+                    <div id="doc-maud" class="letter-content"><button class="btn-retour" onclick="fermerLettres()">⬅ Retourner aux dossiers</button><p><strong>Appui de la Directrice Générale : Maud Cohen</strong></p><img src="Maud Cohen_Capture d'écran.png" alt="Capture d'écran Maud Cohen"></div>
+                    <div id="doc-martin" class="letter-content"><button class="btn-retour" onclick="fermerLettres()">⬅ Retourner aux dossiers</button><p><strong>Jean-Pierre Martin</strong></p><iframe src="Jean-Pierre Martin.pdf#zoom=100"></iframe></div>
+                    <div id="doc-therriault" class="letter-content"><button class="btn-retour" onclick="fermerLettres()">⬅ Retourner aux dossiers</button><p><strong>Professeur Daniel Therriault (Génie Mécanique - LM2)</strong></p><iframe src="Daniel Therriault.pdf#zoom=100"></iframe></div>
+                    <div id="doc-mureithi" class="letter-content"><button class="btn-retour" onclick="fermerLettres()">⬅ Retourner aux dossiers</button><p><strong>Professeur Njuki Mureithi (Génie Mécanique)</strong></p><iframe src="Njuki Mureithi.pdf#zoom=100"></iframe></div>
+                    <div id="doc-vo" class="letter-content"><button class="btn-retour" onclick="fermerLettres()">⬅ Retourner aux dossiers</button><p><strong>Professeur Huu Duc Vo (Aérothermique)</strong></p><iframe src="Huu Duc_Vo.pdf#zoom=100"></iframe></div>
+                    <div id="doc-elmehdi" class="letter-content"><button class="btn-retour" onclick="fermerLettres()">⬅ Retourner aux dossiers</button><p><strong>El Mehdi</strong></p><iframe src="El Mehdi.pdf#zoom=100"></iframe></div>
+                    <div id="doc-nowlan" class="letter-content"><button class="btn-retour" onclick="fermerLettres()">⬅ Retourner aux dossiers</button><p><strong>Isabelle Nowlan</strong></p><iframe src="Isabelle Nowlan.pdf#zoom=100"></iframe></div>
+                    <div id="doc-gylbert" class="letter-content"><button class="btn-retour" onclick="fermerLettres()">⬅ Retourner aux dossiers</button><p><strong>Monsieur Frédéric Gylbert (Sécurité institutionnelle)</strong></p><iframe src="Frédéric Gylbert.pdf#zoom=100"></iframe></div>
+                    <div id="doc-jamal" class="letter-content"><button class="btn-retour" onclick="fermerLettres()">⬅ Retourner aux dossiers</button><p><strong>Professeur Jamal Chaouki (Génie Chimique)</strong></p><iframe src="Jamal Chaouki.pdf#zoom=100"></iframe></div>
+                    <div id="doc-hadji" class="letter-content"><button class="btn-retour" onclick="fermerLettres()">⬅ Retourner aux dossiers</button><p><strong>Abdallah Hadji</strong></p><iframe src="Abdallah Hadji.pdf#zoom=100"></iframe></div>
+                    <div id="doc-yari" class="letter-content"><button class="btn-retour" onclick="fermerLettres()">⬅ Retourner aux dossiers</button><p><strong>Bahman Yari</strong></p><iframe src="Bahman Yari.pdf#zoom=100"></iframe></div>
+                    <div id="doc-vetel" class="letter-content"><button class="btn-retour" onclick="fermerLettres()">⬅ Retourner aux dossiers</button><p><strong>Professeur Jérôme Vétel (Génie Mécanique)</strong></p><iframe src="Jérôme Vétel.pdf#zoom=100"></iframe></div>
+                    <div id="doc-menard" class="letter-content"><button class="btn-retour" onclick="fermerLettres()">⬅ Retourner aux dossiers</button><p><strong>Professeur David Ménard (Génie Physique)</strong></p><iframe src="David Ménard.pdf#zoom=100"></iframe></div>
+                    <div id="doc-sirois" class="letter-content"><button class="btn-retour" onclick="fermerLettres()">⬅ Retourner aux dossiers</button><p><strong>Professeur Frédéric Sirois (Génie Électrique)</strong></p><iframe src="Frédéric Sirois.pdf#zoom=100"></iframe></div>
+                    <div id="doc-dasilva" class="letter-content"><button class="btn-retour" onclick="fermerLettres()">⬅ Retourner aux dossiers</button><p><strong>Marie-Noël da Sylva (Sûreté Institutionnelle)</strong></p><iframe src="Marie-Noël da Silva.pdf#zoom=100"></iframe></div>
+                    <div id="doc-laberge" class="letter-content"><button class="btn-retour" onclick="fermerLettres()">⬅ Retourner aux dossiers</button><p><strong>Professeur Louis Laberge-Lebel (Génie Mécanique)</strong></p><iframe src="Louis Laberge-Lebel.pdf#zoom=100"></iframe></div>
 
                 </div>
             </div>
@@ -1082,49 +731,13 @@
                 <div class="panel panel-full">
                     <h3 class="panel-title" style="color: #ED1C24;">Lettres d'étudiants</h3>
                     <div class="annexes-file-grid">
-                        
-                        <div class="annexes-file-card">
-                            <div class="pdf-icon-placeholder">📄</div>
-                            <p>Lettre Élève 1</p>
-                            <em>[Nom de l'élève]</em>
-                        </div>
-                        
-                        <div class="annexes-file-card">
-                            <div class="pdf-icon-placeholder">📄</div>
-                            <p>Lettre Élève 2</p>
-                            <em>[Nom de l'élève]</em>
-                        </div>
-                        
-                        <div class="annexes-file-card">
-                            <div class="pdf-icon-placeholder">📄</div>
-                            <p>Lettre Élève 3</p>
-                            <em>[Nom de l'élève]</em>
-                        </div>
-                        
-                        <div class="annexes-file-card">
-                            <div class="pdf-icon-placeholder">📄</div>
-                            <p>Lettre Élève 4</p>
-                            <em>[Nom de l'élève]</em>
-                        </div>
-                        
-                        <div class="annexes-file-card">
-                            <div class="pdf-icon-placeholder">📄</div>
-                            <p>Lettre Élève 5</p>
-                            <em>[Nom de l'élève]</em>
-                        </div>
-                        
-                        <div class="annexes-file-card">
-                            <div class="pdf-icon-placeholder">📄</div>
-                            <p>Lettre Élève 6</p>
-                            <em>[Nom de l'élève]</em>
-                        </div>
-                        
-                        <div class="annexes-file-card">
-                            <div class="pdf-icon-placeholder">📄</div>
-                            <p>Lettre Élève 7</p>
-                            <em>[Nom de l'élève]</em>
-                        </div>
-
+                        <div class="annexes-file-card"><div class="pdf-icon-placeholder">📄</div><p>Lettre Élève 1</p></div>
+                        <div class="annexes-file-card"><div class="pdf-icon-placeholder">📄</div><p>Lettre Élève 2</p></div>
+                        <div class="annexes-file-card"><div class="pdf-icon-placeholder">📄</div><p>Lettre Élève 3</p></div>
+                        <div class="annexes-file-card"><div class="pdf-icon-placeholder">📄</div><p>Lettre Élève 4</p></div>
+                        <div class="annexes-file-card"><div class="pdf-icon-placeholder">📄</div><p>Lettre Élève 5</p></div>
+                        <div class="annexes-file-card"><div class="pdf-icon-placeholder">📄</div><p>Lettre Élève 6</p></div>
+                        <div class="annexes-file-card"><div class="pdf-icon-placeholder">📄</div><p>Lettre Élève 7</p></div>
                     </div>
                 </div>
             </div>
@@ -1133,49 +746,177 @@
     </div>
 
     <script>
-        // Fonction pour passer en Plein Écran
         function toggleFullScreen() {
             if (!document.fullscreenElement) {
                 document.documentElement.requestFullscreen().catch(err => {
                     alert(`Erreur lors du passage en plein écran: ${err.message}`);
                 });
             } else {
-                if (document.exitFullscreen) {
-                    document.exitFullscreen();
-                }
+                if (document.exitFullscreen) { document.exitFullscreen(); }
             }
         }
 
-        // Logique pour ouvrir et fermer les lettres 
         function ouvrirLettre(idLettre) {
             document.getElementById('file-directory').style.display = 'none';
             let lettres = document.getElementsByClassName('letter-content');
-            for(let i = 0; i < lettres.length; i++) {
-                lettres[i].style.display = 'none';
-            }
+            for(let i = 0; i < lettres.length; i++) { lettres[i].style.display = 'none'; }
             document.getElementById(idLettre).style.display = 'block';
-            
             document.getElementById('lettres').scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
 
         function fermerLettres() {
             let lettres = document.getElementsByClassName('letter-content');
-            for(let i = 0; i < lettres.length; i++) {
-                lettres[i].style.display = 'none';
-            }
+            for(let i = 0; i < lettres.length; i++) { lettres[i].style.display = 'none'; }
             document.getElementById('file-directory').style.display = 'block';
-            
             document.getElementById('lettres').scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
 
-        // Script pour changer la couleur du menu de gauche selon où on clique
         document.querySelectorAll('.sidebar a').forEach(link => {
             link.addEventListener('click', function() {
                 document.querySelectorAll('.sidebar a').forEach(l => l.classList.remove('active'));
                 this.classList.add('active');
             });
         });
-    </script>
 
+        // SCRIPT MAGIQUE POUR LES BULLES
+        document.addEventListener("DOMContentLoaded", function() {
+            // Le dictionnaire complet généré depuis tes fichiers originaux
+            const citations = {
+                "AH_1": "Atteste par la présente de l’apport unique et déterminant de M. Yanik Landry Ducharme dans le projet Anjou IFS Lab...",
+                "AH_10": "Il a également transmis efficacement son savoir-faire, contribuant à l’amélioration des pratiques opérationnelles et de SST.",
+                "AH_17": "Durant la période de la COVID 19, il a également établi et appliqué les mesures sanitaires dans l’entrepôt d’Anjou...",
+                "AH_18": "L’expertise technique, les conseils pragmatiques, l’engagement soutenu et la contribution concrète de M. Yanik font de lui un excellent candidat...",
+                "BY_4": "Yanik agit naturellement comme une personne ressource technique. Il est capable d’anticiper les difficultés...",
+                "DM_1": "Son entregent, ses qualifications techniques et son sens de l’organisation ont apporté beaucoup au Laboratoire...",
+                "DM_2": "Le travail technique va bien au-delà de l’entretien... et nécessite de la créativité et du savoir-faire...",
+                "DM_3": "Le système devait supporter les forces importantes en jeu et intégrer l’électronique nécessaire à l’acquisition de données...",
+                "DM_4": "Fort d'une double expertise en électronique et en mécanique, il a su intriquer ces deux disciplines...",
+                "DM_5": "Sa vision, ses conseils experts et ses choix technologiques judicieux permettent aujourd’hui l'évolution du banc...",
+                "DM_6": "Yanik a imaginé des solutions simples, sécuritaires et économiques en modifiant des articles de cuisine.",
+                "DM_7": "Ses qualités de leader et son entregent ont notamment été très appréciées lors de la supervision...",
+                "DM_8": "Yanik a grandement aidé à réorganiser le laboratoire J 4196 afin d’optimiser les activités...",
+                "DM_9": "Il a aussi noté des défauts de fonctionnement dans les hottes chimiques, qu’il a signalé aux responsables...",
+                "DM_10": "Lors de son retour en GM, il a continué de soutenir le LSM durant huit mois en effectuant des heures supplémentaires...",
+                "DM_11": "M. Yanik est un technicien créatif, qualifié et talentueux, ce qui lui permet de participer très significativement à la conception...",
+                "DT_3": "Yanik a assisté mon équipe à concevoir, fabriquer et assembler différents montages à la fine pointe de la technologie.",
+                "DT_4": "Yanik a des connaissances techniques très diversifiées (électricité, électronique, usinage, outillage, SST)...",
+                "DT_6": "Yanik a grandement facilité le bon fonctionnement de mon laboratoire, notamment pendant le trimestre d’été...",
+                "DT_8": "Je recommandais systématiquement à mes étudiants aux cycles supérieurs de le consulter en cas de difficultés...",
+                "DT_10": "Il a aidé un ancien étudiant au doctorat à construire en seulement dix jours une tour d'impact à basse vitesse...",
+                "DT_11": "Il a également aidé une étudiante au doctorat à construire et à sécuriser une station de polarisation...",
+                "DT_12": "L'expertise de Yanik a été essentielle au développement de cette chambre thermique sécuritaire...",
+                "DT_13": "Yanik s'est montré bien organisé et capable de fournir un travail d'excellente qualité dans des délais courts...",
+                "DT_14": "Yanik se portait souvent volontaire pour aider d'autres équipes de recherche comme les laboratoires des professeurs Bodkhe et Laberge Lebel.",
+                "DT_15": "Même après son départ de mon équipe, je l'ai consulté à l’occasion pour des questions techniques...",
+                "DT_16": "Un énorme effort a été fourni par Yanik pour organiser l'accès des étudiants aux laboratoires (COVID 19).",
+                "DT_17": "Il a réaménagé certaines machines, géré l’installation d’un bras articulé... et réorganisé les armoires chimiques...",
+                "DT_19": "Il a coordonné les achats d’accessoires de recherche et l’entretien de plusieurs imprimantes 3D...",
+                "DT_20": "Yanik a aussi joué un rôle majeur dans l'élaboration et le maintien de l'inventaire du laboratoire...",
+                "DT_21": "Il a géré mes UBRs... et participé à l’achat de deux imprimantes 3D industrielles haute température...",
+                "FG_1": "Je recommande Yanik Landry Ducharme pour l’obtention du titre de technicien senior.",
+                "FG_3": "Il rapporte rapidement les bris nécessitant une intervention du SDI et signale les situations à risque avec précision.",
+                "FG_5": "Il s’investit aussi dans l’aménagement de ses laboratoires, notamment l’espace A234...",
+                "FG_6": "Son initiative a permis de réduire les risques et d’améliorer les pratiques (transport d'azote).",
+                "FG_7": "Son sens des responsabilités, sa vigilance et son engagement envers la communauté font de lui un candidat naturel...",
+                "FS_2": "Son profil se distingue clairement de celui de ses pairs, tant par la rareté de son expertise que par l’impact concret...",
+                "FS_3": "Sa capacité à réaliser des soudures de très haute précision (SMD, BGA) est extrêmement rare...",
+                "FS_4": "Yanik est capable de mobiliser l’ensemble de ces outils de manière cohérente au sein d’un même projet.",
+                "FS_5": "Il a su définir et intégrer des solutions techniques répondant à des exigences complexes, avec un niveau de rigueur associé à un ingénieur.",
+                "FS_6": "Il est systématiquement consulté en amont des décisions techniques importantes...",
+                "FS_7": "Son apport se distingue par sa capacité à proposer des solutions intégrées, combinant efficacement des approches mécaniques et électroniques.",
+                "FS_8": "Il consacre régulièrement du temps supplémentaire pour soutenir les étudiants et les chercheurs...",
+                "FS_9": "Son engagement s’est notamment illustré lors d’une période prolongée de soutien intensif sur plusieurs mois...",
+                "FS_10": "Il a notamment joué un rôle déterminant dans la structuration et la réorganisation des espaces de travail...",
+                "HDV_2": "C'est toutefois à la suite d’un incident technique majeur en mai 2023... que j'ai pu mesurer la pleine mesure de son talent.",
+                "HDV_3": "Grâce à ses connaissances approfondies en électronique, il a su proposer des pistes de solutions concrètes...",
+                "HDV_4": "Yanik a réalisé ces interventions bénévolement et dès la réception des pièces, permettant une reprise rapide des expériences...",
+                "HDV_5": "Je suis convaincu que Yanik possédait une expertise unique, introuvable ailleurs au sein de Polytechnique Montréal...",
+                "JC_2": "Il a été accompagné par mon employé subventionné, l’un des meilleurs techniciens de la Polytechnique.",
+                "JC_4": "Il possédait déjà une expertise pointue en électronique, mais il a su relever les nombreux défis propres au génie chimique.",
+                "JC_6": "Son expérience en projets internationaux de grande envergure... s’est révélée importante au niveau de la structure de son travail.",
+                "JC_7": "Yanik et Sylvain étaient les seuls techniciens à aller à Anjou et seul Yanik qui avait la formation de cariste.",
+                "JC_8": "Grâce à ses connaissances en mécanique automobile et en électronique, Yanik a complété à merveille les compétences de Sylvain...",
+                "JC_11": "Il s’est avéré un bon organisateur lors du déménagement d’équipements à JAB et surtout l’installation de fours rotatifs...",
+                "JC_13": "Sa connaissance de l’entrepôt d’Anjou lui a permis de déterminer le meilleur emplacement pour les fours...",
+                "JC_14": "Yanik et Sylvain ont été les piliers pour la SST et la fabrication... de même que pour les conseils de conception...",
+                "JC_15": "Bien qu’il fût l’employé du Pr. Patience, Yanik s’est, de tout temps, impliqué dans mes projets de recherche.",
+                "JC_16": "Tous deux très autonomes, Yanik et Sylvain géraient les échéanciers et les étudiants.",
+                "JC_17": "Yanik savait identifier les étudiants dignes de confiance pour l’utilisation de certains équipements...",
+                "JC_18": "Je dois mentionner que Yanik faisait déjà une dizaine d’heures supplémentaires par semaine depuis son arrivée...",
+                "JC_21": "Yanik s’est tenu droit et a refusé (le plagiat), malgré la pression exercée sur lui.",
+                "JC_22": "Il s’est montré disponible au-delà des 21 heures conventionnelles...",
+                "JC_23": "Yanik a su imposer les normes les plus élevées en matière de santé et sécurité et se montrer disponible et indispensable...",
+                "JC_25": "Yanik arrivait dès 6 heures du matin afin de pouvoir avancer les projets sans interrompre les activités des étudiants.",
+                "JPM_1": "Pendant son passage au laboratoire, Yanik s'est imposé comme un professionnel d'exception, réunissant des compétences techniques rares...",
+                "JPM_2": "Yanik a été chargé de suivre les programmes de formation d'Altium et de communiquer cette expertise aux autres...",
+                "JPM_3": "La miniaturisation était souvent un facteur important, ce qui conduisait à l'utilisation de composants très petits (0201).",
+                "JPM_4": "Cela exigeait le soudage sous microscope de composants minuscules... Cette technique relève du soudage professionnel...",
+                "JPM_5": "Nous avons apprécié l'ingéniosité des astuces de Yanik pour corriger par exemple une malencontreuse erreur sur un prototype...",
+                "JPM_6": "Il a aussi contribué à l'installation d'outils de soudage spécialisés, comme une station de réparation BGA...",
+                "JPM_7": "Yanik a fait la conception de circuits imprimés flexibles kapton/cuivre... à 1/20 du prix du fabricant.",
+                "JPM_8": "Il a dû compléter une formation de mineur pour avoir accès au site (SNOLAB).",
+                "JPM_9": "Les stagiaires appréciaient grandement l'expérience pratique de Yanik. Yanik est un bon vulgarisateur.",
+                "JPM_10": "Embauché à la Polytechnique... il a néanmoins continué tout l'été à assurer la continuité des travaux au laboratoire de l'UdeM.",
+                "JV_1": "Participation volontaire et active aux ateliers d’enquêtes appréciatives dans le cadre du processus d’établissement des pôles d’excellence...",
+                "JV_2": "Son engagement s’est manifesté par une contribution concrète aux réflexions collectives...",
+                "LLL_2": "Il a su mobiliser des connaissances pointues en mécanique automobile et en construction pour mener à bien mon projet...",
+                "LLL_3": "Il est certifié pour l’utilisation sécuritaire du chariot élévateur, en fait une ressource stratégique indispensable.",
+                "LLL_5": "Ayant longtemps été le seul technicien à Anjou, il a une connaissance des lieux lui permettant d’offrir les conseils les plus judicieux.",
+                "LLL_7": "Lors de l’installation de la pultrudeuse à Polynov Anjou, Yanik a agi comme pivot central.",
+                "LLL_8": "Yanik est un véritable connecteur au sein de l'institution. Il a été impliqué dès la première heure dans le déconfinement...",
+                "LLL_9": "Sa bonne humeur et la qualité des relations qu’il entretient avec toute la communauté polytechnicienne font en sorte que Yanik est le trait d'union...",
+                "LLL_10": "Yanik a coordonné le réaménagement complet de l'espace à Polynov, alors qu'il y était le seul technicien attitré.",
+                "LLL_11": "Il s’occupait de maintenir les équipements du bâtiment à Anjou en parfaite condition de marche...",
+                "MC_1": "Je tiens à souligner votre engagement envers Polytechnique au fil des années.",
+                "MNS_1": "Sa collaboration a permis de coordonner efficacement et dans un délai relativement court, la réparation et l’inspection de l’équipement.",
+                "NM_1": "Ce mandat portait sur la conception, la fabrication et l’installation d’une grande boucle d’essai hydraulique...",
+                "NM_2": "Yanik a pris part à la mise en place de ce nouveau laboratoire d’interaction fluide structure...",
+                "NM_4": "L’expertise et le rôle de conseil de Yanik se sont révélés essentiels tout au long de son implication...",
+                "NM_5": "Yanik a su exécuter ces tâches avec rigueur, notamment lors des travaux en hauteur et des opérations nécessitant une grande finesse (chariot élévateur).",
+                "NM_7": "Il a su progresser de manière indépendante, prenant souvent l'initiative de débuter l'installation seul tôt le matin.",
+                "NM_8": "Sa capacité à résoudre des problèmes techniques complexes a permis de surmonter de nombreux obstacles logistiques...",
+                "NM_10": "Sa communication claire et sa capacité à convaincre ingénieurs et associés de recherche de la pertinence de ses solutions ont été particulièrement appréciées.",
+                "NM_11": "Yanik a d’ailleurs fait preuve d’une grande loyauté en acceptant d’allonger ses prestations de travail pour soutenir ce nouveau projet..."
+            };
+
+            const conteneurDossier = document.getElementById("texte-argumentaire");
+            
+            if(conteneurDossier) {
+                let htmlContent = conteneurDossier.innerHTML;
+                
+                // Trouve tous les tags ex: [FS_3] et les remplace par les popups interactifs
+                htmlContent = htmlContent.replace(/\[([A-Z]+_[0-9]+)\]/g, function(match, tagID) {
+                    // Vérifie si le tag existe dans notre dictionnaire
+                    if (citations[tagID]) {
+                        // Extrait les lettres avant l'underscore pour trouver l'auteur
+                        let sourceCode = tagID.split('_')[0]; 
+                        let nomAuteur = "Auteur/Lettre";
+                        
+                        // Mappage simplifié pour le nom en haut de la bulle
+                        if(sourceCode === "FS") nomAuteur = "Lettre de F. Sirois";
+                        else if(sourceCode === "DT") nomAuteur = "Lettre de D. Therriault";
+                        else if(sourceCode === "JPM") nomAuteur = "Lettre de J-P. Martin";
+                        else if(sourceCode === "JC") nomAuteur = "Lettre de J. Chaouki";
+                        else if(sourceCode === "DM") nomAuteur = "Lettre de D. Ménard";
+                        else if(sourceCode === "NM") nomAuteur = "Lettre de N. Mureithi";
+                        else if(sourceCode === "HDV") nomAuteur = "Lettre de H.D. Vo";
+                        else if(sourceCode === "LLL") nomAuteur = "Lettre de L. Laberge-Lebel";
+                        else if(sourceCode === "AH") nomAuteur = "Lettre de A. Hadji";
+                        else if(sourceCode === "FG") nomAuteur = "Lettre de F. Gylbert";
+                        else if(sourceCode === "JV") nomAuteur = "Lettre de J. Vétel";
+                        else if(sourceCode === "BY") nomAuteur = "Lettre de B. Yari";
+                        else if(sourceCode === "MC") nomAuteur = "Lettre de M. Cohen";
+                        else if(sourceCode === "MNS") nomAuteur = "Lettre de M-N. da Silva";
+                        
+                        return `<span class="citation-tag">${match}<span class="tag-tooltip"><strong>${nomAuteur}</strong>« ${citations[tagID]} »</span></span>`;
+                    }
+                    // Si le tag n'est pas dans le dictionnaire, on l'affiche simplement comme texte
+                    return `<span style="color: #777;">${match}</span>`; 
+                });
+
+                conteneurDossier.innerHTML = htmlContent;
+            }
+        });
+    </script>
 </body>
 </html>
