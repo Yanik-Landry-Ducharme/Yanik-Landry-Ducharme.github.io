@@ -122,6 +122,7 @@
             margin: 0 2px;
             padding: 0 2px;
             border-radius: 3px;
+            font-size: 16px; /* Taille du tag ajustée */
             transition: background-color 0.2s;
         }
 
@@ -149,7 +150,7 @@
             padding: 15px;
             width: max-content;
             max-width: 350px;
-            font-size: 13px;
+            font-size: 14px; /* Taille du texte dans la bulle augmentée */
             font-weight: normal;
             line-height: 1.5;
             box-shadow: 0 5px 20px rgba(0,0,0,0.9);
@@ -181,12 +182,12 @@
         }
 
         /* --- STYLES DU DOCUMENT (DOSSIER) --- */
-        .doc-section { margin-bottom: 40px; }
-        .doc-h3 { color: #00BDF2; border-bottom: 1px solid #333; padding-bottom: 5px; margin-top: 40px; text-transform: uppercase; }
-        .doc-h4 { color: #F38B00; margin-top: 25px; margin-bottom: 10px; font-size: 16px; }
-        .doc-p { margin-bottom: 15px; text-align: justify; }
-        .doc-ul { margin-bottom: 15px; padding-left: 20px; }
-        .doc-li { margin-bottom: 8px; text-align: justify; }
+        .doc-section { margin-bottom: 50px; }
+        .doc-h3 { color: #00BDF2; border-bottom: 1px solid #333; padding-bottom: 5px; margin-top: 40px; margin-bottom: 25px; text-transform: uppercase; font-size: 22px; }
+        .doc-h4 { color: #F38B00; margin-top: 30px; margin-bottom: 15px; font-size: 18px; }
+        .doc-p { margin-bottom: 18px; text-align: justify; font-size: 17px; line-height: 1.7; color: #F8F8F8; }
+        .doc-ul { margin-bottom: 20px; padding-left: 25px; }
+        .doc-li { margin-bottom: 10px; text-align: justify; font-size: 17px; line-height: 1.7; color: #F8F8F8; }
 
         @media (max-width: 900px) {
             .navbar { padding: 0 15px; height: 60px; }
@@ -207,7 +208,8 @@
             .header-title { font-size: 24px; line-height: 1.2; }
             .header-subtitle { font-size: 14px; margin-bottom: 25px; }
             .panel-title { font-size: 18px; }
-            p, ul li { font-size: 13px; }
+            p, ul li { font-size: 15px; } /* Adapté pour mobile */
+            .doc-p, .doc-li { font-size: 15px; line-height: 1.6; }
             .grid { grid-template-columns: 1fr; gap: 15px; scroll-margin-top: 130px; }
             .panel-full { grid-column: 1; }
             .image-grid { grid-template-columns: 1fr; }
@@ -250,12 +252,12 @@
                 <div class="panel panel-full media-container">
                     <h3 class="panel-title" style="color: #00BDF2;">DOSSIER DE CANDIDATURE COMPLET</h3>
                     
-                    <div id="texte-argumentaire" style="font-size: 15px; line-height: 1.6; padding: 40px; background-color: #1a1c1e; border-radius: 6px; border: 1px solid #50565c; color: #e1e6eb;">
+                    <div id="texte-argumentaire" style="font-size: 17px; line-height: 1.7; padding: 40px; background-color: #1a1c1e; border-radius: 6px; border: 1px solid #50565c; color: #F8F8F8;">
                         
                         <div style="text-align: center; margin-bottom: 50px; border-bottom: 2px solid #F38B00; padding-bottom: 25px;">
-                            <h2 style="color: #00BDF2; margin-bottom: 10px; font-size: 28px; letter-spacing: 1px;">DOSSIER DE CANDIDATURE : PROMOTION À LA CLASSE SENIOR</h2>
-                            <h3 style="color: #c7cdd1; margin-top: 0; font-size: 20px;">Candidat : Yanik Landry-Ducharme</h3>
-                            <p style="color: #DA8A68; font-size: 16px; font-weight: bold;">Technologue physique - École Polytechnique de Montréal<br>16 juin 2026</p>
+                            <h2 style="color: #00BDF2; margin-bottom: 10px; font-size: 30px; letter-spacing: 1px;">DOSSIER DE CANDIDATURE : PROMOTION À LA CLASSE SENIOR</h2>
+                            <h3 style="color: #c7cdd1; margin-top: 0; font-size: 22px;">Candidat : Yanik Landry-Ducharme</h3>
+                            <p style="color: #DA8A68; font-size: 18px; font-weight: bold;">Technologue physique - École Polytechnique de Montréal<br>16 juin 2026</p>
                         </div>
 
                         <div class="doc-section">
@@ -284,7 +286,7 @@
                             
                             <p class="doc-p">Je suis convaincu de faire la différence et pleinement déterminé à poursuivre ce rôle essentiel au sein de l'École Polytechnique Montréal. Je vous remercie de l'attention que vous porterez à ma candidature et demeure à votre disposition pour toute précision.</p>
 
-                            <p class="doc-p" style="margin-top: 20px; font-weight: bold; color: #DA8A68;">
+                            <p class="doc-p" style="margin-top: 30px; font-weight: bold; color: #DA8A68;">
                                 Yanik Landry-Ducharme<br>
                                 Technologue physique<br>
                                 yanik.landry-ducharme@polymtl.ca
@@ -496,41 +498,41 @@
                             - Par trois (3) fois, à la suite de mes services, un professeur m'a consulté avant d'offrir un poste subventionné pour que l'affichage me cible particulièrement;<br>
                             - Fait particulier : on m'a dit que c'était la première fois qu'un technicien passait directement d'un poste subventionné à un autre poste subventionné. Ce qui démontre un intérêt élevé pour mes services.</p>
                             
-                            <p class="doc-p" style="font-style: italic; color: #DA8A68; margin-top: 20px;">[N.B. Ce n'est pas mon habitude de me glorifier, mais l'exercice de candidature lors d'une promotion n'est pas un acte d'humilité. Le tout étant très factuel, je suis à l'aise de les citer dans cette demande pour le titre de senior.]</p>
+                            <p class="doc-p" style="font-style: italic; color: #DA8A68; margin-top: 30px;">[N.B. Ce n'est pas mon habitude de me glorifier, mais l'exercice de candidature lors d'une promotion n'est pas un acte d'humilité. Le tout étant très factuel, je suis à l'aise de les citer dans cette demande pour le titre de senior.]</p>
                         </div>
 
                         <div class="doc-section">
                             <h3 class="doc-h3">5. TABLE DES ANNEXES</h3>
-                            <table style="width: 100%; border-collapse: collapse; margin-top: 15px; color: #c7cdd1;">
+                            <table style="width: 100%; border-collapse: collapse; margin-top: 15px; color: #c7cdd1; font-size: 16px;">
                                 <tr style="background-color: #333; border-bottom: 2px solid #F38B00;">
-                                    <th style="padding: 10px; text-align: left; border-right: 1px solid #50565c;">Réf.</th>
-                                    <th style="padding: 10px; text-align: left; border-right: 1px solid #50565c;">Document</th>
-                                    <th style="padding: 10px; text-align: left;">Point fort validé</th>
+                                    <th style="padding: 15px; text-align: left; border-right: 1px solid #50565c;">Réf.</th>
+                                    <th style="padding: 15px; text-align: left; border-right: 1px solid #50565c;">Document</th>
+                                    <th style="padding: 15px; text-align: left;">Point fort validé</th>
                                 </tr>
                                 <tr style="border-bottom: 1px solid #50565c;">
-                                    <td style="padding: 10px; border-right: 1px solid #50565c;">A-1</td>
-                                    <td style="padding: 10px; border-right: 1px solid #50565c;">Lettre Pr D. Therriault</td>
-                                    <td style="padding: 10px;">Conception fine & mentorat.</td>
+                                    <td style="padding: 15px; border-right: 1px solid #50565c;">A-1</td>
+                                    <td style="padding: 15px; border-right: 1px solid #50565c;">Lettre Pr D. Therriault</td>
+                                    <td style="padding: 15px;">Conception fine & mentorat.</td>
                                 </tr>
                                 <tr style="border-bottom: 1px solid #50565c;">
-                                    <td style="padding: 10px; border-right: 1px solid #50565c;">A-2</td>
-                                    <td style="padding: 10px; border-right: 1px solid #50565c;">Lettre Pr N. Mureithi</td>
-                                    <td style="padding: 10px;">Projets industriels & autonomie terrain.</td>
+                                    <td style="padding: 15px; border-right: 1px solid #50565c;">A-2</td>
+                                    <td style="padding: 15px; border-right: 1px solid #50565c;">Lettre Pr N. Mureithi</td>
+                                    <td style="padding: 15px;">Projets industriels & autonomie terrain.</td>
                                 </tr>
                                 <tr style="border-bottom: 1px solid #50565c;">
-                                    <td style="padding: 10px; border-right: 1px solid #50565c;">A-3</td>
-                                    <td style="padding: 10px; border-right: 1px solid #50565c;">Lettre Pr H.D. Vo</td>
-                                    <td style="padding: 10px;">Expertise électronique unique & bénévolat.</td>
+                                    <td style="padding: 15px; border-right: 1px solid #50565c;">A-3</td>
+                                    <td style="padding: 15px; border-right: 1px solid #50565c;">Lettre Pr H.D. Vo</td>
+                                    <td style="padding: 15px;">Expertise électronique unique & bénévolat.</td>
                                 </tr>
                                 <tr style="border-bottom: 1px solid #50565c;">
-                                    <td style="padding: 10px; border-right: 1px solid #50565c;">A-4</td>
-                                    <td style="padding: 10px; border-right: 1px solid #50565c;">Lettre (Polynov-Anjou)</td>
-                                    <td style="padding: 10px;">Gestion de site & maintenance bâtiment.</td>
+                                    <td style="padding: 15px; border-right: 1px solid #50565c;">A-4</td>
+                                    <td style="padding: 15px; border-right: 1px solid #50565c;">Lettre (Polynov-Anjou)</td>
+                                    <td style="padding: 15px;">Gestion de site & maintenance bâtiment.</td>
                                 </tr>
                                 <tr>
-                                    <td style="padding: 10px; border-right: 1px solid #50565c;">B-1</td>
-                                    <td style="padding: 10px; border-right: 1px solid #50565c;">Plans du Local 5129 et Aons</td>
-                                    <td style="padding: 10px;">Capacité d'organisation d'infrastructure.</td>
+                                    <td style="padding: 15px; border-right: 1px solid #50565c;">B-1</td>
+                                    <td style="padding: 15px; border-right: 1px solid #50565c;">Plans du Local 5129 et Aons</td>
+                                    <td style="padding: 15px;">Capacité d'organisation d'infrastructure.</td>
                                 </tr>
                             </table>
                         </div>
