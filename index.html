@@ -105,14 +105,6 @@
         .legend-items { display: flex; flex-wrap: wrap; gap: 25px; }
         .legend-items span { display: flex; align-items: center; gap: 8px; font-size: 17px; font-weight: 500; }
 
-        /* Styles spécifiques pour la section Annexes */
-        .annexes-file-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
-        .annexes-file-card { background-color: #1a1c1e; border: 1px solid #50565c; border-radius: 8px; padding: 20px 10px; text-align: center; cursor: pointer; transition: all 0.2s; user-select: none; display: flex; flex-direction: column; align-items: center; justify-content: center; aspect-ratio: 1 / 1; position: relative; box-sizing: border-box; }
-        .annexes-file-card:hover { background-color: #333; border-color: #ED1C24; transform: translateY(-3px); box-shadow: 0 4px 10px rgba(0,0,0,0.5); }
-        .annexes-file-card p { font-size: 13px; font-weight: bold; color: #c7cdd1; word-wrap: break-word; margin: 0; text-transform: uppercase; }
-        .annexes-file-card em { font-size: 11px; color: #DA8A68; font-style: italic; display: block; margin-top: 3px; text-transform: none; }
-        .pdf-icon-placeholder { font-size: 40px; margin-bottom: 10px; color: #777; }
-
         /* --- STYLES MAGIQUES POUR LES TAGS DE CITATION --- */
         .citation-tag {
             color: #00BDF2;
@@ -190,9 +182,9 @@
         .doc-ul { margin-bottom: 20px; padding-left: 25px; }
         .doc-li { margin-bottom: 10px; text-align: justify; font-size: 17px; line-height: 1.7; color: #F8F8F8; }
 
-        /* Style pour la zone scrollable (Point 4) */
+        /* --- STYLE POUR RENDRE LA PARTIE 4 SCROLLABLE --- */
         #argumentaire-scroll {
-            max-height: 600px;
+            max-height: 550px;
             overflow-y: auto;
             padding-right: 15px;
             border-top: 1px solid #333;
@@ -201,6 +193,7 @@
             padding-bottom: 15px;
             margin-top: 15px;
         }
+        /* Personnalisation de la barre de défilement */
         #argumentaire-scroll::-webkit-scrollbar { width: 8px; }
         #argumentaire-scroll::-webkit-scrollbar-track { background: #1a1c1e; border-radius: 4px; }
         #argumentaire-scroll::-webkit-scrollbar-thumb { background: #50565c; border-radius: 4px; }
@@ -234,9 +227,6 @@
             .file-icon { width: 44%; padding: 15px 5px; }
             .media-container iframe { height: 400px; }
             .legend-items { flex-direction: column; gap: 8px; }
-            .annexes-file-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
-            .pdf-icon-placeholder { font-size: 30px; }
-            .annexes-file-card p { font-size: 11px; }
         }
     </style>
 </head>
@@ -891,19 +881,17 @@
             </div>
 
             <div id="annexes" class="grid">
-                <div class="panel panel-full">
-                    <h1 class="header-title" style="color: #ED1C24; font-weight: bold; text-transform: uppercase; border-bottom: 1px solid #50565c; padding-bottom: 10px; margin-bottom: 25px;">ANNEXES (DIPLÔMES & FORMATIONS)</h1>
-                    <div class="annexes-file-grid">
-                        <div class="annexes-file-card" onclick="window.open('Diplome_DEC.pdf', '_blank')">
-                            <div class="pdf-icon-placeholder">🎓</div>
-                            <p>Diplôme DEC</p>
-                            <em>Technologie physique</em>
-                        </div>
-                        <div class="annexes-file-card" onclick="window.open('Formations.pdf', '_blank')">
-                            <div class="pdf-icon-placeholder">📜</div>
-                            <p>Formations</p>
-                            <em>Attestations et certificats</em>
-                        </div>
+                <div class="panel panel-full media-container">
+                    <h1 class="header-title" style="color: #ED1C24; font-weight: bold; text-transform: uppercase;">ANNEXES (DIPLÔMES & FORMATIONS)</h1>
+                    
+                    <div style="margin-bottom: 40px;">
+                        <h3 class="doc-h3" style="color: #ED1C24; border-bottom: 1px solid #333; padding-bottom: 5px;">Diplôme DEC - Technologie physique</h3>
+                        <iframe src="Diplome_DEC.pdf#zoom=150" width="100%" height="800px" frameborder="0"></iframe>
+                    </div>
+
+                    <div>
+                        <h3 class="doc-h3" style="color: #ED1C24; border-bottom: 1px solid #333; padding-bottom: 5px;">Formations - Attestations et certificats</h3>
+                        <iframe src="Formations.pdf#zoom=150" width="100%" height="800px" frameborder="0"></iframe>
                     </div>
                 </div>
             </div>
@@ -985,7 +973,7 @@
                 "FG_6": "Son initiative a permis de réduire les risques et d’améliorer les pratiques (transport d'azote).",
                 "FG_7": "Son sens des responsabilités, sa vigilance et son engagement envers la communauté font de lui un candidat naturel...",
                 "FS_2": "Son profil se distingue clairement de celui de ses pairs, tant par la rareté de son expertise que par l’impact concret...",
-                "FS_3": "Sa capacité à réaliser des soudures de très haute précision (SMD, BGA) est extrêmement rare...",
+                "FS_3": "Sa capacité à réaliser des soudures de très haute précision (SMD, BGA) est extremely rare...",
                 "FS_4": "Yanik est capable de mobiliser l’ensemble de ces outils de manière cohérente au sein d’un même projet.",
                 "FS_5": "Il a su définir et intégrer des solutions techniques répondant à des exigences complexes, avec un niveau de rigueur associé à un ingénieur.",
                 "FS_6": "Il est systématiquement consulté en amont des décisions techniques importantes...",
@@ -1086,7 +1074,7 @@
                         else if(sourceCode === "BY") nomAuteur = "Lettre de B. Yari";
                         else if(sourceCode === "MC") nomAuteur = "Lettre de M. Cohen";
                         else if(sourceCode === "MNS") nomAuteur = "Lettre de M-N. da Silva";
-                        else if(sourceCode === "EM") nomAuteur = "Lettre de E. Mojab"; // Ajout pour El Mehdi
+                        else if(sourceCode === "EM") nomAuteur = "Lettre de E. Mojab";
                         
                         return `<span class="citation-tag">${match}<span class="tag-tooltip"><strong>${nomAuteur}</strong>« ${citations[tagID]} »</span></span>`;
                     }
