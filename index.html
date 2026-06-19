@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -292,6 +293,7 @@
             .panel-full { grid-column: 1; }
             .image-grid { grid-template-columns: 1fr; }
             
+            /* CORRECTION MOBILE ICI */
             .image-card img { max-height: 250px; height: auto; object-fit: contain; }
             .image-card img:hover { transform: none; box-shadow: none; border: none; } /* Désactive zoom au survol sur mobile */
             
@@ -435,150 +437,180 @@
                             
                             <div id="argumentaire-scroll">
                                 <h4 class="doc-h4" style="margin-top: 0;">4.1 Expertise distinctive</h4>
-                                <p class="doc-p"><strong>Interdisciplinarité des connaissances</strong> accrues de la micro-électronique (et de sa fabrication), à la conception mécanique et la fabrication additive en une seule personne : Formation professionnelle sur Altium (20 000$), formattion Orcad, et SolidWorks, impression 3D, C++, usinage et microcontrôleur [FS_3] [FS_4] [JC_4] [DT_4] [JPM_2] [DM_4] [DM_11] [NM_4] [EM_5];</p>
-                                
-                                <p class="doc-p"><strong>Connaissance des circuits électroniques :</strong><br>
-                                - Ma connaissance du prototypage et de la fabrication depuis le début du siècle (Atelier d'électronique - Laboratoire Technologique Avancé - Université de Montréal - Confluence), me confère une vision claire des embûches à éviter lors de la production des PCBs [FS_3] [JPM_3] [JPM_4] [JPM_1] [DT_4] [EM_4];<br>
-                                - Ayant travaillé à plusieurs projets internationaux d’envergures, je connais bien les structures de la communauté scientifiques liées à la conception des circuits électroniques [JC_6] [NM_1] [NM_2];<br>
-                                - Je suis particulièrement spécialisé dans la conception (routage) de circuits dont la communication à large bande est à très haut débit (j’ai même travaillé à mon compte pour Photons etc., car ils aimaient mon travail fait à l’UdeM) [FS_3] [JPM_7] [DM_4] [JPM_3];<br>
-                                - Je sais utiliser les BGA Rework Stations et les Reflow Soldering Stations. Je sais faire du prototypage de PCBs en gravure mécanique et électro-placage [FS_3] [JPM_6] [JPM_4] [JPM_3] [DT_4];</p>
-                                
-                                <p class="doc-p"><strong>Connaissance de l’usinage et de l’assemblage :</strong><br>
-                                - Ayant suivi des cours d’usinage et travaillé avec le Laboratoire Technologique de l’UdeM pendant 16 ans (Atelier d'usinage - Laboratoire Technologique Avancé - Université de Montréal - Confluence), j’ai la bonne « intention de design », minimisant coûts et pertes de temps [JC_8] [NM_5] [DT_4] [LLL_2] [DM_11] [NM_8]. Le technicien de cet atelier a reçu le prix Innovation 2026 de l’UdeM.</p>
-                                
-                                <p class="doc-p"><strong>Habileté manuelle et exclusive :</strong><br>
-                                - Depuis le départ de Maxime Thibault, je suis le seul technicien à l’École à pouvoir souder des puces électroniques 0201 (0.6mm x 0.3mm) et même 01005 (0,4mm x 0.2mm) [FS_3] [JPM_3] [JPM_4] [JPM_1] [EM_4];<br>
-                                - Lorsqu’il n’y a plus d’espoir, je suis particulièrement habile de mes mains et j’ai développé des techniques de réparations particulières en électronique [HDV_5] [HDV_3] [HDV_4] [JPM_5] [FS_7] [DM_2];<br>
-                                - Avec Fabrice Danet (technicien en GM), nous sommes les seuls techniciens de l’École à faire la pose de jauges de contrainte (Strain Gauge) [DM_3] [FS_3].</p>
-                                
-                                <p class="doc-p"><strong>Esprit de synthèse et pensée hors des sentiers battus (SST) :</strong><br>
-                                - J’ai rassemblé en un seul laboratoire (J-5135) toutes les activités impliquant les produits chimiques et les produits dangereux, et j’ai acheté et identifié un balais et porte-poussière par laboratoire, de sorte que les usagers ne répandent plus les contaminants d’une pièce à l’autre en promenant le balais contaminé [DM_8] [DT_17] [FG_5] [EM_7];<br>
-                                - Pour ce même laboratoire, j’ai fait l’achat d’un robinet à activation infrarouge pour que les usagers n’aient pas à retoucher la poignée avec leurs mains après l’avoir manipulé avec leurs gants;<br>
-                                - Toujours dans ce même laboratoire, j’ai acheté une horloge murale pour éviter que les usagers plongent leur main gantée dans leur poche pour voir l’heure sur leur téléphone;<br>
-                                - J’utilise souvent des produits du commerce pour les utiliser dans un autre but (réparation de contrôleur de moteur de Huu Duc Vo, brush plating de David Ménard) [HDV_3] [DM_6] [DM_2] [FS_7];</p>
-                                
+                                <p class="doc-p"><strong>Interdisciplinarité des connaissances</strong> accrues de la micro-électronique (et de sa fabrication), à la conception mécanique et la fabrication additive en une seule personne : Formation Altium de 20 000$, Orcad, et SolidWorks, impression 3D, C++, usinage et microcontrôleur; [FS_1] [FS_12] [JM_1] [DT_1] [DM_1] [EM_1] [AH_5] [JC_10] [LL_6]</p>
+
+                                <p class="doc-p"><strong>Connaissance des circuits électroniques :</strong> - Ma connaissance du prototypage et de la fabrication depuis le début du siècle (Atelier d'électronique - Laboratoire Technologique Avancé - Université de Montréal - Confluence), me confère une vision claire des embûches à éviter lors de la production des PCBs; [JM_2] [FS_2] [EM_2] [HV_5] [DM_8]<br>
+                                Ayant travaillé à plusieurs projets internationaux d’envergures, je connais bien les structures de la communauté scientifiques liées à la conception des circuits électroniques; [JM_3] [EM_3] [JC_1]<br>
+                                Je suis particulièrement spécialisé dans la conception (routage) de circuits dont la communication à large bande est à très haut débit (j’ai même travaillé à mon compte pour Photons etc., car ils aimaient mon travail fait à l’UdeM); [JM_4]<br>
+                                Je sais utiliser les BGA Rework Stations et les Reflow Soldering Stations. [JM_5] [FS_3]<br>
+                                Je sais faire du prototypage de PCBs en gravure mécanique et électro-placage; [JM_5] [FS_2]</p>
+
+                                <p class="doc-p"><strong>Connaissance de l’usinage et de l’assemblage :</strong> - Ayant suivi des cours d’usinage et travaillé avec le Laboratoire Technologique de l’UdeM pendant 16 ans (Atelier d'usinage - Laboratoire Technologique Avancé - Université de Montréal - Confluence), j’ai la bonne « intention de design », minimisant coûts et pertes de temps. [JM_6] [DT_2] [DM_1] [EM_9]<br>
+                                Le technicien de cet atelier a reçu le prix Innovation 2026 de l’UdeM. [JM_6]</p>
+
+                                <p class="doc-p"><strong>Habileté manuelle et exclusive :</strong> - Depuis le départ de Maxime Thibault, je suis le seul technicien à l’École à pouvoir souder des puces électroniques 0201 (0.6mm x 0.3mm) et même 01005 (0,4mm x 0.2mm); [FS_4] [EM_4] [JM_7]<br>
+                                Lorsqu’il n’y a plus d’espoir, je suis particulièrement habile de mes mains et j’ai développé des techniques de réparations particulières en électronique; [HV_1] [HV_6] [JM_8] [FS_13] [DM_9]<br>
+                                Avec Fabrice Danet (technicien en GM), nous sommes les seuls techniciens de l’École à faire la pose de jauges de contrainte (Strain Gauge). [BY_3] [DM_10] [NM_2]</p>
+
+                                <p class="doc-p"><strong>Esprit de synthèse et pensée hors des sentiers battus:</strong> Développement de procédures et mise en place de méthodes et de comportements à suivre pour la SST :<br>
+                                - J’ai rassemblé en un seul laboratoire (J-5135) toutes les activités impliquant les produits chimiques et les produits dangereux, et j’ai acheté et identifié un balais et porte-poussière par laboratoire, de sorte que les usagers ne répandent plus les contaminants d’une pièce à l’autre en promenant le balais contaminé; [DT_12] [EM_8]<br>
+                                - Pour ce même laboratoire, j’ai fait l’achat d’un robinet à activation infrarouge pour que les usagers n’aient pas à retoucher la poignée avec leurs mains après l’avoir manipulé avec leurs gants; [DT_12] [FG_4]<br>
+                                - Toujours dans ce même laboratoire, j’ai acheté une horloge murale pour éviter que les usagers plongent leur main gantée dans leur poche pour voir l’heure sur leur téléphone; [DT_12] [FG_4]<br>
+                                - J’utilise souvent des produits du commerce pour les utiliser dans un autre but (réparation de contrôleur de moteur de Huu Duc Vo, brush plating de David Ménard); [NM_1] [HV_2] [DM_2] [JM_14]</p>
+
                                 <p class="doc-p"><strong>Installation industrielle :</strong><br>
-                                - Installation de la boucle hydraulique grande échelle (Projet de Doosan de Njuki Mureithi) [NM_1] [AH_1] [NM_2] [NM_5];<br>
-                                - Installation de la pultrudeuse de Louis Laberge-Lebel [LLL_2] [LLL_7] [LLL_3];<br>
-                                - Installation du grand lit fluidisé de Gregory S. Patience [JC_2] [JC_13];<br>
-                                - Installation des grands fours rotatifs de Jamal Chaouki [JC_11] [JC_13] [JC_23];</p>
-                                
-                                <p class="doc-p"><strong>Travail en salle propre sous terre :</strong> J’ai obtenu la formation de mineur pour pouvoir circuler le parcours de 1,7km sous terre qui sépare le monte-charge du puit situé à 7000’ sous terre, du laboratoire de SNO (Sudburry Neutrino Observatory) dans la mine d’INCO [JPM_8];</p>
-                                
-                                <p class="doc-p"><strong>Formation de cariste :</strong> J’ai fait la formation et sa requalification pour pouvoir travailler avec le chariot-élévateur à Polynov-Anjou [LLL_3] [NM_5] [LLL_10] [JC_7] [MNS_1] [NM_5]. Selon l’instructeur, seul un employé, manœuvre de Polytechnique, m’égalait, me décrivant comme « un naturel »;</p>
-                                
-                                <p class="doc-p"><strong>Communicateur :</strong> J’ai bâti, enseigné et évaluer une grande section d’une AEC (Attestation d’Études Collégiales) : mathématique (géométrie et algèbre), électricité (courant alternatif et continu), électronique (logique et semiconducteurs) [AH_10] [JPM_9] [NM_10];</p>
-                                
-                                <p class="doc-p"><strong>Leadership :</strong> Je ne bouscule personne, mais lorsque la situation s’y prête, je démontre naturellement du Leadership [DM_7] [JC_15] [JC_17] [FG_7] [NM_7];</p>
-                                
+                                - Installation de la boucle hydraulique grande échelle (Projet de Doosan de Njuki Mureithi); [NM_2] [AH_1]<br>
+                                - Installation de la pultrudeuse de Louis Laberge-Lebel; [LL_1]<br>
+                                - Installation du grand lit fluidisé de Gregory S. Patience; [JC_12]<br>
+                                - Installation des grands fours rotatifs de Jamal Chaouki; [JC_2] [BY_1]</p>
+
+                                <p class="doc-p"><strong>Travail en salle propre sous terre :</strong> J’ai obtenu la formation de mineur pour pouvoir circuler le parcours de 1,7km sous terre qui sépare le monte-charge du puit situé à 7000’ sous terre, du laboratoire de SNO (Sudburry Neutrino Observatory) dans la mine d’INCO; [JM_9]</p>
+
+                                <p class="doc-p"><strong>Formation de cariste :</strong> J’ai fait la formation et sa requalification pour pouvoir travailler avec le chariot-élévateur à Polynov-Anjou. [LL_2] [JC_3] [NM_3] [AH_2] [MD_1]<br>
+                                Selon l’instructeur, seul un employé, manœuvre de Polytechnique, m’égalait, me décrivant comme « un naturel »; [AH_2] [NM_3]</p>
+
+                                <p class="doc-p"><strong>Communicateur :</strong> J’ai bâti, enseigné et évaluer une grande section d’une AEC (Attestation d’Études Collégiales) : mathématique (géométrie et algèbre), électricité (courant alternatif et continu), électronique (logique et semiconducteurs); [JM_12] [AH_6] [NM_8]</p>
+
+                                <p class="doc-p"><strong>Leadership :</strong> Je ne bouscule personne, mais lorsque la situation s’y prête, je démontre naturellement du Leadership; [LL_3] [JC_13] [NM_9] [DM_11]</p>
+
                                 <p class="doc-p"><strong>Gestion :</strong><br>
-                                - Outre la gestion des UBR pour les achats des professeurs, j’ai géré les activités des laboratoires allant de 30 à 63 étudiants en périodes estivales (Daniel Therriault 30, Jamal Chaouki et Gregory S. Patience 63) [JC_16] [JC_25] [DT_6] [DT_21] [JC_17];<br>
-                                - Gestion autonome du site industriel d’Anjou [LLL_10] [LLL_11] [JC_7] [NM_7].</p>
+                                - Outre la gestion des UBR pour les achats des professeurs, j’ai géré les activités des laboratoires allant de 30 à 63 étudiants en périodes estivales (Daniel Therriault 30, Jamal Chaouki et Gregory S. Patience 63); [DT_11] [JC_14]<br>
+                                - Gestion autonome du site industriel d’Anjou. [LL_5] [AH_7] [NM_5]</p>
 
                                 <h4 class="doc-h4">4.2 Rôle conseil et influence stratégique</h4>
-                                
-                                <p class="doc-p"><strong>Pivot central :</strong><br>
-                                - Je suis un intermédiaire clé entre les chercheurs, les techniciens, les départements et les corps de métiers externes [FS_6] [LLL_7] [LLL_8] [LLL_9] [NM_10] [EM_1] [EM_9]. J’ai d’excellentes relations avec tous les employés de l’École et j’obtiens très souvent des faveurs [DM_1] [LLL_9]. Alors les projets se réalisent, et rapidement;<br>
-                                - Frédéric Sirois, David Ménard et Bianca Viggiano me consultent aussi pour la direction de leurs projets et l’organisation de leurs laboratoires [FS_6] [BY_4] [DM_2] [DM_7];</p>
-                                
-                                <p class="doc-p"><strong>Conseil :</strong> Étant pluridisciplinaire, souvent, les professeurs et techniciens me consultent dans l’élaboration de leurs choix technologiques pour des projets de recherche ou de nouveaux laboratoires (enseignement et recherches) et pour leur certification à l’intérieur des murs de Polytechnique : [FS_7] [JC_14] [LLL_5] [BY_4] [FS_6] [EM_8]</p>
-                                
-                                <ul class="doc-ul">
-                                    <li class="doc-li">C’est d’ailleurs à la suite de services que j’ai offert à ces professeurs — Therriault, Sirois et Viggiano — qu’ils ont décidé d’ouvrir un poste subventionné dans l’optique d’obtenir mes services exclusifs [FS_9] [DM_10] [FS_2]. Selon le Pr. Sirois, « aucun autre technicien n’aurait pu me satisfaire ».</li>
-                                    <li class="doc-li">J’ai déterminé tous les équipements d’impression 3D de nouvelle génération pour le LM² (imprimantes 3D au J-5129 et imprimantes 3D hautement spécialisées pour les matériaux exotiques — hautes températures — au J-5135) [DT_19] [DT_21] [DT_3].</li>
-                                    <li class="doc-li">J’ai conseillé et fait la conception de plusieurs projets, dont la bobineuse de rubans supraconducteurs, conseillé le routage de circuit à haut courant de la source pulsée, la conception tridimensionnelle de circuits électroniques de sources électriques, conception et fabrication de la polling station, de la tour d’impact, de la station de couple élevé, l’organisation des laboratoires, etc… [FS_5] [DM_3] [DM_5] [DT_10] [DT_11] [DT_12] [DT_3]</li>
-                                    <li class="doc-li">Ces demandes proviennent aussi de personnes issues d’autres département ou groupes de recherche : Même après avoir quitté le groupe de recherche, le professeur Therriault m’a souvent demandé de l’aide et des conseils (conseil de capacité électrique, de certification du broyeur de plastique, de modification du contrôleur de température, etc.) [DT_15].</li>
-                                    <li class="doc-li">À la suite de mon retour en génie mécanique, le professeur Sirois m’a engagé de façon surnuméraire pour conseiller et accompagner ses élèves dans leurs projets, pendant 8 mois [FS_9] [DM_10].</li>
-                                    <li class="doc-li">Dès mon arrivé en génie électrique, j’ai identifié les manques de services au pavillon principal et coordonné un troc d’équipements de quelques dizaines de milliers de dollars entre le Polygram, le pavillon principal et Lassonde pour répartir équitablement les équipements tout en veillant à ce que personne ne soit perdant dans la transaction [FS_10].</li>
-                                    <li class="doc-li">Le coordinateur des services techniques de génie électrique (El-Mehdi Mojave) m’a demandé de projeter et réaliser la réhabilitation de l’atelier mécanique du A-234 et il m’intègre souvent dans ses stratégies d’adaptation des espaces, équipements et des activités techniques [FG_5] [FG_7].</li>
-                                </ul>
-                                
-                                <p class="doc-p"><strong>Personne-ressource :</strong> Les élèves de Daniel Therriault devaient me consulter avant et pendant la conception de leurs projets (enceinte chauffante, multibuse, station 40 000 Volts…) [DT_8] [DT_20] [EM_6]. Il en va de même en ce moment pour ceux de Frédéric Sirois, Bianca Viggiano et David Ménard [BY_4] [FS_6] [DM_7].</p>
+
+                                <p class="doc-p"><strong>Pivot central :</strong> - Je suis un intermédiaire clé entre les chercheurs, les techniciens, les départements et les corps de métiers externes. [LL_3] [BY_2] [EM_10]<br>
+                                J’ai d’excellentes relations avec tous les employés de l’École et j’obtiens très souvent des faveurs. [LL_3] [DM_12] [EM_11] [FS_14]<br>
+                                Alors les projets se réalisent, et rapidement; [AH_12] [NM_15] [HV_3]<br>
+                                Frédéric Sirois, David Ménard et Bianca Viggiano me consultent aussi pour la direction de leurs projets et l’organisation de leurs laboratoires; [FS_5] [DM_3] [EM_7]</p>
+
+                                <p class="doc-p"><strong>Conseil :</strong> Étant pluridisciplinaire, souvent, les professeurs et techniciens me consultent dans l’élaboration de leurs choix technologiques pour des projets de recherche ou de nouveaux laboratoires (enseignement et recherches) et pour leur certification à l’intérieur des murs de Polytechnique : [EM_5] [DT_3] [JM_10] [BY_4] [AH_8] [NM_10]<br>
+                                C’est d’ailleurs à la suite de services que j’ai offert à ces professeurs — Therriault, Sirois et Viggiano — qu’ils ont décidé d’ouvrir un poste subventionné dans l’optique d’obtenir mes services exclusifs. [FS_6] [EM_6] [DT_4]<br>
+                                Selon le Pr. Sirois, « aucun autre technicien n’aurait pu me satisfaire ». [FS_6]<br>
+                                J’ai déterminé tous les équipements d’impression 3D de nouvelle génération pour le LM² (imprimantes 3D au J-5129 et imprimantes 3D hautement spécialisées pour les matériaux exotiques — hautes températures — au J-5135). [DT_11]<br>
+                                J’ai conseillé et fait la conception de plusieurs projets, dont la bobineuse de rubans supraconducteurs, conseillé le routage de circuit à haut courant de la source pulsée, la conception tridimensionnelle de circuits électroniques de sources électriques, conception et fabrication de la polling station, de la tour d’impact, de la station de couple élevé, l’organisation des laboratoires, etc… [FS_7] [DM_4] [DT_5] [BY_5]<br>
+                                Ces demandes proviennent aussi de personnes issues d’autres département ou groupes de recherche : [EM_10] [FS_15]<br>
+                                - Même après avoir quitté le groupe de recherche, le professeur Therriault m’a souvent demandé de l’aide et des conseils (conseil de capacité électrique, de certification du broyeur de plastique, de modification du contrôleur de température, etc.). [DT_6]<br>
+                                À la suite de mon retour en génie mécanique, le professeur Sirois m’a engagé de façon surnuméraire pour conseiller et accompagner ses élèves dans leurs projets, pendant 8 mois. [FS_8] [DM_5]<br>
+                                Dès mon arrivé en génie électrique, j’ai identifié les manques de services au pavillon principal et coordonné un troc d’équipements de quelques dizaines de milliers de dollars entre le Polygram, le pavillon principal et Lassonde pour répartir équitablement les équipements tout en veillant à ce que personne ne soit perdant dans la transaction. [EM_12]<br>
+                                Le coordinateur des services techniques de génie électrique (El-Mehdi Mojave) m’a demandé de projeter et réaliser la réhabilitation de l’atelier mécanique du A-234 et il m’intègre souvent dans ses stratégies d’adaptation des espaces, équipements et des activités techniques. [EM_7] [FG_1]</p>
+
+                                <p class="doc-p"><strong>Personne-ressource :</strong> Les élèves de Daniel Therriault devaient me consulter avant et pendant la conception de leurs projets (enceinte chauffante, multibuse, station 40 000 Volts…). [DT_7] [BY_4] [EM_5]<br>
+                                Il en va de même en ce moment pour ceux de Frédéric Sirois, Bianca Viggiano et David Ménard. [FS_5] [DM_13]</p>
 
                                 <h4 class="doc-h4">4.3 Implication élevée et engagement communautaire</h4>
-                                
-                                <p class="doc-p"><strong>Bénévolat :</strong> Mon aide bénévole ne se résume pas au travail dans une organisation précise, mais plutôt à mes activités quotidiennes, où je travaille souvent en dehors de mes heures conventionnées et aussi sans rémunération, pour des étudiants, laboratoires et professeurs : J’ai très souvent, i.e. plus de la moitié du temps, dépassé de beaucoup mes heures de travail pour aider les gens [FS_8] [JC_18] [DT_13] [HDV_4] [NM_7] [JC_25]. Toutes ces heures n’étant pas rémunérées, ni même placées en temps accumulés.</p>
-                                
-                                <p class="doc-p">Mon implication se fait beaucoup dans la formation des étudiants gradués et stagiaires, qui se retrouvent à faire rayonner l’École Polytechnique dans la société dans leurs recherches et sur le marché du travail : [DT_6] [JPM_9] [JC_17] [NM_10]<br>
-                                - Les témoignages d’étudiants de Polytechnique en maîtrise et au doctorat le confirment en une trentaine de citations, que l’on retrouve sur le site de Polytechnique [AH_18]. Certaines spécifiant ma contribution essentielle à leurs projets.</p>
-                                
-                                <p class="doc-p"><strong>Loyauté, sens moral et abnégation :</strong> À mon arrivé à la Polytechnique, j’ai continué de supporter le laboratoire de physique subatomique de l’UdeM de mai à septembre 2017 (j’y faisais 20 heures de plus que les 35 heures à la Polytechnique) [JPM_10] [NM_11]. Lors de mes changements de postes, j’ai toujours proposé de diviser les 3 jours d’intégration des employés me remplaçant en 6 après-midis car c’était la meilleure chose à faire la section que je quittais [JC_22]. Bien sûr, je continu un support ponctuel bénévolement par la suite.</p>
-                                
-                                <ul class="doc-ul">
-                                    <li class="doc-li">À mon départ de génie électrique, j’ai fait une période continue de 8 mois de travail surnuméraire à raison de 7 heures par semaines en moyenne pour le professeur Frédéric Sirois [FS_9] [DM_10]. Toutes ces implications non obligatoires ont contribué à l’avancement des travaux en minimisant les effets délétères sur le parcours des étudiants et des recherches des professeurs.</li>
-                                    <li class="doc-li">Pour pouvoir continuer à offrir mes services à Frédéric Sirois, David Ménard et Bianca Viggiano, j’ai accepté de perdre ma sécurité d’emplois, condition sine qua none pour le Service Talents et Culture de Polytechnique.</li>
-                                    <li class="doc-li">Intégrité : J’ai dû m’élever contre deux projets d’un des professeurs pour qui j’ai travaillé à mon arrivé en 2017 [JC_21] : Le premier était tellement dangereux qu’il aurait dû être installé dans un champ isolé de toute population. J’ai donc arrêté ce projet qui se faisait dans les murs de Polytechnique. Le second était un plagiat flagrant de l’expertise que je détenais pour un projet très porteur (brevet à venir) d’un autre professeur de Polytechnique [JC_21].</li>
-                                </ul>
-                                
-                                <p class="doc-p"><strong>Bénévolat au quotidien :</strong> Quand le temps me le permet ou que la situation l’exige, je m’implique et tente de corriger les non-conformités en SST [EM_7] :<br>
-                                - Je suis intervenu lors de la réfection du A-208 alors que les ouvriers travaillaient en pression positive au lieu de négative, ce qui faisait entrer de la poussière d’amiante dans les corridors [FG_3]. Personne, de l’ingénieur au dossier, au chef de la SST institutionnelle, ne voulait s’impliquer.<br>
-                                - J’ai fait des pressions régulières pendant 3 ans, en offrant des solutions, pour sécuriser le transport des bombonnes d’azote liquide dans l’ascenseur [FG_6].<br>
-                                - J’interviens dans les laboratoires qui ne me sont pas attribués si j’y vois un manquement à la SST : À quelques reprises, j’ai dû avertir des usagers de Polyfab (au pavillon principal) pour ne pas porter les EPI propres aux activités de machinage [DT_17] [DM_9]. La dernière fois fut la bonne car j’ai fait intervenir la SST de l’École.<br>
-                                - En 2023-24, j’ai fait beaucoup de tractations directement avec les instances de l’UdeM pour obtenir le J-5129.<br>
-                                - Une autre implication moins visible fut l’idée que j’ai eue et je partageais aux adjointes administratives, aux coordonnateurs, aux techniciens et à mon syndicat depuis environ 3 ans pour la création d’une unité de « techniciens volants ». De plus, ça permet de retenir les expertises, les employés qui perdent leur poste subventionné et ça évite du temps du STC pour l’embauche de temporaires. Bien sûr ce n’est pas moi qui aie négocié l’accord qui est survenu lors de la dernière convention collective des techniciens, mais je ne peux m’empêcher de penser que j’ai éveillé les différents partis à cette idée. Cette étape étant faite, je fais des maintenant tractations pour que Polytechnique se dote d’une coop d’équipement et de consommables techniques.<br>
-                                - Le message d’appui de Maud Cohen (Directrice Générale de Poly) — avec qui j’ai des échanges ponctuels, mais réguliers, à propos des opérations, des finances, des négociations syndicales et du climat de travail —, celui de Marie-Noël da Silva (Conseillère principale- projets stratégiques en santé et sécurité) et celui de Frédéric Gylbert (Superviseur des services d’opération et d’entretien technique), démontrent bien que mon implication s’exprime aussi en dehors des structures habituellement empruntées [MC_1] [MNS_1] [FG_1] [FG_7].</p>
-                                
+
+                                <p class="doc-p"><strong>Bénévolat :</strong> - Mon aide bénévole ne se résume pas au travail dans une organisation précise, mais plutôt à mes activités quotidiennes, où je travaille souvent en dehors de mes heures conventionnées et aussi sans rémunération, pour des étudiants, laboratoires et professeurs : J’ai très souvent, i.e. plus de la moitié du temps, dépassé de beaucoup mes heures de travail pour aider les gens. [JC_4] [FS_9] [JM_11] [HV_3] [AH_9] [NM_11]<br>
+                                Toutes ces heures n’étant pas rémunérées, ni même placées en temps accumulés. [JC_4] [HV_3]<br>
+                                Mon implication se fait beaucoup dans la formation des étudiants gradués et stagiaires, qui se retrouvent à faire rayonner l’École Polytechnique dans la société dans leurs recherches et sur le marché du travail : [JM_12] [DT_8] [DM_11] [EM_13]<br>
+                                Les témoignages d’étudiants de Polytechnique en maîtrise et au doctorat le confirment en une trentaine de citations, que l’on retrouve sur le site de Polytechnique. [DT_8] [JM_15]<br>
+                                Certaines spécifiant ma contribution essentielle à leurs projets. [DM_11] [EM_5]</p>
+
+                                <p class="doc-p"><strong>Loyauté, sens moral et de l’abnégation :</strong> m’ont toujours guidé. À mon arrivé à la Polytechnique, j’ai continué de supporter le laboratoire de physique subatomique de l’UdeM de mai à septembre 2017 (j’y faisais 20 heures de plus que les 35 heures à la Polytechnique). [JM_13] [JC_7] [NM_12]<br>
+                                Lors de mes changements de postes, j’ai toujours proposé de diviser les 3 jours d’intégration des employés me remplaçant en 6 après-midis car c’était la meilleure chose à faire la section que je quittais. [JC_5]<br>
+                                Bien sûr, je continu un support ponctuel bénévolement par la suite. [DT_6] [FS_10]<br>
+                                À mon départ de génie électrique, j’ai fait une période continue de 8 mois de travail surnuméraire à raison de 7 heures par semaines en moyenne pour le professeur Frédéric Sirois. [FS_10] [DM_6] [DT_14]<br>
+                                Toutes ces implications non obligatoires ont contribué à l’avancement des travaux en minimisant les effets délétères sur le parcours des étudiants et des recherches des professeurs. [JC_9] [NM_14]<br>
+                                Pour pouvoir continuer à offrir mes services à Frédéric Sirois, David Ménard et Bianca Viggiano, j’ai accepté de perdre ma sécurité d’emplois, condition sine qua none pour le Service Talents et Culture de Polytechnique. [FS_6]</p>
+
+                                <p class="doc-p"><strong>Intégrité :</strong> J’ai dû m’élever contre deux projets d’un des professeurs pour qui j’ai travaillé à mon arrivé en 2017 : Le premier était tellement dangereux qu’il aurait dû être installé dans un champ isolé de toute population. [JC_6]<br>
+                                J’ai donc arrêté ce projet qui se faisait dans les murs de Polytechnique. [JC_6]<br>
+                                Le second était un plagiat flagrant de l’expertise que je détenais pour un projet très porteur (brevet à venir) d’un autre professeur de Polytechnique. [JC_6]</p>
+
+                                <p class="doc-p"><strong>Bénévolat au quotidien :</strong> Quand le temps me le permet ou que la situation l’exige, je m’implique et tente de corriger les non-conformités en SST :<br>
+                                - Je suis intervenu lors de la réfection du A-208 alors que les ouvriers travaillaient en pression positive au lieu de négative, ce qui faisait entrer de la poussière d’amiante dans les corridors. [EM_8]<br>
+                                Personne, de l’ingénieur au dossier, au chef de la SST institutionnelle, ne voulait s’impliquer.<br>
+                                - J’ai fait des pressions régulières pendant 3 ans, en offrant des solutions, pour sécuriser le transport des bombonnes d’azote liquide dans l’ascenseur. [FG_2]<br>
+                                - J’interviens dans les laboratoires qui ne me sont pas attribués si j’y vois un manquement à la SST : À quelques reprises, j’ai dû avertir des usagers de Polyfab (au pavillon principal) pour ne pas porter les EPI propres aux activités de machinage. [EM_14] [DT_10] [LL_7]<br>
+                                La dernière fois fut la bonne car j’ai fait intervenir la SST de l’École.<br>
+                                - En 2023-24, j’ai fait beaucoup de tractations directement avec les instances de l’UdeM pour obtenir le J-5129. [FG_4] [DT_12]<br>
+                                - Une autre implication moins visible fut l’idée que j’ai eue et je partageais aux adjointes administratives, aux coordonnateurs, aux techniciens et à mon syndicat depuis environ 3 ans pour la création d’une unité de « techniciens volants » pour combler les besoins de professeurs et départements pour des périodes ponctuelles sans qu’ils aient à assurer un salaire annuel pour leurs services. [LL_3] [EM_11]<br>
+                                De plus, ça permet de retenir les expertises, les employés qui perdent leur poste subventionné et ça évite du temps du STC pour l’embauche de temporaires.<br>
+                                Bien sûr ce n’est pas moi qui aie négocié l’accord qui est survenu lors de la dernière convention collective des techniciens, mais je ne peux m’empêcher de penser que j’ai éveillé les différents partis à cette idée.<br>
+                                Cette étape étant faite, je fais des maintenant tractations pour que Polytechnique se dote d’une coop d’équipement et de consommables techniques.<br>
+                                - Le message d’appui de Maud Cohen (Directrice Générale de Poly) — avec qui j’ai des échanges ponctuels, mais réguliers, à propos des opérations, des finances, des négociations syndicales et du climat de travail —, celui de Marie-Noël da Silva (Conseillère principale- projets stratégiques en santé et sécurité) et celui de Frédéric Gylbert (Superviseur des services d’opération et d’entretien technique), démontrent bien que mon implication s’exprime aussi en dehors des structures habituellement empruntées. [MC_1] [MD_2] [FG_3]</p>
+
                                 <p class="doc-p"><strong>Bénévolat en comité :</strong><br>
-                                - J’ai aussi eu ma part d’implication dans des comités classiques : Je me suis engagé dans deux (2) comités (machines dangereuses et produits chimiques) sur une période couvrant 2 ans.<br>
-                                - J’ai accepté de participer aux ateliers sur le climat de travail et, surtout, les ateliers d’enquêtes appréciatives visant à définir les pôles d’excellence du département de génie mécanique [JV_1] : En début d’année 2023, ce renouvellement représentait une situation délicate pour le département; l’enjeu était important pour la continuité et la qualité de ses activités du département. Je me suis porté volontaire malgré ma charge de travail déjà très élevée comme employé régulier subventionné pour Daniel Therriault. J’ai participé activement à tous les ateliers avec dévouement et abnégation [JV_2].<br>
-                                - Je me suis fortement impliqué lors de la pandémie de COVID19 [DT_16] [NM_3] [AH_17]. J’ai été le seul technicien à pouvoir réintégrer les locaux de Poly pendant une bonne période [LLL_8]. Bien avant que j’y prépare le retour des activités de recherches et d’enseignement, j’ai lancé la production maison d’impression de valves Charlotte et par la suite de supports de visière pour le CHUM. Cet état de fait rend compte de ma contribution au rayonnement de Polytechnique dans la société. J’ai aussi préparé seul le retour des activités de recherches à Polynov-Anjou [AH_17]. J’ai bien sûr continué le retour des activités dans les pavillons principal et JAB.</p>
-                                
+                                - J’ai aussi eu ma part d’implication dans des comités classiques : Je me suis engagé dans deux (2) comités (machines dangereuses et produits chimiques) sur une période couvrant 2 ans. [DT_9] <br>
+                                - J’ai accepté de participer aux ateliers sur le climat de travail et, surtout, les ateliers d’enquêtes appréciatives visant à définir les pôles d’excellence du département de génie mécanique : En début d’année 2023, ce renouvellement représentait une situation délicate pour le département; [JV_1] [JV_2]<br>
+                                l’enjeu était important pour la continuité et la qualité de ses activités du département. [JV_1]<br>
+                                Je me suis porté volontaire malgré ma charge de travail déjà très élevée comme employé régulier subventionné pour Daniel Therriault. [JV_1]<br>
+                                J’ai participé activement à tous les ateliers avec dévouement et abnégation. [JV_1]</p>
+
+                                <p class="doc-p">Je me suis fortement impliqué lors de la pandémie de COVID19. [LL_4] [NM_4] [DT_9] [AH_3]<br>
+                                J’ai été le seul technicien à pouvoir réintégrer les locaux de Poly pendant une bonne période. [LL_4]<br>
+                                Bien avant que j’y prépare le retour des activités de recherches et d’enseignement, j’ai lancé la production maison d’impression de valves Charlotte et par la suite de supports de visière pour le CHUM. [LL_4]<br>
+                                Cet état de fait rend compte de ma contribution au rayonnement de Polytechnique dans la société. [MC_1]<br>
+                                J’ai aussi préparé seul le retour des activités de recherches à Polynov-Anjou. [AH_3] [LL_4] [NM_4]<br>
+                                J’ai bien sûr continué le retour des activités dans les pavillons principal et JAB. [DT_9]<br>
+                                J’ai participé à la conférence TIME 2024. Ma présence comme seul représentant des techniciens fut remarqué et souligné à l’assemblée par Maud Cohen dès les premières minutes de l’événement. [MC_1]</p>
+
                                 <p class="doc-p"><strong>Offrir du soutien technique hors de son secteur pour dépanner d’autres équipes :</strong><br>
-                                - Lorsque j’étais en génie électrique, je suis allé au LM² réparer une des nouvelles imprimante 3D (Prusa XL) que le technicien de Daniel Therriault n’arrivait pas à réparer [DT_14] [HDV_2].<br>
-                                - En ce moment, j’assiste deux stagiaires de Daniel Therriault en génie mécanique (alors que je suis subventionné en génie électrique) dans la réalisation de leur projet pour le LM².<br>
-                                - Comme mentionné dans la section 3.2, je suis souvent consulté pour des modifications de projets, pour mon conseil sur des certifications ou des capacités électriques. J’accompagne deux stagiaires de Daniel Therriaul dans leur projet de contrôle de la nouvelle enceinte chauffante.<br>
-                                - J’ai assuré sur une période continue de 8 mois le service en travail surnuméraire — à raison de 7 heures par semaines — pour le professeur Frédéric Sirois de génie électrique alors que j’étais en génie mécanique [FS_9] [DM_10].<br>
-                                - Il y a trois ans, j’ai réparé le contrôleur du professeur Huu Duc Vo sur mon temps personnel, alors que j'étais l'employé de Daniel Therriault, ce qui a permis une reprise des recherches dans la même journée [HDV_4] [HDV_3].<br>
-                                - J'ai été rappelé par le Pr. Vo, il y a peu de temps, pour réparer une autre partie de ce même contrôleur, alors que je travaille pour le Pr. Sirois. Un technicien de GM ayant conclu que la réparation d'un des circuits électroniques ne devait passer que par moi [HDV_5].</p>
+                                - Lorsque j’étais en génie électrique, je suis allé au LM² réparer une des nouvelles imprimante 3D (Prusa XL) que le technicien de Daniel Therriault n’arrivait pas à réparer. [DT_10] <br>
+                                - En ce moment, j’assiste deux stagiaires de Daniel Therriault en génie mécanique (alors que je suis subventionné en génie électrique) dans la réalisation de leur projet pour le LM². [DT_10] <br>
+                                - Comme mentionné dans la section 3.2, je suis souvent consulté pour des modifications de projets, pour mon conseil sur des certifications ou des capacités électriques. [DT_6] [EM_5]<br>
+                                J’accompagne deux stagiaires de Daniel Therriaul dans leur projet de contrôle de la nouvelle enceinte chauffante.<br>
+                                - J’ai assuré sur une période continue de 8 mois le service en travail surnuméraire — à raison de 7 heures par semaines — pour le professeur Frédéric Sirois de génie électrique alors que j’étais en génie mécanique. [FS_10] [DM_6]<br>
+                                Il y a trois ans, j’ai réparé le contrôleur du professeur Huu Duc Vo sur mon temps personnel, alors que j’étais l’employé de Daniel Therriault, ce qui a permis une reprise des recherches dans la même journée; [HV_4] [HV_3]<br>
+                                J’ai été rappelé par le Pr. Vo, il y a peu de temps, pour réparer une autre partie de ce même contrôleur, alors que je travaille pour le Pr. [HV_1] [HV_5]<br>
+                                Sirois. Un technicien de GM ayant conclu que la réparation d’un des circuits électroniques ne devait passer que par moi. [HV_5]</p>
 
                                 <h4 class="doc-h4">4.4 Contribution et optimisation du secteur</h4>
-                                <p class="doc-p"><strong>Maîtrise budgétaire :</strong><br>
-                                - Négociation active d'un crédits-achat (100 000$) et choix des imprimantes du nouveau parc machines (Aon, Bambulab, Prusa).<br>
-                                - En charge des achats et des UBR : attribution des UBR selon les projets et étudiants (certains partagent plus d'un projet ou UBR);</p>
 
-                                <p class="doc-p"><strong>Contribution à l'évolution des structures par une approche inventive et analytique :</strong><br>
-                                - J'ai centralisé en un seul laboratoire (J-5135, Daniel Therriault) toutes les activités impliquant la chimie et les produits dangereux, et j'ai acheté et identifié un balais et porte-poussière par laboratoire, de sorte que les usagers ne répandent plus les contaminant partout en promenant le balai contaminé;<br>
-                                - Pour ce même laboratoire, j'ai fait l'achat d'un robinet à activation infrarouge pour que les usagers n'aient pas à retoucher la poignée avec leurs mains après l'avoir manipulé;<br>
-                                - Toujours dans ce même laboratoire, j'ai acheté une horloge murale pour éviter que les usagers plongent leur main gantée dans leur poche pour voir l'heure sur leur téléphone;<br>
-                                - J'ai conçu et fait fabriquer une hotte pour le nettoyage à l'isopropanol des pièces imprimées SLA (SST);<br>
-                                - J'ai conçu l'aménagement complet (physique, électrique, ventilation et équipements) du nouveau laboratoire J-5129 (que j'ai obtenu de l'UdeM en 2024 suite à moultes tractations);<br>
-                                - Après avoir analysé la possibilité de faire ajouter un drain de plancher sous la douche corporelle du corridor J-5100 et devant les coûts prohibitifs, j'ai acheté un tapis surélevant la personne sous la douche pour éviter que ses pieds ne trempent dans le produit chimique ainsi évacué de sur son corps, et pour éviter qu'elle ne se blaise en glissant;<br>
-                                - J'ai acheté des passe-fils et même fait déplacer des prises électriques pour éviter des situations dangereuses;<br>
-                                - J'ai organisé des zones de travail, dont une pour une expérience à plusieurs dizaines de milliers de Volts (cette section, bien que dans la même salle, est maintenant en retrait, avec marquage au sol et affiches de mise en garde), ainsi qu'à l'entrepôt d'Anjou [EM_10];<br>
-                                - Je me suis occupé (souvent seul et sans directive) du fonctionnement des installations qui étaient à Polynov, ainsi que du bâtiment lui-même (entretien ventilation, compresseur, chariot-élévateur);</p>
+                                <p class="doc-p"><strong>Maîtrise budgétaire :</strong><br>
+                                - Négociation active d’un crédits-achat (100 000$) et choix des imprimantes du nouveau parc machines (Aon, Bambulab, Prusa). [DT_11] [DM_14]<br>
+                                - En charge des achats et des UBR : attribution des UBR selon les projets et étudiants (certains partagent plus d’un projet ou UBR); [DT_11]</p>
+
+                                <p class="doc-p"><strong>Contribution à l’évolution des structures par une approche inventive et analytique:</strong> [Certains des exemples ci-après ont aussi été cités au pilier 2]<br>
+                                - J’ai centralisé en un seul laboratoire (J-5135, Daniel Therriault) toutes les activités impliquant la chimie et les produits dangereux, et j’ai acheté et identifié un balais et porte-poussière par laboratoire, de sorte que les usagers ne répandent plus les contaminant partout en promenant le balai contaminé; [DT_12] [EM_8] [DM_7]<br>
+                                - Pour ce même laboratoire, j’ai fait l’achat d’un robinet à activation infrarouge pour que les usagers n’aient pas à retoucher la poignée avec leurs mains après l’avoir manipulé; [FG_4] [JC_15]<br>
+                                - Toujours dans ce même laboratoire, j’ai acheté une horloge murale pour éviter que les usagers plongent leur main gantée dans leur poche pour voir l’heure sur leur téléphone; [FG_4]<br>
+                                - J’ai conçu et fait fabriquer une hotte pour le nettoyage à l’isopropanol des pièces imprimées SLA (SST); [JC_15]<br>
+                                - J’ai conçu l’aménagement complet (physique, électrique, ventilation et équipements) du nouveau laboratoire J-5129 (que j’ai obtenu de l’UdeM en 2024 suite à moultes tractations); [FG_4] [DT_12]<br>
+                                - Après avoir analysé la possibilité de faire ajouter un drain de plancher sous la douche corporelle du corridor J-5100 et devant les coûts prohibitifs, j’ai acheté un tapis surélevant la personne sous la douche pour éviter que ses pieds ne trempent dans le produit chimique ainsi évacué de sur son corps, et pour éviter qu’elle ne se blaise en glissant;<br>
+                                - J’ai acheté des passe-fils et même fait déplacer des prises électriques pour éviter des situations dangereuses; [FG_6] [EM_7]<br>
+                                - J’ai organisé des zones de travail, dont une pour une expérience à plusieurs dizaines de milliers de Volts (cette section, bien que dans la même salle, est maintenant en retrait, avec marquage au sol et affiches de mise en garde), ainsi qu’à l’entrepôt d’Anjou; [EM_8] [DM_7] [DT_5]<br>
+                                - Je me suis occupé (souvent seul et sans directive) du fonctionnement des installations qui étaient à Polynov, ainsi que du bâtiment lui-même (entretien ventilation, compresseur, chariot-élévateur); [LL_5] [AH_7] [NM_5]</p>
 
                                 <p class="doc-p"><strong>Aide à la recherche :</strong><br>
-                                - En tout temps, par le conseil, la réorganisation des lieux de travail, mon dévouement; un exemple récent : 43 heures supplémentaires - faites en 6 jours, dont la fin de semaine faites au début juin pour rencontrer des livrables, et mes nombreuses heures supplémentaires faites en étirant mes journées régulières pour soutenir les étudiants finissant plus tard que moi.<br>
-                                - Disponibilité flexible dès 6 h, permettant d'éliminer les temps d'arrêt étudiants et de prendre en charge commandes, designs et impressions en soirée et les fins de semaine, maximisant ainsi la rapidité et l'efficacité des processus en période creuse.<br>
-                                - Contribution directe à l'obtention de contrats industriels (SMR) par la qualité des infrastructures livrées (projet de Njuki Mureithi);<br>
-                                - Lorsque j'étais en génie électrique, je suis allé au LM² réparer une des nouvelles Prusa XL que le technicien de Daniel Therriault n'arrivait pas à réparer.<br>
-                                - J'ai effectué le « sauvetage » du contrôleur de moteur de Huu Duc Vo, grâce à mes compétences en électronique;</p>
+                                - En tout temps, par le conseil, la réorganisation des lieux de travail, mon dévouement; [FS_5] [EM_7] [DT_12]<br>
+                                un exemple récent : 43 heures supplémentaires — faites en 6 jours, dont la fin de semaine — faites au début juin pour rencontrer des livrables, et mes nombreuses heures supplémentaires faites en étirant mes journées régulières pour soutenir les étudiants finissant plus tard que moi. [JC_7] [FS_9] [AH_10]<br>
+                                - Disponibilité flexible dès 6 h, permettant d’éliminer les temps d’arrêt étudiants et de prendre en charge commandes, designs et impressions en soirée et les fins de semaine, maximisant ainsi la rapidité et l’efficacité des processus en période creuse [JC_8] [NM_5]<br>
+                                - Contribution directe à l'obtention de contrats industriels (SMR) par la qualité des infrastructures livrées (projet de Njuki Mureithi); [NM_6] [AH_4]<br>
+                                - Lorsque j’étais en génie électrique, je suis allé au LM² réparer une des nouvelles Prusa XL que le technicien de Daniel Therriault n’arrivait pas à réparer. [DT_10]<br>
+                                - J’ai effectué le « sauvetage » du contrôleur de moteur de Huu Duc Vo, grâce à mes compétences en électronique; [HV_1] [HV_6]</p>
 
                                 <p class="doc-p"><strong>Gestion et entretien des espaces de travail et des équipements :</strong><br>
-                                - J'ai fait l'achat et la supervision de l'installation d'armoires de laboratoire pour augmenter le rangement et la SST.<br>
-                                - Maintenance continue des imprimantes Raise 3D, Aon et du robot 6 axes, et voir au bon fonctionnement des activités des laboratoires (maintenance et achats) sous ma responsabilité;<br>
-                                - Optimiser les processus, réduisant les temps d'arrêt ou les coûts : Pour ne citer que quelques exemples, l'achat et ordonnancement de boulonneries distinctes, pour optimiser les activités du lab; L'achat d'imprimante 3D performantes pour Frédéric Sirois, Bianca Viggiano et le département de Génie Mécanique. Le choix et l'achat des équipements pour une station complète de soudage sous fond MAO-TIC en Génie Mécanique.<br>
-                                - J'ai planifié les espaces et les requis structurels selon les équipements et l'utilisation pour le nouveau laboratoire du 5129.<br>
-                                - J'ai fabriqué un chiffrier Excel, très exhaustif, des produits chimiques du laboratoire de Daniel Therriault.</p>
+                                - J’ai fait l’achat et la supervision de l’installation d’armoires de laboratoire pour augmenter le rangement et la SST. [DT_12] [FG_1]<br>
+                                - Maintenance continue des imprimantes Raise 3D, Aon et du robot 6 axes, et voir au bon fonctionnement des activités des laboratoires (maintenance et achats) sous ma responsabilité; [DT_11]<br>
+                                - Optimiser les processus, réduisant les temps d’arrêt ou les coûts : Pour ne citer que quelques exemples, l’achat et ordonnancement de boulonneries distinctes, pour optimiser les activités du lab; [AH_11] [NM_13] [FS_16] [DM_2]<br>
+                                - L’achat d’imprimante 3D performantes pour Frédéric Sirois, Bianca Viggiano et le département de Génie Mécanique. [DT_11]<br>
+                                - Le choix et l’achat des équipements pour une station complète de soudage sous fond MAO-TIC en Génie Mécanique. [DT_11]<br>
+                                - J’ai planifié les espaces et les requis structurels selon les équipements et l’utilisation pour le nouveau laboratoire du 5129. [FG_4] [DT_12]<br>
+                                - J’ai fabriqué un chiffrier Excel, très exhaustif, des produits chimiques du laboratoire de Daniel Therriault. [DT_15]</p>
 
-                                <p class="doc-p"><strong>Améliorer la sécurité ou l'efficacité des installations :</strong><br>
-                                - Comme mentionné précédemment, j'ai reconfiguré les lab pour n'avoir qu'un seul lab avec produits chimiques afin d'augmenter la santé-sécurité. Ajout de bras articulé à la grosse Aerotech pour améliorer le passage sécuritaire. Marquage au sol [EM_10].<br>
-                                - Ajout de supports à manteaux/sarraus muraux dans le corridor, catégorisés et séparés, laissant plus de place dans les laboratoires et évitant l'empilement de sarraus souillés un par-dessus les autres.<br>
-                                - Mise en place de procédures et de normes comportementales propre à chaque laboratoire; exemple, en définissant un seul lab - J-5135 contenant des produits chimiques et dangereux, il est donc possible de porter des EPI moins contraignant dans les autres laboratoires adjacents. Ce qui renforce l'obligation d'en porter au J5135;</p>
+                                <p class="doc-p"><strong>Améliorer la sécurité ou l’efficacité des installations :</strong><br>
+                                - Comme mentionné précédemment, j’ai reconfiguré les lab pour n’avoir qu’un seul lab avec produits chimiques afin d’augmenter la santé-sécurité. [DT_12] [EM_8]<br>
+                                - Ajout de bras articulé à la grosse Aerotech pour améliorer le passage sécuritaire. Marquage au sol. [DT_12] [FG_5]<br>
+                                - Ajout de supports à manteaux/sarraus muraux dans le corridor, catégorisés et séparés, laissant plus de place dans les laboratoires et évitant l’empilement de sarraus souillés un par-dessus les autres. [DT_13]<br>
+                                - Mise en place de procédures et de normes comportementales propre à chaque laboratoire; [NM_7] [JC_11]<br>
+                                exemple, en définissant un seul lab — J-5135 — contenant des produits chimiques et dangereux, il est donc possible de porter des EPI moins contraignant dans les autres laboratoires adjacents. [DT_12]<br>
+                                Ce qui renforce l’obligation d’en porter au J5135;</p>
 
                                 <p class="doc-p"><strong>Avoir un historique constant de travail de qualité, reconnu par les usagers :</strong><br>
-                                - Lors de mes tâches d'employé subventionné, j'ai toujours offert un service dépassant mes affectations et mes heures normales. Voire du temps accumulé, mais aussi du temps personnel pour assurer le bon fonctionnement des laboratoires ou l'avancement des étudiants.<br>
-                                - Comme mentionné par Frédéric Sirois, la qualité de mon travail fait en sorte que j'ai des demandes de plusieurs professeurs pour mes conseils et pour l'accomplissement de leurs projets.</p>
+                                - Lors de mes tâches d’employé subventionné, j’ai toujours offert un service dépassant mes affectations et mes heures normales. [FS_9] [JC_4]<br>
+                                - Voire du temps accumulé, mais aussi du temps personnel pour assurer le bon fonctionnement des laboratoires ou l’avancement des étudiants. [FS_9] [EM_15]<br>
+                                - Comme mentionné par Frédéric Sirois, la qualité de mon travail fait en sorte que j’ai des demandes de plusieurs professeurs pour mes conseils et pour l’accomplissement de leurs projets. [FS_5] [EM_10] [DT_6]</p>
 
                                 <p class="doc-p"><strong>Coordination de plusieurs quarts de métiers pour des travaux :</strong><br>
-                                - Plusieurs exemple d'installation de machines et d'armoires murales parfois interdépartemental - à JAB. Comme je fédère les gens, plusieurs exemples de ménages collaboratifs au Principal et à Anjou.</p>
+                                - Plusieurs exemple d’installation de machines et d’armoires murales Comme je fédère les gens, plusieurs exemples de ménages collaboratifs — parfois interdépartemental — à JAB, au Principal et à Anjou. [AH_5] [MD_4] [LL_8]</p>
 
                                 <p class="doc-p"><strong>Valeur élevée :</strong><br>
-                                - Être indispensable lors de périodes critiques (sessions d'enseignement, projets de recherche, urgences techniques) : J'ai toujours offert de la continuité aux professeurs lorsque je changeais de poste, allant même jusqu'à travailler bénévolement et en temps supplémentaire que j'ai offert à rémunération à temps simple... ce n'est pas purement du bénévolat, mais en parti - entre autres pendant 8 mois, à raison de 7 h/sem, pour Frédéric Sirois alors que j'étais dans un autre département.<br>
-                                - Par trois (3) fois, à la suite de mes services, un professeur m'a consulté avant d'offrir un poste subventionné pour que l'affichage me cible particulièrement [EM_3];<br>
-                                - Fait particulier : on m'a dit que c'était la première fois qu'un technicien passait directement d'un poste subventionné à un autre poste subventionné. Ce qui démontre un intérêt élevé pour mes services [EM_2].</p>
-                                
-                                <p class="doc-p" style="font-style: italic; color: #DA8A68; margin-top: 30px;">[N.B. Ce n'est pas mon habitude de me glorifier, mais l'exercice de candidature lors d'une promotion n'est pas un acte d'humilité. Le tout étant très factuel, je suis à l'aise de les citer dans cette demande pour le titre de senior.]</p>
+                                - Être indispensable lors de périodes critiques (sessions d’enseignement, projets de recherche, urgences techniques) : J’ai toujours offert de la continuité aux professeurs lorsque je changeais de poste, allant même jusqu’à travailler bénévolement et en temps supplémentaire — que j’ai offert à rémunération à temps simple… ce n’est pas purement du bénévolat, mais en parti — entre autres pendant 8 mois, à raison de 7 h/sem, pour Frédéric Sirois alors que j’étais dans un autre département. [FS_11] [JC_9] [NM_14] [DT_14]<br>
+                                - Par trois (3) fois, à la suite de mes services, un professeur m’a consulté avant de d’offrir un poste subventionné pour que l’affichage me cible particulièrement; [FS_6] [EM_6] [EM_16]<br>
+                                - Fait particulier : on m’a dit que c’était la première fois qu’un technicien passait directement d’un poste subventionné à un autre poste subventionné. [EM_16]<br>
+                                - Ce qui démontre un intérêt élevé pour mes services. [EM_6] [FS_6]</p>
+
                             </div> </div>
                         
                     </div>
@@ -1043,114 +1075,156 @@
 
             // --- 2. Dictionnaire pour les bulles du texte ---
             const citations = {
-                "AH_1": "Atteste par la présente de l’apport unique et déterminant de M. Yanik Landry Ducharme dans le projet Anjou IFS Lab...",
-                "AH_10": "Il a également transmis efficacement son savoir-faire, contribuant à l’amélioration des pratiques opérationnelles et de SST.",
-                "AH_17": "Durant la période de la COVID 19, il a également établi et appliqué les mesures sanitaires dans l’entrepôt d’Anjou...",
-                "AH_18": "L’expertise technique, les conseils pragmatiques, l’engagement soutenu et la contribution concrète de M. Yanik font de lui un excellent candidat...",
-                "BY_4": "Yanik agit naturellement comme une personne ressource technique. Il est capable d’anticiper les difficultés...",
-                "DM_1": "Son entregent, ses qualifications techniques et son sens de l’organisation ont apporté beaucoup au Laboratoire...",
-                "DM_2": "Le travail technique va bien au-delà de l’entretien... et nécessite de la créativité et du savoir-faire...",
-                "DM_3": "Le système devait supporter les forces importantes en jeu et intégrer l’électronique nécessaire à l’acquisition de données...",
-                "DM_4": "Fort d'une double expertise en électronique et en mécanique, il a su intriquer ces deux disciplines...",
-                "DM_5": "Sa vision, ses conseils experts et ses choix technologiques judicieux permettent aujourd’hui l'évolution du banc...",
-                "DM_6": "Yanik a imaginé des solutions simples, sécuritaires et économiques en modifiant des articles de cuisine.",
-                "DM_7": "Ses qualités de leader et son entregent ont notamment été très appréciées lors de la supervision...",
-                "DM_8": "Yanik a grandement aidé à réorganiser le laboratoire J 4196 afin d’optimiser les activités...",
-                "DM_9": "Il a aussi noté des défauts de fonctionnement dans les hottes chimiques, qu’il a signalé aux responsables...",
-                "DM_10": "Lors de son retour en GM, il a continué de soutenir le LSM durant huit mois en effectuant des heures supplémentaires...",
-                "DM_11": "M. Yanik est un technicien créatif, qualifié et talentueux, ce qui lui permet de participer très significativement à la conception...",
-                "DT_3": "Yanik a assisté mon équipe à concevoir, fabriquer et assembler différents montages à la fine pointe de la technologie.",
-                "DT_4": "Yanik a des connaissances techniques très diversifiées (électricité, électronique, usinage, outillage, SST)...",
-                "DT_6": "Yanik a grandement facilité le bon fonctionnement de mon laboratoire, notamment pendant le trimestre d’été...",
-                "DT_8": "Je recommandais systématiquement à mes étudiants aux cycles supérieurs de le consulter en cas de difficultés...",
-                "DT_10": "Il a aidé un ancien étudiant au doctorat à construire en seulement dix jours une tour d'impact à basse vitesse...",
-                "DT_11": "Il a également aidé une étudiante au doctorat à construire et à sécuriser une station de polarisation...",
-                "DT_12": "L'expertise de Yanik a été essentielle au développement de cette chambre thermique sécuritaire...",
-                "DT_13": "Yanik s'est montré bien organisé et capable de fournir un travail d'excellente qualité dans des délais courts...",
-                "DT_14": "Yanik se portait souvent volontaire pour aider d'autres équipes de recherche comme les laboratoires des professeurs Bodkhe et Laberge Lebel.",
-                "DT_15": "Même après son départ de mon équipe, je l'ai consulté à l’occasion pour des questions techniques...",
-                "DT_16": "Un énorme effort a été fourni par Yanik pour organiser l'accès des étudiants aux laboratoires (COVID 19).",
-                "DT_17": "Il a réaménagé certaines machines, géré l’installation d’un bras articulé... et réorganisé les armoires chimiques...",
-                "DT_19": "Il a coordonné les achats d’accessoires de recherche et l’entretien de plusieurs imprimantes 3D...",
-                "DT_20": "Yanik a aussi joué un rôle majeur dans l'élaboration et le maintien de l'inventaire du laboratoire...",
-                "DT_21": "Il a géré mes UBRs... et participé à l’achat de deux imprimantes 3D industrielles haute température...",
-                "FG_1": "Je recommande Yanik Landry Ducharme pour l’obtention du titre de technicien senior.",
-                "FG_3": "Il rapporte rapidement les bris nécessitant une intervention du SDI et signale les situations à risque avec précision.",
-                "FG_5": "Il s’investit aussi dans l’aménagement de ses laboratoires, notamment l’espace A234...",
-                "FG_6": "Son initiative a permis de réduire les risques et d’améliorer les pratiques (transport d'azote).",
-                "FG_7": "Son sens des responsabilités, sa vigilance et son engagement envers la communauté font de lui un candidat naturel...",
-                "FS_2": "Son profil se distingue clairement de celui de ses pairs, tant par la rareté de son expertise que par l’impact concret...",
-                "FS_3": "Sa capacité à réaliser des soudures de très haute précision (SMD, BGA) est extremely rare...",
-                "FS_4": "Yanik est capable de mobiliser l’ensemble de ces outils de manière cohérente au sein d’un même projet.",
-                "FS_5": "Il a su définir et intégrer des solutions techniques répondant à des exigences complexes, avec un niveau de rigueur associé à un ingénieur.",
-                "FS_6": "Il est systématiquement consulté en amont des décisions techniques importantes...",
-                "FS_7": "Son apport se distingue par sa capacité à proposer des solutions intégrées, combinant efficacement des approches mécaniques et électroniques.",
-                "FS_8": "Il consacre régulièrement du temps supplémentaire pour soutenir les étudiants et les chercheurs...",
-                "FS_9": "Son engagement s’est notamment illustré lors d’une période prolongée de soutien intensif sur plusieurs mois...",
-                "FS_10": "Il a notamment joué un rôle déterminant dans la structuration et la réorganisation des espaces de travail...",
-                "HDV_2": "C'est toutefois à la suite d’un incident technique majeur en mai 2023... que j'ai pu mesurer la pleine mesure de son talent.",
-                "HDV_3": "Grâce à ses connaissances approfondies en électronique, il a su proposer des pistes de solutions concrètes...",
-                "HDV_4": "Yanik a réalisé ces interventions bénévolement et dès la réception des pièces, permettant une reprise rapide des expériences...",
-                "HDV_5": "Je suis convaincu que Yanik possédait une expertise unique, introuvable ailleurs au sein de Polytechnique Montréal...",
-                "JC_2": "Il a été accompagné par mon employé subventionné, l’un des meilleurs techniciens de la Polytechnique.",
-                "JC_4": "Il possédait déjà une expertise pointue en électronique, mais il a su relever les nombreux défis propres au génie chimique.",
-                "JC_6": "Son expérience en projets internationaux de grande envergure... s’est révélée importante au niveau de la structure de son travail.",
-                "JC_7": "Yanik et Sylvain étaient les seuls techniciens à aller à Anjou et seul Yanik qui avait la formation de cariste.",
-                "JC_8": "Grâce à ses connaissances en mécanique automobile et en électronique, Yanik a complété à merveille les compétences de Sylvain...",
-                "JC_11": "Il s’est avéré un bon organisateur lors du déménagement d’équipements à JAB et surtout l’installation de fours rotatifs...",
-                "JC_13": "Sa connaissance de l’entrepôt d’Anjou lui a permis de déterminer le meilleur emplacement pour les fours...",
-                "JC_14": "Yanik et Sylvain ont été les piliers pour la SST et la fabrication... de même que pour les conseils de conception...",
-                "JC_15": "Bien qu’il fût l’employé du Pr. Patience, Yanik s’est, de tout temps, impliqué dans mes projets de recherche.",
-                "JC_16": "Tous deux très autonomes, Yanik et Sylvain géraient les échéanciers et les étudiants.",
-                "JC_17": "Yanik savait identifier les étudiants dignes de confiance pour l’utilisation de certains équipements...",
-                "JC_18": "Je dois mentionner que Yanik faisait déjà une dizaine d’heures supplémentaires par semaine depuis son arrivée...",
-                "JC_21": "Yanik s’est tenu droit et a refusé (le plagiat), malgré la pression exercée sur lui.",
-                "JC_22": "Il s’est montré disponible au-delà des 21 heures conventionnelles...",
-                "JC_23": "Yanik a su imposer les normes les plus élevées en matière de santé et sécurité et se montrer disponible et indispensable...",
-                "JC_25": "Yanik arrivait dès 6 heures du matin afin de pouvoir avancer les projets sans interrompre les activités des étudiants.",
-                "JPM_1": "Pendant son passage au laboratoire, Yanik s'est imposé comme un professionnel d'exception, réunissant des compétences techniques rares...",
-                "JPM_2": "Yanik a été chargé de suivre les programmes de formation d'Altium et de communiquer cette expertise aux autres...",
-                "JPM_3": "La miniaturisation était souvent un facteur important, ce qui conduisait à l'utilisation de composants très petits (0201).",
-                "JPM_4": "Cela exigeait le soudage sous microscope de composants minuscules... Cette technique relève du soudage professionnel...",
-                "JPM_5": "Nous avons apprécié l'ingéniosité des astuces de Yanik pour corriger par exemple une malencontreuse erreur sur un prototype...",
-                "JPM_6": "Il a aussi contribué à l'installation d'outils de soudage spécialisés, comme une station de réparation BGA...",
-                "JPM_7": "Yanik a fait la conception de circuits imprimés flexibles kapton/cuivre... à 1/20 du prix du fabricant.",
-                "JPM_8": "Il a dû compléter une formation de mineur pour avoir accès au site (SNOLAB).",
-                "JPM_9": "Les stagiaires appréciaient grandement l'expérience pratique de Yanik. Yanik est un bon vulgarisateur.",
-                "JPM_10": "Embauché à la Polytechnique... il a néanmoins continué tout l'été à assurer la continuity des travaux au laboratoire de l'UdeM.",
-                "JV_1": "Participation volontaire et active aux ateliers d’enquêtes appréciatives dans le cadre du processus d’établissement des pôles d’excellence...",
-                "JV_2": "Son engagement s’est manifesté par une contribution concrète aux réflexions collectives...",
-                "LLL_2": "Il a su mobiliser des connaissances pointues en mécanique automobile et en construction pour mener à bien mon projet...",
-                "LLL_3": "Il est certifié pour l’utilisation sécuritaire du chariot élévateur, en fait une ressource stratégique indispensable.",
-                "LLL_5": "Ayant longtemps été le seul technicien à Anjou, il a une connaissance des lieux lui permettant d’offrir les conseils les plus judicieux.",
-                "LLL_7": "Lors de l’installation de la pultrudeuse à Polynov Anjou, Yanik a agi comme pivot central.",
-                "LLL_8": "Yanik est un véritable connecteur au sein de l'institution. Il a été impliqué dès la première heure dans le déconfinement...",
-                "LLL_9": "Sa bonne humeur et la qualité des relations qu’il entretient avec toute la communauté polytechnicienne font en sorte que Yanik est le trait d'union...",
-                "LLL_10": "Yanik a coordonné le réaménagement complet de l'espace à Polynov, alors qu'il y était le seul technicien attitré.",
-                "LLL_11": "Il s’occupait de maintenir les équipements du bâtiment à Anjou en parfaite condition de marche...",
+                "AH_1": "J'ai supervisé la conception, le suivi de fabrication et l'installation de la boucle de banc d'essai.",
+                "AH_2": "Sa précision d'exécution, notamment avec des fourches à double envergure (8 pieds), a été déterminante...",
+                "AH_3": "Durant la période de la COVID-19, il a également établi et appliqué les mesures sanitaires dans l'entrepôt d'Anjou...",
+                "AH_4": "Ses recommandations ont été appliquées avec succès et ont contribué à l'obtention d'un second contrat pour l'agrandissement...",
+                "AH_5": "Diversité des tâches à accomplir : électricité, construction, assemblage de grandes structures, pneumatique et hydraulique...",
+                "AH_6": "Sa communication claire et structurée lui a permis de faire accepter des solutions techniques... a transmis efficacement son savoir-faire.",
+                "AH_7": "Son expérience approfondit des lieux, sa connaissance du site et du propriétaire... acquise au cours de plusieurs années de travail sur place.",
+                "AH_8": "Il a participé à la conception d'outils et de méthodes d'assemblage inédites... recommandation d'outils et d'ancrages industriels.",
+                "AH_9": "Participait activement à l'organisation des travaux, y compris en soirée et les fins de semaine lorsque nécessaire.",
+                "AH_10": "Il anticipait les besoins, prenait en charge des responsabilités critiques avec peu de supervision... organisation des travaux, y compris en soirée.",
+                "AH_11": "Proposé des achats d'outillage ciblés ayant permis de réduire les coûts et d'accélérer les travaux.",
+                "AH_12": "A grandement facilité la réalisation du projet... Cela a permis de respecter l'échéancier serré du projet.",
+                "BY_1": "Il a contribué à l'exploitation de fours rotatifs...",
+                "BY_2": "Il travaille de manière constructive avec différents intervenants et contribue à instaurer un climat de confiance...",
+                "BY_3": "Montage expérimental de transfert thermique impliquant un lit de billes d'acier instrumenté... excellente maîtrise de l'installation d'équipements, incluant capteurs, instrumentation.",
+                "BY_4": "Yanik agit naturellement comme une personne-ressource technique... capable d'anticiper les difficultés, de proposer des solutions pragmatiques.",
+                "BY_5": "Il a contribué... à la conception et à la fabrication d'un outil spécialisé d'échantillonnage.",
+                "DM_1": "Fort d'une double expertise en électronique et en mécanique... Il a ainsi conçu, fabriqué et assemblé les circuits électroniques ainsi qu'un support ingénieux en impression 3D.",
+                "DM_2": "Yanik a imaginé des solutions simples, sécuritaires et économiques en modifiant des articles de cuisine.",
+                "DM_3": "Yanik Landry-Ducharme, qui offre aussi des conseils professionnels et maitrise plusieurs disciplines.",
+                "DM_4": "Ce projet exigeait la conception et la construction d'un banc d'essais capable de soumettre les tiges d'acier à des couples jusqu'à 350 Nm...",
+                "DM_5": "Lors de son retour en génie mécanique, il a continué de soutenir le LSM durant huit mois en effectuant des heures supplémentaires...",
+                "DM_6": "Cet engagement exceptionnel a été grandement apprécié et garantit aujourd'hui la pérennité de nos installations.",
+                "DM_7": "Yanik a grandement aidé à réorganiser le laboratoire J-4196... en créant des zones distinctes (chimie et atelier-bureau).",
+                "DM_8": "Le travail technique va bien au-delà de l'entretien et du fonctionnement des appareils, et nécessite de la créativité et du savoir-faire...",
+                "DM_9": "Il a su intriquer ces deux disciplines, qui sont interdépendantes dans ce projet... en simplifiant la structure tout en prévoyant les systèmes de protection.",
+                "DM_10": "Mesurer les variations du champ magnétique autour d'un arbre de direction... ensemble de capteurs magnétiques pour mesurer la distribution.",
+                "DM_11": "Ses qualités de leader et son entregent ont notamment été très appréciées lors de la supervision d'une étudiante au doctorat et d'un stagiaire d'été.",
+                "DM_12": "Son entregent, ses qualifications techniques et son sens de l'organisation ont apporté beaucoup au Laboratoire... Sa bonne humeur... sont par ailleurs des atouts majeurs.",
+                "DM_13": "Il s'est d'ailleurs impliqué et a donné des conseils à plusieurs autres étudiants pour des enjeux électroniques ou mécaniques.",
+                "DM_14": "Recherche de solution optimale, qui respectent les budgets, les délais et les normes de sécurité.",
+                "DT_1": "Yanik a des connaissances techniques très diversifiées, notamment en électricité, électronique, usinage, outillage...",
+                "DT_2": "Tâches de conception, de fabrication ou d'assemblage de leurs dispositifs expérimentaux.",
+                "DT_3": "Il leur apportait aussi des conseils judicieux pour l'achat de matériel de laboratoire.",
+                "DT_4": "À la suite aux nombreux retours positifs de mon équipe de recherche à l'égard de son travail, je l'ai recruté comme technicien subventionné à temps plein...",
+                "DT_5": "Construire et sécuriser une station de polarisation piézoélectrique à haute tension... construire en seulement dix jours une tour d'impact à basse vitesse.",
+                "DT_6": "Même après son départ de mon équipe, je l'ai consulté à l'occasion pour des questions techniques.",
+                "DT_7": "Je recommandais systématiquement à mes étudiants aux cycles supérieurs de le consulter en cas de difficultés...",
+                "DT_8": "Aider mes étudiants à la réalisation sécuritaire de leurs montages expérimentaux, à former le personnel...",
+                "DT_9": "Yanik a fait partie du comité santé et sécurité au travail pendant la pandémie de COVID-19... pour organiser l'accès des étudiants aux laboratoires.",
+                "DT_10": "Yanik se portait souvent volontaire pour aider d'autres équipes de recherche comme les laboratoires des professeurs Bodkhe et Laberge Lebel.",
+                "DT_11": "Yanik a géré mes UBRs... II a également participé à l'achat de deux imprimantes 3D industrielles haute température et a contribué à accélérer certaines tâches administratives.",
+                "DT_12": "M. Landry-Ducharme a réaménagé certaines machines, géré l'installation d'un bras articulé pour l'extraction d'air et réorganisé les armoires à produits chimiques...",
+                "DT_13": "De plus, il a fait l'installation de porte-manteaux/vestes muraux dans le couloir pour remédier à notre manque d'espace.",
+                "DT_14": "A été sollicité pour travailler dans les locaux de Polytechnique Montréal à Anjou afin d'y organiser des montages expérimentaux et de remiser du matériel important...",
+                "DT_15": "Yanik a aussi joué un rôle majeur dans l'élaboration et le maintien de l'inventaire du laboratoire (p. ex. machines, visserie, produits chimiques, outils).",
+                "EM_1": "Il conjugue avec cohérence les outils de conception électronique et mécanique, l'impression 3D et la fabrication de pièces sur mesure au sein d'un même projet.",
+                "EM_2": "Il maîtrise la conception, la fabrication et le montage de circuits imprimés...",
+                "EM_3": "Des compétences acquises tant en milieu industriel que dans le cadre de projets de recherche internationaux d'envergure.",
+                "EM_4": "Sa capacité à réaliser des assemblages de très haute précision, notamment des composants montés en surface submillimétriques, constitue une ressource rare...",
+                "EM_5": "Cette aptitude à intervenir de bout en bout sur des systèmes complexes... fait de lui une référence que professeurs et étudiants gradués sollicitent spontanément...",
+                "EM_6": "Le professeur avec lequel il collabore a tenu à se l'adjoindre, recherchant précisément cette expertise difficilement remplaçable.",
+                "EM_7": "Plusieurs de ses recommandations relatives à l'amélioration des installations et de l'atelier ont d'ailleurs été retenues.",
+                "EM_8": "Il a notamment participé à la réorganisation de l'aménagement des laboratoires afin de dégager des espaces sécuritaires pour les manipulations à haute tension.",
+                "EM_9": "Et la fabrication de pièces sur mesure au sein d'un même projet.",
+                "EM_10": "Son rayonnement excède de loin le périmètre d'un seul groupe de recherche... Son expertise est aujourd'hui mise à contribution par plusieurs professeurs.",
+                "EM_11": "Il se distingue également par un souci constant de l'intégration... témoignage de la reconnaissance étendue dont il jouit.",
+                "EM_12": "Son retour au génie électrique répondait à une attente marquée du milieu... impact structurant et soutenu de ses contributions.",
+                "EM_13": "Son rôle-conseil s'exerce tout particulièrement auprès des étudiants. Il les guide dans les bonnes pratiques de laboratoire et de conception...",
+                "EM_14": "Prévient les écueils et veille à la compréhension et à l'application des règles de santé et de sécurité au travail.",
+                "EM_15": "Un engagement qui dépasse largement le cadre de ses fonctions, ainsi que par l'impact structurant et soutenu de ses contributions.",
+                "EM_16": "Son parcours est en soi singulier, il est passé d'un poste subventionné à un autre au sein de Polytechnique...",
+                "FG_1": "Il s'investit aussi dans l'aménagement de ses laboratoires, notamment l'espace A234...",
+                "FG_2": "Yanik s'est également impliqué dans la sécurisation du déplacement des bouteilles dans le monte-charge...",
+                "FG_3": "J'ai pu constater son sérieux, sa rigueur et son implication constante dans notre communauté de travail.",
+                "FG_4": "Qu'il a contribué à rendre plus ergonomique et convivial. Son approche est structurée, réfléchie et centrée sur l'amélioration continue.",
+                "FG_5": "Signale les situations à risque avec précision. Ses suggestions sont toujours concrètes et pertinentes.",
+                "FG_6": "Il a proposé l'installation d'un miroir convexe pour réduire les risques de collision... une mesure simple et efficace qui améliore directement la sécurité.",
+                "FS_1": "Maîtrise intégrée d'outils et de domaines complémentaires, notamment en conception électronique (Altium Designer, KiCad), en conception mécanique (SolidWorks)...",
+                "FS_2": "Fort de plus de 20 ans d'expérience en fabrication électronique... conception, fabrication et assemblage de circuits imprimés complexes.",
+                "FS_3": "Soudures de très haute précision (composantes surface-mount submillimétriques et BGA, entre autres)...",
+                "FS_4": "Sa capacité à réaliser des soudures de très haute précision... est extrêmement rare et fait de lui une ressource unique dans notre milieu.",
+                "FS_5": "Il est systématiquement consulté en amont des décisions techniques importantes...",
+                "FS_6": "Lorsque j'ai affiché ce poste de technicien subventionné en 2024, j'avais en tête un profil exactement comme celui de Yanik... J'ai été ravi de recevoir sa candidature...",
+                "FS_7": "Une bobineuse pour câbles supraconducteurs et un couple-mètre magnétique pour arbres de transmission...",
+                "FS_8": "Durant laquelle il a maintenu une présence accrue pour accompagner les activités du laboratoire alors qu'il travaillait à temps plein dans un autre département.",
+                "FS_9": "Il consacre régulièrement du temps supplémentaire... pour soutenir les étudiants et les chercheurs...",
+                "FS_10": "Soutien intensif sur plusieurs mois, durant laquelle il a maintenu une présence accrue...",
+                "FS_11": "Assurer la continuité des projets et répondre aux urgences techniques. À plusieurs reprises, il a travaillé en dehors des heures normales...",
+                "FS_12": "Il a su définir et intégrer des solutions techniques répondant à des exigences expérimentales complexes, avec un niveau de rigueur et de pertinence...",
+                "FS_13": "Il a simplifié un système de fixation d'échantillons... conçu de nouvelles pièces de fixation sur mesure, sans aucune indication de ma part... Yanik est extrêmement créatif.",
+                "FS_14": "La qualité de ses réalisations impressionne les visiteurs, même ceux issus de l'industrie. Ce fut récemment le cas pour Airbus et BRP...",
+                "FS_15": "Il intervient aujourd'hui auprès de plusieurs professeurs, dans différents départements, ce qui témoigne de la reconnaissance étendue de son expertise...",
+                "FS_16": "Sa capacité à identifier rapidement des pistes d'amélioration et à les concrétiser se traduit par des gains mesurables, tant en termes de performance que de coûts...",
+                "HV_1": "Il a su proposer des pistes de solutions concrètes... Il a d'ailleurs su identifier une liste de composants de remplacement ingénieuse et peu commune pour effectuer la réparation.",
+                "HV_2": "Liste de composants de remplacement ingénieuse et peu commune pour effectuer la réparation.",
+                "HV_3": "Yanik a réalisé ces interventions bénévolement et dès la réception des pièces...",
+                "HV_4": "C'est toutefois à la suite d'un incident technique majeur en mai 2023... Yanik s'est immédiatement porté volontaire pour évaluer la situation.",
+                "HV_5": "Je suis convaincu que Yanik possédait une expertise unique, introuvable ailleurs au sein de Polytechnique Montréal pour ce type de réparation spécifique.",
+                "HV_6": "Sans son intervention, le remplacement complet des cartes électroniques aurait engendré des coûts exorbitants et des délais de recherche considérables.",
+                "JC_1": "Son expérience en projets internationaux de grande envergure acquise avant son arrivée à la Polytechnique...",
+                "JC_2": "Surtout le déménagement et l'installation de fours rotatifs à haute température et de grande dimension entre le pavillon principal et l'entrepôt industriel à Anjou.",
+                "JC_3": "Yanik et Sylvain étaient les seuls techniciens à aller à Anjou et seul Yanik qui avait la formation de cariste.",
+                "JC_4": "Yanik faisait déjà une dizaine d'heures supplémentaires par semaine depuis son arrivée, heures qui n'étaient pas toutes déclarées.",
+                "JC_5": "Yanik a proposé de scinder les trois jours de transition en six demi-journées par souci d'efficacité.",
+                "JC_6": "Yanik s'est tenu droit et a refusé, malgré la pression exercée sur lui... de reproduire mes expériences de pyrolyse.",
+                "JC_7": "Yanik a dû faire des semaines de plus de 70 heures pendant trois mois. On peut parler d'abnégation...",
+                "JC_8": "Yanik arrivait dès 6 heures du matin afin de pouvoir avancer les projets sans interrompre les activités des étudiants.",
+                "JC_9": "Indispensable, notamment pendant la période de trois mois évoquée plus haut.",
+                "JC_10": "Les piliers pour la SST et la fabrication (mécanique, électrique, électronique, hydraulique, etc.), de même que pour les conseils de conception...",
+                "JC_11": "Yanik a su imposer les normes les plus élevées en matière de santé et sécurité...",
+                "JC_12": "Yanik est entré à la Polytechnique en 2017 sur un poste subventionné payé par le Prof. Grégory S. Patience.",
+                "JC_13": "Je témoigne ici de l'autonomie, du leadership et du dévouement de Yanik... gérait les échéanciers et les étudiants...",
+                "JC_14": "Les deux groupes totalisaient 63 étudiants et je me retrouvais sans technicien. C'était déjà une charge colossale... Yanik a dû faire des semaines de plus de 70 heures...",
+                "JC_15": "L'initiative personnelle de Yanik, qui a fabriqué avec les moyens du bord une hotte à grand débit à Anjou, qui nous a permis de travailler en toute sécurité.",
+                "JM_1": "Altium Designer, qui n'a vraiment rien en commun avec l'ancien Orcad. II fallait donc tout réapprendre... atelier d'usinage de l'UdeM.",
+                "JM_2": "Ses connaissances approfondies en fabrication de circuits ont permis aux stagiaires d'anticiper et d'éviter des écueils...",
+                "JM_3": "Le laboratoire contribue depuis à de grands projets internationaux menés dans des laboratoires majeurs tels que CERN, TRIUMF, SNO, DESY, KEK et Fermilab...",
+                "JM_4": "Ces circuits comprenaient des sections analogiques rapides et à bas bruit (100MHz- 1GHz), ce qui exige une qualité de routage très soignée.",
+                "JM_5": "Soudage à la station 'Reflow' (four de refusion) et Rework (station de reprise) pour les BGA... mini fraiseuse de précision pour graver les pistes...",
+                "JM_6": "En constant contact avec l'atelier d'usinage de l'UdeM... l'atelier et a judicieusement appliqué et transmis ces connaissances.",
+                "JM_7": "Soudage sous microscope de composants minuscules... (par exemple de taille 0201).",
+                "JM_8": "Ingéniosité des astuces de Yanik pour corriger par exemple une malencontreuse erreur sur un prototype déjà gravé et assemblé... Ça demande beaucoup de dextérité.",
+                "JM_9": "Laboratoire SNOLAB à Sudbury. Ce laboratoire est situé à 7000 pieds sous terre. Il a dû compléter une formation de mineur pour avoir accès au site.",
+                "JM_10": "Ses conseils en électronique s'étendaient aussi aux professeurs et aux autres techniciens.",
+                "JM_11": "Bien que son horaire d'été ne comptât que 28 heures par semaines, il franchissait régulièrement les 45 heures par semaine.",
+                "JM_12": "Le partage de ses connaissances de conception sur Altium guidait les stagiaires dans la réalisation physique de leurs projets... Yanik est un bon vulgarisateur.",
+                "JM_13": "Embauché à la Polytechnique de Montréal le 5 mai 2017, il a néanmoins continué tout l'été à assurer la continuité des travaux au laboratoire, y consacrant 17 h 30 par semaine...",
+                "JM_14": "Il a souvent utilisé des pièces électroniques d'une façon non conventionnelle pour résoudre des problèmes de conception... utilisation de trous dans les circuits...",
+                "JM_15": "Yanik développait même avec les stagiaires des relations personnelles qui ont perdurées bien après leurs passages à Montréal.",
+                "JV_1": "Sa participation volontaire et active aux ateliers d'enquêtes appréciatives dans le cadre du processus d'établissement des pôles d'excellence...",
+                "JV_2": "Son engagement s'est manifesté par une contribution concrète aux réflexions collectives et par des interventions axées sur les objectifs institutionnels du département.",
+                "LL_1": "Mener à bien mon projet d'installation de pultrudeuse de dimension industrielle, au laboratoire d'Anjou.",
+                "LL_2": "Certifié pour l'utilisation sécuritaire du chariot élévateur, en fait une ressource stratégique indispensable.",
+                "LL_3": "Yanik a agi comme pivot central. Yanik est un véritable connecteur au sein de l'institution... La qualité des relations qu'il entretient...",
+                "LL_4": "Impliqué dès la première heure dans le déconfinement du pavillon d'Anjou... en période de distanciation.",
+                "LL_5": "Maintenir les équipements du bâtiment à Anjou en parfaite condition de marche, comme la ventilation, le compresseur d'air, le chariot élévateur...",
+                "LL_6": "M. Landry-Ducharme a su mobiliser des connaissances pointues en mécanique automobile et en construction...",
+                "LL_7": "A fait plusieurs petites interventions dans mon laboratoire... pour rehausser les dispositifs de sécurité de notre riveteuse et de notre petite pultrudeuse.",
+                "LL_8": "A réussi à harmoniser les besoins de deux groupes de génie chimique, d'un groupe en génie mécanique, ainsi que les miens...",
                 "MC_1": "Je tiens à souligner votre engagement envers Polytechnique au fil des années.",
-                "MNS_1": "Sa collaboration a permis de coordonner efficacement et dans un délai relativement court, la réparation et l’inspection de l’équipement.",
-                "NM_1": "Ce mandat portait sur la conception, la fabrication et l’installation d’une grande boucle d’essai hydraulique...",
-                "NM_2": "Yanik a pris part à la mise en place de ce nouveau laboratoire d’interaction fluide structure...",
-                "NM_3": "Une portion importante des travaux a été réalisée durant la période de distanciation liée à la COVID 19, ce qui a ajouté des contraintes supplémentaires à la réalisation du projet.",
-                "NM_4": "L’expertise et le rôle de conseil de Yanik se sont révélés essentiels tout au long de son implication...",
-                "NM_5": "Yanik a su exécuter ces tâches avec rigueur, notamment lors des travaux en hauteur et des opérations nécessitant une grande finesse (chariot élévateur).",
-                "NM_7": "Il a su progresser de manière indépendante, prenant souvent l'initiative de débuter l'installation seul tôt le matin.",
-                "NM_8": "Sa capacité à résoudre des problèmes techniques complexes a permis de surmonter de nombreux obstacles logistiques...",
-                "NM_10": "Sa communication claire et sa capacité à convaincre ingénieurs et associés de recherche de la pertinence de ses solutions ont été particulièrement appréciées.",
-                "NM_11": "Yanik a d’ailleurs fait preuve d’une grande loyauté en acceptant d’allonger ses prestations de travail pour soutenir ce nouveau projet...",
-                
-                // --- TAGS EL-MEHDI MOJAB ---
-                "EM_1": "Bien qu'il occupe un poste subventionné, M. Landry-Ducharme s'inscrit pleinement au sein de notre équipe technique, et son rayonnement excède de loin le périmètre d'un seul groupe de recherche.",
-                "EM_2": "Son parcours est en soi singulier, il est passé d'un poste subventionné à un autre au sein de Polytechnique et son retour au génie électrique répondait à une attente marquée du milieu.",
-                "EM_3": "Le professeur avec lequel il collabore a tenu à se l'adjoindre, recherchant précisément cette expertise difficilement remplaçable.",
-                "EM_4": "Il maîtrise la conception, la fabrication et le montage de circuits imprimés... Sa capacité à réaliser des assemblages de très haute précision, notamment des composants montés en surface submillimétriques, constitue une ressource rare...",
-                "EM_5": "À cette maîtrise s'ajoute une polyvalence remarquable, il conjugue avec cohérence les outils de conception électronique et mécanique, l'impression 3D et la fabrication de pièces sur mesure au sein d'un même projet.",
-                "EM_6": "Cette aptitude à intervenir de bout en bout sur des systèmes complexes... demeure peu commune et fait de lui une référence que professeurs et étudiants gradués sollicitent spontanément pour des questions techniques pointues.",
-                "EM_7": "Son rôle-conseil s'exerce tout particulièrement auprès des étudiants. Il les guide dans les bonnes pratiques de laboratoire et de conception, prévient les écueils et veille à la compréhension et à l'application des règles de santé et de sécurité...",
-                "EM_8": "Plusieurs de ses recommandations relatives à l'amélioration des installations et de l'atelier ont d'ailleurs été retenues.",
-                "EM_9": "Son expertise est aujourd'hui mise à contribution par plusieurs professeurs et au sein de différents départements, témoignage de la reconnaissance étendue dont il jouit.",
-                "EM_10": "Attentif à la SST des installations, il a notamment participé à la réorganisation de l'aménagement des laboratoires afin de dégager des espaces sécuritaires pour les manipulations à haute tension."
+                "MD_1": "Organisation d'une formation pratique réglementaire en santé et sécurité avec le chariot-élévateur au laboratoire externe d'Anjou...",
+                "MD_2": "Je souhaite souligner, par le présent témoignage, l'aide apportée par mon collègue Yanik Landry-Ducharme...",
+                "MD_3": "Coordonner efficacement et dans un délai relativement court, la réparation et l'inspection de l'équipement... destinées à la sécurité des utilisateurs.",
+                "MD_4": "A pris l'initiative de réaliser également le ménage et l'aménagement d'une section de l'atelier dont l'espace était partagé par deux départements...",
+                "NM_1": "Yanik s'est distingué comme un excellent solutionneur de problèmes, proposant de nombreuses alternatives peu orthodoxes mais très efficaces.",
+                "NM_2": "L'installation d'une grande boucle d'essai hydraulique destinée à simuler les vibrations... tuyaux, instruments de mesure, réservoir, pompes...",
+                "NM_3": "Leur installation, souvent réalisée au chariot élévateur... demandait une précision remarquable... grande finesse de manipulation au chariot-élévateur.",
+                "NM_4": "Une portion importante des travaux a été réalisée durant la période de distanciation liée à la COVID-19...",
+                "NM_5": "Il a su progresser de manière indépendante, prenant souvent l'initiative de débuter l'installation seul tôt le matin.",
+                "NM_6": "La qualité exceptionnelle de son travail a directement contribué à l'obtention d'un second contrat... et le développement d'un nouveau petit réacteur modulaire (SMR).",
+                "NM_7": "Il a joué un rôle crucial dans le développement de stratégies d'assemblage sécuritaires, malgré l'ampleur des installations.",
+                "NM_8": "Évaluer sa capacité à transmettre son savoir-faire aux membres de l'équipe... Sa communication claire et sa capacité à convaincre ingénieurs...",
+                "NM_9": "Son sens du travail d'équipe et sa coordination avec les membres de l'équipe ont été exemplaires, faisant de lui un collaborateur fiable et un leader naturel.",
+                "NM_10": "L'expertise et le rôle de conseil de Yanik se sont révélés essentiels tout au long de son implication...",
+                "NM_11": "Il a également offert de prolonger ses heures de travail afin de garantir une livraison conforme aux attentes de Doosan.",
+                "NM_12": "A d'ailleurs fait preuve d'une grande loyauté en acceptant d'allonger ses prestations de travail pour soutenir ce nouveau projet malgré ses autres engagements...",
+                "NM_13": "Améliorations importantes, notamment en ce qui concerne la configuration de la tuyauterie, l'efficacité de l'installation et la simplification de certains éléments du design.",
+                "NM_14": "L'implication élevée et la contribution de Yanik ont joué un rôle central dans la réussite du projet. Malgré la réduction des effectifs due à la pandémie...",
+                "NM_15": "La capacité à résoudre des problèmes techniques complexes... a permis de surmonter de nombreux obstacles logistiques et matériels."
             };
 
             const conteneurDossier = document.getElementById("texte-argumentaire");
@@ -1169,23 +1243,22 @@
                         // Mappage simplifié pour le nom en haut de la bulle
                         if(sourceCode === "FS") nomAuteur = "Lettre de F. Sirois";
                         else if(sourceCode === "DT") nomAuteur = "Lettre de D. Therriault";
-                        else if(sourceCode === "JPM") nomAuteur = "Lettre de J-P. Martin";
+                        else if(sourceCode === "JM") nomAuteur = "Lettre de J-P. Martin";
                         else if(sourceCode === "JC") nomAuteur = "Lettre de J. Chaouki";
                         else if(sourceCode === "DM") nomAuteur = "Lettre de D. Ménard";
                         else if(sourceCode === "NM") nomAuteur = "Lettre de N. Mureithi";
-                        else if(sourceCode === "HDV") nomAuteur = "Lettre de H.D. Vo";
-                        else if(sourceCode === "LLL") nomAuteur = "Lettre de L. Laberge-Lebel";
+                        else if(sourceCode === "HV") nomAuteur = "Lettre de H.D. Vo";
+                        else if(sourceCode === "LL") nomAuteur = "Lettre de L. Laberge-Lebel";
                         else if(sourceCode === "AH") nomAuteur = "Lettre de A. Hadji";
                         else if(sourceCode === "FG") nomAuteur = "Lettre de F. Gylbert";
                         else if(sourceCode === "JV") nomAuteur = "Lettre de J. Vétel";
                         else if(sourceCode === "BY") nomAuteur = "Lettre de B. Yari";
                         else if(sourceCode === "MC") nomAuteur = "Lettre de M. Cohen";
-                        else if(sourceCode === "MNS") nomAuteur = "Lettre de M-N. da Silva";
+                        else if(sourceCode === "MD") nomAuteur = "Lettre de M-N. da Silva";
                         else if(sourceCode === "EM") nomAuteur = "Lettre de E. Mojab";
                         
                         return `<span class="citation-tag">${match}<span class="tag-tooltip"><strong>${nomAuteur}</strong>« ${citations[tagID]} »</span></span>`;
                     }
-                    // Si le tag n'est pas dans le dictionnaire, on l'affiche simplement comme texte
                     return `<span style="color: #777;">${match}</span>`; 
                 });
 
