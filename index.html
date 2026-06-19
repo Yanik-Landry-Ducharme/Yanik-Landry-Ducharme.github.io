@@ -56,7 +56,7 @@
         .sidebar {
             width: 260px; background-color: #1a1c1e; display: flex; flex-direction: column;
             border-right: 1px solid #50565c; flex-shrink: 0; position: sticky; top: 75px; 
-            height: calc(100vh - 75px); overflow-y: auto; z-index: 999;
+            height: calc(100vh - 75px); overflow-y: auto; z-index: 99;
         }
         .sidebar a { padding: 20px; text-decoration: none; font-weight: bold; font-size: 14px; border-bottom: 1px solid #333; text-transform: uppercase; transition: all 0.3s; }
         .sidebar a:hover, .sidebar a.active { background-color: #50565c; }
@@ -65,7 +65,7 @@
         .sidebar a.link-orange { color: #F15A22; border-left: 5px solid #F15A22; }
         .sidebar a.link-rouge { color: #ED1C24; border-left: 5px solid #ED1C24; }
 
-        .main-content { flex: 1; padding: 100px; background: linear-gradient(to bottom right, #2b2f33, #1a1c1e); min-height: calc(100vh - 75px); box-sizing: border-box; max-width: 100%; }
+        .main-content { flex: 1; padding: 100px; background: linear-gradient(to bottom right, #2b2f33, #1a1c1e); min-height: calc(100vh - 75px); box-sizing: border-box; max-width: 100%; z-index: 1;}
         
         .header-title { font-size: 34px; margin-top: 0; margin-bottom: 20px; text-transform: uppercase; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); word-wrap: break-word; }
         .header-subtitle { color: #c7cdd1; font-size: 18px; margin-top: -10px; margin-bottom: 40px; letter-spacing: 2px; }
@@ -80,12 +80,51 @@
         .media-container iframe { height: 600px; }
         
         .image-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
-        .image-card { background: #1a1c1e; padding: 10px; border: 1px solid #333; border-radius: 4px; text-align: center; display: flex; flex-direction: column; justify-content: space-between; height: 100%; box-sizing: border-box; }
         
-        /* CORRECTION ICI : Remplacement de cover par contain + max-height */
-        .image-card img { width: 100%; max-height: 350px; height: auto; object-fit: contain; border-radius: 4px; margin-bottom: 10px; border: none; background-color: transparent; }
-        
+        /* ----------------------------------------------------- */
+        /* MAGIE DES IMAGES : HOVER POPUP & TRANSITIONS DE DÉLAI */
+        /* ----------------------------------------------------- */
+        .image-card { 
+            background: #1a1c1e; padding: 10px; border: 1px solid #333; border-radius: 4px; 
+            text-align: center; display: flex; flex-direction: column; justify-content: space-between; 
+            height: 100%; box-sizing: border-box; 
+            position: relative; /* Nécessaire pour le z-index au survol */
+            z-index: 1;
+        }
+
+        /* Quand on survole la carte, elle passe au premier plan */
+        .image-card:hover {
+            z-index: 50; 
+        }
+
+        .image-card img { 
+            width: 100%; max-height: 350px; height: auto; object-fit: contain; 
+            border-radius: 4px; margin-bottom: 10px; border: none; background-color: transparent; 
+            cursor: pointer;
+            position: relative;
+            /* La transition est rapide quand la souris part, mais il y a un DÉLAI avant de zoomer ! */
+            transition: transform 0.3s ease 0s, box-shadow 0.3s ease 0s, background-color 0.3s ease 0s;
+        }
+
+        /* DÉLAI DE 0.8s AVANT LE POPUP ! */
+        .image-card img:hover {
+            transform: scale(1.6); /* Grossit l'image de 60% */
+            box-shadow: 0 25px 60px rgba(0,0,0,0.9);
+            background-color: #1a1c1e; /* Masque ce qu'il y a derrière */
+            z-index: 100;
+            border: 1px solid #00BDF2;
+            /* Le délai se met ici: 0.8s d'attente avant que l'effet s'active */
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.8s, 
+                        box-shadow 0.4s ease 0.8s, 
+                        background-color 0.4s ease 0.8s,
+                        border 0.4s ease 0.8s;
+        }
+
         .image-card p { font-size: 12px; color: #c7cdd1; margin: 0; margin-top: auto; }
+
+        /* ----------------------------------------------------- */
+        /* FIN MAGIE IMAGES */
+        /* ----------------------------------------------------- */
 
         .file-system { display: flex; flex-wrap: wrap; gap: 20px; }
         .file-icon { background-color: #1a1c1e; border: 1px solid #50565c; border-radius: 8px; padding: 20px 10px; width: 200px; height: 330px; box-sizing: border-box; text-align: center; cursor: pointer; transition: all 0.2s; user-select: none; display: flex; flex-direction: column; align-items: center; justify-content: flex-start; position: relative; }
@@ -196,11 +235,36 @@
             padding-bottom: 15px;
             margin-top: 15px;
         }
-        /* Personnalisation de la barre de défilement */
         #argumentaire-scroll::-webkit-scrollbar { width: 8px; }
         #argumentaire-scroll::-webkit-scrollbar-track { background: #1a1c1e; border-radius: 4px; }
         #argumentaire-scroll::-webkit-scrollbar-thumb { background: #50565c; border-radius: 4px; }
         #argumentaire-scroll::-webkit-scrollbar-thumb:hover { background: #00BDF2; }
+
+        /* --- STYLES DU LIGHTBOX MODAL (PLEIN ÉCRAN POUR IMAGES) --- */
+        .modal {
+            display: none; position: fixed; z-index: 100000; padding-top: 50px; 
+            left: 0; top: 0; width: 100%; height: 100%; overflow: auto; 
+            background-color: rgba(15, 17, 19, 0.95); backdrop-filter: blur(8px);
+        }
+        .modal-content {
+            margin: auto; display: block; max-width: 90%; max-height: 80vh; 
+            object-fit: contain; border-radius: 8px; box-shadow: 0 10px 40px rgba(0,0,0,0.8);
+            animation: zoomIn 0.3s ease;
+        }
+        #caption-modal {
+            margin: auto; display: block; width: 80%; max-width: 700px; 
+            text-align: center; color: #00BDF2; padding: 15px 0; font-size: 20px; font-weight: bold;
+            animation: zoomIn 0.3s ease; text-transform: uppercase;
+        }
+        @keyframes zoomIn {
+            from {transform:scale(0.8); opacity: 0;} 
+            to {transform:scale(1); opacity: 1;}
+        }
+        .close-modal {
+            position: absolute; top: 25px; right: 35px; color: #f1f1f1; 
+            font-size: 50px; font-weight: bold; transition: 0.3s; cursor: pointer;
+        }
+        .close-modal:hover, .close-modal:focus { color: #F38B00; text-decoration: none; cursor: pointer; transform: scale(1.2);}
 
         @media (max-width: 900px) {
             .navbar { padding: 0 15px; height: 60px; }
@@ -209,7 +273,7 @@
             .navbar-name { font-size: 13px; letter-spacing: 0px; }
             .btn-fullscreen { bottom: 15px; right: 15px; width: 45px; height: 45px; font-size: 20px; }
             .container { flex-direction: column; }
-            .sidebar { width: 100%; height: 55px; flex-direction: row; overflow-x: auto; overflow-y: hidden; white-space: nowrap; border-right: none; border-bottom: 2px solid #50565c; top: 60px; }
+            .sidebar { width: 100%; height: 55px; flex-direction: row; overflow-x: auto; overflow-y: hidden; white-space: nowrap; border-right: none; border-bottom: 2px solid #50565c; top: 60px; z-index: 10;}
             .sidebar::-webkit-scrollbar { height: 0px; background: transparent; } 
             .sidebar a { padding: 16px 15px; font-size: 11px; border-bottom: 4px solid transparent; }
             .sidebar a:hover, .sidebar a.active { border-left: none; background-color: #333; }
@@ -227,12 +291,13 @@
             .panel-full { grid-column: 1; }
             .image-grid { grid-template-columns: 1fr; }
             
-            /* CORRECTION MOBILE ICI */
             .image-card img { max-height: 250px; height: auto; object-fit: contain; }
+            .image-card img:hover { transform: none; box-shadow: none; border: none; } /* Désactive zoom au survol sur mobile */
             
             .file-icon { width: 44%; padding: 15px 5px; }
             .media-container iframe { height: 400px; }
             .legend-items { flex-direction: column; gap: 8px; }
+            .modal-content { max-width: 100%; max-height: 70vh; }
         }
     </style>
 </head>
@@ -715,7 +780,7 @@
                                 <div class="hover-desc">
                                     <strong style="color: #25B34B;">Marie-Noël da Sylva</strong>
                                     <em>Bureau de santé et sécurité</em>
-                                    Conseillère principale - projects stratégiques en santé et sécurité au Bureau de santé et sécurité de Polytechnique Montréal.
+                                    Conseillère principale - projets stratégiques en santé et sécurité au Bureau de santé et sécurité de Polytechnique Montréal.
                                     <br><br>
                                     <strong>Distinctions :</strong> Chargée du déploiement des orientations institutionnelles en SST à l'échelle de Polytechnique.
                                 </div>
@@ -812,10 +877,10 @@
                 <div class="panel">
                     <h3 class="panel-title" style="color: #F8F8F8; font-weight: bold;">🌊 Boucle Hydraulique Doosan</h3>
                     <p>Installation et maintenance de la boucle expérimentale.</p>
-                    <div class="image-grid">
-                        <div class="image-card"><img src="Doosan-1.jpg" alt="Doosan"></div>
-                        <div class="image-card"><img src="Doosan-2.jpg" alt="Doosan"></div>
-                        <div class="image-card"><img src="Doosan-3.jpg" alt="Doosan"></div>
+                    <div class="image-grid" style="grid-template-columns: 1fr 1fr;">
+                        <div class="image-card"><img src="1- Boucle - Installation.jpg" alt="Boucle Installation 1"><p>Installation de la structure</p></div>
+                        <div class="image-card"><img src="2- Boucle - Tech à l'oeuvre.jpg" alt="Tech à l'oeuvre"><p>Tech à l'oeuvre</p></div>
+                        <div class="image-card" style="grid-column: span 2;"><img src="3- Boucle - Installation.jpg" alt="Boucle Installation 2" style="max-height: 450px;"><p>Installation de la boucle</p></div>
                     </div>
                 </div>
 
@@ -906,6 +971,12 @@
         </div>
     </div>
 
+    <div id="image-modal" class="modal" onclick="fermerModalImage()">
+        <span class="close-modal">&times;</span>
+        <img class="modal-content" id="img-modal-target">
+        <div id="caption-modal"></div>
+    </div>
+
     <script>
         function toggleFullScreen() {
             if (!document.fullscreenElement) {
@@ -931,6 +1002,22 @@
             document.getElementById('file-directory').style.display = 'block';
             document.getElementById('lettres').scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
+        
+        // Fonction pour ouvrir la modal de l'image (Plein écran)
+        function ouvrirModalImage(imgSrc, textCaption) {
+            var modal = document.getElementById("image-modal");
+            var modalImg = document.getElementById("img-modal-target");
+            var captionText = document.getElementById("caption-modal");
+            
+            modal.style.display = "block";
+            modalImg.src = imgSrc;
+            captionText.innerHTML = textCaption;
+        }
+
+        // Fonction pour fermer la modal
+        function fermerModalImage() {
+            document.getElementById("image-modal").style.display = "none";
+        }
 
         document.querySelectorAll('.sidebar a').forEach(link => {
             link.addEventListener('click', function() {
@@ -939,9 +1026,20 @@
             });
         });
 
-        // SCRIPT MAGIQUE POUR LES BULLES
+        // SCRIPT MAGIQUE POUR LES BULLES ET LES IMAGES CLICABLES
         document.addEventListener("DOMContentLoaded", function() {
-            // Le dictionnaire complet généré depuis tes fichiers originaux
+            
+            // --- 1. Rendre les images clicables pour le mode plein écran ---
+            const images = document.querySelectorAll('.image-card img');
+            images.forEach(img => {
+                img.addEventListener('click', function(e) {
+                    e.stopPropagation(); // Évite les conflits
+                    let caption = this.nextElementSibling ? this.nextElementSibling.innerText : "";
+                    ouvrirModalImage(this.src, caption);
+                });
+            });
+
+            // --- 2. Dictionnaire pour les bulles du texte ---
             const citations = {
                 "AH_1": "Atteste par la présente de l’apport unique et déterminant de M. Yanik Landry Ducharme dans le projet Anjou IFS Lab...",
                 "AH_10": "Il a également transmis efficacement son savoir-faire, contribuant à l’amélioration des pratiques opérationnelles et de SST.",
@@ -997,7 +1095,7 @@
                 "JC_6": "Son expérience en projets internationaux de grande envergure... s’est révélée importante au niveau de la structure de son travail.",
                 "JC_7": "Yanik et Sylvain étaient les seuls techniciens à aller à Anjou et seul Yanik qui avait la formation de cariste.",
                 "JC_8": "Grâce à ses connaissances en mécanique automobile et en électronique, Yanik a complété à merveille les compétences de Sylvain...",
-                "JC_11": "Il s’est avéré un bon organisateur lors déménagement d’équipements à JAB et surtout l’installation de fours rotatifs...",
+                "JC_11": "Il s’est avéré un bon organisateur lors du déménagement d’équipements à JAB et surtout l’installation de fours rotatifs...",
                 "JC_13": "Sa connaissance de l’entrepôt d’Anjou lui a permis de déterminer le meilleur emplacement pour les fours...",
                 "JC_14": "Yanik et Sylvain ont été les piliers pour la SST et la fabrication... de même que pour les conseils de conception...",
                 "JC_15": "Bien qu’il fût l’employé du Pr. Patience, Yanik s’est, de tout temps, impliqué dans mes projets de recherche.",
@@ -1050,7 +1148,7 @@
                 "EM_7": "Son rôle-conseil s'exerce tout particulièrement auprès des étudiants. Il les guide dans les bonnes pratiques de laboratoire et de conception, prévient les écueils et veille à la compréhension et à l'application des règles de santé et de sécurité...",
                 "EM_8": "Plusieurs de ses recommandations relatives à l'amélioration des installations et de l'atelier ont d'ailleurs été retenues.",
                 "EM_9": "Son expertise est aujourd'hui mise à contribution par plusieurs professeurs et au sein de différents départements, témoignage de la reconnaissance étendue dont il jouit.",
-                "EM_10": "Attentif à la SST des installations, il a notamment participé à la réorganisation de l'aménagement des laboratoires afin de dégager des espaces sécuritaires pour manipulations à haute tension."
+                "EM_10": "Attentif à la SST des installations, il a notamment participé à la réorganisation de l'aménagement des laboratoires afin de dégager des espaces sécuritaires pour les manipulations à haute tension."
             };
 
             const conteneurDossier = document.getElementById("texte-argumentaire");
@@ -1085,7 +1183,6 @@
                         
                         return `<span class="citation-tag">${match}<span class="tag-tooltip"><strong>${nomAuteur}</strong>« ${citations[tagID]} »</span></span>`;
                     }
-                    // Si le tag n'est pas dans le dictionnaire, on l'affiche simplement comme texte
                     return `<span style="color: #777;">${match}</span>`; 
                 });
 
