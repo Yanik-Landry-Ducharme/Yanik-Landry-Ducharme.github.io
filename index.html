@@ -208,20 +208,23 @@
         .note-box ul { margin-bottom: 0; color: #c7cdd1; line-height: 1.6; }
         .note-box li { margin-bottom: 8px; }
 
-        /* --- STYLES DU LIGHTBOX MODAL (PLEIN ÉCRAN POUR IMAGES) --- */
+        /* --- STYLES DU LIGHTBOX MODAL (PLEIN ÉCRAN POUR IMAGES CORRIGÉ) --- */
         .modal {
-            display: none; position: fixed; z-index: 100000; padding-top: 50px; 
-            left: 0; top: 0; width: 100%; height: 100%; overflow: auto; 
+            display: none; /* Remplacé par flex en JS */
+            position: fixed; z-index: 100000; 
+            left: 0; top: 0; width: 100vw; height: 100vh; overflow: hidden; 
             background-color: rgba(15, 17, 19, 0.95); backdrop-filter: blur(8px);
+            align-items: center; justify-content: center; flex-direction: column;
         }
         .modal-content {
-            margin: auto; display: block; max-width: 90%; max-height: 80vh; 
+            max-width: 90vw; max-height: 75vh; 
+            width: auto; height: auto;
             object-fit: contain; border-radius: 8px; box-shadow: 0 10px 40px rgba(0,0,0,0.8);
-            animation: zoomIn 0.3s ease;
+            animation: zoomIn 0.3s ease; margin: 0;
         }
         #caption-modal {
-            margin: auto; display: block; width: 80%; max-width: 700px; 
-            text-align: center; color: #00BDF2; padding: 15px 0; font-size: 20px; font-weight: bold;
+            margin-top: 20px; width: 90%; max-width: 700px; 
+            text-align: center; color: #00BDF2; font-size: 20px; font-weight: bold;
             animation: zoomIn 0.3s ease; text-transform: uppercase;
         }
         @keyframes zoomIn {
@@ -259,11 +262,11 @@
             .panel-full { grid-column: 1; }
             .image-grid { grid-template-columns: 1fr; }
             .image-card img { max-height: 250px; height: auto; object-fit: contain; }
-            .image-card img:hover { transform: none; box-shadow: none; border: none; }
+            .image-card img:hover { transform: none; box-shadow: none; border: none; } 
             .file-icon { width: 44%; padding: 15px 5px; }
             .media-container iframe { height: 400px; }
             .legend-items { flex-direction: column; gap: 8px; }
-            .modal-content { max-width: 100%; max-height: 70vh; }
+            .modal-content { max-width: 95vw; max-height: 70vh; }
         }
     </style>
 </head>
@@ -424,13 +427,13 @@
                                 - Avec Fabrice Danet (technicien en GM), nous sommes les seuls techniciens de l’École à faire la pose de jauges de contrainte (Strain Gauge). [BY_3] [DM_10] [NM_2]</p>
 
                                 <p class="doc-p"><strong>Esprit de synthèse et pensée hors des sentiers battus:</strong> Développement de procédures et mise en place de méthodes et de comportements à suivre pour la SST :<br>
-                                - J’ai rassemblé en un seul laboratoire (J-5135) toutes les activités impliquant les produits chimiques et les produits dangereux, et j’ai acheté et identifié un balais et porte-poussière par laboratoire, de sorte que les usagers ne répandent plus les contaminants d’une pièce à l’autre en promenant le balais contaminé; [DT_12] [EM_8]<br>
-                                - Pour ce même laboratoire, j’ai fait l’achat d’un robinet à activation infrarouge pour que les usagers n’aient pas à retoucher la poignée avec leurs mains après l’avoir manipulé avec leurs gants; [DT_12] [FG_4]<br>
-                                - Toujours dans ce même laboratoire, j’ai acheté une horloge murale pour éviter que les usagers plongent leur main gantée dans leur poche pour voir l’heure sur leur téléphone; [DT_12] [FG_4]<br>
+                                - J’ai rassemblé en un seul laboratoire (J-5135) toutes les activités impliquant les produits chimiques et les produits dangereux, et j’ai acheté et identifié un balais et porte-poussière par laboratoire, de sorte que les usagers ne répandent plus les contaminants d’une pièce à l’autre en promenant le balais contaminé; [DT_12] [EM_7] [FG_5] [MD_3] [JC_11] [NM_7] [EM_8]<br>
+                                - Pour ce même laboratoire, j’ai fait l’achat d’un robinet à activation infrarouge pour que les usagers n’aient pas à retoucher la poignée avec leurs mains après l’avoir manipulé avec leurs gants.<br>
+                                - Toujours dans ce même laboratoire, j’ai acheté une horloge murale pour éviter que les usagers plongent leur main gantée dans leur poche pour voir l’heure sur leur téléphone; [DT_12] [FG_7]<br>
                                 - J’utilise souvent des produits du commerce pour les utiliser dans un autre but (réparation de contrôleur de moteur de Huu Duc Vo, brush plating de David Ménard); [NM_1] [HV_2] [DM_2] [JM_14]</p>
 
                                 <p class="doc-p"><strong>Installation industrielle :</strong><br>
-                                - Installation de la boucle hydraulique grande échelle (Projet de Doosan de Njuki Mureithi); [NM_2] [AH_1]<br>
+                                - Installation de la boucle hydraulique grande échelle (Projet de Doosan de Njuki Mureithi); [NM_2] [AH_7]<br>
                                 - Installation de la pultrudeuse de Louis Laberge-Lebel; [LL_1]<br>
                                 - Installation du grand lit fluidisé de Gregory S. Patience; [JC_12]<br>
                                 - Installation des grands fours rotatifs de Jamal Chaouki; [JC_2] [BY_1]</p>
@@ -450,146 +453,134 @@
 
                                 <p class="doc-p"><strong>Gestion :</strong><br>
                                 - Outre la gestion des UBR pour les achats des professeurs, j’ai géré les activités des laboratoires allant de 30 à 63 étudiants en périodes estivales (Daniel Therriault 30, Jamal Chaouki et Gregory S. Patience 63); [DT_11] [JC_14]<br>
-                                - Gestion autonome du site industriel d’Anjou. [LL_5] [AH_7] [NM_5]</p>
+                                - Gestion autonome du site industriel d’Anjou. [LL_5] [JC_3] [NM_5]</p>
 
                                 <h4 class="doc-h4">4.2 Rôle conseil et influence stratégique</h4>
 
                                 <p class="doc-p"><strong>Pivot central :</strong><br>
-                                - Je suis un intermédiaire clé entre les chercheurs, les techniciens, les départements et les corps de métiers externes. [LL_3] [BY_2] [EM_10]<br>
+                                - Je suis un intermédiaire clé entre les chercheurs, les techniciens, les départements et les corps de métiers externes. [LL_3] [BY_2] [NM_9] [EM_10]<br>
                                 - J’ai d’excellentes relations avec tous les employés de l’École et j’obtiens très souvent des faveurs. [LL_3] [DM_12] [EM_11] [FS_14]<br>
                                 - Alors les projets se réalisent, et rapidement; [AH_12] [NM_15] [HV_3]<br>
                                 - Frédéric Sirois, David Ménard et Bianca Viggiano me consultent aussi pour la direction de leurs projets et l’organisation de leurs laboratoires; [FS_5] [DM_3] [EM_7]</p>
 
-                                <p class="doc-p"><strong>Conseil :</strong> Étant pluridisciplinaire, souvent, les professeurs et techniciens me consultent dans l’élaboration de leurs choix technologiques pour des projets de recherche ou de nouveaux laboratoires (enseignement et recherches) et pour leur certification à l’intérieur des murs de Polytechnique : [EM_5] [DT_3] [JM_10] [BY_4] [AH_8] [NM_10]<br>
+                                <p class="doc-p"><strong>Conseil :</strong> Étant pluridisciplinaire, souvent, les professeurs, coordonnateurs et techniciens me consultent dans l’élaboration de leurs choix technologiques pour des projets de recherche ou de nouveaux laboratoires (enseignement et recherches) et pour leur certification à l’intérieur des murs de Polytechnique : [EM_5] [DT_3] [DT_6] [AH_13] [JM_10] [NM_10] [BY_4] [AH_8]<br>
                                 - C’est d’ailleurs à la suite de services que j’ai offert à ces professeurs — Therriault, Sirois et Viggiano — qu’ils ont décidé d’ouvrir un poste subventionné dans l’optique d’obtenir mes services exclusifs. [FS_6] [EM_6] [DT_4]<br>
                                 - Selon le Pr. Sirois, « aucun autre technicien n’aurait pu me satisfaire ». [FS_6]<br>
-                                - J’ai déterminé tous les équipements d’impression 3D de nouvelle génération pour le LM² (imprimantes 3D au J-5129 et imprimantes 3D hautement spécialisées pour les matériaux exotiques — hautes températures — au J-5135). [DT_11]<br>
+                                - J’ai déterminé les équipements d’impression 3D de nouvelle génération pour le LM² (toutes les imprimantes 3D au J-5129) et conseillé les imprimantes 3D hautement spécialisées pour les matériaux exotiques — hautes températures — au J-5135. [DT_11]<br>
                                 - J’ai conseillé et fait la conception de plusieurs projets, dont la bobineuse de rubans supraconducteurs, conseillé le routage de circuit à haut courant de la source pulsée, la conception tridimensionnelle de circuits électroniques de sources électriques, conception et fabrication de la polling station, de la tour d’impact, de la station de couple élevé, l’organisation des laboratoires, etc… [FS_7] [DM_4] [DT_5] [BY_5]<br>
-                                - Ces demandes proviennent aussi de personnes issues d’autres département ou groupes de recherche : [EM_10] [FS_15]<br>
+                                - Ces demandes proviennent aussi de personnes issues d’autres département ou groupes de recherche : [EM_10] [FS_15] [HV_4]<br>
                                 - Même après avoir quitté le groupe de recherche, le professeur Therriault m’a souvent demandé de l’aide et des conseils (conseil de capacité électrique, de certification du broyeur de plastique, de modification du contrôleur de température, etc.). [DT_6]<br>
                                 - À la suite de mon retour en génie mécanique, le professeur Sirois m’a engagé de façon surnuméraire pour conseiller et accompagner ses élèves dans leurs projets, pendant 8 mois. [FS_8] [DM_5]<br>
                                 - Dès mon arrivé en génie électrique, j’ai identifié les manques de services au pavillon principal et coordonné un troc d’équipements de quelques dizaines de milliers de dollars entre le Polygram, le pavillon principal et Lassonde pour répartir équitablement les équipements tout en veillant à ce que personne ne soit perdant dans la transaction. [EM_12]<br>
-                                - Le coordinateur des services techniques de génie électrique (El-Mehdi Mojave) m’a demandé de projeter et réaliser la réhabilitation de l’atelier mécanique du A-234 et il m’intègre souvent dans ses stratégies d’adaptation des espaces, équipements et des activités techniques. [EM_7] [FG_1]</p>
+                                - Le coordinateur des services techniques de génie électrique (El-Mehdi Mojab) m’a demandé de projeter et réaliser la réhabilitation de l’atelier mécanique du A-234 et il m’intègre souvent dans ses stratégies d’adaptation des espaces, équipements et des activités techniques. [EM_7] [FG_1]</p>
 
                                 <p class="doc-p"><strong>Personne-ressource :</strong><br>
-                                - Les élèves de Daniel Therriault devaient me consulter avant et pendant la conception de leurs projets (enceinte chauffante, multibuse, station 40 000 Volts…). [DT_7] [BY_4] [EM_5]<br>
+                                - Les élèves de Daniel Therriault devaient me consulter avant et pendant la conception de leurs projets (enceinte chauffante, multibuse, station 40 000 Volts…). [DT_7] [EM_5]<br>
                                 - Il en va de même en ce moment pour ceux de Frédéric Sirois, Bianca Viggiano et David Ménard. [FS_5] [DM_13]</p>
 
                                 <h4 class="doc-h4">4.3 Implication élevée et engagement communautaire</h4>
 
                                 <p class="doc-p"><strong>Bénévolat :</strong><br>
-                                - Mon aide bénévole ne se résume pas au travail dans une organisation précise, mais plutôt à mes activités quotidiennes, où je travaille souvent en dehors de mes heures conventionnées et aussi sans rémunération, pour des étudiants, laboratoires et professeurs : J’ai très souvent, i.e. plus de la moitié du temps, dépassé de beaucoup mes heures de travail pour aider les gens. [JC_4] [FS_9] [JM_11] [HV_3] [AH_9] [NM_11]<br>
+                                - Mon aide bénévole ne se résume pas au travail dans une organisation précise, mais plutôt à mes activités quotidiennes, où je travaille souvent en dehors de mes heures conventionnées et aussi sans rémunération, pour des étudiants, laboratoires et professeurs : J’ai très souvent, i.e. plus de la moitié du temps, dépassé de beaucoup mes heures de travail pour aider les gens. [JC_4] [JC_14] [FS_9] [JM_11] [HV_3] [AH_9] [NM_11] [NM_5]<br>
                                 - Toutes ces heures n’étant pas rémunérées, ni même placées en temps accumulés. [JC_4] [HV_3]<br>
-                                - Mon implication se fait beaucoup dans la formation des étudiants gradués et stagiaires, qui se retrouvent à faire rayonner l’École Polytechnique dans la société dans leurs recherches et sur le marché du travail : [JM_12] [DT_8] [DM_11] [EM_13]<br>
-                                - Les témoignages d’étudiants de Polytechnique en maîtrise et au doctorat le confirment en une trentaine de citations, que l’on retrouve sur le site de Polytechnique. [DT_8] [JM_15]<br>
-                                - Certaines spécifiant ma contribution essentielle à leurs projets. [DM_11] [EM_5]</p>
+                                - Mon implication se fait beaucoup dans la formation et l'aide aux étudiants gradués et stagiaires, qui se retrouvent à faire rayonner l’École Polytechnique dans la société par leurs recherches : [JM_12] [DM_11] [DT_8] [EM_13]<br>
+                                - Les témoignages d’étudiants de Polytechnique à la maîtrise et au doctorat le confirment en une trentaine de citations, que l’on retrouve sur le site de Polytechnique. [DT_8] [JM_15] [DM_11] [EM_5]</p>
 
                                 <p class="doc-p"><strong>Loyauté, sens moral et de l’abnégation :</strong> m’ont toujours guidé.<br>
-                                - À mon arrivé à la Polytechnique, j’ai continué de supporter le laboratoire de physique subatomique de l’UdeM de mai à septembre 2017 (j’y faisais 20 heures de plus que les 35 heures à la Polytechnique). [JM_13] [JC_7] [NM_12]<br>
-                                - Lors de mes changements de postes, j’ai toujours proposé de diviser les 3 jours d’intégration des employés me remplaçant en 6 après-midis car c’tétait la meilleure chose à faire la section que je quittais. [JC_5]<br>
+                                - À mon arrivé à la Polytechnique, j’ai continué de supporter le laboratoire de physique subatomique de l’UdeM de mai à septembre 2017 (j’y faisais 20 heures de plus que les 35 heures à la Polytechnique). [JM_13]<br>
+                                - Au départ du technicien qui travaillait avec moi pour Jamal Chaouki et Gregory S. Patience, j’ai soutenu seul pendant 3 mois les activités de recherche de 63 étudiants gradués alors que j’aurais pu me limiter aux 23 du professeur qui m’employait. [JC_7]<br>
+                                - Lors de mes changements de postes, j’ai toujours proposé de diviser les 3 jours d’intégration des employés me remplaçant en 6 après-midis car c’était la meilleure chose à faire la section que je quittais. [JC_5]<br>
                                 - Bien sûr, je continu un support ponctuel bénévolement par la suite. [DT_6] [FS_10]<br>
-                                - À mon départ de génie électrique, j’ai fait une période continue de 8 mois de travail surnuméraire à raison de 7 heures par semaines en moyenne pour le professeur Frédéric Sirois. [FS_10] [DM_6] [DT_14]<br>
-                                - Toutes ces implications non obligatoires ont contribué à l’avancement des travaux en minimisant les effets délétères sur le parcours des étudiants et des recherches des professeurs. [JC_9] [NM_14]<br>
-                                - Pour pouvoir continuer à offrir mes services à Frédéric Sirois, David Ménard et Bianca Viggiano, j’ai accepté de perdre ma sécurité d’emplois, condition sine qua none pour le Service Talents et Culture de Polytechnique. [FS_6]</p>
+                                - À mon départ de génie électrique, j’ai fait une période continue de 8 mois de travail surnuméraire à raison de 7 heures par semaines en moyenne pour le professeur Frédéric Sirois. [FS_10] [DM_6]<br>
+                                - Toutes ces implications non obligatoires ont contribué à l’avancement des travaux en minimisant les effets délétères sur le parcours des étudiants et des recherches des professeurs. [JC_9] [DM_6] [NM_12] [NM_14] [NM_6]</p>
+
+                                <p class="doc-p"><strong>Nota Bene :</strong> Pour pouvoir continuer à offrir mes services à Frédéric Sirois, David Ménard et Bianca Viggiano, j’ai accepté de perdre ma sécurité d’emplois, condition sine qua none pour le Service Talents et Culture de Polytechnique. [FS_6]</p>
 
                                 <p class="doc-p"><strong>Intégrité :</strong> J’ai dû m’élever contre deux projets d’un des professeurs pour qui j’ai travaillé à mon arrivé en 2017 :<br>
-                                - Le premier était tellement dangereux qu’il aurait dû être installé dans un champ isolé de toute population. [JC_6]<br>
-                                - J’ai donc arrêté ce projet qui se faisait dans les murs de Polytechnique. [JC_6]<br>
+                                - Le premier était tellement dangereux qu’il aurait dû être installé dans un champ isolé de toute population. J’ai donc arrêté ce projet qui se faisait dans les murs de Polytechnique.<br>
                                 - Le second était un plagiat flagrant de l’expertise que je détenais pour un projet très porteur (brevet à venir) d’un autre professeur de Polytechnique. [JC_6]</p>
 
-                                <p class="doc-p"><strong>Bénévolat au quotidien :</strong> Quand le temps me le permet ou que la situation l’exige, je m’implique et tente de corriger les non-conformités en SST :<br>
-                                - Je suis intervenu lors de la réfection du A-208 alors que les ouvriers travaillaient en pression positive au lieu de négative, ce qui faisait entrer de la poussière d’amiante dans les corridors. [EM_8]<br>
-                                Personne, de l’ingénieur au dossier, au chef de la SST institutionnelle, ne voulait s’impliquer.<br>
+                                <p class="doc-p"><strong>Bénévolat au quotidien :</strong> Quand le temps me le permet ou que la situation l’exige, je m’implique et tente de corriger les non-conformités en SST : [FS_17] [FG_5] [DT_12]<br>
+                                - Je suis intervenu lors de la réfection du A-208 alors que les ouvriers travaillaient en pression positive au lieu de négative, ce qui faisait entrer de la poussière d’amiante dans les corridors.<br>
                                 - J’ai fait des pressions régulières pendant 3 ans, en offrant des solutions, pour sécuriser le transport des bombonnes d’azote liquide dans l’ascenseur. [FG_2]<br>
-                                - J’interviens dans les laboratoires qui ne me sont pas attribués si j’y vois un manquement à la SST : À quelques reprises, j’ai dû avertir des usagers de Polyfab (au pavillon principal) pour ne pas porter les EPI propres aux activités de machinage. [EM_14] [DT_10] [LL_7]<br>
-                                La dernière fois fut la bonne car j’ai fait intervenir la SST de l’École.<br>
-                                - En 2023-24, j’ai fait beaucoup de tractations directement avec les instances de l’UdeM pour obtenir le J-5129. [FG_4] [DT_12]<br>
+                                - J’interviens dans les laboratoires qui ne me sont pas attribués si j’y vois un manquement à la SST : À quelques reprises, j’ai dû avertir des usagers de Polyfab (au pavillon principal) pour ne pas porter les EPI propres aux activités de machinage. La dernière fois fut la bonne car j’ai fait intervenir la SST de l’École. [EM_14] [DT_10] [LL_7]<br>
+                                - En 2023-24, j’ai fait beaucoup de tractations directement avec les instances de l’UdeM pour obtenir le J-5129. [FG_1] [DT_12]<br>
                                 - Une autre implication moins visible fut l’idée que j’ai eue et je partageais aux adjointes administratives, aux coordonnateurs, aux techniciens et à mon syndicat depuis environ 3 ans pour la création d’une unité de « techniciens volants » pour combler les besoins de professeurs et départements pour des périodes ponctuelles sans qu’ils aient à assurer un salaire annuel pour leurs services. [LL_3] [EM_11]<br>
-                                De plus, ça permet de retenir les expertises, les employés qui perdent leur poste subventionné et ça évite du temps du STC pour l’embauche de temporaires.<br>
-                                Bien sûr ce n’est pas moi qui aie négocié l’accord qui est survenu lors de la dernière convention collective des techniciens, mais je ne peux m’empêcher de penser que j’ai éveillé les différents partis à cette idée.<br>
-                                Cette étape étant faite, je fais des maintenant tractations pour que Polytechnique se dote d’une coop d’équipement et de consommables techniques.<br>
-                                - Le message d’appui de Maud Cohen (Directrice Générale de Poly) — avec qui j’ai des échanges ponctuels, mais réguliers, à propos des opérations, des finances, des négociations syndicales et du climat de travail —, celui de Marie-Noël da Silva (Conseillère principale- projets stratégiques en santé et sécurité) et celui de Frédéric Gylbert (Superviseur des services d’opération et d’entretien technique), démontrent bien que mon implication s’exprime aussi en dehors des structures habituellement empruntées. [MC_1] [MD_2] [FG_3]</p>
+                                De plus, ça permet de retenir les expertises, les employés qui perdent leur poste subventionné et ça évite du temps du STC pour l’embauche de temporaires. Bien sûr ce n’est pas moi qui aie négocié l’accord qui est survenu lors de la dernière convention collective des techniciens, mais je ne peux m’empêcher de penser que j’ai éveillé les différents partis à cette idée. Cette étape étant faite, je fais des maintenant tractations pour que Polytechnique se dote d’une coop d’équipement et de consommables techniques.<br>
+                                - En preuve, le message d’appui de Maud Cohen (Directrice Générale de Poly) — avec qui j’ai des échanges ponctuels, mais réguliers, à propos des opérations, des finances, des négociations syndicales et du climat de travail —, celui de Marie-Noël da Silva (Conseillère principale- projets stratégiques en santé et sécurité) et celui de Frédéric Gylbert (Superviseur des services d’opération et d’entretien technique), démontrent bien que mon implication s’exprime aussi en dehors des structures habituellement empruntées. [MC_1] [MD_2] [FG_3]</p>
 
                                 <p class="doc-p"><strong>Bénévolat en comité :</strong><br>
-                                - J’ai aussi eu ma part d’implication dans des comités classiques : Je me suis engagé dans deux (2) comités (machines dangereuses et produits chimiques) sur une période couvrant 2 ans. [DT_9] <br>
-                                - J’ai accepté de participer aux ateliers sur le climat de travail et, surtout, les ateliers d’enquêtes appréciatives visant à définir les pôles d’excellence du département de génie mécanique : En début d’année 2023, ce renouvellement représentait une situation délicate pour le département; [JV_1] [JV_2]<br>
-                                l’enjeu était important pour la continuité et la qualité de ses activités du département. [JV_1]<br>
-                                Je me suis porté volontaire malgré ma charge de travail déjà très élevée comme employé régulier subventionné pour Daniel Therriault. [JV_1]<br>
-                                J’ai participé activement à tous les ateliers avec dévouement et abnégation. [JV_1]</p>
+                                - Bien qu’étant occupé à plus de 100% de mon horaire, j’ai aussi eu ma part d’implication dans des comités classiques : Je me suis engagé dans deux (2) comités (machines dangereuses et produits chimiques) sur une période couvrant 2 ans.<br>
+                                - J’ai accepté de participer aux ateliers sur le climat de travail et, surtout, les ateliers d’enquêtes appréciatives visant à définir les pôles d’excellence du département de génie mécanique : En début d’année 2023, ce renouvellement représentait une situation délicate pour le département ; l’enjeu était important pour la continuité et la qualité de ses activités du département. Je me suis porté volontaire malgré ma charge de travail déjà très élevée comme employé régulier subventionné pour Daniel Therriault. J’ai participé activement à tous les ateliers avec dévouement et abnégation. [JV_1] [JV_2]</p>
 
                                 <p class="doc-p">- Je me suis fortement impliqué lors de la pandémie de COVID19. [LL_4] [NM_4] [DT_9] [AH_3]<br>
-                                - J’ai été le seul technicien à pouvoir réintégrer les locaux de Poly pendant une bonne période. [LL_4]<br>
-                                - Bien avant que j’y prépare le retour des activités de recherches et d’enseignement, j’ai lancé la production maison d’impression de valves Charlotte et par la suite de supports de visière pour le CHUM. [LL_4]<br>
-                                - Cet état de fait rend compte de ma contribution au rayonnement de Polytechnique dans la société. [MC_1]<br>
-                                - J’ai aussi préparé seul le retour des activités de recherches à Polynov-Anjou. [AH_3] [LL_4] [NM_4]<br>
-                                - J’ai bien sûr continué le retour des activités dans les pavillons principal et JAB. [DT_9]<br>
+                                - Au début de la période confinement et pendant un certain temps, j’ai été le seul technicien à pouvoir réintégrer les locaux de Poly. Bien avant que j’y prépare le retour des activités de recherches et d’enseignement, j’ai lancé la production maison d’impression de valves Charlotte et par la suite de supports de visière pour le CHUM.<br>
+                                - Cet état de fait rend compte de ma contribution au rayonnement de Polytechnique dans la société. [DT_9]<br>
+                                - J’ai aussi préparé seul le retour des activités de recherches à Polynov-Anjou.<br>
+                                - J’ai bien sûr continué le retour des activités dans les pavillons principal et JAB. [LL_4]<br>
                                 - J’ai participé à la conférence TIME 2024. Ma présence comme seul représentant des techniciens fut remarqué et souligné à l’assemblée par Maud Cohen dès les premières minutes de l’événement. [MC_1]</p>
 
                                 <p class="doc-p"><strong>Offrir du soutien technique hors de son secteur pour dépanner d’autres équipes :</strong><br>
-                                - Lorsque j’étais en génie électrique, je suis allé au LM² réparer une des nouvelles imprimante 3D (Prusa XL) que le technicien de Daniel Therriault n’arrivait pas à réparer. [DT_10] <br>
-                                - En ce moment, j’assiste deux stagiaires de Daniel Therriault en génie mécanique (alors que je suis subventionné en génie électrique) dans la réalisation de leur projet pour le LM². [DT_10] <br>
-                                - Comme mentionné dans la section 3.2, je suis souvent consulté pour des modifications de projets, pour mon conseil sur des certifications ou des capacités électriques. [DT_6] [EM_5]<br>
-                                J’accompagne deux stagiaires de Daniel Therriaul dans leur projet de contrôle de la nouvelle enceinte chauffante.<br>
+                                - Lorsque j’étais en génie électrique, je suis allé au LM² réparer une des nouvelles imprimante 3D (Prusa XL) que le technicien de Daniel Therriault n’arrivait pas à réparer. [DT_6] [DT_10] <br>
+                                - En ce moment, j’assiste deux stagiaires de Daniel Therriault en génie mécanique (alors que je suis subventionné en génie électrique) dans la réalisation de leur projet pour le LM². [DT_6] [DT_10] <br>
+                                - Comme mentionné dans la section 3.2, je suis souvent consulté pour des modifications de projets, pour mon conseil sur des certifications ou des capacités électriques. [DT_6] [DT_10] [EM_5]<br>
                                 - J’ai assuré sur une période continue de 8 mois le service en travail surnuméraire — à raison de 7 heures par semaines — pour le professeur Frédéric Sirois de génie électrique alors que j’étais en génie mécanique. [FS_10] [DM_6]<br>
-                                - Il y a trois ans, j’ai réparé le contrôleur du professeur Huu Duc Vo sur mon temps personnel, alors que j’étais l’employé de Daniel Therriault, ce qui a permis une reprise des recherches dans la même journée; [HV_4] [HV_3]<br>
-                                - J’ai été rappelé par le Pr. Vo, il y a peu de temps, pour réparer une autre partie de ce même contrôleur, alors que je travaille pour le Pr. [HV_1] [HV_5]<br>
-                                Sirois. Un technicien de GM ayant conclu que la réparation d’un des circuits électroniques ne devait passer que par moi. [HV_5]</p>
+                                - Il y a trois ans, j’ai réparé le contrôleur du professeur Huu Duc Vo sur mon temps personnel, alors que j’étais l’employé de Daniel Therriault, ce qui a permis une reprise des recherches dans la même journée; [HDV_4] [HDV_3]<br>
+                                - Il y a peu de temps, j’ai été rappelé par le Pr. Vo pour réparer une autre partie de ce même contrôleur, alors que je travaille pour le Pr. Sirois. Un technicien de GM ayant conclu que la réparation d’un des circuits électroniques ne devait passer que par moi.</p>
 
                                 <h4 class="doc-h4">4.4 Contribution et optimisation du secteur</h4>
 
                                 <p class="doc-p"><strong>Maîtrise budgétaire :</strong><br>
-                                - Négociation active d’un crédits-achat (100 000$) et choix des imprimantes du nouveau parc machines (Aon, Bambulab, Prusa). [DT_11] [DM_14]<br>
+                                - Négociation active d’un crédits-achat (100 000$) et choix des imprimantes du nouveau parc machines (Aon, Bambulab, Prusa). [DM_14]<br>
                                 - En charge des achats et des UBR : attribution des UBR selon les projets et étudiants (certains partagent plus d’un projet ou UBR); [DT_11]</p>
 
                                 <p class="doc-p"><strong>Contribution à l’évolution des structures par une approche inventive et analytique:</strong> [Certains des exemples ci-après ont aussi été cités au pilier 2]<br>
-                                - J’ai centralisé en un seul laboratoire (J-5135, Daniel Therriault) toutes les activités impliquant la chimie et les produits dangereux, et j’ai acheté et identifié un balais et porte-poussière par laboratoire, de sorte que les usagers ne répandent plus les contaminant partout en promenant le balai contaminé; [DT_12] [EM_8] [DM_7]<br>
-                                - Pour ce même laboratoire, j’ai fait l’achat d’un robinet à activation infrarouge pour que les usagers n’aient pas à retoucher la poignée avec leurs mains après l’avoir manipulé; [FG_4] [JC_15]<br>
-                                - Toujours dans ce même laboratoire, j’ai acheté une horloge murale pour éviter que les usagers plongent leur main gantée dans leur poche pour voir l’heure sur leur téléphone; [FG_4]<br>
-                                - J’ai conçu et fait fabriquer une hotte pour le nettoyage à l’isopropanol des pièces imprimées SLA (SST); [JC_15]<br>
-                                - J’ai conçu l’aménagement complet (physique, électrique, ventilation et équipements) du nouveau laboratoire J-5129 (que j’ai obtenu de l’UdeM en 2024 suite à moultes tractations); [FG_4] [DT_12]<br>
+                                - J’ai centralisé en un seul laboratoire (J-5135, Daniel Therriault) toutes les activités impliquant la chimie et les produits dangereux, et j’ai acheté et identifié un balais et porte-poussière par laboratoire, de sorte que les usagers ne répandent plus les contaminant partout en promenant le balai contaminé;<br>
+                                - Pour ce même laboratoire, j’ai fait l’achat d’un robinet à activation infrarouge pour que les usagers n’aient pas à retoucher la poignée avec leurs mains après l’avoir manipulé;<br>
+                                - Toujours dans ce même laboratoire, j’ai acheté une horloge murale pour éviter que les usagers plongent leur main gantée dans leur poche pour voir l’heure sur leur téléphone;<br>
+                                - J’ai conçu et fait fabriquer une hotte pour le nettoyage à l’isopropanol des pièces imprimées SLA (SST);<br>
+                                - J’ai conçu l’aménagement complet (physique, électrique, ventilation et équipements) du nouveau laboratoire J-5129 (que j’ai obtenu de l’UdeM en 2024 suite à moultes tractations);<br>
                                 - Après avoir analysé la possibilité de faire ajouter un drain de plancher sous la douche corporelle du corridor J-5100 et devant les coûts prohibitifs, j’ai acheté un tapis surélevant la personne sous la douche pour éviter que ses pieds ne trempent dans le produit chimique ainsi évacué de sur son corps, et pour éviter qu’elle ne se blaise en glissant;<br>
-                                - J’ai acheté des passe-fils et même fait déplacer des prises électriques pour éviter des situations dangereuses; [FG_6] [EM_7]<br>
-                                - J’ai organisé des zones de travail, dont une pour une expérience à plusieurs dizaines de milliers de Volts (cette section, bien que dans la même salle, est maintenant en retrait, avec marquage au sol et affiches de mise en garde), ainsi qu’à l’entrepôt d’Anjou; [EM_8] [DM_7] [DT_5]<br>
+                                - J’ai acheté des passe-fils et même fait déplacer des prises électriques pour éviter des situations dangereuses; [DT_12] [DT_13]<br>
+                                - J’ai organisé des zones de travail, dont une pour une expérience à plusieurs dizaines de milliers de Volts (cette section, bien que dans la même salle, est maintenant en retrait, avec marquage au sol et affiches de mise en garde), ainsi qu’à l’entrepôt d’Anjou;<br>
+                                - J’ai fabriqué une haute à grand débit à Anjou avec les moyens du bord. [JC_15]<br>
                                 - Je me suis occupé (souvent seul et sans directive) du fonctionnement des installations qui étaient à Polynov, ainsi que du bâtiment lui-même (entretien ventilation, compresseur, chariot-élévateur); [LL_5] [AH_7] [NM_5]</p>
 
                                 <p class="doc-p"><strong>Aide à la recherche :</strong><br>
-                                - En tout temps, par le conseil, la réorganisation des lieux de travail, mon dévouement; [FS_5] [EM_7] [DT_12]<br>
-                                un exemple récent : 43 heures supplémentaires — faites en 6 jours, dont la fin de semaine — faites au début juin pour rencontrer des livrables, et mes nombreuses heures supplémentaires faites en étirant mes journées régulières pour soutenir les étudiants finissant plus tard que moi. [JC_7] [FS_9] [AH_10]<br>
-                                - Disponibilité flexible dès 6 h, permettant d’éliminer les temps d’arrêt étudiants et de prendre en charge commandes, designs et impressions en soirée et les fins de semaine, maximisant ainsi la rapidité et l’efficacité des processus en période creuse [JC_8] [NM_5]<br>
-                                - Contribution directe à l'obtention de contrats industriels (SMR) par la qualité des infrastructures livrées (projet de Njuki Mureithi); [NM_6] [AH_4]<br>
+                                - En tout temps, par le conseil, la réorganisation des lieux de travail et mon dévouement; [FS_5] [EM_7] [DT_12]<br>
+                                - Un exemple récent : 43 heures supplémentaires en temps accumulé — faites en 6 jours, dont la fin de semaine — faites au début juin pour rencontrer des livrables, et mes nombreuses heures supplémentaires faites en étirant mes journées régulières pour soutenir les étudiants finissant plus tard que moi. [JC_7] [FS_9] [AH_10] [NM_11]<br>
+                                - Disponibilité flexible dès 6 h, permettant d’éliminer les temps d’arrêt étudiants et de prendre en charge commandes, designs et impressions en soirée et les fins de semaine, maximisant ainsi la rapidité et l’efficacité des processus en période creuse; [JC_8] [NM_5]<br>
+                                - Contribution directe à l'obtention de contrats industriels par la qualité des infrastructures livrées (projet de Njuki Mureithi); [NM_6] [AH_4]<br>
                                 - Lorsque j’étais en génie électrique, je suis allé au LM² réparer une des nouvelles Prusa XL que le technicien de Daniel Therriault n’arrivait pas à réparer. [DT_10]<br>
-                                - J’ai effectué le « sauvetage » du contrôleur de moteur de Huu Duc Vo, grâce à mes compétences en électronique; [HV_1] [HV_6]</p>
+                                - J’ai effectué le « sauvetage » du contrôleur de moteur de Huu Duc Vo, grâce à mes compétences en électronique; [HDV_3] [HDV_6]</p>
 
                                 <p class="doc-p"><strong>Gestion et entretien des espaces de travail et des équipements :</strong><br>
                                 - J’ai fait l’achat et la supervision de l’installation d’armoires de laboratoire pour augmenter le rangement et la SST. [DT_12] [FG_1]<br>
-                                - Maintenance continue des imprimantes Raise 3D, Aon et du robot 6 axes, et voir au bon fonctionnement des activités des laboratoires (maintenance et achats) sous ma responsabilité; [DT_11]<br>
+                                - Maintenance continue des imprimantes Raise 3D, Aon et du robot 6 axes, et voir au bon fonctionnement des activités des laboratoires (maintenance et achats) sous ma responsabilité; [DT_1]<br>
                                 - Optimiser les processus, réduisant les temps d’arrêt ou les coûts : Pour ne citer que quelques exemples, l’achat et ordonnancement de boulonneries distinctes, pour optimiser les activités du lab; [AH_11] [NM_13] [FS_16] [DM_2]<br>
                                 - L’achat d’imprimante 3D performantes pour Frédéric Sirois, Bianca Viggiano et le département de Génie Mécanique. [DT_11]<br>
-                                - Le choix et l’achat des équipements pour une station complète de soudage sous fond MAO-TIC en Génie Mécanique. [DT_11]<br>
-                                - J’ai planifié les espaces et les requis structurels selon les équipements et l’utilisation pour le nouveau laboratoire du 5129. [FG_4] [DT_12]<br>
+                                - Le choix et l’achat des équipements pour une station complète de soudage sous fond MAO-TIC en Génie Mécanique; [IN_?]<br>
+                                - J’ai planifié les espaces et les requis structurels selon les équipements et l’utilisation pour le nouveau laboratoire du 5129. [DT_12]<br>
                                 - J’ai fabriqué un chiffrier Excel, très exhaustif, des produits chimiques du laboratoire de Daniel Therriault. [DT_15]</p>
 
                                 <p class="doc-p"><strong>Améliorer la sécurité ou l’efficacité des installations :</strong><br>
                                 - Comme mentionné précédemment, j’ai reconfiguré les lab pour n’avoir qu’un seul lab avec produits chimiques afin d’augmenter la santé-sécurité. [DT_12] [EM_8]<br>
-                                - Ajout de bras articulé à la grosse Aerotech pour améliorer le passage sécuritaire. Marquage au sol. [DT_12] [FG_5]<br>
-                                - Ajout de supports à manteaux/sarraus muraux dans le corridor, catégorisés et séparés, laissant plus de place dans les laboratoires et évitant l’empilement de sarraus souillés un par-dessus les autres. [DT_13]<br>
+                                - Ajout de bras articulé à la grosse Aerotech pour améliorer le passage sécuritaire. Marquage au sol.<br>
+                                - Ajout de supports à manteaux/sarraus muraux dans le corridor, catégorisés et séparés, laissant plus de place dans les laboratoires et évitant l’empilement de sarraus souillés un par-dessus les autres. [DT_12] [DT_13]<br>
                                 - Mise en place de procédures et de normes comportementales propre à chaque laboratoire; [NM_7] [JC_11]<br>
-                                exemple, en définissant un seul lab — J-5135 — contenant des produits chimiques et dangereux, il est donc possible de porter des EPI moins contraignant dans les autres laboratoires adjacents. [DT_12]<br>
-                                Ce qui renforce l’obligation d’en porter au J5135;</p>
+                                Exemple, en définissant qu’un seul lab — le J-5135 — contenant des produits chimiques et dangereux, il est donc possible de porter des EPI moins contraignant dans les autres laboratoires adjacents. Ce qui renforce l’obligation d’en porter au J5135; [DT_12] [DT_13]</p>
 
-                                <p class="doc-p"><strong>Avoir un historique constant de travail de qualité, reconnu par les usagers :</strong><br>
-                                - Lors de mes tâches d’employé subventionné, j’ai toujours offert un service dépassant mes affectations et mes heures normales. [FS_9] [JC_4]<br>
-                                - Voire du temps accumulé, mais aussi du temps personnel pour assurer le bon fonctionnement des laboratoires ou l’avancement des étudiants. [FS_9] [EM_15]<br>
-                                - Comme mentionné par Frédéric Sirois, la qualité de mon travail fait en sorte que j’ai des demandes de plusieurs professeurs pour mes conseils et pour l’accomplissement de leurs projets. [FS_5] [EM_10] [DT_6]</p>
+                                <p class="doc-p"><strong>Un historique constant de travail de qualité, reconnu :</strong> [NM_6] [FS_14] [AH_4] [NM_14]<br>
+                                - Lors de mes tâches d’employé subventionné, j’ai toujours offert un service dépassant mes affectations et mes heures normales, voire du temps accumulé, mais aussi du temps personnel pour assurer le bon fonctionnement des laboratoires ou l’avancement des étudiants. [FS_9] [JC_4] [EM_15] [JC_7]<br>
+                                - Comme mentionné par Frédéric Sirois, la qualité de mon travail fait en sorte que j’ai des demandes de plusieurs professeurs pour mes conseils et pour l’accomplissement de leurs projets. De plus, les gens du Slowpoke désirent me confier des contrats sous peu. [FS_5] [EM_10] [DT_6]</p>
 
                                 <p class="doc-p"><strong>Coordination de plusieurs quarts de métiers pour des travaux :</strong><br>
-                                - Plusieurs exemple d’installation de machines et d’armoires murales. Je fédère les gens et j’ai plusieurs exemples de ménages collaboratifs — parfois interdépartemental — à JAB, au Principal et à Anjou. [AH_5] [MD_4] [LL_8]</p>
+                                - Plusieurs exemple d’installation de machines et d’armoires murales. Je fédère les gens et j’ai plusieurs exemples de ménages collaboratifs — parfois interdépartemental — à JAB, au Principal et à Anjou. [LLL_8]</p>
 
                                 <p class="doc-p"><strong>Valeur élevée :</strong> [FS_6]<br>
-                                - Être indispensable lors de périodes critiques (sessions d’enseignement, projets de recherche, urgences techniques) : J’ai toujours offert de la continuité aux professeurs lorsque je changeais de poste, allant même jusqu’à travailler bénévolement et en temps supplémentaire (que j’ai offert à rémunération à temps simple, ce qui n’est pas purement du bénévolat, mais en parti) entre autres pendant 8 mois, à raison de 7 h/sem, pour Frédéric Sirois alors que j’étais dans un autre département. [FS_11] [JC_9] [NM_14] [DT_14]<br>
-                                - Par trois (3) fois, à la suite de mes services, un professeur m’a consulté avant de d’offrir un poste subventionné pour que l’affichage me cible particulièrement; [FS_6] [EM_6] [EM_16]<br>
-                                - Fait particulier : on m’a dit que c’était la première fois qu’un technicien passait directement d’un poste subventionné à un autre poste subventionné. [EM_16]<br>
-                                - Ce qui démontre un intérêt élevé pour mes services. [EM_6] [FS_6]</p>
+                                - Être indispensable lors de périodes critiques (sessions d’enseignement, projets de recherche, urgences techniques) : J’ai toujours offert de la continuité aux professeurs lorsque je changeais de poste, allant même jusqu’à travailler bénévolement et en temps supplémentaire (que j’ai offert à rémunération à temps simple, ce qui n’est pas purement du bénévolat, mais en parti) entre autres pendant 8 mois, à raison de 7 h/sem, pour Frédéric Sirois alors que j’étais dans un autre département. [FS_11] [DM_6] [JC_9] [NM_14] [DT_14]<br>
+                                - Par trois (3) fois, à la suite de mes services, un professeur m’a consulté avant de d’ouvrir un poste subventionné; [FS_6] [EM_6]<br>
+                                - Fait particulier : C’est la première fois qu’un technicien passe directement d’un poste subventionné à un autre poste subventionné. Ce qui démontre un intérêt élevé pour mes services. [EM_16] [FS_6]</p>
                                 
                                 <p class="doc-p" style="margin-top: 50px;"><strong>5. TABLE DES ANNEXES</strong></p>
                                 <table style="width: 100%; text-align: left; border-collapse: collapse; margin-top: 15px;">
@@ -628,6 +619,370 @@
                 <div class="panel panel-full media-container">
                     <h3 class="panel-title" style="color: #00BDF2;">CURRICULUM VITAE</h3>
                  <iframe src="https://view.officeapps.live.com/op/embed.aspx?src=https://Yanik-Landry-Ducharme.github.io/CV%20Yanik%20Landry-Ducharme%202026(f).docx" width="100%" height="600px" frameborder="0"></iframe>
+                </div>
+            </div>
+
+            <div id="lettres" class="grid">
+                <div class="panel panel-full media-container">
+                    
+                    <h1 class="header-title" style="color: #25B34B; border-bottom: 1px solid #50565c; padding-bottom: 10px; margin-bottom: 20px;">LETTRES DE RECOMMANDATION & APPUIS INSTITUTIONNELS</h1>
+                    
+                    <div id="file-directory">
+                        <div class="legend-box">
+                            <strong style="color: #25B34B;">CLÉS D'IDENTIFICATION DES PRÉREQUIS (Annexe H) :</strong>
+                            <div class="legend-items">
+                                <span>🔧 Pilier 1 : Expertise Distinctive</span>
+                                <span>🧭 Pilier 2 : Rôle Conseil</span>
+                                <span>🤝 Pilier 3 : Implication </span>
+                                <span>🛠️ Pilier 4 : Contribution</span>
+                            </div>
+                        </div>
+
+                        <p style="font-size: 20px; color: #25B34B; margin-top: 0; margin-bottom: 20px;"><em>Touchez ou cliquez sur un fichier pour l'ouvrir.</em></p>
+                        
+                        <div class="file-system">
+                            
+                            <div class="file-icon" onclick="ouvrirLettre('doc-sirois')"> 
+                                <div class="hover-desc"> 
+                                    <strong style="color: #25B34B;">Pr. Frédéric Sirois</strong> 
+                                    <em>Département de génie électrique (Dir. LSM)</em> 
+                                    Professeur titulaire au département de génie électrique, spécialiste en supraconductivité, réseaux électriques de puissance, décarbonation industrielle à Polytechnique Montréal et directeur du Laboratoire des technologies de la supraconductivité (LSM).
+                                    <br><br>
+                                    <strong>Distinctions :</strong> Récipiendaire du Prix Honoris Genius - Innovation technologique décerné par l'Ordre des ingénieurs du Québec (OIQ) ; lauréat du prix international Van Duzer Prize de l'IEEE (Transactions on Applied Superconductivity) ; lauréat du prix de la meilleure thèse de doctorat de Polytechnique Montréal.
+                                </div> 
+                                <img src="PHOTO-SIROIS.jpg" alt="Frédéric Sirois" class="file-image" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAiIGhlaWdodD0iMTM1IiBmaWxsPSIjMzMzIj48cmVjdCB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEzNSIvPjwvc3ZnPg=='">
+                                <span class="name">Pr. Frédéric Sirois</span>
+                                <span class="badges" title="Pilier 2 : Rôle Conseil | Pilier 4 : Contribution">🧭 🛠️ 🔧 🤝 </span> 
+                            </div>
+                            
+                            <div class="file-icon" onclick="ouvrirLettre('doc-therriault')">
+                                <div class="hover-desc">
+                                    <strong style="color: #25B34B;">Pr. Daniel Therriault</strong>
+                                    <em>Département de génie mécanique (LM2)</em>
+                                    Professeur titulaire au Département de génie mécanique, spécialiste en fabrication additive, matériaux composites et procédés avancés à Polytechnique Montréal. Ancien titulaire de la Chaire de recherche du Canada sur les microsystèmes et matériaux avancés et codirecteur du Laboratoire de mécanique multiéchelle (LM2).
+                                    <br><br>
+                                    <strong>Distinctions :</strong> Direction de chaires prestigieuses, contributions majeures en impression 3D et matériaux multifonctionnels, reconnaissance internationale.
+                                </div>
+                                <img src="PHOTO-DANIEL.jpg" alt="Daniel Therriault" class="file-image" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAiIGhlaWdodD0iMTM1IiBmaWxsPSIjMzMzIj48cmVjdCB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEzNSIvPjwvc3ZnPg=='">
+                                <span class="name">Pr. Daniel Therriault</span>
+                                <span class="badges" title="Pilier 2 : Rôle Conseil | Pilier 4 : Contribution">🧭 🛠️</span>
+                            </div>
+
+                            <div class="file-icon" onclick="ouvrirLettre('doc-martin')">
+                                <div class="hover-desc">
+                                    <strong style="color: #25B34B;">Jean-Pierre Martin</strong>
+                                    <em>Lab. René-J.-A.-Lévesque (UdeM)</em>
+                                    Chercheur ou collaborateur scientifique associé à des projets interuniversitaires en sciences appliquées ou médicales entre l'UdeM et les écoles affiliées depuis les années 1980. Spécialisé en physique des particules, instrumentation de haute précision, physique nucléaire et électronique de haut niveau. Directeur adjoint du Laboratoire. Grandes collaborations de recherche : Coordination technique des équipes (OPAL au LEP, ATLAS au LHC du CERN, Belle II au KEK, TRIUMF, PICASSO et PICO pour la matière sombre).
+                                    <br><br>
+                                    <strong>Distinctions :</strong> Co-auteur de contributions majeures aux collaborations mondiales du CERN avec plus de 2000 articles et 60 000 citations scientifiques. Affiliations : CERN, DESY, Fermilab, INFN, SLAC, LBL Berkley, IRFU Saclay, Triumf...
+                                </div>
+                                <img src="PHOTO-MARTIN.jpg" alt="Jean-Pierre Martin" class="file-image" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAiIGhlaWdodD0iMTM1IiBmaWxsPSIjMzMzIj48cmVjdCB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEzNSIvPjwvc3ZnPg=='">
+                                <span class="name">M. Jean-Pierre Martin<br>(Chercheur invité, UdeM)</span>
+                                <span class="badges" title="Pilier 1 : Expertise Distinctive | Pilier 4 : Contribution">🔧 🛠️</span>
+                            </div>
+
+                            <div class="file-icon" onclick="ouvrirLettre('doc-mureithi')">
+                                <div class="hover-desc">
+                                    <strong style="color: #25B34B;">Pr. Njuki Mureithi</strong>
+                                    <em>Département de génie mécanique</em>
+                                    Professeur titulaire au département de génie mécanique, expert en interactions fluide-structure à Polytechnique Montréal et président du comité FSSIC.
+                                    <br><br>
+                                    <strong>Distinctions :</strong> Expert expert-conseil international pour la sécurité des centrales et structures énergétiques. Plus de 170 publications, figure majeure en vibrations industrielles et dynamique appliquée.
+                                </div>
+                                <img src="PHOTO-NJUKI.jpg" alt="Njuki Mureithi" class="file-image" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAiIGhlaWdodD0iMTM1IiBmaWxsPSIjMzMzIj48cmVjdCB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEzNSIvPjwvc3ZnPg=='">
+                                <span class="name">Pr. Njuki Mureithi</span>
+                                <span class="badges" title="Pilier 1 : Expertise Distinctive | Pilier 4 : Contribution">🔧 🛠️</span>
+                            </div>
+
+                            <div class="file-icon" onclick="ouvrirLettre('doc-jamal')">
+                                <div class="hover-desc">
+                                    <strong style="color: #25B34B;">Pr. Jamal Chaouki</strong>
+                                    <em>Département de génie chimique</em>
+                                    Professeur titulaire depuis 1995 en Génie chimique spécialisé en réacteurs à lit fluidisé, valorisation des déchets plastiques, captage du carbone. Il est directeur du Centre de bioraffinerie. Il détient plus de 22 brevets et a supervisé au-delà de 120 chercheurs.
+                                    <br><br>
+                                    <strong>Distinctions :</strong> Membre de l'Académie canadienne du génie, il est mondialement reconnu pour ses recherches sur le captage de CO2, le recyclage des plastiques et les procédés industriels à haute température. Il est Fellow de l'Académie canadienne du génie ; lauréat du prestigieux prix John R. Grace et du prix R.S. Jane de la CSChE.
+                                </div>
+                                <img src="PHOTO-JAMAL.jpg" alt="Jamal" class="file-image" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAiIGhlaWdodD0iMTM1IiBmaWxsPSIjMzMzIj48cmVjdCB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEzNSIvPjwvc3ZnPg=='">
+                                <span class="name">Pr. Jamal Chaouki</span>
+                                <span class="badges" title="Pilier 3 : Implication">🤝</span>
+                            </div>
+
+                            <div class="file-icon" onclick="ouvrirLettre('doc-vo')">
+                                <div class="hover-desc">
+                                    <strong style="color: #25B34B;">Pr. Huu Duc Vo</strong>
+                                    <em>Département de génie mécanique</em>
+                                    Professeur titulaire au département de génie mécanique (turbomachines et propulsion) à Polytechnique Montréal, spécialisé en aérodynamique des turbomachines, systèmes de propulsion, stabilité des compresseurs.
+                                    <br><br>
+                                    <strong>Distinctions :</strong> Inventeur de technologies brevetées de contrôle d’écoulement pour l'aviation durable.
+                                </div>
+                                <img src="PHOTO-VO.jpg" alt="Huu Duc Vo" class="file-image" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAiIGhlaWdodD0iMTM1IiBmaWxsPSIjMzMzIj48cmVjdCB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEzNSIvPjwvc3ZnPg=='">
+                                <span class="name">Pr. Huu Duc Vo</span>
+                                <span class="badges" title="Pilier 1 : Expertise Distinctive | Pilier 3 : Implication">🔧 🤝</span>
+                            </div>
+
+                            <div class="file-icon" onclick="ouvrirLettre('doc-menard')">
+                                <div class="hover-desc">
+                                    <strong style="color: #25B34B;">Pr. David Ménard</strong>
+                                    <em>Département de génie physique</em>
+                                    Professeur titulaire au département de génie physique, expert en magnétisme à Polytechnique Montréal, spécialisé en nanomagnétisme, physique des matériaux, composants hyperfréquences.
+                                    <br><br>
+                                    <strong>Distinctions :</strong> Récipiendaire du Prix d'excellence en enseignement de Polytechnique Montréal.
+                                </div>
+                                <img src="PHOTO-DAVID.jpg" alt="David Ménard" class="file-image" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAiIGhlaWdodD0iMTM1IiBmaWxsPSIjMzMzIj48cmVjdCB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEzNSIvPjwvc3ZnPg=='">
+                                <span class="name">Pr. David Ménard</span>
+                                <span class="badges" title="Pilier 1 : Expertise Distinctive | Pilier 4 : Contribution">🔧 🛠️</span>
+                            </div>
+
+                            <div class="file-icon" onclick="ouvrirLettre('doc-hadji')">
+                                <div class="hover-desc">
+                                    <strong style="color: #25B34B;">Abdallah Hadji</strong>
+                                    <em>Département de génie mécanique</em>
+                                    Chercheur en mécanique au Département de génie mécanique de Polytechnique Montréal, spécialisé en vibrations, instabilités fluido-élastiques, frottement, modélisation numérique et interaction tube-support. Auteur de plusieurs travaux sur les générateurs de vapeur et les phénomènes vibro-acoustiques. Ing.
+                                    <br><br>
+                                    <strong>Distinctions :</strong> Reconnu pour ses contributions scientifiques et ses certifications techniques (machine learning, gestion de projet, mesures de bruit et vibrations, CCNA).
+                                </div>
+                                <img src="PHOTO-ABDALLAH.jpg" alt="Abdallah Hadji" class="file-image" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAiIGhlaWdodD0iMTM1IiBmaWxsPSIjMzMzIj48cmVjdCB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEzNSIvPjwvc3ZnPg=='">
+                                <span class="name">M. Abdallah Hadji <br>(PhD)</span>
+                                <span class="badges" title="Pilier 3 : Implication">🤝</span>
+                            </div>
+
+                            <div class="file-icon" onclick="ouvrirLettre('doc-elmehdi')">
+                                <div class="hover-desc">
+                                    <strong style="color: #25B34B;">El-Mehdi Mojab</strong>
+                                    <em>Département de génie électrique</em>
+                                    Coordonnateur des ressources techniques en Génie Électrique. Ing. PhD.
+                                    <br><br>
+                                    <strong>Distinctions :</strong> Chercheur associé affilié aux institutions universitaires québécoises.
+                                </div>
+                                <img src="PHOTO-ELMEHDI.jpg" alt="El Mehdi" class="file-image" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAiIGhlaWdodD0iMTM1IiBmaWxsPSIjMzMzIj48cmVjdCB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEzNSIvPjwvc3ZnPg=='">
+                                <span class="name">M. El Mehdi <br>(Coordonnateur des services techniques en GÉ,ing.PhD.)</span>
+                                <span class="badges" title="Pilier 1 : Expertise Distinctive | Pilier 3 : Implication">🔧 🤝</span>
+                            </div>
+
+                            <div class="file-icon" onclick="ouvrirLettre('doc-yari')">
+                                <div class="hover-desc">
+                                    <strong style="color: #25B34B;">Bahman Yari</strong>
+                                    <em>Département de génie chimique</em>
+                                    Chercheur formé à Polytechnique Montréal en génie chimique, spécialisé en pyrométallurgie, procédés thermiques et matériaux pour batteries. Ing. PhD.
+                                    <br><br>
+                                    <strong>Distinctions :</strong> Contributions reconnues en génie des procédés et matériaux énergétiques, expertise appliquée en industrie.
+                                </div>
+                                <img src="PHOTO-BAHMAN.jpg" alt="Bahman Yari" class="file-image" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAiIGhlaWdodD0iMTM1IiBmaWxsPSIjMzMzIj48cmVjdCB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEzNSIvPjwvc3ZnPg=='">
+                                <span class="name">Bahman Yari <br>(PhD)</span>
+                                <span class="badges" title="Pilier 1 : Expertise Distinctive | Pilier 4 : Contribution">🔧 🛠️</span>
+                            </div>
+
+                            <div class="file-icon" onclick="ouvrirLettre('doc-nowlan')">
+                                <div class="hover-desc">
+                                    <strong style="color: #25B34B;">Isabelle Nowlan</strong>
+                                    <em>Département de génie mécanique</em>
+                                    Coordonnatrice des ressources techniques en Génie Mécanique. Ing.
+                                    <br><br>
+                                    <strong>Distinctions :</strong> Prix de reconnaissance de PRIMA Québec pour l'encadrement des étudiants et son implication technique.
+                                </div> 
+                                <img src="PHOTO-ISABELLE.jpg" alt="Isabelle Nowlan" class="file-image" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAiIGhlaWdodD0iMTM1IiBmaWxsPSIjMzMzIj48cmVjdCB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEzNSIvPjwvc3ZnPg=='">
+                                <span class="name">Mme Isabelle Nowlan<br>(Coordonnatrice GM)</span>
+                                <span class="badges" title="Pilier 3 : Implication | Pilier 4 : Contribution">🤝 🛠️</span>
+                            </div>
+
+                            <div class="file-icon" onclick="ouvrirLettre('doc-laberge')">
+                                <div class="hover-desc">
+                                    <strong style="color: #25B34B;">Pr. Louis Laberge-Lebel</strong>
+                                    <em>Département de génie mécanique</em>
+                                    Professeur au département de génie mécanique, spécialiste des structures composites avancées à Polytechnique Montréal spécialisée en matériaux composites avancés, structures textiles, procédés de fabrication automatisés.
+                                    <br><br>
+                                    <strong>Distinctions :</strong> Directeur du Laboratoire de fabrication avancée de composites thermoplastiques.
+                                </div>
+                                <img src="PHOTO-LOUIS.jpg" alt="Louis Laberge-Lebel" class="file-image" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAiIGhlaWdodD0iMTM1IiBmaWxsPSIjMzMzIj48cmVjdCB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEzNSIvPjwvc3ZnPg=='">
+                                <span class="name">Pr. Louis Laberge-Lebel</span>
+                                <span class="badges" title="Pilier 1 : Expertise Distinctive | Pilier 4 : Contribution">🔧 🛠️</span>
+                            </div>
+                            
+                            <div class="file-icon" onclick="ouvrirLettre('doc-gylbert')">
+                                <div class="hover-desc">
+                                    <strong style="color: #25B34B;">Frédéric Gylbert</strong>
+                                    <em>Service des immeubles</em>
+                                    Superviseur des services d’opération et d’entretien technique au Service des immeubles de Polytechnique Montréal.
+                                </div>
+                                <img src="PHOTO-FREDERIC.jpg" alt="Frédéric Gylbert" class="file-image" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAiIGhlaWdodD0iMTM1IiBmaWxsPSIjMzMzIj48cmVjdCB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEzNSIvPjwvc3ZnPg=='">
+                                <span class="name">M. Frédéric Gylbert<br>(Superviseur des services d’opération)</span>
+                                <span class="badges" title="Pilier 4 : Contribution">🛠️</span>
+                            </div>
+                            
+                            <div class="file-icon" onclick="ouvrirLettre('doc-dasilva')">
+                                <div class="hover-desc">
+                                    <strong style="color: #25B34B;">Marie-Noël da Sylva</strong>
+                                    <em>Bureau de santé et sécurité</em>
+                                    Conseillère principale - projets stratégiques en santé et sécurité au Bureau de santé et sécurité de Polytechnique Montréal.
+                                    <br><br>
+                                    <strong>Distinctions :</strong> Chargée du déploiement des orientations institutionnelles en SST à l'échelle de Polytechnique.
+                                </div>
+                                <img src="PHOTO-MARIENOEL.jpg" alt="Marie-Noël da Silva" class="file-image" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAiIGhlaWdodD0iMTM1IiBmaWxsPSIjMzMzIj48cmVjdCB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEzNSIvPjwvc3ZnPg=='">
+                                <span class="name">Mme Marie-Noël da Sylva <br>(Conseillère SST) </span>
+                                <span class="badges" title="Pilier 3 : Implication">🤝</span>
+                            </div>
+
+                            <div class="file-icon" onclick="ouvrirLettre('doc-vetel')">
+                                <div class="hover-desc">
+                                    <strong style="color: #25B34B;">Pr. Jérôme Vétel</strong>
+                                    <em>Département de génie mécanique (Directeur GM)</em>
+                                    Directeur et professeur au département de génie mécanique, spécialiste en mécanique des fluides expérimentale, instabilités de sillage et métrologie laser à Polytechnique Montréal.
+                                    <br><br>
+                                    <strong>Distinctions :</strong> Leader académique pilotant l'un des plus grands départements de génie mécanique francophones.
+                                </div>
+                                <img src="PHOTO-JEROME.jpg" alt="Jérôme Vétel" class="file-image" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAiIGhlaWdodD0iMTM1IiBmaWxsPSIjMzMzIj48cmVjdCB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEzNSIvPjwvc3ZnPg=='">
+                                <span class="name">Pr. Jérôme Vétel <br>(Directeur GM) </span>
+                                <span class="badges" title="Pilier 2 : Rôle Conseil | Pilier 3 : Implication">🧭 🤝</span>
+                            </div>
+
+                            <div class="file-icon" onclick="ouvrirLettre('doc-maud')"> 
+                                <div class="hover-desc"> 
+                                    <strong style="color: #25B34B;">Maud Cohen</strong> 
+                                    <em>Direction Générale</em> 
+                                    Capture d'écran d'un échange avec la Directrice Générale de Polytechnique Montréal. 
+                                    <br><br>
+                                    <strong>Points clés :</strong> Reconnaissance institutionnelle, engagement et contribution stratégique.
+                                </div> 
+                                <img src="PHOTO-MAUD.jpg" alt="Capture Maud Cohen" class="file-image">
+                                <span class="name">Échange Directrice Générale</span>
+                                <span class="badges" title="Pilier 3 : Implication | Pilier 4 : Contribution">🤝 🛠️</span> 
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div id="doc-sirois" class="letter-content"><button class="btn-retour" onclick="fermerLettres()">⬅ Retourner aux dossiers</button><p><strong>Professeur Frédéric Sirois (Génie Électrique)</strong></p><iframe src="Frédéric Sirois.pdf#zoom=100"></iframe></div>
+                    <div id="doc-therriault" class="letter-content"><button class="btn-retour" onclick="fermerLettres()">⬅ Retourner aux dossiers</button><p><strong>Professeur Daniel Therriault (Génie Mécanique - LM2)</strong></p><iframe src="Daniel Therriault.pdf#zoom=100"></iframe></div>
+                    <div id="doc-martin" class="letter-content"><button class="btn-retour" onclick="fermerLettres()">⬅ Retourner aux dossiers</button><p><strong>Jean-Pierre Martin</strong></p><iframe src="Jean-Pierre Martin.pdf#zoom=100"></iframe></div>
+                    <div id="doc-mureithi" class="letter-content"><button class="btn-retour" onclick="fermerLettres()">⬅ Retourner aux dossiers</button><p><strong>Professeur Njuki Mureithi (Génie Mécanique)</strong></p><iframe src="Njuki Mureithi.pdf#zoom=100"></iframe></div>
+                    <div id="doc-jamal" class="letter-content"><button class="btn-retour" onclick="fermerLettres()">⬅ Retourner aux dossiers</button><p><strong>Professeur Jamal Chaouki (Génie Chimique)</strong></p><iframe src="Jamal Chaouki.pdf#zoom=100"></iframe></div>
+                    <div id="doc-vo" class="letter-content"><button class="btn-retour" onclick="fermerLettres()">⬅ Retourner aux dossiers</button><p><strong>Professeur Huu Duc Vo (Aérothermique)</strong></p><iframe src="Huu Duc_Vo.pdf#zoom=100"></iframe></div>
+                    <div id="doc-menard" class="letter-content"><button class="btn-retour" onclick="fermerLettres()">⬅ Retourner aux dossiers</button><p><strong>Professeur David Ménard (Génie Physique)</strong></p><iframe src="David Ménard.pdf#zoom=100"></iframe></div>
+                    <div id="doc-hadji" class="letter-content"><button class="btn-retour" onclick="fermerLettres()">⬅ Retourner aux dossiers</button><p><strong>Abdallah Hadji</strong></p><iframe src="Abdallah Hadji.pdf#zoom=100"></iframe></div>
+                    <div id="doc-elmehdi" class="letter-content"><button class="btn-retour" onclick="fermerLettres()">⬅ Retourner aux dossiers</button><p><strong>El Mehdi</strong></p><iframe src="El Mehdi.pdf#zoom=100"></iframe></div>
+                    <div id="doc-yari" class="letter-content"><button class="btn-retour" onclick="fermerLettres()">⬅ Retourner aux dossiers</button><p><strong>Bahman Yari</strong></p><iframe src="Bahman Yari.pdf#zoom=100"></iframe></div>
+                    <div id="doc-nowlan" class="letter-content"><button class="btn-retour" onclick="fermerLettres()">⬅ Retourner aux dossiers</button><p><strong>Isabelle Nowlan</strong></p><iframe src="Isabelle Nowlan.pdf#zoom=100"></iframe></div>
+                    <div id="doc-laberge" class="letter-content"><button class="btn-retour" onclick="fermerLettres()">⬅ Retourner aux dossiers</button><p><strong>Professeur Louis Laberge-Lebel (Génie Mécanique)</strong></p><iframe src="Louis Laberge-Lebel.pdf#zoom=100"></iframe></div>
+                    <div id="doc-gylbert" class="letter-content"><button class="btn-retour" onclick="fermerLettres()">⬅ Retourner aux dossiers</button><p><strong>Monsieur Frédéric Gylbert (Sécurité institutionnelle)</strong></p><iframe src="Frédéric Gylbert.pdf#zoom=100"></iframe></div>
+                    <div id="doc-dasilva" class="letter-content"><button class="btn-retour" onclick="fermerLettres()">⬅ Retourner aux dossiers</button><p><strong>Marie-Noël da Sylva (Sûreté Institutionnelle)</strong></p><iframe src="Marie-Noël da Silva.pdf#zoom=100"></iframe></div>
+                    <div id="doc-vetel" class="letter-content"><button class="btn-retour" onclick="fermerLettres()">⬅ Retourner aux dossiers</button><p><strong>Professeur Jérôme Vétel (Génie Mécanique)</strong></p><iframe src="Jérôme Vétel.pdf#zoom=100"></iframe></div>
+                    <div id="doc-maud" class="letter-content"><button class="btn-retour" onclick="fermerLettres()">⬅ Retourner aux dossiers</button><p><strong>Appui de la Directrice Générale : Maud Cohen</strong></p><img src="Maud Cohen_Capture d'écran.png" alt="Capture d'écran Maud Cohen" style="max-width:100%;"></div>
+
+                </div>
+            </div>
+
+            <div id="realisations" class="grid">
+                <div class="panel panel-full">
+                    <h1 class="header-title" style="color: #F15A22; font-weight: bold; text-transform: uppercase; margin-bottom: 10px;">RÉALISATIONS & DISTINCTIONS (EN IMAGES)</h1>
+                    <p style="font-size: 18px; color: #F15A22; margin-top: 0; margin-bottom: 0;"><em>Survolez une image pour un aperçu agrandi, ou cliquez dessus pour l'afficher en plein écran.</em></p>
+                </div>
+
+                <div class="panel">
+                    <h3 class="panel-title" style="color: #F15A22; font-weight: bold;">🔧 Expertise Distinctive (Soudage de précision)</h3>
+                    <p>Soudage et reprise de composants de haute précision.</p>
+                    <div class="image-grid" style="grid-template-columns: 1fr 1fr;">
+                        <div class="image-card"><img src="0201.jpg" alt="Soudage 0201"><p>Soudage de composants 0201 (0.6mm x 0.3mm)</p></div>
+                        <div class="image-card"><img src="BGA.jpg" alt="Soudage BGA"><p>Soudage BGA de haute précision</p></div>
+                        <div class="image-card"><img src="Reflow Sattion.jpg" alt="Station Reflow"><p>Station de soudage par refusion automatisée</p></div>
+                        <div class="image-card"><img src="Rework Station.png" alt="Station Rework"><p>Station de reprise pour composants SMD/BGA</p></div>
+                    </div>
+                </div>
+
+                <div class="panel">
+                    <h3 class="panel-title" style="color: #F15A22; font-weight: bold;">⚙️ Assemblage de circuits complexes</h3>
+                    <p>Conception et assemblage de circuits d'acquisition haute performance.</p>
+                    <div class="image-grid">
+                        <div class="image-card"><img src="Collector V1,3.jpg" alt="Collector V1.3"><p>Collector V1.3</p></div>
+                        <div class="image-card"><img src="Mezzanine 32x50MHz.jpg" alt="Mezzanine 32x50MHz"><p>Mezzanine 32x50MHz</p></div>
+                        <div class="image-card"><img src="TIG 1GHz_MB.jpg" alt="TIG 1GHz MB"><p>TIG 1GHz (MB)</p></div>
+                        <div class="image-card"><img src="TIG 1GHz.jpg" alt="TIG 1GHz"><p>TIG 1GHz</p></div>
+                        <div class="image-card"><img src="TIG 10.jpg" alt="TIG 10"><p>Système TIG 10</p></div>
+                    </div>
+                </div>
+
+                <div class="panel">
+                    <h3 class="panel-title" style="color: #F15A22; font-weight: bold;">⚡ Systèmes embarqués & Haute Tension</h3>
+                    <p>Contrôleurs et intégration de systèmes de puissance.</p>
+                    <div class="image-grid" style="grid-template-columns: 1fr;">
+                        <div class="image-card"><img src="Contrôleur HV.jpg" alt="Contrôleur HV"><p>Contrôleur Haute Tension</p></div>
+                    </div>
+                </div>
+
+                <div class="panel">
+                    <h3 class="panel-title" style="color: #F15A22; font-weight: bold;">🌊 Boucle Hydraulique Doosan</h3>
+                    <p>Installation et maintenance de la boucle expérimentale.</p>
+                    <div class="image-grid" style="grid-template-columns: 1fr 1fr;">
+                        <div class="image-card"><img src="1- Boucle - Installation.jpg" alt="Boucle Installation 1"><p>Installation de la structure</p></div>
+                        <div class="image-card"><img src="2- Boucle - Tech à l'oeuvre.jpg" alt="Tech à l'oeuvre"><p>Tech à l'oeuvre</p></div>
+                        <div class="image-card" style="grid-column: span 2;"><img src="3- Boucle - Installation.jpg" alt="Boucle Installation 2" style="max-height: 450px;"><p>Installation de la boucle</p></div>
+                    </div>
+                </div>
+
+                <div class="panel">
+                    <h3 class="panel-title" style="color: #F15A22; font-weight: bold;">🌡️ Contrôleur de température</h3>
+                    <p>Lit et enceinte chauffante pour fabrication additive.</p>
+                    <div class="image-grid" style="grid-template-columns: 1fr;">
+                        <div class="image-card" style="padding: 15px;">
+                            <img src="J-5131 Contrôleur de température à écran tactile.jpg" alt="Contrôleur J5131" style="height: auto; max-height: 400px; object-fit: contain; background-color: transparent;">
+                            <p>J-5131 Control</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="panel">
+                    <h3 class="panel-title" style="color: #F15A22; font-weight: bold;">🔩 Station de couple</h3>
+                    <p>Conception et assemblage du banc d'essai.</p>
+                    <div class="image-grid" style="grid-template-columns: 1fr 1fr;">
+                        <div class="image-card"><img src="1000105233.jpg" alt="Station de couple 1"><p>Vue d'ensemble</p></div>
+                        <div class="image-card"><img src="1000106344.jpg" alt="Station de couple 3"><p>Axe et capteur</p></div>
+                        
+                        <div class="image-card" style="grid-column: span 2;">
+                            <img src="1000106342.jpg" alt="Station de couple 2" style="height: auto; max-height: 500px; object-fit: contain;">
+                            <p>Montage mécanique</p>
+                        </div>
+                        <div class="image-card" style="grid-column: span 2;">
+                            <img src="1000107307.jpg" alt="Station de couple 4" style="height: auto; max-height: 500px; object-fit: contain;">
+                            <p>Banc d'essai</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="panel">
+                    <h3 class="panel-title" style="color: #F15A22; font-weight: bold;">🔥 Four Rotatif & Échantillonneur</h3>
+                    <div class="image-grid" style="grid-template-columns: 1fr 1fr;">
+                        <div class="image-card"><img src="1- Four rotatif 1.jpg" alt="Four rotatif 1"><p>Four rotatif 1</p></div>
+                        <div class="image-card"><img src="2- Four rotatif .png" alt="Four rotatif 2"><p>Four rotatif 2</p></div>
+                        <div class="image-card"><img src="3- Four rotatif - Chambres.jpg" alt="Chambres"><p>Chambres</p></div>
+                        <div class="image-card"><img src="4- Four rotatif - Proposition.jpg" alt="Proposition"><p>Proposition (Croquis)</p></div>
+                        <div class="image-card" style="grid-column: span 2;"><img src="5- Four rotatif - Mélangeur - Proposition.jpg" alt="Mélangeur"><p>Mélangeur - Proposition (Croquis)</p></div>
+                    </div>
+                </div>
+
+                <div class="panel panel-full">
+                    <h3 class="panel-title" style="color: #F15A22; font-weight: bold;">🔄 Bobineuse de rubans supraconducteurs</h3>
+                    <p>Démonstration vidéo et photos du système de bobinage automatisé.</p>
+                    <div style="display: grid; grid-template-columns: 1fr; gap: 25px; max-width: 100%;">
+                         <video controls style="width: 100%; height: auto; max-height: 800px; object-fit: contain; border-radius: 6px; border: 1px solid #50565c; background-color: #1a1c1e;"><source src="678.mp4" type="video/mp4"></video>
+                         <video controls style="width: 100%; height: auto; max-height: 800px; object-fit: contain; border-radius: 6px; border: 1px solid #50565c; background-color: #1a1c1e;"><source src="679.mp4" type="video/mp4"></video>
+                         
+                         <div class="image-grid">
+                             <div class="image-card" style="width: 100%; height: auto; padding: 15px;"><img src="674.jpg" alt="Bobineuse 1" style="height: auto; max-height: 600px; object-fit: cover; background-color: transparent;"><p style="margin-top: 10px; font-size: 14px;">Bobineuse 1 - Vue d'ensemble du cône de guidage</p></div>
+                             <div class="image-card" style="width: 100%; height: auto; padding: 15px;"><img src="675.jpg" alt="Bobineuse 2" style="height: auto; max-height: 600px; object-fit: cover; background-color: transparent;"><p style="margin-top: 10px; font-size: 14px;">Bobineuse 2 - Structure latérale et motorisation</p></div>
+                         </div>
+                    </div>
+                </div>
+
+                <div class="panel panel-full">
+                    <h3 class="panel-title" style="color: #F15A22; font-weight: bold;">🏢 Restructuration et Modernisation des laboratoires (SST)</h3>
+                    <div class="image-grid" style="grid-template-columns: 1fr 1fr;">
+                        <div class="image-card"><img src="J-5100 Solution douche corporelle.jpg" alt="Douche SST"><p>Aménagement J-1 SST</p></div>
+                        <div class="image-card"><img src="J-5129 Organisation des locaux - 3D FDMs.jpg" alt="J-5129"><p>J-5129 Organisation</p></div>
+                        <div class="image-card"><img src="J-5129 Organisation des locaux - 3D Postes de travail.jpg" alt="Postes"><p>J-5129 Postes de travail</p></div>
+                        <div class="image-card"><img src="J-5131 Oranisation des locaux - Poste de sougae.jpg" alt="Soudure"><p>J-5131 Poste de soudage</p></div>
+                        <div class="image-card"><img src="J-5133 Aerotech.jpg" alt="Aerotech"><p>J-5133 Amélioration</p></div>
+                        <div class="image-card"><img src="J-5135 Achat des FDM haute température.jpg" alt="FDM"><p>J-5135 Achat Stratégique</p></div>
+                        <div class="image-card" style="grid-column: span 2;"><img src="Aon.jpg" alt="Aon"><p>Parc d'impression 3D AON</p></div>
+                    </div>
                 </div>
             </div>
 
@@ -673,7 +1028,7 @@
             var modalImg = document.getElementById("img-modal-target");
             var captionText = document.getElementById("caption-modal");
             
-            modal.style.display = "block";
+            modal.style.display = "flex";
             modalImg.src = imgSrc;
             captionText.innerHTML = textCaption;
         }
@@ -789,7 +1144,7 @@
                 "FS_8": "Durant laquelle il a maintenu une présence accrue pour accompagner les activités du laboratoire alors qu'il travaillait à temps plein dans un autre département.",
                 "FS_9": "Il consacre régulièrement du temps supplémentaire... pour soutenir les étudiants et les chercheurs...",
                 "FS_10": "Soutien intensif sur plusieurs mois, durant laquelle il a maintenu une présence accrue...",
-                "FS_11": "Assurer la continuité des projets et répondre aux urgences techniques. À plusieurs reprises, il a travaillé en dehors des heures normales...",
+                "FS_11": "Assurer la continuity des projets et répondre aux urgences techniques. À plusieurs reprises, il a travaillé en dehors des heures normales...",
                 "FS_12": "Il a su définir et intégrer des solutions techniques répondant à des exigences expérimentales complexes, avec un niveau de rigueur et de pertinence...",
                 "FS_13": "Il a simplifié un système de fixation d'échantillons... conçu de nouvelles pièces de fixation sur mesure, sans aucune indication de ma part... Yanik est extrêmement créatif.",
                 "FS_14": "La qualité de ses réalisations impressionne les visiteurs, même ceux issus de l'industrie. Ce fut récemment le cas pour Airbus et BRP...",
@@ -934,12 +1289,10 @@
                     let leftPos = rect.left + (rect.width / 2) - (ttRect.width / 2);
                     let topPos = rect.top - ttRect.height - 15;
                     
-                    // Détection des bords de l'écran pour jamais être coupé !
                     if(leftPos < 10) leftPos = 10;
                     if(leftPos + ttRect.width > window.innerWidth - 10) leftPos = window.innerWidth - ttRect.width - 10;
                     
                     if(topPos < 10) {
-                        // S'il n'y a pas de place en haut, on affiche en dessous
                         topPos = rect.bottom + 15;
                         tooltipBox.classList.add('arrow-top');
                     } else {
