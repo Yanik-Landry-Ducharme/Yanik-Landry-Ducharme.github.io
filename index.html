@@ -65,7 +65,6 @@
         .sidebar a.link-vert { color: #25B34B; border-left: 5px solid #25B34B; }
         .sidebar a.link-orange { color: #F15A22; border-left: 5px solid #F15A22; }
         .sidebar a.link-rouge { color: #ED1C24; border-left: 5px solid #ED1C24; }
-        
         .sidebar a.sub-link { padding-left: 35px; font-size: 12px; }
 
         .main-content { flex: 1; padding: 100px; background: linear-gradient(to bottom right, #2b2f33, #1a1c1e); min-height: calc(100vh - 75px); box-sizing: border-box; max-width: 100%; z-index: 1;}
@@ -77,7 +76,7 @@
         .panel { background-color: #25282b; border: 1px solid #50565c; border-radius: 6px; padding: 25px; box-shadow: 5px 5px 15px rgba(0,0,0,0.4); }
         .panel-full { grid-column: span 2; }
         
-        .panel-title { font-size: 24px; margin-top: 0; border-bottom: 1px solid #50565c; padding-bottom: 10px; text-transform: uppercase; margin-bottom: 20px; }
+        .panel-title { color: #F38B00; font-size: 24px; margin-top: 0; border-bottom: 1px solid #50565c; padding-bottom: 10px; text-transform: uppercase; margin-bottom: 20px; }
         
         .media-container img, .media-container video, .media-container iframe { width: 100%; max-width: 100%; border-radius: 4px; border: 1px solid #50565c; margin-bottom: 15px; background-color: #1a1c1e; }
         .media-container iframe { height: 600px; }
@@ -94,13 +93,17 @@
             position: relative; 
             z-index: 1;
         }
+
         .image-card:hover { z-index: 50; }
+
         .image-card img { 
             width: 100%; max-height: 350px; height: auto; object-fit: contain; 
             border-radius: 4px; margin-bottom: 10px; border: none; background-color: transparent; 
-            cursor: pointer; position: relative;
+            cursor: pointer;
+            position: relative;
             transition: transform 0.3s ease 0s, box-shadow 0.3s ease 0s, background-color 0.3s ease 0s;
         }
+
         .image-card img:hover {
             transform: scale(1.6);
             box-shadow: 0 25px 60px rgba(0,0,0,0.9);
@@ -108,28 +111,29 @@
             z-index: 100;
             border: 1px solid #00BDF2;
             transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.3s, 
-                        box-shadow 0.4s ease 0.3s, background-color 0.4s ease 0.3s, border 0.4s ease 0.3s;
+                        box-shadow 0.4s ease 0.3s, 
+                        background-color 0.4s ease 0.3s,
+                        border 0.4s ease 0.3s;
         }
+
         .image-card p { font-size: 12px; color: #c7cdd1; margin: 0; margin-top: auto; }
 
         /* ----------------------------------------------------- */
-        /* SYSTÈME DE FICHIERS ET ICÔNES                         */
+        /* FIN MAGIE IMAGES */
         /* ----------------------------------------------------- */
+
         .file-system { display: flex; flex-wrap: wrap; gap: 20px; }
         .file-icon { background-color: #1a1c1e; border: 1px solid #50565c; border-radius: 8px; padding: 20px 10px; width: 200px; height: 330px; box-sizing: border-box; text-align: center; cursor: pointer; transition: all 0.2s; user-select: none; display: flex; flex-direction: column; align-items: center; justify-content: flex-start; position: relative; }
         .file-icon:hover { background-color: #333; border-color: #F38B00; transform: translateY(-3px); box-shadow: 0 4px 8px rgba(0,0,0,0.5); }
-        
-        /* Styles pour les petits icônes d'annexes */
-        .small-icon { width: 140px !important; height: 230px !important; padding: 10px !important; justify-content: center;}
-        .small-icon .file-image { width: 70px !important; height: 90px !important; margin-bottom: 8px; }
-        .small-icon span.name { font-size: 11px !important; line-height: 1.2; margin-bottom: 5px !important; }
-        .small-icon span.badges { font-size: 16px !important; margin-top: auto; letter-spacing: 1px;}
-        .small-icon .hover-desc { width: 300px; font-size: 11px; }
-        
         .file-system.file-image { width: 100px!important; height: 135px!important; border-radius: 6px; object-fit: cover; border: 2px solid #50565c; margin-bottom: 12px; background-color: #2b2f33; box-shadow: 0 4px 8px rgba(0,0,0,0.3); }
         .file-icon span.name { font-size: 13px; font-weight: bold; color: #c7cdd1; word-wrap: break-word; margin-bottom: 8px; }
         .file-icon span.badges { font-size: 24px; letter-spacing: 2px; margin-top: auto; }
 
+        .hover-desc { visibility: hidden; opacity: 0; position: absolute; bottom: 105%; left: 50%; transform: translateX(-50%); width: 380px; max-width: 90vw; background-color: #1e2124; border: 2px solid #25B34B; border-top: 4px solid #25B34B; border-radius: 6px; padding: 15px; box-shadow: 0 5px 20px rgba(0,0,0,0.9); z-index: 9999; font-size: 12px; color: #F8F8F8; text-align: left; pointer-events: none; line-height: 1.4; white-space: normal; transition: opacity 0.2s ease, visibility 0.2s ease; }
+        .hover-desc strong { color: #F38B00; display: block; margin-bottom: 3px; font-size: 13px; text-transform: uppercase; }
+        .hover-desc em { color: #00BDF2; display: block; margin-bottom: 8px; font-style: italic; }
+        .file-icon:hover .hover-desc { visibility: visible; opacity: 1; }
+        
         .letter-content { display: none; }
         .btn-retour { background-color: #50565c; color: white; border: none; padding: 10px 20px; border-radius: 4px; cursor: pointer; font-weight: bold; margin-bottom: 20px; display: flex; align-items: center; gap: 10px; width: fit-content; }
         .btn-retour:hover { background-color: #F38B00; }
@@ -141,7 +145,7 @@
 
         /* --- STYLES MAGIQUES POUR LES TAGS DE CITATION --- */
         .citation-tag {
-            color: #008eb5; font-weight: bold; cursor: help; display: inline-block; 
+            color: #00BDF2; font-weight: bold; cursor: help; display: inline-block; 
             margin: 0 2px; padding: 0 2px; border-radius: 3px; font-size: 16px; 
             transition: background-color 0.2s;
         }
@@ -198,6 +202,17 @@
         #argumentaire-scroll::-webkit-scrollbar-thumb { background: #F15A22; border-radius: 8px; border: 2px solid #d1d5d8;}
         #argumentaire-scroll::-webkit-scrollbar-thumb:hover { background: #00BDF2; }
 
+        /* Boite d'instruction (Note à l'internaute) */
+        .note-box {
+            background-color: #1e2124;
+            border-left: 5px solid #F38B00;
+            padding: 20px;
+            margin-bottom: 40px;
+            border-radius: 0 6px 6px 0;
+        }
+        .note-box h4 { color: #F38B00; margin-top: 0; text-transform: uppercase;}
+        .note-box ul { margin-bottom: 0; color: #c7cdd1; line-height: 1.6; }
+
         /* --- STYLES DU LIGHTBOX MODAL (PLEIN ÉCRAN POUR IMAGES) --- */
         .modal {
             display: none; position: fixed; z-index: 100000; padding-top: 50px; 
@@ -223,17 +238,6 @@
             font-size: 50px; font-weight: bold; transition: 0.3s; cursor: pointer;
         }
         .close-modal:hover, .close-modal:focus { color: #F38B00; text-decoration: none; cursor: pointer; transform: scale(1.2);}
-
-        /* Boite d'instruction (Note à l'internaute) */
-        .note-box {
-            background-color: #1e2124;
-            border-left: 5px solid #F38B00;
-            padding: 20px;
-            margin-bottom: 40px;
-            border-radius: 0 6px 6px 0;
-        }
-        .note-box h4 { color: #F38B00; margin-top: 0; text-transform: uppercase;}
-        .note-box ul { margin-bottom: 0; color: #c7cdd1; line-height: 1.6; }
 
         @media (max-width: 900px) {
             .navbar { padding: 0 15px; height: 60px; }
@@ -283,13 +287,12 @@
     <button class="btn-fullscreen" onclick="toggleFullScreen()" title="Plein Écran">⛶</button>
 
     <div class="container">
-        
         <div class="sidebar">
             <a href="#cv" class="link-bleu active">PORTRAIT DE CARRIÈRE</a>
-            <a href="#annexes" class="link-rouge" style="border-bottom: 1px solid #333;">5. TABLE DES ANNEXES</a>
-            <a href="#annexe-a1" class="link-orange sub-link" style="border-bottom: 1px solid #333;">A-1 RÉALISATIONS</a>
-            <a href="#annexe-a2" class="link-vert sub-link" style="border-bottom: 1px solid #333;">A-2 FORMATIONS</a>
-            <a href="#annexe-a3" class="link-bleu sub-link" style="border-bottom: 1px solid #333;">A-3 REMERCIEMENTS</a>
+            <a href="#annexes" class="link-rouge" style="border-top: 1px solid #333;">5. TABLE DES ANNEXES</a>
+            <a href="#annexe-a1" class="link-orange sub-link">A-1 RÉALISATIONS</a>
+            <a href="#annexe-a2" class="link-vert sub-link">A-2 FORMATIONS</a>
+            <a href="#annexe-a3" class="link-bleu sub-link">A-3 REMERCIEMENTS</a>
             <a href="#annexe-a4" class="link-rouge sub-link">A-4 LETTRES D'APPUI</a>
         </div>
     
@@ -331,7 +334,6 @@
                             <p class="doc-p" style="font-weight: bold; color: #c7cdd1;">OBJET : Candidature pour l'obtention du statut de Technicien Senior<br>À l'attention des membres du comité d'évaluation</p>
                             
                             <p class="doc-p">C'est avec une grande fierté et un engagement renouvelé envers notre institution que je vous soumets mon dossier pour l'accès au niveau senior. Fort de plus de 30 ans d'expérience en technologie physique avec spécialisation en électronique de pointe, dont neuf années au service de Polytechnique Montréal, j'ai évolué bien au-delà des fonctions techniques usuelles pour devenir un partenaire stratégique de la recherche, de l'enseignement et des opérations.</p>
-                            
                             <p class="doc-p">Expert interdisciplinaire, je suis devenu un pivot important à Polytechnique Montréal. Mon parcours démontre une capacité unique à naviguer entre la mécanique lourde, l'électronique de pointe et la gestion d'infrastructures complexes. Au-delà de l'excellence technique, j'agis comme un partenaire stratégique pour les chercheurs, optimisant les activités financières et de recherche, et garantissant la continuité de la recherche et de l'enseignement par des interventions critiques et bénévoles.</p>
                             
                             <p class="doc-p" style="color: #00BDF2; font-style: italic; font-weight: bold; text-align: center; font-size: 20px;">« Ce qui vaut la peine d’être fait, mérite d’être bien fait ! »</p>
@@ -353,7 +355,6 @@
                             <p class="doc-p">Mon implication dépasse largement le cadre de mes fonctions régulières. Ma présence sur site durant la crise de la COVID-19 pour assurer la production de dispositifs médicaux, ainsi que mon implication dans des comités de SST et mes nombreuses interventions bénévoles pour dépanner des laboratoires hors de mon secteur, témoignent de ma loyauté envers Polytechnique. Mon action proactive en SST – de la centralisation des risques chimiques à la conception de dispositifs de protection sur mesure – démontre que je place l'intégrité de nos équipes au cœur de mes priorités.</p>
 
                             <p class="doc-p">En conclusion, ma candidature à la classe senior ne constitue pas seulement une reconnaissance de mon expertise unique, mais confirme également mon rôle de pilier stratégique au sein de l'École. Mon implication et ma contribution, outre que pour la recherche elle-même, se reflètent dans la formation de chaque étudiant à la maitrise et au doctorat. Ceci et mon apport à la recherche contribuent au rayonnement de Polytechnique bien au-delà du baccalauréat en ingénierie.</p>
-                            
                             <p class="doc-p">Je suis convaincu de faire la différence et pleinement déterminé à poursuivre ce rôle essentiel au sein de l'École Polytechnique Montréal. Je vous remercie de l'attention que vous porterez à ma candidature et demeure à votre disposition pour toute précision.</p>
 
                             <p class="doc-p" style="margin-top: 30px; font-weight: bold; color: #DA8A68;">
@@ -469,6 +470,7 @@
 
                                 <p class="doc-p"><strong>Conseil :</strong> Étant pluridisciplinaire, souvent, les professeurs, coordonnateurs et techniciens me consultent dans l’élaboration de leurs choix technologiques pour des projets de recherche ou de nouveaux laboratoires (enseignement et recherches) et pour leur certification à l’intérieur des murs de Polytechnique : [EM_5] [DT_3] [DT_6] [AH_13] [JM_10] [NM_10] [BY_4] [AH_8]<br>
                                 - C’est d’ailleurs à la suite de services que j’ai offert à ces professeurs — Therriault, Sirois et Viggiano — qu’ils ont décidé d’ouvrir un poste subventionné dans l’optique d’obtenir mes services exclusifs. [FS_6] [EM_6] [DT_4]<br>
+                                - Selon le Pr. Sirois, « aucun autre technicien n’aurait pu me satisfaire ». [FS_6]<br>
                                 - J’ai déterminé les équipements d’impression 3D de nouvelle génération pour le LM² (toutes les imprimantes 3D au J-5129) et conseillé les imprimantes 3D hautement spécialisées pour les matériaux exotiques — hautes températures — au J-5135. [DT_11]<br>
                                 - J’ai conseillé et fait la conception de plusieurs projets, dont la bobineuse de rubans supraconducteurs, conseillé le routage de circuit à haut courant de la source pulsée, la conception tridimensionnelle de circuits électroniques de sources électriques, conception et fabrication de la polling station, de la tour d’impact, de la station de couple élevé, l’organisation des laboratoires, etc… [FS_7] [DM_4] [DT_5] [BY_5]<br>
                                 - Ces demandes proviennent aussi de personnes issues d’autres département ou groupes de recherche : [EM_10] [FS_15] [HV_4]<br>
@@ -579,12 +581,41 @@
                                 - Comme mentionné par Frédéric Sirois, la qualité de mon travail fait en sorte que j’ai des demandes de plusieurs professeurs pour mes conseils et pour l’accomplissement de leurs projets. De plus, les gens du Slowpoke désirent me confier des contrats sous peu. [FS_5] [EM_10] [DT_6]</p>
 
                                 <p class="doc-p"><strong>Coordination de plusieurs quarts de métiers pour des travaux :</strong><br>
-                                - Plusieurs exemple d’installation de machines et d’armoires murales. Je fédère les gens et j’ai plusieurs exemples de ménages collaboratifs — parfois interdépartemental — à JAB, au Principal et à Anjou. [LL_8]</p>
+                                - Plusieurs exemple d’installation de machines et d’armoires murales. Je fédère les gens et j’ai plusieurs exemples de ménages collaboratifs — parfois interdépartemental — à JAB, au Principal et à Anjou. [LLL_8]</p>
 
                                 <p class="doc-p"><strong>Valeur élevée :</strong> [FS_6]<br>
                                 - Être indispensable lors de périodes critiques (sessions d’enseignement, projets de recherche, urgences techniques) : J’ai toujours offert de la continuité aux professeurs lorsque je changeais de poste, allant même jusqu’à travailler bénévolement et en temps supplémentaire (que j’ai offert à rémunération à temps simple, ce qui n’est pas purement du bénévolat, mais en parti) entre autres pendant 8 mois, à raison de 7 h/sem, pour Frédéric Sirois alors que j’étais dans un autre département. [FS_11] [DM_6] [JC_9] [NM_14] [DT_14]<br>
                                 - Par trois (3) fois, à la suite de mes services, un professeur m’a consulté avant de d’ouvrir un poste subventionné; [FS_6] [EM_6]<br>
                                 - Fait particulier : C’est la première fois qu’un technicien passe directement d’un poste subventionné à un autre poste subventionné. Ce qui démontre un intérêt élevé pour mes services. [EM_16] [FS_6]</p>
+
+                                <p class="doc-p" style="margin-top: 50px;"><strong>5. TABLE DES ANNEXES</strong></p>
+                                <table style="width: 100%; text-align: left; border-collapse: collapse; margin-top: 15px;">
+                                    <tr style="border-bottom: 2px solid #50565c;">
+                                        <th style="padding: 10px;">Réf.</th>
+                                        <th style="padding: 10px;">Document</th>
+                                        <th style="padding: 10px;">Pilier(s)</th>
+                                    </tr>
+                                    <tr style="border-bottom: 1px solid #333;">
+                                        <td style="padding: 10px; font-weight: bold; color: #F15A22;">A-1</td>
+                                        <td style="padding: 10px;">Quelques réalisations et distinctions</td>
+                                        <td style="padding: 10px;">Piliers 1 à 4</td>
+                                    </tr>
+                                    <tr style="border-bottom: 1px solid #333;">
+                                        <td style="padding: 10px; font-weight: bold; color: #25B34B;">A-2</td>
+                                        <td style="padding: 10px;">Formations</td>
+                                        <td style="padding: 10px;">Pilier 1</td>
+                                    </tr>
+                                    <tr style="border-bottom: 1px solid #333;">
+                                        <td style="padding: 10px; font-weight: bold; color: #00BDF2;">A-3</td>
+                                        <td style="padding: 10px;">Remerciement d’étudiants en une trentaine de mémoires et thèses</td>
+                                        <td style="padding: 10px;">Piliers 3 et 4</td>
+                                    </tr>
+                                    <tr style="border-bottom: 1px solid #333;">
+                                        <td style="padding: 10px; font-weight: bold; color: #ED1C24;">A-4</td>
+                                        <td style="padding: 10px;">Lettres d’appui (14 et 1 courriel)</td>
+                                        <td style="padding: 10px;">Piliers 1 à 4</td>
+                                    </tr>
+                                </table>
 
                             </div> </div>
                         
@@ -601,7 +632,7 @@
                 <h1 class="header-title" style="color: #ED1C24; border-bottom: 2px solid #50565c; padding-bottom: 15px; margin-bottom: 40px;">5. TABLE DES ANNEXES</h1>
 
                 <div id="annexe-a1" class="panel panel-full" style="margin-bottom: 40px;">
-                    <h3 class="panel-title" style="color: #F15A22; font-weight: bold; text-transform: uppercase; margin-bottom: 10px;">A-1 QUELQUES RÉALISATIONS ET DISTINCTIONS (PILIERS 1 À 4)</h3>
+                    <h3 class="panel-title" style="color: #F15A22; font-weight: bold; text-transform: uppercase; margin-bottom: 10px;">A-1 QUELQUES RÉALISATIONS ET DISTINCTIONS</h3>
                     <p style="font-size: 16px; color: #F15A22; margin-top: 0; margin-bottom: 25px;"><em>Survolez une image pour un aperçu agrandi, ou cliquez dessus pour l'afficher en plein écran.</em></p>
                     
                     <div style="margin-bottom: 25px;">
@@ -713,13 +744,13 @@
                 </div>
 
                 <div id="annexe-a3" class="panel panel-full" style="margin-bottom: 40px;">
-                    <h3 class="panel-title" style="color: #00BDF2;">A-3 REMERCIEMENTS D'ÉTUDIANTS DANS UNE TRENTAINE DE MÉMOIRES ET THÈSES (PILIERS 3 ET 4)</h3>
+                    <h3 class="panel-title" style="color: #00BDF2;">A-3 REMERCIEMENTS D'ÉTUDIANTS DANS UNE TRENTAINE DE MÉMOIRES ET THÈSES</h3>
                     <div class="file-system" id="grid-a3" style="gap: 15px; justify-content: center;">
                         </div>
                 </div>
 
                 <div id="annexe-a4" class="panel panel-full media-container" style="margin-bottom: 40px;">
-                    <h3 class="panel-title" style="color: #ED1C24;">A-4 LETTRES D'APPUI (14 ET 1 COURRIEL) (PILIERS 1 À 4)</h3>
+                    <h3 class="panel-title" style="color: #ED1C24;">A-4 LETTRES D'APPUI (14 ET 1 COURRIEL)</h3>
                     
                     <div class="legend-box" style="margin-top: 20px;">
                         <strong style="color: #25B34B;">CLÉS D'IDENTIFICATION DES PRÉREQUIS (Annexe H) :</strong>
@@ -925,12 +956,12 @@
                 a3HTML += `<div class="file-icon small-icon" style="cursor: default;">
                     <div style="font-size: 40px; margin-top: 10px; margin-bottom: 5px;">🎓</div>
                     <span class="name" style="font-size: 11px;">Thèse/Mémoire #${i}</span>
-                    <span class="badges" style="font-size: 14px;" title="Pilier 3 : Implication | Pilier 4 : Contribution">🤝 🛠️</span>
+                    <span class="badges" style="font-size: 14px;" title="Piliers 3 et 4">🤝 🛠️</span>
                 </div>`;
             }
             document.getElementById('grid-a3').innerHTML = a3HTML;
 
-            // 3. Dictionnaire complet des citations (mis à jour)
+            // 3. Dictionnaire complet des citations
             const citations = {
                 "AH_1": "J'ai supervisé la conception, le suivi de fabrication et l'installation de la boucle de banc d'essai.",
                 "AH_2": "Sa précision d'exécution, notamment avec des fourches à double envergure (8 pieds), a été déterminante...",
@@ -991,7 +1022,7 @@
                 "EM_6": "Le professeur avec lequel il collabore a tenu à se l'adjoindre, recherchant précisément cette expertise difficilement remplaçable.",
                 "EM_7": "Plusieurs de ses recommandations relatives à l'amélioration des installations et de l'atelier ont d'ailleurs été retenues.",
                 "EM_8": "Il a notamment participé à la réorganisation de l'aménagement des laboratoires afin de dégager des espaces sécuritaires pour les manipulations à haute tension.",
-                "EM_9": " il conjugue avec cohérence les outils de conception électronique et mécanique, l’impression 3D et la fabrication de pièces sur mesure au sein d’un même projet.",
+                "EM_9": "Il conjugue avec cohérence les outils de conception électronique et mécanique, l’impression 3D et la fabrication de pièces sur mesure au sein d’un même projet.",
                 "EM_10": "Son rayonnement excède de loin le périmètre d'un seul groupe de recherche... Son expertise est aujourd'hui mise à contribution par plusieurs professeurs.",
                 "EM_11": "Il se distingue également par un souci constant de l'intégration... témoignage de la reconnaissance étendue dont il jouit.",
                 "EM_12": "Son retour au génie électrique répondait à une attente marquée du milieu... impact structurant et soutenu de ses contributions.",
@@ -1014,7 +1045,7 @@
                 "FS_4": "Sa capacité à réaliser des soudures de très haute précision... est extrêmement rare et fait de lui une ressource unique dans notre milieu.",
                 "FS_5": "Il est systématiquement consulté en amont des décisions techniques importantes...",
                 "FS_6": "Lorsque j'ai affiché ce poste de technicien subventionné en 2024, j'avais en tête un profil exactement comme celui de Yanik... J'ai été ravi de recevoir sa candidature...",
-                "FS_7": " Yanik fait preuve d’une capacité de conception qui dépasse nettement ce qui est attendu d’un technicien. Dans plusieurs projets que j’ai supervisés — notamment une bobineuse pour câbles supraconducteurs et un couple-mètre magnétique pour arbres de transmission...",
+                "FS_7": "Yanik fait preuve d’une capacité de conception qui dépasse nettement ce qui est attendu d’un technicien. Dans plusieurs projets que j’ai supervisés — notamment une bobineuse pour câbles supraconducteurs et un couple-mètre magnétique pour arbres de transmission...",
                 "FS_8": "Durant laquelle il a maintenu une présence accrue pour accompagner les activités du laboratoire alors qu'il travaillait à temps plein dans un autre département.",
                 "FS_9": "Il consacre régulièrement du temps supplémentaire... pour soutenir les étudiants et les chercheurs...",
                 "FS_10": "Soutien intensif sur plusieurs mois, durant laquelle il a maintenu une présence accrue...",
@@ -1026,12 +1057,12 @@
                 "FS_16": "Sa capacité à identifier rapidement des pistes d'amélioration et à les concrétiser se traduit par des gains mesurables, tant en termes de performance que de coûts...",
                 "FS_17": "Bien que son rôle ne l’ait pas amené à siéger formellement à des comités institutionnels, l’implication de M. Landry-Ducharme se manifeste de façon constante et remarquable dans son environnement quotidien.",
                 
-                "HV_1": "Il a su proposer des pistes de solutions concrètes... Il a d'ailleurs su identifier une liste de composants de remplacement ingénieuse et peu commune pour effectuer la réparation.",
-                "HV_2": "Liste de composants de remplacement ingénieuse et peu commune pour effectuer la réparation.",
-                "HV_3": "Yanik a réalisé ces interventions bénévolement et dès la réception des pièces, permettant une reprise rapide des expériences pour mes étudiants et moi-même.",
-                "HV_4": "C'est toutefois à la suite d'un incident technique majeur en mai 2023... Yanik s'est immédiatement porté volontaire pour évaluer la situation.",
-                "HV_5": "Je suis convaincu que Yanik possédait une expertise unique, introuvable ailleurs au sein de Polytechnique Montréal pour ce type de réparation spécifique.",
-                "HV_6": "Sans son intervention, le remplacement complet des cartes électroniques aurait engendré des coûts exorbitants et des délais de recherche considérables.",
+                "HDV_1": "Il a su proposer des pistes de solutions concrètes... Il a d'ailleurs su identifier une liste de composants de remplacement ingénieuse et peu commune pour effectuer la réparation.",
+                "HDV_2": "Liste de composants de remplacement ingénieuse et peu commune pour effectuer la réparation.",
+                "HDV_3": "Yanik a réalisé ces interventions bénévolement et dès la réception des pièces, permettant une reprise rapide des expériences pour mes étudiants et moi-même.",
+                "HDV_4": "C'est toutefois à la suite d'un incident technique majeur en mai 2023... Yanik s'est immédiatement porté volontaire pour évaluer la situation.",
+                "HDV_5": "Je suis convaincu que Yanik possédait une expertise unique, introuvable ailleurs au sein de Polytechnique Montréal pour ce type de réparation spécifique.",
+                "HDV_6": "Sans son intervention, le remplacement complet des cartes électroniques aurait engendré des coûts exorbitants et des délais de recherche considérables.",
                 
                 "JC_1": "Son expérience en projets internationaux de grande envergure acquise avant son arrivée à la Polytechnique...",
                 "JC_2": "Surtout le déménagement et l'installation de fours rotatifs à haute température et de grande dimension entre le pavillon principal et l'entrepôt industriel à Anjou.",
@@ -1064,7 +1095,7 @@
                 "JM_13": "Embauché à la Polytechnique de Montréal le 5 mai 2017, il a néanmoins continué tout l'été à assurer la continuité des travaux au laboratoire, y consacrant 17 h 30 par semaine...",
                 "JM_14": "Il a souvent utilisé des pièces électroniques d'une façon non conventionnelle pour résoudre des problèmes de conception... utilisation de trous dans les circuits...",
                 "JM_15": "Yanik développait même avec les stagiaires des relations personnelles qui ont perdurées bien après leurs passages à Montréal.",
-                "JM_16": "En tant qu'utilisateur principal du logiciel de conception de circuit, Yanik a été chargé de suivre les programmes de formation d'Altium...",
+                "JM_16": "En tant qu'utilisateur principal du logiciel de conception de circuit, Yanik a été chargé de suivre les programmes de formation d'Altium et de communiquer cette expertise aux autres personnes du laboratoire.",
                 
                 "JV_1": "Sa participation volontaire et active aux ateliers d'enquêtes appréciatives dans le cadre du processus d'établissement des pôles d'excellence...",
                 "JV_2": "Son engagement s'est manifesté par une contribution concrète aux réflexions collectives et par des interventions axées sur les objectifs institutionnels du département.",
@@ -1080,10 +1111,10 @@
                 
                 "MC_1": "Je tiens à souligner votre engagement envers Polytechnique au fil des années… Avec toute ma reconnaissance",
                 
-                "MD_1": "Organisation d'une formation pratique réglementaire en santé et sécurité avec le chariot-élévateur au laboratoire externe d'Anjou...",
-                "MD_2": "Je souhaite souligner, par le présent témoignage, l'aide apportée par mon collègue Yanik Landry-Ducharme...",
-                "MD_3": "Coordonner efficacement et dans un délai relativement court, la réparation et l'inspection de l'équipement... destinées à la sécurité des utilisateurs.",
-                "MD_4": "A pris l'initiative de réaliser également le ménage et l'aménagement d'une section de l'atelier dont l'espace était partagé par deux départements...",
+                "MNDS_1": "Organisation d'une formation pratique réglementaire en santé et sécurité avec le chariot-élévateur au laboratoire externe d'Anjou...",
+                "MNDS_2": "Je souhaite souligner, par le présent témoignage, l'aide apportée par mon collègue Yanik Landry-Ducharme...",
+                "MNDS_3": "Coordonner efficacement et dans un délai relativement court, la réparation et l'inspection de l'équipement... destinées à la sécurité des utilisateurs.",
+                "MNDS_4": "A pris l'initiative de réaliser également le ménage et l'aménagement d'une section de l'atelier dont l'espace était partagé par deux départements...",
                 
                 "NM_1": "Yanik s'est distingué comme un excellent solutionneur de problèmes, proposant de nombreuses alternatives peu orthodoxes mais très efficaces.",
                 "NM_2": "L'installation d'une grande boucle d'essai hydraulique destinée à simuler les vibrations... tuyaux, instruments de mesure, réservoir, pompes...",
@@ -1104,7 +1135,7 @@
                 "IN_?": "Lettre en retard pour le dépôt"
             };
 
-            // 4. On crée la boîte de tooltip flottante magique !
+            // 4. On crée la boîte de tooltip flottante magique (hors du flux) !
             const tooltipBox = document.createElement('div');
             tooltipBox.className = 'global-tooltip';
             document.body.appendChild(tooltipBox);
