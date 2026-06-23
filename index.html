@@ -218,10 +218,10 @@
         .close-modal { position: absolute; top: 25px; right: 35px; color: #f1f1f1; font-size: 50px; font-weight: bold; transition: 0.3s; cursor: pointer; }
         .close-modal:hover { color: #F38B00; transform: scale(1.2);}
 
-        /* Grille Étudiants */
+        /* Grille Étudiants (Mise à jour rouge) */
         .student-grid { display: flex; flex-wrap: wrap; gap: 15px; margin-top: 20px; }
-        .student-btn { background-color: #1e2124; color: #00BDF2; padding: 12px 20px; border: 1px solid #50565c; border-radius: 6px; text-decoration: none; font-size: 15px; transition: all 0.2s; display: flex; align-items: center; gap: 10px; }
-        .student-btn:hover { background-color: #00BDF2; color: #1e2124; transform: translateY(-2px); }
+        .student-btn { background-color: #1e2124; color: #ED1C24; padding: 12px 20px; border: 1px solid #50565c; border-radius: 6px; text-decoration: none; font-size: 15px; transition: all 0.2s; display: flex; align-items: center; gap: 10px; }
+        .student-btn:hover { background-color: #ED1C24; color: #fff; transform: translateY(-2px); }
 
         @media (max-width: 900px) {
             .navbar { padding: 0 15px; height: 60px; }
@@ -979,8 +979,8 @@
                     </div>
                 </div>
 
-                <div class="panel panel-full">
-                    <h3 class="panel-title" style="color: #00BDF2; font-weight: bold;">🎓 A-3 : REMERCIEMENTS D'ÉTUDIANTS (MÉMOIRES ET THÈSES)</h3>
+                <div class="panel panel-full" style="border-top: 4px solid #ED1C24;">
+                    <h3 class="panel-title" style="color: #ED1C24; font-weight: bold;">🎓 A-3 : REMERCIEMENTS D'ÉTUDIANTS (MÉMOIRES ET THÈSES)</h3>
                     <p style="margin-bottom: 20px;">Cliquez sur un étudiant pour ouvrir le document PDF de sa recherche.</p>
                     <div class="student-grid">
                         <a href="2023_AlbanMorali.pdf" target="_blank" class="student-btn">📄 Alban Morali (2023)</a>
@@ -1106,7 +1106,7 @@
                 });
             });
 
-            // 2. Dictionnaire complet des citations (mis à jour à partir du Grand Tableau)
+            // 2. Dictionnaire complet des citations
             const citations = {
                 "AH_1": "J'ai supervisé la conception, le suivi de fabrication et l'installation de la boucle de banc d'essai.",
                 "AH_2": "Sa précision d'exécution, notamment avec des fourches à double envergure (8 pieds), a été déterminante...",
@@ -1237,7 +1237,7 @@
                 "JPM_10": "Ses conseils en électronique s'étendaient aussi aux professeurs et aux autres techniciens.",
                 "JPM_11": "Bien que son horaire d'été ne comptât que 28 heures par semaines, il franchissait régulièrement les 45 heures par semaine.",
                 "JPM_12": "Le partage de ses connaissances de conception sur Altium guidait les stagiaires dans la réalisation physique de leurs projets... Yanik est un bon vulgarisateur.",
-                "JPM_13": "Embauché à la Polytechnique de Montréal le 5 mai 2017, il a néanmoins continué tout l'été à assurer la continuité des travaux au laboratoire, y consacrant 17 h 30 par semaine...",
+                "JPM_13": "Embauché à la Polytechnique de Montréal le 5 mai 2017, il a néanmoins continué tout l'été à assurer la continuity des travaux au laboratoire, y consacrant 17 h 30 par semaine...",
                 "JPM_14": "Il a souvent utilisé des pièces électroniques d'une façon non conventionnelle pour résoudre des problèmes de conception... utilisation de trous dans les circuits...",
                 "JPM_15": "Yanik développait même avec les stagiaires des relations personnelles qui ont perdurées bien après leurs passages à Montréal.",
                 "JPM_16": "En tant qu'utilisateur principal du logiciel de conception de circuit, Yanik a été chargé de suivre les programmes de formation d'Altium...",
